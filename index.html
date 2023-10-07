@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Explore · Create · Innovate</title>
+<link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app">
+<div class="rows-container">
+<header class="header">
+  <div class="bismillah" aria-hidden="true">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+<div class="title-block">
+<img alt="WORKSHOP-DIY logo" class="site-logo animated-logo" src="logo.svg"/>
+<div>
+<h1>MINI MISSION CONTROL</h1>
+<div class="subtitle">Explore · Create · Innovate</div>
+</div>
+</div>
+<div class="chip" id="status"><span class="chip-dot"></span><span>Idle</span></div>
+</header>
+<div class="row row-top top-row"><div class="col-left"><div class="card">
+<div class="card-header">
+<div>
+<div class="card-title"><span class="icon">📹</span> Live</div>
+<div class="card-subtitle">Other device</div>
+</div>
+<button class="secondary small" disabled="" id="remoteFsBtn"><span class="btn-icon">⛶</span> Remote fullscreen</button>
+<button class="secondary small" disabled="" id="askRemoteFsBtn" title="Ask the other device to go fullscreen"><span class="btn-icon">📲</span> Ask remote</button>
+<button class="secondary small" id="hudBtn" title="Toggle command overlay on the video"><span class="btn-icon">👁️</span> Show HUD</button>
+
+
+
+
+<button class="secondary small" id="cleanCacheBtn" title="Clear storage/cache and reload"><span class="btn-icon">🧽</span> Clean cache</button>
+<button class="secondary small" id="snapBtn" title="Save a PNG snapshot of the remote video"><span class="btn-icon">📸</span> Snapshot</button>
+<button class="secondary small" id="recBtn" title="Record the remote video to WebM"><span class="btn-icon">⏺️</span> Record</button>
+
+</div>
+<div aria-label="Remote video with local thumbnail" class="videoStage" id="videoStage">
+
+
+  <div id="rxBar" class="rx-bar">RX: —</div>
+<div id="remoteFsOverlay" class="remote-fs-overlay" aria-hidden="true" style="display:none;">
+  <div class="remote-fs-panel">
+    <div class="remote-fs-title">Fullscreen requested</div>
+    <div class="remote-fs-subtitle">Tap below to enter fullscreen on this device.</div>
+    <div class="remote-fs-actions">
+      <button id="remoteFsAcceptBtn" class="primary">Go fullscreen</button>
+      <button id="remoteFsDenyBtn" class="secondary">Deny</button>
+    </div>
+    <div class="remote-fs-hint">This prompt will hide automatically in 10s.</div>
+  </div>
+</div>
+<video autoplay="" class="video" id="remoteVideo" playsinline=""></video>
+<video autoplay="" class="videoThumb" id="localVideo" muted="" playsinline=""></video>
+</div>
+</div></div><div class="col-right"><div class="card">
+<div class="card-header">
+<div>
+<div class="card-title"><span class="icon">🎮</span> Controls</div>
+<div class="card-subtitle">Virtual buttons (no physical gamepad). Press/hold to send commands to the other device.</div>
+</div>
+</div>
+<div class="controls-grid">
+<!-- D-pad + Send text side-by-side -->
+<div class="controls-row">
+<div class="control-section dpad-section">
+<div class="section-header">
+<div class="section-title"><span class="section-icon">🧭</span> D‑pad</div>
+<div class="section-subtitle">Hold to move; release to stop.</div>
+</div>
+<div class="dpad-wrapper" id="vpad">
+<button class="secondary dpad-btn" data-dir="UP">▲</button>
+<div class="dpad-middle-row">
+<button class="secondary dpad-btn" data-dir="LEFT">◀</button>
+<div aria-hidden="true" class="dpad-center"></div>
+<button class="secondary dpad-btn" data-dir="RIGHT">▶</button>
+</div>
+<button class="secondary dpad-btn" data-dir="DOWN">▼</button>
+<button class="secondary fire-btn" data-dir="STOP">■ Stop</button>
+</div>
+</div>
+<!-- Right side: Send text -->
+<div class="controls-side">
+<div class="control-section sendtext-section">
+<div class="section-header">
+<div class="section-title"><span class="section-icon">✉️</span> Send text</div>
+<div class="section-subtitle">Useful for testing the data channel.</div>
+</div>
+<div class="form-row sendtext-row">
+<input id="textInput" placeholder="Type text…" type="text"/>
+<div class="sendtext-actions">
+  <button class="secondary" id="sendTextBtn">Send</button>
+  <button class="secondary" id="speakBtn">🔊 Speak</button>
+  <button class="secondary" id="remoteSpeakBtn">📡 Remote speak</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div></div>
+<div class="row row-room-mb"><div class="col-left"><details class="collapsible">
+<summary><span class="icon">🔗</span> Room</summary>
+<div class="card">
+<div class="card-header">
+<div>
+<div class="card-title"><span class="icon">🔗</span> Room</div>
+<div class="card-subtitle">Open this page on two devices, enter the same room code, then start &amp; connect.</div>
+</div>
+<div class="status-pill" id="connPill"><span class="status-dot"></span><span>Not connected</span></div>
+</div>
+<div class="connection-section-title">Room code</div>
+<input id="roomInput" placeholder="e.g. 1234" type="text" value="demo"/>
+<div class="button-row" style="flex-wrap:wrap; margin-top:10px;">
+<button class="primary" id="startBtn">🎥 Start camera</button>
+<button class="secondary" disabled="" id="muteMicBtn">🔇 Mute mic</button>
+<button class="secondary" disabled="" id="switchCamBtn">🔄 Switch camera</button>
+<button class="secondary" disabled="" id="flipBtn">🪞 Mirror self</button>
+<button class="secondary" disabled="" id="flipRemoteBtn">↔️ Flip remote</button>
+<button class="primary" id="connectBtn">✅ Connect</button>
+<button class="secondary" id="hangupBtn" style="display:none">✋ Hang up</button>
+</div>
+</div></div><div class="col-right"><details class="collapsible">
+<summary><span class="icon">🧩</span> micro:bit Live Link</summary>
+<div class="card" id="microbitCard">
+<div class="card-header">
+<div>
+<div class="card-title"><span class="icon">🧩</span> micro:bit Live Link</div>
+<div class="card-subtitle">Connect and stream commands.</div>
+</div>
+<div class="status-pill" id="mbStatus"><span class="status-dot"></span><span>Disconnected</span></div>
+</div>
+<div class="button-row">
+<button class="primary" id="mbConnectBtn">🔗 Connect</button>
+<button class="secondary" disabled="" id="mbDisconnectBtn">✖ Disconnect</button>
+<button class="secondary" disabled="" id="mbSendTestBtn">🧪 Send TEST</button>
+</div>
+<div class="button-row">
+<button class="secondary" disabled="" id="mbBridgeOnBtn">🚀 Start sending</button>
+<button class="secondary" disabled="" id="mbBridgeOffBtn">🛑 Stop</button>
+<button class="secondary" disabled="" id="mbMuteMbBtn">🤫 Mute</button>
+</div>
+<div class="hint">
+<div class="hint-title">Bridge mode</div>
+<div>When enabled, commands received from the other device are forwarded to the micro:bit over BLE UART.</div>
+</div>
+</div></div></div>
+<div class="row">
+<div class="col-left" style="flex: 1 1 100%;">
+<details class="collapsible">
+<summary><span class="icon">📝</span> Logs</summary>
+<div class="card log-card">
+<div class="card-header">
+<div>
+<div class="card-title"><span class="icon">📝</span> Logs</div>
+<div class="card-subtitle">Everything (TX/RX/system) appears here.</div>
+</div>
+<button class="secondary small" id="clearLogsBtn">🧹 Clear</button>
+</div>
+<pre class="log" id="log" style="white-space:pre-wrap"></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Load PeerJS then app logic
+    const s1 = document.createElement('script');
+    s1.src = 'https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js';
+    s1.onload = () => {
+      const s2 = document.createElement('script');
+      s2.src = 'js/app.js';
+      document.body.appendChild(s2);
+    };
+    document.body.appendChild(s1);
+  </script>
+</body>
+</html>
