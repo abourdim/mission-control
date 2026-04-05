@@ -973,6 +973,17 @@ async function forwardToMicrobitFromPeer(msg){
 
     async function loadCode(){
       if (loaded) return;
+      // Prefer the inline <script type="text/plain" id="makecodeSource"> block.
+      // This is bulletproof on every static host (some refuse to serve .ts
+      // files — GitHub Pages returns 503 with a bad MIME). Fall back to
+      // fetch only if the inline block is missing for some reason.
+      const inline = document.getElementById("makecodeSource");
+      const inlineTxt = inline ? (inline.textContent || "").replace(/^\n/, "") : "";
+      if (inlineTxt && inlineTxt.trim()){
+        code.textContent = inlineTxt;
+        loaded = true;
+        return;
+      }
       try{
         const res = await fetch("makecode.ts", { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);
@@ -981,7 +992,7 @@ async function forwardToMicrobitFromPeer(msg){
         code.textContent = txt;
         loaded = true;
       }catch(e){
-        code.textContent = "// Failed to load makecode.ts: " + (e?.message || e);
+        code.textContent = "// Failed to load MakeCode source: " + (e?.message || e);
         logEvent({dir:"SYS", src:"MB", msg:"firmware load failed: " + (e?.message || e)});
       }
     }
