@@ -318,6 +318,14 @@ setInterval(() => {
       _pending.delete(id);
     }
   }
+  // Also GC the RTT pending map — entries without a matching ACK would
+  // otherwise leak unbounded over a long session.
+  if (typeof __rttPending !== "undefined"){
+    const nowP = performance.now();
+    for (const [id, t0] of __rttPending){
+      if (nowP - t0 > 5000) __rttPending.delete(id);
+    }
+  }
 }, 750);
 
 let localStream = null;

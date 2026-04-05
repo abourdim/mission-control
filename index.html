@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
@@ -74,14 +74,14 @@
 <div class="section-subtitle">Hold to move; release to stop.</div>
 </div>
 <div class="dpad-wrapper" id="vpad">
-<button class="secondary dpad-btn" data-dir="UP">▲</button>
+<button class="secondary dpad-btn" data-dir="UP" aria-label="Up">▲</button>
 <div class="dpad-middle-row">
-<button class="secondary dpad-btn" data-dir="LEFT">◀</button>
+<button class="secondary dpad-btn" data-dir="LEFT" aria-label="Left">◀</button>
 <div aria-hidden="true" class="dpad-center"></div>
-<button class="secondary dpad-btn" data-dir="RIGHT">▶</button>
+<button class="secondary dpad-btn" data-dir="RIGHT" aria-label="Right">▶</button>
 </div>
-<button class="secondary dpad-btn" data-dir="DOWN">▼</button>
-<button class="secondary fire-btn" data-dir="STOP">■ Stop</button>
+<button class="secondary dpad-btn" data-dir="DOWN" aria-label="Down">▼</button>
+<button class="secondary fire-btn" data-dir="STOP" aria-label="Stop">■ Stop</button>
 </div>
 </div>
 <!-- Right side: Send text -->
@@ -92,7 +92,7 @@
 <div class="section-subtitle">Useful for testing the data channel.</div>
 </div>
 <div class="form-row sendtext-row">
-<input id="textInput" placeholder="Type text…" type="text"/>
+<input id="textInput" placeholder="Type text…" type="text" aria-label="Text to send"/>
 <div class="sendtext-actions">
   <button class="secondary" id="sendTextBtn">Send</button>
   <button class="secondary" id="speakBtn">🔊 Speak</button>
@@ -115,7 +115,7 @@
 <div class="status-pill" id="connPill"><span class="status-dot"></span><span>Not connected</span></div>
 </div>
 <div class="connection-section-title">Room code</div>
-<input id="roomInput" placeholder="e.g. 1234" type="text" value="demo"/>
+<input id="roomInput" placeholder="e.g. 1234" type="text" value="demo" aria-label="Room code"/>
 <div class="button-row" style="flex-wrap:wrap; margin-top:10px;">
 <button class="primary" id="startBtn">🎥 Start camera</button>
 <button class="secondary" disabled="" id="muteMicBtn">🔇 Mute mic</button>
@@ -125,7 +125,7 @@
 <button class="primary" id="connectBtn">✅ Connect</button>
 <button class="secondary" id="hangupBtn" style="display:none">✋ Hang up</button>
 </div>
-</div></div><div class="col-right"><details class="collapsible">
+</div></details></div><div class="col-right"><details class="collapsible">
 <summary><span class="icon">🧩</span> micro:bit Live Link</summary>
 <div class="card" id="microbitCard">
 <div class="card-header">
@@ -149,7 +149,7 @@
 <div class="hint-title">Bridge mode</div>
 <div>When enabled, commands received from the other device are forwarded to the micro:bit over BLE UART.</div>
 </div>
-</div></div></div>
+</div></details></div></div>
 <div class="row">
 <div class="col-left" style="flex: 1 1 100%;">
 <details class="collapsible">
@@ -164,6 +164,7 @@
 </div>
 <pre class="log" id="log" style="white-space:pre-wrap"></pre>
 </div>
+</details>
 </div>
 </div>
 </div>
