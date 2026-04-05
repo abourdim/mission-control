@@ -4,6 +4,8 @@
 // - Logs to USB Serial
 // - ACK every BLE received line
 // - Shows arrows for direction commands
+//
+// Last updated: 2026-04-05 (non-blocking showArrow/showIcon)
 // =====================================
 
 bluetooth.startUartService()
