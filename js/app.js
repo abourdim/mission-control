@@ -737,11 +737,29 @@ textInput?.addEventListener("keydown", (e) => {
   if (e.key === "Enter") sendTextBtn?.click();
 });
 
+// Fire an instant CSS pulse on the button so the user sees immediate
+// feedback regardless of WebRTC/BLE round-trip latency. The `pulse`
+// class is removed after the animation so it can retrigger on the
+// next tap even if presses come faster than the animation duration.
+function pulseButton(btn){
+  if (!btn) return;
+  btn.classList.remove("pulse");
+  // Force reflow so the animation restarts if the class is re-added.
+  // eslint-disable-next-line no-unused-expressions
+  void btn.offsetWidth;
+  btn.classList.add("pulse");
+  setTimeout(() => btn.classList.remove("pulse"), 300);
+}
+
 function bindVirtualControls(){
   // D-pad: send pressed true on down, false on up/leave
   document.querySelectorAll("[data-dir]").forEach((btn) => {
     const cmd = btn.getAttribute("data-dir");
-    const down = (e) => { e.preventDefault(); sendMsg({ type: "cmd", cmd, pressed: true, _src: "DPAD" }); };
+    const down = (e) => {
+      e.preventDefault();
+      pulseButton(btn); // instant local feedback (before any network hop)
+      sendMsg({ type: "cmd", cmd, pressed: true, _src: "DPAD" });
+    };
     const up = (e) => { e.preventDefault(); sendMsg({ type: "cmd", cmd, pressed: false, _src: "DPAD" }); };
     btn.addEventListener("pointerdown", down);
     btn.addEventListener("pointerup", up);
@@ -827,7 +845,9 @@ class MicrobitUart {
     const data = new TextEncoder().encode(msg);
     for (let i = 0; i < data.length; i += 20) {
       await this.writeChar.writeValueWithoutResponse(data.slice(i, i + 20));
-      await sleep(15);
+      // 5ms inter-chunk delay (was 15). Short D-pad commands are a
+      // single 20-byte chunk so this mostly helps long TXT lines.
+      await sleep(5);
     }
   }
 

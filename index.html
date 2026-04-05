@@ -197,7 +197,7 @@ let lastCmdAt = 0
 bluetooth.onBluetoothConnected(function () {
     bleConnected = true
     wasEverConnected = true
-    basic.showIcon(IconNames.Yes)        // tick
+    basic.showIcon(IconNames.Yes, 0)     // tick (non-blocking)
     basic.pause(400)
     basic.clearScreen()
     music.playTone(988, 120)             // short high beep (v2)
@@ -209,7 +209,7 @@ bluetooth.onBluetoothDisconnected(function () {
     serial.writeLine("[BLE] disconnected")
 
     // Phase 1: hold cross + low beep
-    basic.showIcon(IconNames.No)         // cross
+    basic.showIcon(IconNames.No, 0)      // cross (non-blocking)
     music.playTone(220, 200)             // low beep (v2)
     basic.pause(600)
 
@@ -265,16 +265,18 @@ function ack(line: string) {
 
 function showDirectionArrow(dir: string, pressed: string) {
     // Only show arrow on "1" (pressed). On "0" show stop.
+    // Passing interval=0 makes showArrow/showIcon non-blocking so
+    // rapid D-pad presses don't queue up behind a 400ms animation.
     if (pressed != "1") {
-        basic.showIcon(IconNames.Square) // stop/neutral
+        basic.showIcon(IconNames.Square, 0) // stop/neutral
         return
     }
 
-    if (dir == "UP") basic.showArrow(ArrowNames.North)
-    else if (dir == "DOWN") basic.showArrow(ArrowNames.South)
-    else if (dir == "LEFT") basic.showArrow(ArrowNames.West)
-    else if (dir == "RIGHT") basic.showArrow(ArrowNames.East)
-    else basic.showIcon(IconNames.SmallSquare)
+    if (dir == "UP") basic.showArrow(ArrowNames.North, 0)
+    else if (dir == "DOWN") basic.showArrow(ArrowNames.South, 0)
+    else if (dir == "LEFT") basic.showArrow(ArrowNames.West, 0)
+    else if (dir == "RIGHT") basic.showArrow(ArrowNames.East, 0)
+    else basic.showIcon(IconNames.SmallSquare, 0)
 }
 
 function handleLine(raw: string) {
@@ -298,7 +300,7 @@ function handleLine(raw: string) {
         const cmd = parts[1]
 
         if (cmd == "STOP") {
-            basic.showIcon(IconNames.Square)
+            basic.showIcon(IconNames.Square, 0)
             serial.writeLine("[CMD] STOP")
             return
         }
