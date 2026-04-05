@@ -956,6 +956,35 @@ async function forwardToMicrobitFromPeer(msg){
     }
   });
 
+  // Copy the MakeCode TypeScript so the user can paste it straight into
+  // makecode.microbit.org. Fetched from the site (same-origin) so it's
+  // always in sync with the file that ships in the repo.
+  const mbCopyCodeBtn = document.getElementById("mbCopyCodeBtn");
+  mbCopyCodeBtn?.addEventListener("click", async () => {
+    const original = mbCopyCodeBtn.textContent;
+    try{
+      const res = await fetch("makecode.ts", { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const code = await res.text();
+      if (!code || !code.trim()) throw new Error("empty file");
+      if (!navigator.clipboard || !navigator.clipboard.writeText){
+        throw new Error("clipboard API not available (needs HTTPS or localhost)");
+      }
+      await navigator.clipboard.writeText(code);
+      mbCopyCodeBtn.textContent = "✅ Copied";
+      toast("MakeCode copied — paste it into makecode.microbit.org (JavaScript mode).", "info", 5000);
+      logEvent({dir:"SYS", src:"MB", msg:"MakeCode copied to clipboard (" + code.length + " chars)"});
+      setTimeout(() => { mbCopyCodeBtn.textContent = original; }, 1800);
+    }catch(e){
+      toast("Copy failed: " + (e?.message || e), "error", 5000);
+      logEvent({dir:"SYS", src:"MB", msg:"copy failed: " + (e?.message || e)});
+    }
+  });
+
+  document.getElementById("mbOpenMakecodeBtn")?.addEventListener("click", () => {
+    window.open("https://makecode.microbit.org/#editor", "_blank", "noopener,noreferrer");
+  });
+
   mbBridgeOnBtn?.addEventListener("click", () => {
     mbBridgeEnabled = true;
     mbSyncBridgeUi();
