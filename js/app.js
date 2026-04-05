@@ -117,6 +117,37 @@ function _fmt(v){
   if (typeof v === "string") return v;
   try { return JSON.stringify(v); } catch { return String(v); }
 }
+
+// Non-blocking in-page toast (replaces alert() calls which hang some
+// browsers/headless environments and are an ugly UX).
+function toast(message, kind="info", ms=4500){
+  let host = document.getElementById("toastHost");
+  if (!host){
+    host = document.createElement("div");
+    host.id = "toastHost";
+    host.setAttribute("aria-live", "polite");
+    host.style.cssText =
+      "position:fixed;top:16px;left:50%;transform:translateX(-50%);" +
+      "z-index:9999;display:flex;flex-direction:column;gap:8px;" +
+      "pointer-events:none;max-width:92vw";
+    document.body.appendChild(host);
+  }
+  const el = document.createElement("div");
+  const bg = kind === "error" ? "#7f1d1d" : (kind === "warn" ? "#78350f" : "#064e3b");
+  const border = kind === "error" ? "#f87171" : (kind === "warn" ? "#fbbf24" : "#34d399");
+  el.textContent = message;
+  el.style.cssText =
+    `background:${bg};color:#fff;border:1px solid ${border};` +
+    "border-radius:10px;padding:10px 14px;font:14px system-ui,sans-serif;" +
+    "box-shadow:0 12px 30px rgba(0,0,0,.4);pointer-events:auto;" +
+    "opacity:0;transform:translateY(-6px);transition:opacity .2s,transform .2s";
+  host.appendChild(el);
+  requestAnimationFrame(()=>{ el.style.opacity="1"; el.style.transform="translateY(0)"; });
+  setTimeout(()=>{
+    el.style.opacity="0"; el.style.transform="translateY(-6px)";
+    setTimeout(()=>el.remove(), 220);
+  }, ms);
+}
 function logEvent({dir="SYS", src="APP", msg=""} = {}){
   const logEl = $("log");
   const line = `[${dir}][${src}] ${msg}`;
@@ -129,7 +160,6 @@ function logEvent({dir="SYS", src="APP", msg=""} = {}){
 
 // Backwards-compatible helpers
 function log(...args){ logEvent({dir:"SYS", src:"APP", msg: args.map(_fmt).join(" ")}); }
-function logRx(...args){ logEvent({dir:"RX", src:"PEER", msg: args.map(_fmt).join(" ")}); }
 
 clearLogsBtn?.addEventListener("click", () => {
   if (logEl) logEl.textContent = "";
@@ -299,7 +329,6 @@ let dataConn = null;
 let microbit = null;
 let mbBridgeEnabled = false;
 
-let isHost = false;
 let hostId = null;
 
 // Camera switching / mirroring
@@ -418,7 +447,7 @@ async function switchCamera(){
   } catch (e) {
     log("Switch camera failed:", e?.name || "", e?.message || String(e));
     setStatus("Switch failed ❌");
-    alert("Could not switch camera on this device/browser.");
+    toast("Could not switch camera on this device/browser.", "error");
   }
 }
 
@@ -477,7 +506,6 @@ function cleanupPeer(){
   call = null;
   try { peer?.destroy(); } catch {}
   peer = null;
-  isHost = false;
   hostId = null;
   if (remoteVideo) remoteVideo.srcObject = null;
   if (remoteFsBtn) remoteFsBtn.disabled = true;
@@ -545,7 +573,7 @@ function attachCallHandlers(c){
 async function connect(){
   const roomCode = (roomInput.value || "").trim();
   if (!roomCode){
-    alert("Enter a room code (same on both devices).");
+    toast("Enter a room code (same on both devices).", "warn");
     return;
   }
 
@@ -606,7 +634,6 @@ async function connect(){
   peer = new Peer(hostId, { debug: 2 });
 
   peer.on("open", (id) => {
-    isHost = true;
     log("Peer open (host):", id);
     setStatus("Waiting for other device…");
     setConnStatus("Waiting…", false);
@@ -642,7 +669,7 @@ startBtn?.addEventListener("click", async () => {
   } catch (e) {
     log("getUserMedia failed:", e?.name || "", e?.message || String(e));
     setStatus("Permission blocked ❌");
-    alert("Camera/mic permission blocked or not supported.\n\nTip: Use HTTPS (GitHub Pages) and allow permissions.");
+    toast("Camera/mic blocked or not supported. Use HTTPS and allow permissions.", "error", 6000);
   }
 });
 
@@ -1052,7 +1079,9 @@ function isViewerDevice(){
   const r=thumb.getBoundingClientRect(),sr=stage.getBoundingClientRect();
   l=r.left-sr.left; t=r.top-sr.top;
   sx=e.clientX; sy=e.clientY;
-  thumb.setPointerCapture(e.pointerId);
+  // setPointerCapture can throw if the pointer is synthetic or already
+  // released (seen on Safari mobile and in headless test environments).
+  try{ thumb.setPointerCapture(e.pointerId); }catch(_){}
  });
  window.addEventListener("pointermove",e=>{
   if(!drag)return;
