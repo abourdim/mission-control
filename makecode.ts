@@ -11,7 +11,71 @@ bluetooth.startUartService()
 serial.redirectToUSB()
 serial.writeLine("micro:bit BLE UART monitor started")
 
-basic.showIcon(IconNames.Happy)
+// --- Connection state + visual feedback ---
+let bleConnected = false
+let wasEverConnected = false
+let lastCmdAt = 0
+
+bluetooth.onBluetoothConnected(function () {
+    bleConnected = true
+    wasEverConnected = true
+    basic.showIcon(IconNames.Yes)        // ✓ tick
+    basic.pause(400)
+    basic.clearScreen()
+    music.playTone(988, 120)             // short high beep (v2)
+    serial.writeLine("[BLE] connected")
+})
+
+bluetooth.onBluetoothDisconnected(function () {
+    bleConnected = false
+    serial.writeLine("[BLE] disconnected")
+
+    // Phase 1: hold cross + low beep
+    basic.showIcon(IconNames.No)         // ✗ cross
+    music.playTone(220, 200)             // low beep (v2)
+    basic.pause(600)
+
+    // Phase 2: broken-link blink 3×
+    for (let i = 0; i < 3; i++) {
+        basic.showLeds(`
+            . # . # .
+            # . # . #
+            . # . # .
+            # . # . #
+            . # . # .
+        `)
+        basic.pause(150)
+        basic.clearScreen()
+        basic.pause(150)
+    }
+})
+
+// Heartbeat: proves the micro:bit is alive + shows link state.
+// Three distinct states:
+//   - connected  : faint center dot every 2s (gated to avoid flicker over arrows)
+//   - lost link  : fast 4-corner blink (clearly different from cold boot)
+//   - cold boot  : slow single corner dot
+basic.forever(function () {
+    const quiet = input.runningTime() - lastCmdAt > 1500
+    if (bleConnected) {
+        if (quiet) {
+            led.plot(2, 2)
+            basic.pause(80)
+            led.unplot(2, 2)
+        }
+        basic.pause(1920)
+    } else if (wasEverConnected) {
+        led.plot(0, 0); led.plot(4, 0); led.plot(0, 4); led.plot(4, 4)
+        basic.pause(150)
+        led.unplot(0, 0); led.unplot(4, 0); led.unplot(0, 4); led.unplot(4, 4)
+        basic.pause(350)
+    } else {
+        led.plot(0, 0)
+        basic.pause(120)
+        led.unplot(0, 0)
+        basic.pause(880)
+    }
+})
 
 // --- Helpers ---
 function ack(line: string) {
@@ -38,6 +102,8 @@ function showDirectionArrow(dir: string, pressed: string) {
 function handleLine(raw: string) {
     const line = raw.trim()
     if (line.length == 0) return
+
+    lastCmdAt = input.runningTime()
 
     // Log to USB Serial
     serial.writeLine("[BLE RX] " + line)

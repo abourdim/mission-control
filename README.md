@@ -34,8 +34,7 @@ The project uses **PeerJS** (a helper library) to build those tunnels.
 
 - `index.html` — the page you open (the control center)
 - `css/style.css` — makes it look cool 😎
-- `js/app.js` — the brain 🧠 (camera, connect, buttons, logs, micro:bit bridge)
-- `js/ble-uart.js` — a small helper for micro:bit Bluetooth UART (also embedded in `app.js`)
+- `js/app.js` — the brain 🧠 (camera, connect, buttons, logs, micro:bit bridge, BLE UART)
 - `makecode.ts` — micro:bit program (MakeCode TypeScript)
 
 ---

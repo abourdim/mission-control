@@ -1,6 +1,3 @@
-let cmdHud = null;
-let hudToggle = null;
-document.addEventListener('DOMContentLoaded', ()=>{ loadHudPref(); });
 // Kid Telepresence (simple, single-page, no roles)
 // How it works:
 // - Both devices open the same page and enter the same room code
@@ -23,8 +20,6 @@ const remoteVideo = $("remoteVideo");
 const videoStage = $("videoStage");
 const remoteFsBtn = $("remoteFsBtn");
 const askRemoteFsBtn = $("askRemoteFsBtn");
-hudToggle = document.getElementById("hudToggle");
-cmdHud = null;
 const cleanCacheBtn = $("cleanCacheBtn");
 const remoteFsOverlay = $("remoteFsOverlay");
 const remoteFsAcceptBtn = $("remoteFsAcceptBtn");
@@ -130,27 +125,8 @@ function logEvent({dir="SYS", src="APP", msg=""} = {}){
   if (logEl && (logEl.scrollHeight - logEl.scrollTop - logEl.clientHeight) < 40) {
     logEl.scrollTop = logEl.scrollHeight;
   }
-
-// === Subtle command HUD overlay on remote video ===
-let _cmdHudTimer = null;
-function showCmdHud(text, icon="⟲"){
-  const hud = $("cmdHud");
-  const hudText = $("cmdHudText");
-  const hudIcon = $("cmdHudIcon");
-  if (!hud || !hudText || !hudIcon) return;
-  hudText.textContent = text;
-  hudIcon.textContent = icon;
-
-  hud.classList.add("show");
-  hud.setAttribute("aria-hidden", "false");
-
-  if (_cmdHudTimer) clearTimeout(_cmdHudTimer);
-  _cmdHudTimer = setTimeout(() => {
-    hud.classList.remove("show");
-    hud.setAttribute("aria-hidden", "true");
-  }, 650);
 }
-}
+
 // Backwards-compatible helpers
 function log(...args){ logEvent({dir:"SYS", src:"APP", msg: args.map(_fmt).join(" ")}); }
 function logRx(...args){ logEvent({dir:"RX", src:"PEER", msg: args.map(_fmt).join(" ")}); }
@@ -184,50 +160,17 @@ function setDataConn(conn){
     setConnStatus("Connected", true);
   }
   conn.on("data", (msg)=>{
-  // RTT: parse ack string "ack for <id>"
-  try {
-    if (typeof msg === "string") {
-      const mm = /ack\s+for\s+([^\s]+)/i.exec(msg);
-      if (mm) rttOnAck(mm[1]);
-    } else if (msg && typeof msg === "object" && msg.type === "ack") {
-      rttOnAck(msg.id || msg._id);
-    }
-  } catch(e) {}
-
-  // RTT: match ACKs to sent _id
-  try {
-    if (typeof msg === "string") {
-      const mm = /ack\s+for\s+([^\s]+)/i.exec(msg);
-      if (mm) rttOnAck(mm[1]);
-    } else if (msg && typeof msg === "object" && msg.type === "ack") {
-      rttOnAck(msg.id || msg._id);
-    }
-  } catch(e) {}
-
-  if(typeof msg==="string"){const m=/ack\s+for\s+([^\s]+)/i.exec(msg); if(m) rttOnAck(m[1]);}
-  try{ updateRxBar(msg); }catch(e){}
-
-  try{ setRxDebug("[RX] " + (typeof msg==="string" ? msg : JSON.stringify(msg)).slice(0,120)); }catch(e){}
-
-  // --- HUD trigger on REAL RX commands (before any returns) ---
-  try {
-    if (typeof showCmdHud === "function" && hudEnabled !== false) {
-      if (msg && msg.type === "cmd") {
-        const d = (msg.cmd || msg.dir || msg.key || "").toString();
-        if (d) showCmdHud("DPAD: " + d);
-      } else if (msg && (msg.type === "btn" || msg.type === "button")) {
-        const b = (msg.id || msg.button || msg.key || "").toString();
-        if (b) showCmdHud("BTN: " + b);
-      } else if (msg && (msg.type === "mb" || msg.type === "microbit")) {
-        const line = (msg.line || msg.msg || "").toString();
-        if (line) showCmdHud("MB: " + line);
-      } else if (msg && msg.type === "txt") {
-        // optional: show short text
-        const t = (msg.text || "").toString();
-        if (t) showCmdHud("TXT: " + t.slice(0, 18));
+    // RTT: parse ack (string form or {type:"ack", id})
+    try {
+      if (typeof msg === "string") {
+        const mm = /ack\s+for\s+([^\s]+)/i.exec(msg);
+        if (mm) rttOnAck(mm[1]);
+      } else if (msg && typeof msg === "object" && msg.type === "ack") {
+        rttOnAck(msg.id || msg._id);
       }
-    }
-  } catch (e) {}
+    } catch(e) {}
+
+    try{ updateRxBar(msg); }catch(e){}
 
     // ACK handler
     if (msg && typeof msg === "object" && msg.type === "ack" && msg.id){
@@ -246,8 +189,9 @@ function setDataConn(conn){
       // Remote SPEAK command: make the receiving device speak text locally
       if (msg.cmd === "SPEAK"){
         const reqId = msg._id || msg.id || msg.reqId || "";
-        const t = (msg.text || msg.say || "").toString();
-        try{ if (typeof window.__tpSpeakLocal === "function") window.__tpSpeakLocal(t); }catch(e){}
+        // Hard cap at 200 chars to prevent harassment / TTS flooding
+        const t = (msg.text || msg.say || "").toString().slice(0, 200);
+        try{ if (t && typeof window.__tpSpeakLocal === "function") window.__tpSpeakLocal(t); }catch(e){}
         logEvent({dir:"RX", src:"UI", msg:"SPEAK " + (t ? ("\"" + t.slice(0,40) + (t.length>40?"…":"") + "\"") : "")});
         // respond so the sender can log it
         if (reqId) sendUiMessage({type:"ui", cmd:"SPEAK_RESPONSE", reqId, status:"OK"});
@@ -273,22 +217,6 @@ function setDataConn(conn){
     }
 
 
-    // Command HUD: show received control inputs subtly on the video
-    try{
-      if (typeof showCmdHud === "function" && msg && typeof msg === "object"){
-        if (msg.type === "cmd" && msg.cmd){
-          if (msg.pressed === true || msg.cmd === "STOP"){
-            showCmdHud("DPAD: " + msg.cmd);
-          }
-        } else if (msg.type === "btn" && msg.id){
-          if (msg.pressed === true){
-            showCmdHud("BTN: " + msg.id);
-          }
-        } else if (msg.type === "mb" && (msg.text || msg.msg)){
-          showCmdHud("MB: " + (msg.text || msg.msg));
-        }
-      }
-    }catch(e){}
     // Normal messages: log + reply ACK
     if (msg && typeof msg === "object"){
       const src = (msg.type === "cmd") ? "DPAD" :
@@ -324,7 +252,6 @@ function setDataConn(conn){
 
 
 // ---- DataChannel messaging + ACK ----
-let _seq = 1;
 const _pending = new Map(); // id -> {t, msg}
 
 
@@ -344,11 +271,9 @@ function sendMsg(obj){
   }
   try{
     rttMarkSent(msg);
-rttMarkSent(msg);
-rttMarkSent(msg);
-dataConn.send(msg);
+    dataConn.send(msg);
     logEvent({dir:"TX", src, msg: _fmt(msg)});
-    _pending.set(id, { t: Date.now(), msg, tries: 1 });
+    _pending.set(id, { t: Date.now(), msg });
     return id;
   } catch(e){
     logEvent({dir:"SYS", src:"APP", msg: "Send failed: " + (e && e.message ? e.message : e)});
@@ -881,19 +806,6 @@ class MicrobitUart {
 
 
 // UI + bridge helpers
-
-// --- BLE RTT (micro:bit ACK) ---
-const bleRttPending = new Map(); // id -> t0
-function mbMarkSent(id){
-  if (!id) return;
-  bleRttPending.set(id, performance.now());
-}
-function mbOnAck(id){
-  const t0 = bleRttPending.get(id);
-  if (t0 == null) return null;
-  bleRttPending.delete(id);
-  return Math.max(0, performance.now() - t0);
-}
 async function mbSendLineWithId(line, id){
   // Option A protocol: send lines that micro:bit code understands directly
   // e.g. "CMD RIGHT 1" (micro:bit expects the line to start with CMD)
@@ -962,18 +874,7 @@ async function forwardToMicrobitFromPeer(msg){
     onLog: (t) => logEvent({dir:"SYS", src:"MB", msg:String(t)}),
     onRx: (t) => {
       const s = String(t || "").trim();
-      
-      // ALWAYS log the raw message first
       logEvent({dir:"RX", src:"MB", msg: s});
-      
-      // Then handle ACK-specific logic
-      if (/^ACK\s+/i.test(s)){
-        const id = s.split(/\s+/)[1];
-        const ms = mbOnAck(id);
-        if (ms != null){
-          logEvent({dir:"SYS", src:"MB", msg:`BLE RTT: ${Math.round(ms)}ms for ${id}`});
-        }
-      }
     },
     onConnectionChange: (ok) => {
       mbSetStatus(ok ? "Connected" : "Disconnected", ok);
@@ -1165,27 +1066,7 @@ function isViewerDevice(){
  window.addEventListener("pointerup",()=>{drag=false;thumb.classList.remove("dragging");});
 })();
 
-// HUD
-cmdHud = null;
-hudToggle = document.getElementById("hudToggle");
-let hudOn=true;
-if(hudToggle){hudToggle.checked=true;hudToggle.onchange=()=>hudOn=hudToggle.checked;}
-function showCmdHud(t){
- if(!hudOn||!cmdHud)return;
- cmdHud.style.display="block";
- const b=document.createElement("div");
- b.className="cmd-hud-bubble";
- b.textContent=t;
- cmdHud.appendChild(b);
- requestAnimationFrame(()=>b.classList.add("show"));
- setTimeout(()=>{b.classList.remove("show");setTimeout(()=>b.remove(),200)},700);
-}
-
-// === Debug overlay: show latest received message on video ===
-let rxDebugEl = null;
-function setRxDebug(){ /* disabled */ }
-
-// === RX simple debug ===
+// === RX bar counter ===
 let rxCount = 0;
 
 function updateRxBar(msg){
@@ -1255,18 +1136,7 @@ function updateRxBar(msg){
 }
 
 
-// === RTT tracking ===
-const rtt={pending:new Map(),last:null,avg:null,samples:[],maxSamples:40};
-function rttMarkSent(msg){if(msg&&msg._id)rtt.pending.set(msg._id,performance.now());}
-function rttOnAck(id){
- const t0=rtt.pending.get(id); if(!t0)return;
- rtt.pending.delete(id);
- const ms=performance.now()-t0;
- rtt.last=ms; rtt.samples.push(ms);
- if(rtt.samples.length>rtt.maxSamples)rtt.samples.shift();
- rtt.avg=rtt.samples.reduce((a,b)=>a+b,0)/rtt.samples.length;
- // RTT UI badge removed; logging only
-}
+// RTT tracking moved to the single log-only implementation below.
 
 // === Snapshot & Recording ===
 const snapBtn=document.getElementById("snapBtn");
@@ -1304,28 +1174,6 @@ recBtn?.addEventListener("click",()=>{
  recBtn.textContent="⏹️ Stop";
 });
 
-// === HUD toggle button ===
-(function(){
-  const btn = document.getElementById("hudBtn");
-  if (!btn) return;
-  try{
-    const v = localStorage.getItem("tp_hud_enabled");
-    if (v === "1") window.hudEnabled = true;
-    if (v === "0") window.hudEnabled = false;
-  }catch(e){}
-  if (typeof window.hudEnabled === "undefined") window.hudEnabled = false;
-
-  function sync(){
-    btn.classList.toggle("is-on", !!window.hudEnabled);
-    btn.innerHTML = `<span class="btn-icon">👁️</span> ${window.hudEnabled ? "Hide HUD" : "Show HUD"}`;
-}
-  sync();
-  btn.addEventListener("click", ()=>{
-    window.hudEnabled = !window.hudEnabled;
-    try{ localStorage.setItem("tp_hud_enabled", window.hudEnabled ? "1":"0"); }catch(e){}
-    sync();
-  });
-})();
 // === RTT tracking (log-only) ===
 const __rttPending = new Map(); // _id -> t0
 let __rttSamples = [];
@@ -1414,7 +1262,7 @@ function rttOnAck(id){
 
   // Send a command to the OTHER device to speak this text locally on that device.
   remoteSpeakBtn?.addEventListener("click", ()=>{
-    const t = (input?.value || "").trim();
+    const t = (input?.value || "").trim().slice(0, 200);
     if (!t) return;
 
     const mid = sendMsg({ type:"ui", cmd:"SPEAK", text:t, _src:"TTS" });

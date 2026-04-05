@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self' wss: https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"/>
 <title>Explore · Create · Innovate</title>
 <link href="css/style.css" rel="stylesheet"/>
 </head>
@@ -168,13 +169,20 @@
 </div>
 </div>
 <script>
-    // Load PeerJS then app logic
+    // Load PeerJS (with SRI) then app logic
     const s1 = document.createElement('script');
     s1.src = 'https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js';
+    s1.integrity = 'sha384-nlUQ8ZqCbvStErob+biJNzSgltf6urV3VGqhfIfzhmg9RXmpeRm76ELw0pYnKlTR';
+    s1.crossOrigin = 'anonymous';
+    s1.referrerPolicy = 'no-referrer';
     s1.onload = () => {
       const s2 = document.createElement('script');
       s2.src = 'js/app.js';
       document.body.appendChild(s2);
+    };
+    s1.onerror = () => {
+      document.body.insertAdjacentHTML('beforeend',
+        '<p style="color:#f97373;padding:16px;font-family:sans-serif">Failed to load PeerJS (integrity check or network). Please retry.</p>');
     };
     document.body.appendChild(s1);
   </script>
