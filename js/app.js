@@ -956,34 +956,91 @@ async function forwardToMicrobitFromPeer(msg){
     }
   });
 
-  // Copy the MakeCode TypeScript so the user can paste it straight into
-  // makecode.microbit.org. Fetched from the site (same-origin) so it's
-  // always in sync with the file that ships in the repo.
-  const mbCopyCodeBtn = document.getElementById("mbCopyCodeBtn");
-  mbCopyCodeBtn?.addEventListener("click", async () => {
-    const original = mbCopyCodeBtn.textContent;
-    try{
-      const res = await fetch("makecode.ts", { cache: "no-store" });
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      const code = await res.text();
-      if (!code || !code.trim()) throw new Error("empty file");
-      if (!navigator.clipboard || !navigator.clipboard.writeText){
-        throw new Error("clipboard API not available (needs HTTPS or localhost)");
-      }
-      await navigator.clipboard.writeText(code);
-      mbCopyCodeBtn.textContent = "✅ Copied";
-      toast("MakeCode copied — paste it into makecode.microbit.org (JavaScript mode).", "info", 5000);
-      logEvent({dir:"SYS", src:"MB", msg:"MakeCode copied to clipboard (" + code.length + " chars)"});
-      setTimeout(() => { mbCopyCodeBtn.textContent = original; }, 1800);
-    }catch(e){
-      toast("Copy failed: " + (e?.message || e), "error", 5000);
-      logEvent({dir:"SYS", src:"MB", msg:"copy failed: " + (e?.message || e)});
-    }
-  });
+  // === Firmware modal: shows the MakeCode TypeScript and lets the user
+  // copy it / open MakeCode. Code is fetched once on first open and
+  // cached in the modal's <pre>, so subsequent opens are instant.
+  (function initFirmwareModal(){
+    const fwBtn    = document.getElementById("mbFirmwareBtn");
+    const modal    = document.getElementById("fwModal");
+    const code     = document.getElementById("fwCodePreview");
+    const copyBtn  = document.getElementById("fwCopyBtn");
+    const openBtn  = document.getElementById("fwOpenBtn");
+    const closeBtn = document.getElementById("fwCloseBtn");
+    const closeBtn2= document.getElementById("fwCloseBtn2");
+    if (!fwBtn || !modal || !code) return;
 
-  document.getElementById("mbOpenMakecodeBtn")?.addEventListener("click", () => {
-    window.open("https://makecode.microbit.org/#editor", "_blank", "noopener,noreferrer");
-  });
+    let loaded = false;
+
+    async function loadCode(){
+      if (loaded) return;
+      try{
+        const res = await fetch("makecode.ts", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const txt = await res.text();
+        if (!txt || !txt.trim()) throw new Error("empty file");
+        code.textContent = txt;
+        loaded = true;
+      }catch(e){
+        code.textContent = "// Failed to load makecode.ts: " + (e?.message || e);
+        logEvent({dir:"SYS", src:"MB", msg:"firmware load failed: " + (e?.message || e)});
+      }
+    }
+
+    function show(){
+      modal.style.display = "flex";
+      modal.setAttribute("aria-hidden", "false");
+      loadCode();
+      // Focus the Copy button so keyboard users can act immediately.
+      setTimeout(() => copyBtn?.focus(), 0);
+      document.addEventListener("keydown", onKey);
+    }
+    function hide(){
+      modal.style.display = "none";
+      modal.setAttribute("aria-hidden", "true");
+      document.removeEventListener("keydown", onKey);
+      fwBtn?.focus();
+    }
+    function onKey(e){ if (e.key === "Escape") hide(); }
+
+    fwBtn.addEventListener("click", show);
+    closeBtn?.addEventListener("click", hide);
+    closeBtn2?.addEventListener("click", hide);
+    // Backdrop click (but not clicks inside the panel)
+    modal.addEventListener("click", (e) => { if (e.target === modal) hide(); });
+
+    copyBtn?.addEventListener("click", async () => {
+      const txt = code.textContent || "";
+      if (!txt || txt.startsWith("// Failed")){
+        toast("Nothing to copy — code didn't load.", "error");
+        return;
+      }
+      const original = copyBtn.textContent;
+      try{
+        if (!navigator.clipboard || !navigator.clipboard.writeText){
+          throw new Error("clipboard API not available (needs HTTPS or localhost)");
+        }
+        await navigator.clipboard.writeText(txt);
+        copyBtn.textContent = "✅ Copied";
+        toast("Code copied — paste it into MakeCode (JavaScript mode).", "info", 4500);
+        logEvent({dir:"SYS", src:"MB", msg:"firmware copied (" + txt.length + " chars)"});
+        setTimeout(() => { copyBtn.textContent = original; }, 1800);
+      }catch(e){
+        // Fallback: select the <pre> contents so the user can Ctrl+C manually
+        try{
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          const sel = window.getSelection();
+          sel.removeAllRanges(); sel.addRange(range);
+          toast("Clipboard blocked — code is selected, press Ctrl+C to copy.", "warn", 6000);
+        }catch(_){}
+        logEvent({dir:"SYS", src:"MB", msg:"firmware copy failed: " + (e?.message || e)});
+      }
+    });
+
+    openBtn?.addEventListener("click", () => {
+      window.open("https://makecode.microbit.org/#editor", "_blank", "noopener,noreferrer");
+    });
+  })();
 
   mbBridgeOnBtn?.addEventListener("click", () => {
     mbBridgeEnabled = true;

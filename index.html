@@ -146,8 +146,7 @@
 <button class="secondary" disabled="" id="mbMuteMbBtn">🤫 Mute</button>
 </div>
 <div class="button-row">
-<button class="secondary" id="mbCopyCodeBtn" title="Copy the MakeCode TypeScript to clipboard so you can paste it into MakeCode">📋 Copy MakeCode</button>
-<button class="secondary" id="mbOpenMakecodeBtn" title="Open makecode.microbit.org in a new tab">🚀 Open MakeCode</button>
+<button class="secondary" id="mbFirmwareBtn" title="Show the MakeCode firmware to flash to the micro:bit">🔌 Firmware</button>
 </div>
 <div class="hint">
 <div class="hint-title">Bridge mode</div>
@@ -173,6 +172,30 @@
 </div>
 </div>
 </div>
+
+<!-- Firmware modal -->
+<div id="fwModal" class="fw-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="fwModalTitle" style="display:none;">
+  <div class="fw-modal-panel">
+    <div class="fw-modal-header">
+      <div id="fwModalTitle" class="fw-modal-title">micro:bit Firmware</div>
+      <button class="secondary small" id="fwCloseBtn" aria-label="Close">✕</button>
+    </div>
+    <div class="fw-modal-intro">Flash this code to your micro:bit V2 using MakeCode:</div>
+    <ol class="fw-modal-steps">
+      <li>Click <b>Copy Code</b> below</li>
+      <li>Open MakeCode and switch to <b>JavaScript</b> mode</li>
+      <li>Select all (Ctrl+A) and paste (Ctrl+V)</li>
+      <li>Click <b>Download</b> and flash to your micro:bit</li>
+    </ol>
+    <div class="fw-modal-actions">
+      <button class="primary" id="fwCopyBtn">📋 Copy Code</button>
+      <button class="secondary" id="fwOpenBtn">🚀 Open MakeCode</button>
+      <button class="secondary" id="fwCloseBtn2">Close</button>
+    </div>
+    <pre class="fw-modal-code" id="fwCodePreview" tabindex="0">Loading…</pre>
+  </div>
+</div>
+
 <script>
     // Load PeerJS (with SRI) then app logic
     const s1 = document.createElement('script');
