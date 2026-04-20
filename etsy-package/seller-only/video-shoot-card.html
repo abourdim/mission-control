@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Mission Control — Etsy 60-sec Shoot Card (A4)</title>
+<style>
+  @page { size: A4; margin: 10mm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0a0e12;
+    background: #f5f7f5;
+    padding: 10mm;
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+  h1 {
+    font-size: 20pt;
+    font-weight: 900;
+    color: #00884a;
+    border-bottom: 3px solid #00884a;
+    padding-bottom: 2mm;
+    margin-bottom: 4mm;
+    letter-spacing: 0.02em;
+  }
+  h1 small {
+    font-size: 10pt;
+    font-weight: 400;
+    color: #6b7a85;
+    float: right;
+    margin-top: 10pt;
+  }
+  h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #00884a;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 4mm 0 2mm;
+    padding: 1mm 2mm;
+    background: #e0f0e5;
+    border-left: 3px solid #00884a;
+  }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  ul { list-style: none; }
+  li { padding: 0.8mm 0; padding-left: 6mm; position: relative; }
+  li::before {
+    content: '☐';
+    position: absolute;
+    left: 0;
+    color: #6b7a85;
+    font-size: 11pt;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  th, td { text-align: left; padding: 1.5mm 2mm; border-bottom: 1px solid #d0d8d2; vertical-align: top; }
+  th { background: #0a0e12; color: #00ff88; font-weight: 700; text-transform: uppercase; font-size: 8pt; letter-spacing: 0.1em; }
+  td.t { font-family: 'Courier New', monospace; font-weight: 700; color: #00884a; white-space: nowrap; width: 14mm; }
+  td.say { font-style: italic; color: #0a0e12; }
+  td.do { color: #3a4a45; font-size: 8.5pt; }
+  .tight td { padding: 1mm 2mm; }
+  .cheat {
+    font-family: 'Courier New', monospace;
+    background: #0a0e12;
+    color: #00ff88;
+    padding: 3mm;
+    font-size: 9pt;
+    line-height: 1.5;
+    border-radius: 2mm;
+    white-space: pre;
+  }
+  .warn { color: #c44; font-weight: 700; }
+  .ok { color: #00884a; font-weight: 700; }
+  .footer { margin-top: 5mm; font-size: 8pt; color: #6b7a85; text-align: center; }
+</style>
+</head>
+<body>
+
+<h1>Etsy 60-sec Video Shoot Card <small>Mini Mission Control · Script A</small></h1>
+
+<div class="row">
+  <div>
+    <h2>Pre-flight (90s)</h2>
+    <ul>
+      <li>Two devices with cameras + mics (laptop + phone)</li>
+      <li>Chrome/Edge on both, page served over <strong>HTTPS</strong></li>
+      <li>Same Wi-Fi; room code typed on both sides</li>
+      <li>Camera + mic permissions granted on each device</li>
+      <li>Language matches voiceover (EN / FR / AR)</li>
+      <li>Tagline visible on-screen overlay: <strong>Call • Command • Control</strong></li>
+      <li>Optional micro:bit V2 paired via BLE (LED arrow demo)</li>
+      <li>Phone in 9:16 on tripod for split-screen framing</li>
+      <li>Desk cleared — laptop + phone + one prop only</li>
+      <li>Captions app ready OR overlay plan</li>
+      <li>Script read once, under 55s</li>
+      <li>Notifications silenced, kids/dogs warned</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Specs (memorise)</h2>
+    <table class="tight">
+      <tr><td><strong>Length</strong></td><td>≤ 60s (aim 55s)</td></tr>
+      <tr><td><strong>Aspect</strong></td><td><strong>9:16 portrait</strong></td></tr>
+      <tr><td><strong>Res</strong></td><td>1080 × 1920 min</td></tr>
+      <tr><td><strong>Codec</strong></td><td>MP4 / H.264 + AAC</td></tr>
+      <tr><td><strong>Size</strong></td><td>&lt; 100 MB</td></tr>
+      <tr><td><strong>Audio</strong></td><td>Muted by default → <span class="warn">captions mandatory</span></td></tr>
+      <tr><td><strong>Cover</strong></td><td>First frame = thumbnail</td></tr>
+      <tr><td><strong>Hook</strong></td><td>First 3s decides the scroll</td></tr>
+    </table>
+
+    <h2>During recording</h2>
+    <ul>
+      <li>One scene per phase — don't cut every 2s</li>
+      <li>Switch on words, not mid-sentence</li>
+      <li>Hold 1s on every D-pad press so CMD shows</li>
+      <li>Eye contact with lens on CTA</li>
+      <li>Land the tagline in the final 3s — loop frame</li>
+      <li>If &gt; 55s, re-cut</li>
+    </ul>
+  </div>
+</div>
+
+<h2>The 60-second arc — Script A</h2>
+<table>
+  <thead>
+    <tr><th>Time</th><th>Say</th><th>Do / Click</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="t">0–3s</td>   <td class="say">"Two devices. One room code. Call, Command, Control — in 60 seconds."</td>          <td class="do">Split-screen: laptop left, phone right, same page on both.</td></tr>
+    <tr><td class="t">3–10s</td>  <td class="say">"Same room code on both sides — tap Start camera."</td>                             <td class="do">Type matching room code. Tap Start camera. Video tiles light up <span class="ok">green</span>.</td></tr>
+    <tr><td class="t">10–20s</td> <td class="say">"Hit Connect — live video, live audio, peer to peer."</td>                          <td class="do">Click Connect. Two faces side by side. HUD overlay shows peer status.</td></tr>
+    <tr><td class="t">20–30s</td> <td class="say">"Kid taps UP on the D-pad — laptop receives the command instantly."</td>            <td class="do">Phone: press UP on D-pad. Laptop shows <strong>CMD UP</strong>. Optional micro:bit V2 lights arrow.</td></tr>
+    <tr><td class="t">30–40s</td> <td class="say">"Type a message, press Speak — it reads aloud on the other device."</td>            <td class="do">Type → Send. Tap Speak. Remote device talks back.</td></tr>
+    <tr><td class="t">40–50s</td> <td class="say">"Snapshot the moment, record the call, done — no install, no account."</td>        <td class="do">Snapshot thumbnail saves. Toggle Record. Quick cut HUD ↔ tiles.</td></tr>
+    <tr><td class="t">50–55s</td> <td class="say">"Link below — lifetime updates, works on any two devices with cameras."</td>        <td class="do">Face-cam. Eye contact with lens.</td></tr>
+    <tr><td class="t">55–60s</td> <td class="say">"Call. Command. Control."</td>                                                      <td class="do">Hold still. Tagline + logo freeze. Loop frame.</td></tr>
+  </tbody>
+</table>
+
+<div class="row" style="margin-top: 4mm;">
+  <div>
+    <h2>After Stop</h2>
+    <ul>
+      <li>Watch once, eyes off script</li>
+      <li>Trim to 55s (iMovie / CapCut / DaVinci)</li>
+      <li>Burn in captions — centered below subject</li>
+      <li>Set first frame = strong still visual (split-screen)</li>
+      <li>Export MP4/H.264, &lt; 100 MB</li>
+      <li>Upload · verify autoplay · phone + sound off</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Cheat card</h2>
+<div class="cheat">PRE     2 devices · Chrome · HTTPS
+        same room code · 9:16 · desk clean
+LAUNCH  first words land in first 3s
+DURING  Start cam → Connect → D-pad UP
+        CMD UP · Speak · Snapshot
+AFTER   Stop → trim 55s → captions
+        first frame = thumbnail
+UPLOAD  echo "Call • Command • Control"</div>
+  </div>
+</div>
+
+<div class="footer">Mini Mission Control v1.0.0 · Print A4 · Tape next to shoot rig · Companion to video-teleprompter.html</div>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Mission Control — Etsy 60-sec Teleprompter</title>
+<style>
+  :root {
+    --bg: #0a0e12;
+    --fg: #e8ffe8;
+    --accent: #00ff88;
+    --accent-dim: #00884a;
+    --warn: #ff6b35;
+    --muted: #6b7a85;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 2vh 3vw;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4vw;
+    color: var(--muted);
+    padding-bottom: 1vh;
+    border-bottom: 1px solid #1a2028;
+  }
+  .clock {
+    font-family: 'Courier New', monospace;
+    font-size: 4vw;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .clock.over { color: var(--warn); }
+  .phase-label {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 1.8vw;
+    color: var(--accent-dim);
+  }
+
+  main {
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+    gap: 3vh;
+    align-items: center;
+    padding: 3vh 0;
+  }
+  .say {
+    font-size: 5.5vw;
+    line-height: 1.15;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 2vw;
+  }
+  .say em {
+    color: var(--accent);
+    font-style: normal;
+  }
+  .do {
+    font-size: 2.6vw;
+    line-height: 1.3;
+    text-align: center;
+    color: #a0c0b0;
+    padding: 2vh 4vw;
+    border-top: 1px dashed #1a2028;
+    border-bottom: 1px dashed #1a2028;
+  }
+  .do strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vw;
+    padding-top: 1vh;
+  }
+  .progress {
+    flex: 1;
+    height: 1.2vh;
+    background: #1a2028;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+  .controls {
+    font-size: 1.1vw;
+    color: var(--muted);
+    font-family: 'Courier New', monospace;
+    white-space: nowrap;
+  }
+  .controls kbd {
+    background: #1a2028;
+    border: 1px solid #2a3038;
+    border-radius: 4px;
+    padding: 0.2em 0.6em;
+    color: var(--fg);
+    font-family: inherit;
+  }
+
+  .idle .say { color: var(--muted); }
+  .idle .clock { color: var(--muted); }
+
+  .countdown-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 30vw;
+    font-weight: 900;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+  }
+  .countdown-overlay.show { display: flex; }
+</style>
+</head>
+<body class="idle">
+  <header>
+    <div class="phase-label" id="phase">READY</div>
+    <div class="clock" id="clock">0:00</div>
+    <div class="phase-label">SCRIPT A · 60s</div>
+  </header>
+
+  <main>
+    <div class="say" id="say">Press <span style="color: var(--accent)">Space</span> to start</div>
+    <div class="do" id="do">Pre-flight: laptop + phone both open · same Wi-Fi · Chrome/HTTPS · room code ready · tagline visible</div>
+  </main>
+
+  <footer>
+    <div class="controls">
+      <kbd>Space</kbd> start/pause &nbsp; <kbd>R</kbd> reset &nbsp; <kbd>F</kbd> fullscreen
+    </div>
+    <div class="progress"><div class="progress-fill" id="bar"></div></div>
+    <div class="controls" id="remaining">— : —</div>
+  </footer>
+
+  <div class="countdown-overlay" id="countdown"></div>
+
+<script>
+const SCENES = [
+  { t: 0,  phase: 'HOOK',     say: '"Two devices. One room code. Call, Command, Control — in 60 seconds."', do: 'Split-screen: <strong>laptop</strong> on left, <strong>phone</strong> on right, both on the same page.' },
+  { t: 3,  phase: 'CONTEXT',  say: '"Same room code on both sides — tap Start camera."',                    do: 'Type matching room code. Tap <strong>Start camera</strong> on phone and laptop. Video tiles light up.' },
+  { t: 10, phase: 'DEMO 1',   say: '"Hit Connect — live video, live audio, peer to peer."',                 do: 'Click <strong>Connect</strong>. Two faces appear side by side. HUD overlay shows peer status.' },
+  { t: 20, phase: 'DEMO 2',   say: '"Kid taps UP on the D-pad — laptop receives the command instantly."',   do: 'Phone: press <strong>UP</strong> on D-pad. Laptop caption shows <strong>CMD UP</strong>. Optional micro:bit V2 lights an arrow.' },
+  { t: 30, phase: 'PAYOFF',   say: '"Type a message, press Speak — it reads aloud on the other device."',    do: 'Type in the text box → <strong>Send</strong>. Tap <strong>Speak</strong>. Remote device talks back.' },
+  { t: 40, phase: 'STYLE',    say: '"Snapshot the moment, record the call, done — no install, no account."', do: 'Tap <strong>Snapshot</strong> — thumbnail saves. Toggle <strong>Record</strong>. Quick cut between HUD and video tiles.' },
+  { t: 50, phase: 'CTA',      say: '"Link below — lifetime updates, works on any two devices with cameras."', do: 'Face-cam. <strong>Eye contact with the lens</strong>, not the screen.' },
+  { t: 55, phase: 'END',      say: '"Call. Command. Control."',                                                do: 'Hold still. Tagline + logo overlay freezes. This becomes the <strong>loop frame</strong>.' },
+  { t: 60, phase: 'CUT',      say: 'CUT',                                                                      do: 'Watch playback once. Aim for under 55s. Trim if needed.' },
+];
+
+const clock = document.getElementById('clock');
+const phase = document.getElementById('phase');
+const say = document.getElementById('say');
+const doEl = document.getElementById('do');
+const bar = document.getElementById('bar');
+const remaining = document.getElementById('remaining');
+const countdown = document.getElementById('countdown');
+
+let startTime = null;
+let pausedAt = null;
+let running = false;
+
+function fmt(sec) {
+  const m = Math.floor(Math.abs(sec) / 60);
+  const s = Math.floor(Math.abs(sec) % 60);
+  return `${sec < 0 ? '-' : ''}${m}:${s.toString().padStart(2, '0')}`;
+}
+
+function currentScene(t) {
+  let current = SCENES[0];
+  for (const s of SCENES) { if (t >= s.t) current = s; else break; }
+  return current;
+}
+
+function render(t) {
+  const s = currentScene(t);
+  phase.textContent = s.phase;
+  say.innerHTML = s.say;
+  doEl.innerHTML = s.do;
+  clock.textContent = fmt(t);
+  clock.classList.toggle('over', t > 55);
+  const pct = Math.min(100, (t / 60) * 100);
+  bar.style.width = pct + '%';
+  const rem = 60 - t;
+  remaining.textContent = rem >= 0 ? `${fmt(rem)} left` : `${fmt(rem)} over`;
+}
+
+function tick() {
+  if (!running) return;
+  const t = (performance.now() - startTime) / 1000;
+  render(t);
+  if (t < 65) requestAnimationFrame(tick);
+  else running = false;
+}
+
+async function start() {
+  document.body.classList.remove('idle');
+  // 3-2-1 countdown
+  for (const n of [3, 2, 1]) {
+    countdown.textContent = n;
+    countdown.classList.add('show');
+    await new Promise(r => setTimeout(r, 800));
+  }
+  countdown.classList.remove('show');
+  startTime = performance.now();
+  running = true;
+  tick();
+}
+
+function pause() {
+  if (running) { running = false; pausedAt = performance.now() - startTime; }
+  else if (pausedAt != null) { startTime = performance.now() - pausedAt; running = true; pausedAt = null; tick(); }
+}
+
+function reset() {
+  running = false; startTime = null; pausedAt = null;
+  document.body.classList.add('idle');
+  phase.textContent = 'READY';
+  say.innerHTML = 'Press <span style="color: var(--accent)">Space</span> to start';
+  doEl.textContent = 'Pre-flight: laptop + phone both open · same Wi-Fi · Chrome/HTTPS · room code ready · tagline visible';
+  clock.textContent = '0:00';
+  clock.classList.remove('over');
+  bar.style.width = '0%';
+  remaining.textContent = '— : —';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space') { e.preventDefault(); if (startTime == null) start(); else pause(); }
+  else if (e.key === 'r' || e.key === 'R') reset();
+  else if (e.key === 'f' || e.key === 'F') {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  }
+});
+</script>
+</body>
+</html>
