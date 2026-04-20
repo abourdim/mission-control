@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Mission Control Lesson Plan Template</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@500&family=Tajawal:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4 portrait; margin: 0; }
+  body { width: 210mm; font-family: 'Tajawal', sans-serif; background: #fafaf9; color: #0f172a; line-height: 1.6; font-size: 14px; }
+
+  .page { width: 210mm; min-height: 297mm; padding: 14mm 18mm; position: relative; page-break-after: always; }
+
+  .header { display: flex; align-items: center; gap: 14px; margin-bottom: 8mm; padding-bottom: 6mm; border-bottom: 3px solid #22c55e; }
+  .header-logo { width: 44px; height: 44px; background: #020617; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .header-logo span { font-family: 'Righteous', sans-serif; font-size: 20px; color: #22c55e; }
+  .header-text h1 { font-family: 'Righteous', sans-serif; font-size: 24px; color: #020617; }
+  .header-text span { font-size: 12px; color: #64748b; }
+
+  .field { margin-bottom: 5mm; }
+  .field-row { display: flex; gap: 10px; margin-bottom: 5mm; }
+  .field-row .field { flex: 1; margin-bottom: 0; }
+  label { font-weight: 700; font-size: 12px; color: #374151; text-transform: uppercase; letter-spacing: .5px; display: block; margin-bottom: 2px; }
+  .input {
+    width: 100%; border: 1px solid #d1d5db; border-radius: 8px;
+    padding: 8px 12px; font-size: 14px; min-height: 32px; background: #fff;
+    font-family: 'Tajawal', sans-serif; color: #1e293b;
+  }
+  .input-tall { min-height: 60px; }
+  .input-xl { min-height: 100px; }
+
+  .section {
+    font-family: 'Righteous', sans-serif; font-size: 16px; color: #fff;
+    background: #020617; padding: 6px 14px; border-radius: 8px;
+    margin: 6mm 0 4mm; display: flex; align-items: center; gap: 8px;
+  }
+  .section .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+
+  .checklist { list-style: none; margin: 3mm 0; }
+  .checklist li {
+    display: flex; align-items: center; gap: 8px; padding: 4px 0;
+    border-bottom: 1px dashed #e5e7eb;
+  }
+  .checklist li::before {
+    content: ''; width: 16px; height: 16px; border: 2px solid #22c55e;
+    border-radius: 4px; flex-shrink: 0;
+  }
+
+  .timeline { margin: 3mm 0; }
+  .trow { display: flex; border-bottom: 1px solid #e5e7eb; }
+  .trow.thead { font-weight: 700; font-size: 11px; text-transform: uppercase; color: #64748b; background: #f1f5f9; border-radius: 6px 6px 0 0; }
+  .trow div { padding: 6px 10px; }
+  .tcol-time { width: 20%; }
+  .tcol-act { width: 40%; }
+  .tcol-tool { width: 20%; }
+  .tcol-notes { width: 20%; }
+
+  .callout {
+    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px;
+    padding: 10px 16px; margin: 4mm 0;
+  }
+  .callout h4 { font-size: 13px; color: #166534; margin-bottom: 4px; }
+  .callout ul { margin: 0; padding-left: 20px; font-size: 12px; color: #374151; }
+  .callout li { margin: 2px 0; }
+
+  .footer { position: absolute; bottom: 10mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; border-top: 1px solid #e5e7eb; padding-top: 4px; }
+
+  .sample { color: #94a3b8; font-style: italic; font-size: 13px; }
+
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; }
+  .pg { background: #dcfce7; color: #166534; }
+  .pb { background: #cffafe; color: #155e75; }
+  .py { background: #fef3c7; color: #92400e; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Template -->
+<div class="page">
+  <div class="header">
+    <div class="header-logo"><span>MC</span></div>
+    <div class="header-text">
+      <h1>Mini Mission Control Lesson Plan</h1>
+      <span>45-Minute STEM / Communication Lesson Planner &bull; v1.0.0</span>
+    </div>
+  </div>
+
+  <div class="field-row">
+    <div class="field"><label>Lesson Title</label><div class="input"></div></div>
+    <div class="field" style="width:30%;flex:none;"><label>Date</label><div class="input"></div></div>
+  </div>
+  <div class="field-row">
+    <div class="field"><label>Teacher</label><div class="input"></div></div>
+    <div class="field"><label>Grade / Age Group</label><div class="input"></div></div>
+    <div class="field"><label>Subject</label><div class="input"></div></div>
+  </div>
+
+  <div class="section"><div class="dot"></div> Learning Objectives</div>
+  <div class="field"><label>By the end of this lesson, students will be able to:</label><div class="input input-tall"></div></div>
+
+  <div class="section"><div class="dot"></div> Materials &amp; Setup</div>
+  <ul class="checklist">
+    <li>Two devices with browsers (Chrome recommended), camera + mic on each</li>
+    <li>Mini Mission Control opened on both devices (live URL or local copy)</li>
+    <li>Agreed-upon room code for the class (e.g. <code>lab-7</code>)</li>
+    <li>Optional: BBC micro:bit V2 with BLE UART firmware for the D-pad bridge</li>
+    <li>HTTPS required if using the micro:bit bridge</li>
+    <li>Printed Quick-Start Card &amp; Quick Reference Card</li>
+    <li>Space where two devices can be placed apart (so mics don't feedback)</li>
+  </ul>
+
+  <div class="section"><div class="dot"></div> Lesson Timeline (45 min)</div>
+  <div class="timeline">
+    <div class="trow thead">
+      <div class="tcol-time">Time</div>
+      <div class="tcol-act">Activity</div>
+      <div class="tcol-tool">Feature</div>
+      <div class="tcol-notes">Notes</div>
+    </div>
+    <div class="trow"><div class="tcol-time"></div><div class="tcol-act"></div><div class="tcol-tool"></div><div class="tcol-notes"></div></div>
+    <div class="trow"><div class="tcol-time"></div><div class="tcol-act"></div><div class="tcol-tool"></div><div class="tcol-notes"></div></div>
+    <div class="trow"><div class="tcol-time"></div><div class="tcol-act"></div><div class="tcol-tool"></div><div class="tcol-notes"></div></div>
+    <div class="trow"><div class="tcol-time"></div><div class="tcol-act"></div><div class="tcol-tool"></div><div class="tcol-notes"></div></div>
+    <div class="trow"><div class="tcol-time"></div><div class="tcol-act"></div><div class="tcol-tool"></div><div class="tcol-notes"></div></div>
+    <div class="trow"><div class="tcol-time"></div><div class="tcol-act"></div><div class="tcol-tool"></div><div class="tcol-notes"></div></div>
+    <div class="trow"><div class="tcol-time"></div><div class="tcol-act"></div><div class="tcol-tool"></div><div class="tcol-notes"></div></div>
+  </div>
+
+  <div class="section"><div class="dot"></div> Wrap-up</div>
+  <ul class="checklist">
+    <li>Disconnect both devices</li>
+    <li>Run the cache cleaner between groups</li>
+    <li>Students share one thing they learned about peer-to-peer</li>
+    <li>Exit-ticket question</li>
+  </ul>
+
+  <div class="section"><div class="dot"></div> Reflection &amp; Notes</div>
+  <div class="field"><div class="input input-xl"></div></div>
+
+  <div class="footer">
+    <span>Mini Mission Control Lesson Plan &bull; Editable &bull; Print or fill digitally</span>
+    <span>v1.0.0</span>
+  </div>
+</div>
+
+<!-- PAGE 2: Sample lesson -->
+<div class="page">
+  <div class="header">
+    <div class="header-logo"><span>MC</span></div>
+    <div class="header-text">
+      <h1>Sample Lesson: Pair, Command, Explore!</h1>
+      <span>Ready-to-teach 45-minute example</span>
+    </div>
+  </div>
+
+  <div class="field-row">
+    <div class="field"><label>Lesson Title</label><div class="input"><span class="sample">Pair, Command, Explore! &mdash; A Peer-to-Peer Adventure</span></div></div>
+    <div class="field" style="width:30%;flex:none;"><label>Duration</label><div class="input"><span class="sample">45 minutes</span></div></div>
+  </div>
+  <div class="field-row">
+    <div class="field"><label>Grade / Age Group</label><div class="input"><span class="sample">Ages 8&ndash;14</span></div></div>
+    <div class="field"><label>Subject</label><div class="input"><span class="sample">STEM / Digital Communication</span></div></div>
+  </div>
+
+  <div class="section"><div class="dot"></div> Learning Objectives</div>
+  <div class="field"><div class="input input-tall"><span class="sample">1. Pair two devices using a shared room code.<br>2. Hold a peer-to-peer video + audio call.<br>3. Send D-pad commands and text messages across the channel.<br>4. Explain, in their own words, what "peer-to-peer" means.</span></div></div>
+
+  <div class="section"><div class="dot"></div> Lesson Timeline</div>
+  <div class="timeline">
+    <div class="trow thead">
+      <div class="tcol-time">Time</div>
+      <div class="tcol-act">Activity</div>
+      <div class="tcol-tool">Feature</div>
+      <div class="tcol-notes">Notes</div>
+    </div>
+    <div class="trow"><div class="tcol-time"><span class="sample">0&ndash;5</span></div><div class="tcol-act"><span class="sample">Intro: "FaceTime + Game Controller + walkie-talkie"</span></div><div class="tcol-tool"><span class="sample">Talk only</span></div><div class="tcol-notes"><span class="sample">Set the analogy</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">5&ndash;15</span></div><div class="tcol-act"><span class="sample">Pairing ritual: room code &rarr; Start camera &rarr; Connect</span></div><div class="tcol-tool"><span class="sample">Room code + 🎥 + ✅</span></div><div class="tcol-notes"><span class="sample">Celebrate each pair that connects</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">15&ndash;30</span></div><div class="tcol-act"><span class="sample">D-pad control challenge &mdash; one student commands, the other reads the log</span></div><div class="tcol-tool"><span class="sample">D-pad + Log panel</span></div><div class="tcol-notes"><span class="sample">Optional: micro:bit V2 bridge</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">30&ndash;40</span></div><div class="tcol-act"><span class="sample">Text + TTS challenge: send 3 messages, make the remote device speak</span></div><div class="tcol-tool"><span class="sample">Text + Speak / Remote speak</span></div><div class="tcol-notes"><span class="sample">Enter to send</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">40&ndash;45</span></div><div class="tcol-act"><span class="sample">Reflection: what does peer-to-peer mean? What did the room code do?</span></div><div class="tcol-tool"><span class="sample">&mdash;</span></div><div class="tcol-notes"><span class="sample">Exit ticket</span></div></div>
+  </div>
+
+  <div class="callout">
+    <h4>Mission Control features used in this lesson</h4>
+    <ul>
+      <li><span class="pill pg">Room-Code Pairing</span> both devices type the same code to find each other</li>
+      <li><span class="pill pb">P2P Video + Audio</span> PeerJS direct connection &mdash; no central server</li>
+      <li><span class="pill py">D-pad</span> UP / DOWN / LEFT / RIGHT / STOP sent peer-to-peer</li>
+      <li><span class="pill pg">Text + TTS</span> chat, local Speak, Remote speak over the data channel</li>
+      <li><span class="pill pb">Optional micro:bit bridge</span> D-pad forwards to a BBC micro:bit V2 via BLE UART</li>
+    </ul>
+  </div>
+
+  <div class="section"><div class="dot"></div> Assessment Rubric</div>
+  <div class="timeline">
+    <div class="trow thead">
+      <div class="tcol-time">Criteria</div>
+      <div class="tcol-act">Excellent (3)</div>
+      <div class="tcol-tool">Good (2)</div>
+      <div class="tcol-notes">Needs Work (1)</div>
+    </div>
+    <div class="trow"><div class="tcol-time"><span class="sample">Pairing</span></div><div class="tcol-act"><span class="sample">Paired independently</span></div><div class="tcol-tool"><span class="sample">With 1 hint</span></div><div class="tcol-notes"><span class="sample">Needed help</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">D-pad use</span></div><div class="tcol-act"><span class="sample">Sent all 5 commands cleanly</span></div><div class="tcol-tool"><span class="sample">3&ndash;4 commands</span></div><div class="tcol-notes"><span class="sample">&lt; 3 commands</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">Text + TTS</span></div><div class="tcol-act"><span class="sample">Used both Speak and Remote speak</span></div><div class="tcol-tool"><span class="sample">Used one</span></div><div class="tcol-notes"><span class="sample">Only text</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">Reflection</span></div><div class="tcol-act"><span class="sample">Explained peer-to-peer clearly</span></div><div class="tcol-tool"><span class="sample">Partially</span></div><div class="tcol-notes"><span class="sample">Unclear</span></div></div>
+  </div>
+
+  <div class="footer">
+    <span>Mini Mission Control &bull; Sample lesson &mdash; adapt it for your classroom!</span>
+    <span>v1.0.0</span>
+  </div>
+</div>
+
+<!-- QR-BLOCK-START -->
+<div style="position:fixed;right:12mm;bottom:12mm;display:flex;gap:8mm;align-items:center;
+  background:rgba(10,14,18,0.92);color:#e8ffe8;padding:4mm 5mm;border-radius:3mm;
+  box-shadow:0 2mm 6mm rgba(0,0,0,0.35);font-family:-apple-system,Segoe UI,sans-serif;
+  max-width:80mm;z-index:9999;">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAklEQVR4AewaftIAABEQSURBVO3BQQplwQEkxsyi73/ltAxeaqAL9PDvqYjo/iMAwFNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ7zJ5fahv+dbbnRNje25W+1zUu25Ze0zY1t+UrbfGlbfknb3NiWL7XNjW35V7UN/zvb8rdOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ7zJx/blpe0zS9pm69sy422+dK2/JK2ubEtN9rmxrb8rW250Ta/pG1+Sdt8qW2+si2/ZFte0jZfOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zp/8mLb5JdvyL9uWv9U2/P+nbW5sy4224X+jbW5syy9pm7/VNje25Ze0zS/Zll9xAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcP+Gfsi1f2ZYbbXNjW77UNje25Uvb8qW2ubEtf6ttbmzLjba5sS1f2pYvtc2XtuXGtvyttuH/TicAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAz/kT/ilt869qmy9ty422+dK23GibX7EtN9rmxrZ8aVtutM2NbfklbfOVbeH/TicAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAz/mTH7Mt/J9ty422+Vvb8kva5kbb3NiWX7ItX2qbv7UtX2qbG9vC/862/K22ubEtv2Rb+O9OAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ7zJx9rG/532ubGtvyttrmxLTfa5sa23GibL7XNjW250TY3tuVftS032ubGtvzLtuVG27yibfjfOAEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4Tvcf4f9abfO3tuVG23xpW17SNje25Ve0zY1t+VLb/JJt+SVt87e2hf87nQAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA8p/uPXGibG9vypbbh/2xb/lbb3NiWL7XNL9mWG21zY1v479rmxrbcaJt/2bb8ira5sS1fapsb23KjbX7JtvytEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDndP+RH9I2/7JtudE2N7blRtv8rW250Ta/ZFtutM2NbflS2/yKbflS29zYlhtt80u25Utt85Vt+SVt86VtecUJAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOX/ysba5sS1fapsb23KjbW5sy4224b9rm1/SNje25Utt87fa5iXbcqNt/mXb8q/alhtt86W2ubEtv+IEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4Dl/cqltbmzLjbb5l23LL9mWX7Et/7K2+SVtc2NbvtI2N7blS9tyo22+1DZf2pYbbfOKbbnRNje25Uttc2Nb/tYJAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHO6/8iH2uZfti032uZftS3/srb5Jdvypba5sS2/om1ubMsvaZsvbcuvaJsb23Kjbb60Lfx3JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP+ZNLbXNjW260zb9sW260zY1t+UrbfGlbbrTNL9mWG21zY1u+1DZf2ZZf0jYvaZsb2/K3tuVG2/yStrmxLV9qmy9ty986AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHhO9x/5UNvc2JYvtc1LtuUrbfNLtuVG2/ySbbnRNr9iW35J2/ySbfklbfOKbfklbfOlbflbJwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP+ZOPbcsv2ZZf0jY3tuVftS1faptfsi032ubGttxom7+1LTfa5sa2fGlbbrTNjW250TY3tuVG23xlW260zY1t+VLb8N+dAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznTy61zZe25UbbfGlbbrTNjW35Utv8rW35Utvc2JYb23KjbW5sC/8bbXNjW260zY1tudE2N7blS9tyo21esS38dycAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAz/mTf9y2/JJtudE2N7blK21zY1u+1DY3tuXGtnypbb7UNv+qbbnRNje25V/WNr+ibf5lbfNLtuVXnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA8508ubcsvaZt/2bbcaJuvbMuNtvklbXNjW260zb9sW35F29zYFvh/tc2XtuVG23ypbW5sy986AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOn1xqmxvbcqNtvrQt/7Jt+Urb3NiWf1nbfGlbfknb/K1t+dK2fKltbmzLjW250TY3tuVf1TZf2pYbbfNL2uZXnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA8p/uPXGibG9vypbb50rbcaJsb23Kjbf5V2/JL2uZL23Kjbb60Lb+ibW5sy5fa5sa2fKltbmzLjbb5W9vypbb50rZ8qW1ubMuvOAEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADyn+49caJsvbcuX2ubGtvC/0TY3tuVG29zYlhtt86VtudE2N7blV7TNjW250Ta/ZFu+1Da/Ylu+1DZf2pYbbXNjW37FCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBz/uRj23KjbW5sy41tudE2/Hfb8qW2+VLb3NiWG21zo21ubMtX2uZfti032uYl2/K32uZLbfOlbbnRNq84AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHhO9x/5IW3zS7bll7TNV7blRtt8aVu+1Da/ZFtutM2NbflK29zYll/SNje25Utt86/all/SNl/alhtt86Vt+VsnAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM/5k0ttc2NbvrQtN9rmS23zpW35Stv8krb5JdvyL2ubv7UtN7blS21zY1tubMuNtrmxLTe25Ve0zZfa5kvbcqNtvrQtN9rmKycAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAz+n+Ix9qmy9ty7+sbb60LX+rbW5sy422ecm23GibG9vylba5sS032ubGtnypbV6yLX+rbV6yLTfa5sa23GibG9vyt04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnvMnP2ZbvtQ2N7blRtt8aVt+Rdv8km250TY3tuVG23ypbf5V23Kjbf5l23KjbW5sy422+cq23GibG9vypba5sS3/qhMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA5/zJpba5sS1fapsvtc2NbflXbctLtuVL23KjbW5sy7+qbW5sy5fa5sa2fGlbfsW2/Mva5kttc2NbfsUJAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHO6/8g/rG1ubMuX2ubGtnypbf5V23Kjbb60Lf+ytvkV23Kjbf5l2/JL2uZvbctL2ubGttxomxvb8pUTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOf8yaW2ubEtN9rmxrbcaJsvbQv/3bbcaJsb2/Iva5sb2/KVbfkl23KjbW5sy422+SVtc2Nb/lbb3NiWX9I2N7blRtvc2JZfcQIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnD/5WNt8qW1ubMuX2uZftS032uaXtM2NbflS29zYll/RNje25Ubb3NiWL7XNl9rmS9tyo23+1rbcaJsb2/KlbfmXtc2NbflbJwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP+ZMfsy032uaXbMuX2uZf1TY3tuVG23ypbW5syy/Zlq+0zY1t+SXbwv/GttxomxvbcqNtbmzLl9rmV5wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCe8yc/pm3+ZW3zpW35Stt8aVv+Zdtyo21ubMuX2uZvbcuNbbnRNl/alhtt80u25Uvb8rfa5pe0Df8bJwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP+ZNL28L/2bZ8qW1ubMtXtuVG23xpW260zb+sbW5sy99qmxvb8qVtudE2N7blRtvc2JYbbXNjW37FtvyStvkl2/IrTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCe8yeX2ob/nW35V7XNjW250TY32ubGttxomxvb8qVt4d/QNr+kbX5F29zYln9Z29zYlq+cAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznTz62LS9pm1/SNn9rW260zY22+dK2fGlbvtQ2X9qWv7Ut/7Jt+SXbcqNtvrQtf6ttvrQtv6RtbmzLjbb5FScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAz/mTH9M2v2RbXtE2L2mbG9tyo21ubMuNtvlK27ykbW5sy5e25Utt85W2+Zdty5e25VecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznT+D/sy3/sra5sS1f2pYbbXNjW37Fttxomxttc2NbbmzLjbb5JdvyK7blS21zY1v+ZW1zY1v+1gkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc/6Ef8q23Gibv9U2N7blRtvc2JYvtc2XtuVLbfMr2ubGtnypbfg/25avtM2NbflS2/ySbfkVJwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP+ZMfsy38/2NbvrQtN9rmS9vyS7blRtvc2JavtM2NtrmxLTe25Uttc2Nb+N/Ylhttc2NbbrTNv+oEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4Dl/8rG24X+nbf5VbfOlbfklbcN/ty032uaXbMuNtrmxLV9qm69sy422ubEtv2RbvrQtXzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeE73HwEAnnICADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zv8DkYjeEv0sPXwAAAAASUVORK5CYII=" alt="QR code — scan to open live demo" style="width:24mm;height:24mm;background:#fff;padding:1mm;border-radius:1.5mm;display:block;"/>
+  <div style="display:flex;flex-direction:column;gap:1mm;min-width:0;">
+    <div style="font-weight:700;font-size:9pt;color:#00ff88;line-height:1.2;">Try before you teach</div>
+    <div style="font-size:7pt;opacity:0.75;line-height:1.3;word-break:break-all;">abourdim.github.io/mission-control/</div>
+  </div>
+</div>
+<!-- QR-BLOCK-END -->
+</body>
+</html>

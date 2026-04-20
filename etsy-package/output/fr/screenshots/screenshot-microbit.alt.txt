@@ -1,1 +1,1 @@
-Mini Mission Control — microbit
+Mini Mission Control — — Other device · Virtual buttons (no physical gamepad). Press/hold to send commands to the other device. · 🧭 D‑pad · ✉️ Send text · Open this page on two devices, enter the sam

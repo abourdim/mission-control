@@ -1,0 +1,1 @@
+Page d'accueil pour les acheteurs de Mini Mission Control. Une page A4 qui accueille les nouveaux acheteurs et les guide à travers les trois premières choses à faire : flasher le firmware, ouvrir l'application dans Chrome ou Edge, et jouer. Inclut un aperçu animé en direct en haut, montrant l'application qui passe par les quatre thèmes.

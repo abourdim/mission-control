@@ -1,0 +1,95 @@
+{
+  "teacher": {
+    "hero_titles": [
+      "Chaque capteur, en direct dans le navigateur",
+      "Mini Mission Control pour les salles sans 30 ordinateurs neufs",
+      "STEM sans installation, compatible Wi-Fi d'école",
+      "Enseignez le capteur, pas l'installation",
+      "Le panneau micro:bit que votre DSI ne va pas bloquer"
+    ],
+    "subtitles": [
+      "Chrome / Edge · zéro installation · 30 Chromebooks en 60 sec",
+      "Appairez une fois, streamez toujours · export CSV pour chaque leçon",
+      "Conçu pour les salles de STEM · licence école disponible",
+      "Mises à jour à vie · firmware ouvert · fonctionne hors ligne",
+      "Capteurs réels, graphiques en direct, CSV prêts pour l'analyse"
+    ],
+    "social_captions": [
+      "Un onglet de navigateur a transformé mon micro:bit en labo de données. Les élèves ont mené une expérience de 20 minutes sans rien installer. 🔬",
+      "Si vous avez déjà vu 30 Chromebooks bloqués sur une install Python, voici l'alternative.",
+      "Un achat Etsy. Zéro ticket DSI. Trente élèves qui tracent des données d'accéléromètre en direct."
+    ],
+    "pin_captions": [
+      "Profs de STEM — à voir absolument",
+      "Panneau micro:bit dans le navigateur (sans install)",
+      "Transformez 30 Chromebooks en stations de data science"
+    ],
+    "email_subjects": [
+      "30 élèves. 60 secondes. Données en direct.",
+      "Le panneau micro:bit qui tourne sur tout ce qui a un navigateur",
+      "Arrêtez d'installer Python sur vos Chromebooks"
+    ]
+  },
+  "kid": {
+    "hero_titles": [
+      "Ton micro:bit\ndevient un terrain de jeu",
+      "Commande des robots avec du code\n(et un onglet)",
+      "Fais bouger\nton micro:bit depuis l'écran",
+      "Dessine. Détecte. Bouge.\nTout sur une page.",
+      "Mini Mission Control : transforme un micro:bit en jeu"
+    ],
+    "subtitles": [
+      "Capteurs, D-pad, modèles 3D. Sans install. Sans compte.",
+      "Fonctionne hors ligne après la première ouverture.",
+      "Dessine sur les LEDs. Écoute le buzzer. Incline le modèle 3D.",
+      "8 onglets à explorer. Tes parents n'y comprendront rien.",
+      "Code-le, envoie-le, regarde-le se passer."
+    ],
+    "social_captions": [
+      "J'ai dessiné un cœur à la souris et les LEDs de mon micro:bit se sont allumées. ❤️",
+      "Incline la carte réelle → la 3D s'incline aussi. C'est de la magie. ✨",
+      "Zéro install. Juste un onglet qui marche. 🎮"
+    ],
+    "pin_captions": [
+      "Bidouille ton micro:bit avec un navigateur",
+      "3D + LEDs + moteurs, tout sur un onglet",
+      "Une boîte à jouets pour ton micro:bit"
+    ],
+    "email_subjects": [
+      "Incline ton micro:bit, son jumeau suit",
+      "Un onglet. Toutes les 8 fonctions.",
+      "Dessine un cœur, fais-le briller."
+    ]
+  },
+  "maker": {
+    "hero_titles": [
+      "Panneau BLE\npour makers",
+      "Mini Mission Control : bidouille le micro:bit\ndepuis le navigateur",
+      "Du Web Bluetooth\nqui fonctionne vraiment",
+      "Firmware MakeCode +\ntableau de bord navigateur",
+      "Surface de contrôle BLE\ncompatible open source"
+    ],
+    "subtitles": [
+      "Moteurs en direct · miroir 3D · export CSV · firmware ouvert",
+      "Compatible MakeCode. Hackable. Sans verrou propriétaire.",
+      "Graphique WebRTC · modèles Three.js · source makecode.ts inclus",
+      "Web Bluetooth, UI navigateur hackable, licence MIT.",
+      "Tu expédies ton propre BLE ? Fork et construis par-dessus."
+    ],
+    "social_captions": [
+      "Web Bluetooth est prêt pour la prod. Preuve par l'exemple. 📡",
+      "Navigateur → BLE → micro:bit → retour. 5 ms aller-retour. Sans install.",
+      "Licence MIT, hackable, déployable. Utilise-le comme base pour ton propre device BLE."
+    ],
+    "pin_captions": [
+      "Web Bluetooth, bien fait",
+      "Template de dashboard BLE (hackable)",
+      "Firmware MakeCode + UI navigateur"
+    ],
+    "email_subjects": [
+      "Du Web Bluetooth qui survit à la prod",
+      "Le template BLE que j'aurais voulu avoir il y a 2 ans",
+      "Fork · build par-dessus · expédie"
+    ]
+  }
+}

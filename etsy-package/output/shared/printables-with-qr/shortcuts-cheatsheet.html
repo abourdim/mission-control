@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Mission Control — Quick Reference Card</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@500&family=Tajawal:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4 landscape; margin: 0; }
+  body { width: 297mm; height: 210mm; font-family: 'Tajawal', sans-serif; background: #020617; color: #cbd5e1; overflow: hidden; }
+
+  .page { width: 297mm; height: 210mm; padding: 10mm 14mm; position: relative; overflow: hidden; }
+  .page::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(34,197,94,.012) 3px, rgba(34,197,94,.012) 6px);
+    pointer-events: none;
+  }
+
+  .header { text-align: center; margin-bottom: 6mm; }
+  .header h1 { font-family: 'Righteous', sans-serif; font-size: 32px; color: #22c55e; display: inline; }
+  .header span { font-size: 16px; color: #64748b; margin-left: 12px; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+  .group { margin-bottom: 6px; }
+  .group-title {
+    font-family: 'Righteous', sans-serif; font-size: 14px; color: #22d3ee;
+    padding: 4px 10px; background: rgba(34,211,238,.06); border-radius: 8px;
+    border-left: 3px solid #22d3ee; margin-bottom: 4px;
+  }
+
+  .row {
+    display: flex; align-items: center; gap: 8px; padding: 4px 8px;
+    border-radius: 6px;
+  }
+  .row:nth-child(even) { background: rgba(34,197,94,.02); }
+
+  kbd {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 30px; height: 26px; padding: 0 8px;
+    background: rgba(0,0,0,.6); border: 1px solid rgba(34,197,94,.3);
+    border-radius: 6px; font-family: 'Orbitron', monospace; font-size: 11px;
+    color: #22c55e; box-shadow: 0 2px 4px rgba(0,0,0,.4);
+    white-space: nowrap;
+  }
+  .label { font-size: 12px; color: #94a3b8; flex: 1; }
+
+  .footer {
+    position: absolute; bottom: 8mm; left: 14mm; right: 14mm;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(34,197,94,.1); padding-top: 4px;
+  }
+  .footer span { font-size: 10px; color: #64748b; }
+  .footer .brand { font-family: 'Orbitron', monospace; font-size: 11px; color: #22c55e; }
+
+  .laminate-tip {
+    position: absolute; top: 10mm; right: 14mm;
+    font-size: 9px; color: #64748b; background: rgba(34,197,94,.05);
+    border: 1px solid rgba(34,197,94,.12); border-radius: 8px; padding: 3px 10px;
+  }
+
+  .ble-row { display: flex; align-items: center; gap: 8px; padding: 4px 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .d-green { background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,.6); }
+  .d-amber { background: #fbbf24; box-shadow: 0 0 8px rgba(251,191,36,.6); }
+  .d-red { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,.6); }
+  .d-blue { background: #22d3ee; box-shadow: 0 0 8px rgba(34,211,238,.6); }
+  .d-gray { background: #475569; }
+
+  .dpad { display: grid; grid-template-columns: repeat(3, 28px); grid-template-rows: repeat(3, 28px); gap: 3px; justify-content: center; margin: 2px auto 4px; }
+  .dpad div { background: rgba(0,0,0,.5); border: 1px solid rgba(34,197,94,.3); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #22c55e; font-family: 'Orbitron', monospace; }
+  .dpad .empty { visibility: hidden; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>Mini Mission Control Quick Reference</h1>
+    <span>Card &mdash; Laminate Me!</span>
+  </div>
+  <div class="laminate-tip">Print &rarr; Laminate &rarr; Stick near your call rig</div>
+
+  <div class="cols">
+
+    <!-- Column 1 -->
+    <div>
+      <div class="group">
+        <div class="group-title">Keyboard Shortcuts (only 2!)</div>
+        <div class="row"><kbd>Enter</kbd><span class="label">Send the typed text message</span></div>
+        <div class="row"><kbd>Esc</kbd><span class="label">Close the firmware modal</span></div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">D-pad Controller</div>
+        <div class="dpad">
+          <div class="empty"></div><div>⬆</div><div class="empty"></div>
+          <div>⬅</div><div>■</div><div>➡</div>
+          <div class="empty"></div><div>⬇</div><div class="empty"></div>
+        </div>
+        <div class="row"><kbd>⬆ UP</kbd><span class="label">Sent peer-to-peer (forward)</span></div>
+        <div class="row"><kbd>⬇ DOWN</kbd><span class="label">Sent peer-to-peer (backward)</span></div>
+        <div class="row"><kbd>⬅ LEFT</kbd><span class="label">Sent peer-to-peer (turn left)</span></div>
+        <div class="row"><kbd>➡ RIGHT</kbd><span class="label">Sent peer-to-peer (turn right)</span></div>
+        <div class="row"><kbd>■ STOP</kbd><span class="label">Halt &mdash; sent peer-to-peer</span></div>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div>
+      <div class="group">
+        <div class="group-title">Room-Code Rules</div>
+        <div class="row"><span class="label">✅ <strong style="color:#22c55e;">Both devices must type the same room code.</strong></span></div>
+        <div class="row"><span class="label">Short words work: <strong style="color:#22d3ee;">pizza</strong>, <strong style="color:#22d3ee;">alpha-42</strong>, <strong style="color:#22d3ee;">lab-7</strong>.</span></div>
+        <div class="row"><span class="label">Same room code = same pairing channel.</span></div>
+        <div class="row"><span class="label">One side becomes <strong style="color:#22c55e;">host</strong>, the other <strong style="color:#22d3ee;">guest</strong>.</span></div>
+        <div class="row"><span class="label">Change the code to make a fresh room.</span></div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Text + Voice</div>
+        <div class="row"><span style="font-size:14px;">💬</span><span class="label">Type in the text box, press <kbd>Enter</kbd> to send</span></div>
+        <div class="row"><span style="font-size:14px;">🗣️</span><span class="label"><strong style="color:#22c55e;">Speak</strong> &mdash; local text-to-speech</span></div>
+        <div class="row"><span style="font-size:14px;">📢</span><span class="label"><strong style="color:#22d3ee;">Remote speak</strong> &mdash; speak on the other side</span></div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Video Controls</div>
+        <div class="row"><span style="font-size:14px;">🔄</span><span class="label">Camera switch (front / back)</span></div>
+        <div class="row"><span style="font-size:14px;">🎙️</span><span class="label">Mic mute</span></div>
+        <div class="row"><span style="font-size:14px;">🪞</span><span class="label">Mirror self / mirror remote</span></div>
+        <div class="row"><span style="font-size:14px;">⛶</span><span class="label">Remote fullscreen</span></div>
+      </div>
+    </div>
+
+    <!-- Column 3 -->
+    <div>
+      <div class="group">
+        <div class="group-title">Connection State Cheat Sheet</div>
+        <div class="ble-row"><span class="dot d-gray"></span><span class="label"><strong style="color:#cbd5e1;">Idle</strong> &mdash; type a room code &amp; press Connect</span></div>
+        <div class="ble-row"><span class="dot d-amber"></span><span class="label"><strong style="color:#fbbf24;">Pairing</strong> &mdash; waiting for the other device</span></div>
+        <div class="ble-row"><span class="dot d-green"></span><span class="label"><strong style="color:#22c55e;">Connected</strong> &mdash; video + audio live</span></div>
+        <div class="ble-row"><span class="dot d-blue"></span><span class="label"><strong style="color:#22d3ee;">micro:bit linked</strong> &mdash; BLE bridge active</span></div>
+        <div class="ble-row"><span class="dot d-red"></span><span class="label"><strong style="color:#ef4444;">Error</strong> &mdash; check camera/mic &amp; room code</span></div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Capture &amp; HUD</div>
+        <div class="row"><span style="font-size:14px;">📸</span><span class="label">Snapshot &mdash; saves a PNG</span></div>
+        <div class="row"><span style="font-size:14px;">⏺</span><span class="label">Record &mdash; saves a WebM video</span></div>
+        <div class="row"><span style="font-size:14px;">🛰️</span><span class="label">HUD overlay &mdash; status info on top</span></div>
+        <div class="row"><span style="font-size:14px;">📋</span><span class="label">Log panel &mdash; what happened &amp; when</span></div>
+        <div class="row"><span style="font-size:14px;">🧹</span><span class="label">Cache cleaner &mdash; wipe stored state</span></div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Troubleshooting Quick Hits</div>
+        <div class="row" style="flex-direction:column;align-items:start;">
+          <span class="label" style="color:#22d3ee;"><strong>Stuck on pairing?</strong> Check the room code matches <em>exactly</em> on both devices.</span>
+          <span class="label" style="color:#22d3ee;"><strong>Black self-view?</strong> Re-grant camera &amp; mic permissions in Chrome.</span>
+          <span class="label" style="color:#22d3ee;"><strong>micro:bit won't pair?</strong> Needs HTTPS &amp; a BBC micro:bit V2 with BLE UART firmware.</span>
+          <span class="label" style="color:#64748b;font-size:11px;">Live connection required &mdash; this is not an offline app.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>Mini Mission Control v1.0.0 &bull; Print on A4 landscape, laminate, love.</span>
+    <span class="brand">Call &bull; Command &bull; Control</span>
+  </div>
+
+</div>
+<!-- QR-BLOCK-START -->
+<div style="position:fixed;right:12mm;bottom:12mm;display:flex;gap:8mm;align-items:center;
+  background:rgba(10,14,18,0.92);color:#e8ffe8;padding:4mm 5mm;border-radius:3mm;
+  box-shadow:0 2mm 6mm rgba(0,0,0,0.35);font-family:-apple-system,Segoe UI,sans-serif;
+  max-width:80mm;z-index:9999;">
+  <img src="data:image/png;base64,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" alt="QR code — scan to open live demo" style="width:24mm;height:24mm;background:#fff;padding:1mm;border-radius:1.5mm;display:block;"/>
+  <div style="display:flex;flex-direction:column;gap:1mm;min-width:0;">
+    <div style="font-weight:700;font-size:9pt;color:#00ff88;line-height:1.2;">Open on your computer</div>
+    <div style="font-size:7pt;opacity:0.75;line-height:1.3;word-break:break-all;">abourdim.github.io/mission-control/</div>
+  </div>
+</div>
+<!-- QR-BLOCK-END -->
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Mission Control Quick-Start Card</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@500&family=Tajawal:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4 portrait; margin: 0; }
+  body { width: 210mm; height: 297mm; font-family: 'Tajawal', sans-serif; background: #020617; color: #cbd5e1; overflow: hidden; }
+
+  .page { width: 210mm; height: 297mm; padding: 14mm 16mm; position: relative; overflow: hidden; }
+  .page::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(34,197,94,.015) 3px, rgba(34,197,94,.015) 6px);
+    pointer-events: none;
+  }
+
+  .header { text-align: center; margin-bottom: 10mm; position: relative; }
+  .header h1 { font-family: 'Righteous', sans-serif; font-size: 42px; color: #22c55e; letter-spacing: 2px; }
+  .header .sub { font-size: 16px; color: #94a3b8; margin-top: 2px; }
+  .header .tagline { font-size: 13px; color: #64748b; margin-top: 4px; }
+  .header .line { width: 80%; height: 2px; background: linear-gradient(90deg, transparent, rgba(34,197,94,.35), transparent); margin: 8px auto 0; }
+
+  .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8mm; }
+  .step {
+    background: rgba(15,23,42,.6); border: 1px solid rgba(34,197,94,.14);
+    border-radius: 14px; padding: 16px 18px; position: relative;
+  }
+  .step-num {
+    position: absolute; top: -10px; left: 14px;
+    width: 28px; height: 28px; background: #22c55e; color: #020617;
+    border-radius: 50%; font-family: 'Orbitron', monospace; font-size: 13px;
+    display: flex; align-items: center; justify-content: center; font-weight: 700;
+  }
+  .step h3 { font-size: 16px; color: #22c55e; margin-top: 8px; margin-bottom: 4px; font-family: 'Righteous', sans-serif; }
+  .step p { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  .step .icon { font-size: 28px; text-align: center; margin-bottom: 2px; }
+  .step-full { grid-column: 1 / -1; }
+
+  .section-title { font-family: 'Righteous', sans-serif; font-size: 20px; color: #22d3ee; margin: 6mm 0 4mm; display: flex; align-items: center; gap: 8px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: rgba(34,211,238,.18); }
+
+  .shortcuts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 6mm; }
+  .shortcut {
+    background: rgba(15,23,42,.5); border: 1px solid rgba(34,197,94,.08);
+    border-radius: 10px; padding: 8px 10px; text-align: center;
+  }
+  .shortcut kbd {
+    display: inline-block; background: rgba(0,0,0,.5); border: 1px solid rgba(34,197,94,.3);
+    border-radius: 6px; padding: 3px 10px; font-family: 'Orbitron', monospace; font-size: 14px;
+    color: #22c55e; box-shadow: 0 2px 4px rgba(0,0,0,.4); margin-bottom: 3px;
+  }
+  .shortcut span { display: block; font-size: 10px; color: #64748b; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 6mm; }
+  .feat {
+    background: rgba(15,23,42,.4); border: 1px solid rgba(34,197,94,.06);
+    border-radius: 8px; padding: 8px 10px; font-size: 12px; color: #94a3b8;
+  }
+  .feat strong { color: #22d3ee; display: block; font-size: 13px; margin-bottom: 2px; }
+
+  .footer {
+    position: absolute; bottom: 12mm; left: 16mm; right: 16mm;
+    text-align: center; border-top: 1px solid rgba(34,197,94,.1);
+    padding-top: 8px;
+  }
+  .footer .url { font-family: 'Orbitron', monospace; font-size: 12px; color: #22c55e; }
+  .footer .copy { font-size: 10px; color: #64748b; margin-top: 2px; }
+
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 10px; font-weight: 700; }
+  .pg { background: rgba(34,197,94,.1); color: #22c55e; border: 1px solid rgba(34,197,94,.25); }
+  .pb { background: rgba(34,211,238,.1); color: #22d3ee; border: 1px solid rgba(34,211,238,.25); }
+  code.code { background: rgba(34,197,94,.1); padding: 1px 6px; border-radius: 4px; color: #22c55e; font-size: 12px; font-family: 'Orbitron', monospace; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>Mini Mission Control</h1>
+    <div class="sub">Two-device peer-to-peer video call + D-pad + micro:bit bridge</div>
+    <div class="tagline">Call &bull; Command &bull; Control &bull; No install &bull; No account</div>
+    <div class="line"></div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="icon">📱💻</div>
+      <h3>Open on Two Devices</h3>
+      <p>Load <a style="color:#22d3ee;">abourdim.github.io/mission-control/</a> in Chrome on <strong style="color:#fff;">both</strong> devices (laptop + phone works great). Camera &amp; mic required; HTTPS for the optional micro:bit bridge.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="icon">🔤</div>
+      <h3>Type the Same Room Code</h3>
+      <p>Both devices must type the <strong style="color:#22c55e;">same room code</strong>. Anything short and memorable &mdash; <code class="code">alpha-42</code>, <code class="code">pizza</code>, your favorite word.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="icon">🎥</div>
+      <h3>Start Camera</h3>
+      <p>Press <span class="pill pg">🎥 Start camera</span> and allow browser permissions. Your face appears in the self-view. Flip with camera switch or mic mute anytime.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="icon">✅</div>
+      <h3>Connect</h3>
+      <p>Press <span class="pill pb">✅ Connect</span>. One device becomes <strong style="color:#22c55e;">host</strong>, the other <strong style="color:#22d3ee;">guest</strong>. Video + audio stream peer-to-peer through PeerJS.</p>
+    </div>
+    <div class="step step-full">
+      <div class="step-num">5</div>
+      <div class="icon">🎮</div>
+      <h3>Enjoy &mdash; D-pad, Text, TTS, optional micro:bit link</h3>
+      <p>Use the <strong style="color:#22c55e;">D-pad</strong> (UP/DOWN/LEFT/RIGHT/STOP) to send commands peer-to-peer. Type text to chat. Tap <span class="pill pg">Speak</span> for local TTS or <span class="pill pb">Remote speak</span> to make the other side talk. Optional: pair a <strong style="color:#22d3ee;">BBC micro:bit V2</strong> over BLE to forward D-pad commands to the board.</p>
+    </div>
+  </div>
+
+  <div class="section-title">Keyboard Shortcuts</div>
+  <div class="shortcuts">
+    <div class="shortcut"><kbd>Enter</kbd><span>Send text message</span></div>
+    <div class="shortcut"><kbd>Esc</kbd><span>Close firmware modal</span></div>
+  </div>
+
+  <div class="section-title">Highlights</div>
+  <div class="features">
+    <div class="feat"><strong>P2P Video + Audio</strong>PeerJS direct between the two devices</div>
+    <div class="feat"><strong>D-pad Controller</strong>UP/DOWN/LEFT/RIGHT/STOP commands</div>
+    <div class="feat"><strong>Text + TTS</strong>Chat, Speak locally, Remote speak</div>
+    <div class="feat"><strong>micro:bit Bridge</strong>Optional BLE UART forwards D-pad to V2</div>
+    <div class="feat"><strong>Capture Tools</strong>Snapshot PNG &amp; WebM recording</div>
+    <div class="feat"><strong>HUD + Log Panel</strong>Room-code pairing, cache cleaner</div>
+  </div>
+
+  <div class="footer">
+    <div class="url">Mini Mission Control v1.0.0</div>
+    <div class="copy">Two devices with camera + mic &bull; Chrome recommended &bull; Optional BBC micro:bit V2 over BLE (HTTPS required)</div>
+  </div>
+
+</div>
+<!-- QR-BLOCK-START -->
+<div style="position:fixed;right:12mm;bottom:12mm;display:flex;gap:8mm;align-items:center;
+  background:rgba(10,14,18,0.92);color:#e8ffe8;padding:4mm 5mm;border-radius:3mm;
+  box-shadow:0 2mm 6mm rgba(0,0,0,0.35);font-family:-apple-system,Segoe UI,sans-serif;
+  max-width:80mm;z-index:9999;">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAklEQVR4AewaftIAABDPSURBVO3BgY0EuAEcsBnh+m958gXYwQn4TfYskt0/AgA85QQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOT+51Db8e7blRtt8yrbcaJsb2/JN2uabbMu3aJsb2/JN2uaTtuWT2ubGtvxVbcO/Z1t+6wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOT/5sG15Sdu8YltutM2Nbfkm23KjbW60zSdty6e0zY1teUnb3NiWT2qb39qWb7ItL2mbTzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM5PvkzbfJNt+cu25VPa5pPa5sa23NiWG21zY1tesS0vaZsb2/JXtc2NbfkmbfNNtuVbnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85yf8KdvyKW1zY1s+qW0+qW1ubMuNtrmxLTfa5sa2fIu2ubEtn7Qtn9Q2n7QtN7blt9qG/00nAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM/5CX9K23yLtnlJ29zYlr9qWz5pWz5pW260zY1t+cva5re2hf9NJwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP+cmX2Rb+u2250Ta/tS1/Wdvc2Ja/bFtutM1vbcuNtvmkbeG/a5sb2/JbbXNjW77JtvCfnQAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85ycf1jb8e9rmxrb8Vtvc2JYbbXNjW75J29zYlhttc2Nb/qptudE2N7blL9uWG23zirbh33ECADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JzuH4F/tM1LtuWbtM2NbfkWbXNjWz6pbb7JtnyTtvmtbeF/0wkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc7p/5ELb3NiWT2ob/v/Ylk9qm2+yLTfa5sa28J+1zY1tudE2f9m2fIu2ubEtn9Q2N7blRtt8k235rRMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA53T/yBdpmxvb8kltc2NbvknbfIttudE2N7blRtvc2JZPaptvsS2f1DY3tuVG23yTbfmktvmUbfkmbfNJ2/JJbXNjWz7lBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JyfXGqbG9tyY1s+qW1ubMuNtrmxLTfa5lO25UbbfJO2+SZtc2NbPqltfqttXrItN9rmL9uWT2mbG9tyY1tutM0ntc2NbfkWJwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP6f6RP6xtbmzLN2mbG9vCv6Ntvsm23GibG9vyKW1zY1u+Sdv8Zdtyo21esS032ubGtvxVJwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP+cmHtc2Nbfmktvkm23KjbT5lW/6ytrmxLTfa5sa2vGJbbrTNJ23LjW250TaftC2ftC3fom2+ybZ8Utt80rb81gkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc35yqW1ubMuNtvkm2/JJbXNjWz6lbW5sy422+SZt85dtyyu25UbbvKRtbmzLp7TNN2mbG9vyihMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA5/zk0rbcaJsb2/JN2uabtM1ftS032uaTtuWT2uabbMtvtc0nbctLtuWTtuVG2/zWtvxl28J/dgIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnJ982Lb8ZdvySW1zY1tutM1vbcsntc0nbcuNtvmkbfmrtuWbtM2NbbnRNp/UNje25Ubb/FXb8kltw392AgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcn/B/1TaftC2ftC2vaBv+u7b5rW250TY3tuXGttxomxvbcqNtbmzLJ20L/9m28J+dAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznJ5fa5ptsyydtyye1zV+1LTe25UbbfNK23Gibb9I2n9I2N7blk9rmJW3Dv6Ntvsm2fIsTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOf85NK2fFLbfFLb/GXb8i3a5ptsy422ubEtN9rmm2zLt2ibG9tyo21esi032uavaptP2pYbbfNJbXNjW37rBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5P7nUNje25Ztsy0va5lO25Ubb3NiWb9I2N7blm7TNb23LJ23LX7YtN9rmxrbcaJsb2/IpbfNJ23Kjbb5J23yLEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDn/OTLbMsntc2NbbnRNp+0LX/VtnyTbbnRNp/UNp+0LZ/SNp+0LTe25Ubb3NiWG9tyo21ubMuNtvmtbbmxLTfa5sa23NiWb7It3+IEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnO4fudA2n7QtN9rmxrZ8k7b5pG35rba5sS032ubGttxomxvbcqNt/rJt+RZtc2NbbrTNjW250TY3tuWT2uZbbMsntc1fti3f4gQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOT+5tC032uYva5tvsi032ua3tuWbtM2NbbnRNje25UbbfNK2fErb/GXbcqNtXrItv9U2n9Q2N7blm7TNX3UCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JyffJm2+cu25Ubb/FVt803a5pPa5pO25Ubb3NiW39qWG21zY1v+sm35pLb5pLb5Fttyo20+aVtubMuNtvmkbfmtEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDn/ORS29zYlhtt85e1zY1t+RZt80225UbbfJNt+SZt81vbcmNbPqltbmzLjW250TY3tuXGtnyLtvmktvmkbbnRNje25ZO25VNOAIDnnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ7zky+zLZ/UNp+0LZ/UNje25a9qmxvbcqNtvknb3NiWT2mbG9tyo21ubMsntc0ntc032ZZPaZtv0jY3tuVG23xS29zYlt86AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOT/64trmxLTfa5kbb/FVtc2Nb/rJt+aS2+aS2+au25Ubb/GXbcqNtbmzLjbb5q7blk9rmxrZ8Utt8ygkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc35yaVtutM1LtuVG23yLbbnRNje25ca2/GXbcqNtbmzLX9U2N7blk9rmxrZ80rZ8i235y9rmk9rmrzoBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85wQAeM5Pvsy23Gibb9I2n7QtN9rmU7blRtvc2JYbbfNNtuXGtnyLtvmkbbnRNt+kbW5sy1/VNje25Ztsy422ubEtN9rmxrZ8ygkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc35yqW1ubMuNtrmxLd9kW77JtvxW23zSttxomxvbcqNtPqlt/qpt+SbbcqNtbmzLjbb5Jm3zKdvyl7XNjW250TY3tuVbnAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85ycf1jaf1DbfpG3437QtN9rmxrbcaJsb2/JbbXNjW260zY1t+aS2+SZtc2NbbrTNb7XNJ23LJ23LX9Y2N7blt04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnvOTL7MtN9rmxrbcaJsb2/JJbfNXtc032ZYbbXNjW260zbfYlhttc2NbbrTNJ23Ljba50TY3tuVbbMsntc2NbbnRNje25ZPa5lucAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnvOTL9M2f1nbfNK23GibV7TNjW35pLa5sS032uZbbMs32ZYbbXNjW260zV/VNt+kbfh3nAAAzzkBAJ5zAgA85wQAeM4JAPCcEwDgOScAwHNOAIDnnAAAzzkBAJ5zAgA85yeXtuUl2/JN2ob/bFs+aVtutM2NtvkWbfNNtuWTtuVG29zYlhttc2NbbmzLb7XNjW35Jm3zTbblW5wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcnl9qGf8+2/FVt80nbcqNtbmzLjba5sS38DW3zSW3zTdrmW7TNjW35y9rmxrZ8ygkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc37yYdvykrZ5xbZ8Utvc2JYbbfNN2ubGtnzKtnxS23yTbbnRNje25UbbfNK2/FbbfNK2fJO2ubEtN9rmW5wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcnX6Ztvsm2/GXb8i3a5i/blhttc2Nb+Bu25S9rm09pm79sWz5pW77FCQDwnBMA4DknAMBzTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzfgL/j2zLN9mWT9qWG21zY1s+pW1ubMsntc2NbbnRNvw7tuWT2ubGtvxlbXNjW37rBAB4zgkA8JwTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5P+FP2ZYbbfNb2/JJbcO/p22+Rdvc2JZPahv+u235lLa5sS2f1DY3tuUVJwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOecAADP+cmX2Rb+/2ibG9tyY1tutM0nbcsntc032ZZPaZsbbXNjW25syye1zY1t4d+xLTfa5kbbfNK2fIsTAOA5JwDAc04AgOecAADPOQEAnnMCADznBAB4zgkA8JwTAOA5JwDAc04AgOf85MPahn9P29zYlt9qm09qm7+sbW5sy422ecW23Gibb7ItN9rmxrZ8Utt8yrbcaJsb2/JJ2/JNtuVTTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM85AQCe0/0jAMBTTgCA55wAAM85AQCecwIAPOcEAHjOCQDwnBMA4DknAMBzTgCA55wAAM/5P3MFqTv1+3AJAAAAAElFTkSuQmCC" alt="QR code — scan to open live demo" style="width:24mm;height:24mm;background:#fff;padding:1mm;border-radius:1.5mm;display:block;"/>
+  <div style="display:flex;flex-direction:column;gap:1mm;min-width:0;">
+    <div style="font-weight:700;font-size:9pt;color:#00ff88;line-height:1.2;">Live demo · Chrome / Edge</div>
+    <div style="font-size:7pt;opacity:0.75;line-height:1.3;word-break:break-all;">abourdim.github.io/mission-control/</div>
+  </div>
+</div>
+<!-- QR-BLOCK-END -->
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Mission Control — Welcome</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@500&family=Tajawal:wght@400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4 portrait; margin: 0; }
+  body { width: 210mm; height: 297mm; font-family: 'Tajawal', sans-serif; background: #020617; color: #cbd5e1; overflow: hidden; font-size: 13px; line-height: 1.6; }
+  .page { width: 210mm; height: 297mm; padding: 14mm 18mm; position: relative; }
+  .page::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(34,197,94,.012) 3px, rgba(34,197,94,.012) 6px);
+    pointer-events: none;
+  }
+
+  .header { text-align: center; margin-bottom: 6mm; position: relative; }
+  .header h1 { font-family: 'Righteous', sans-serif; font-size: 36px; color: #22c55e; }
+  .header .sub { font-size: 15px; color: #94a3b8; }
+  .header .ver { font-size: 11px; color: #64748b; margin-top: 2px; font-family: 'Orbitron', monospace; }
+  .header .line { width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(34,197,94,.35), transparent); margin: 8px auto 0; }
+
+  h2 { font-family: 'Righteous', sans-serif; font-size: 18px; color: #22d3ee; margin: 6mm 0 3mm; padding-left: 10px; border-left: 3px solid #22d3ee; }
+  p { margin: 2mm 0; color: #94a3b8; }
+
+  .thanks {
+    background: rgba(34,197,94,.05); border: 1px solid rgba(34,197,94,.18);
+    border-radius: 10px; padding: 10px 14px; margin: 3mm 0; font-size: 12px;
+  }
+  .thanks strong { color: #22c55e; }
+
+  .files { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 3mm 0; }
+  .file {
+    display: flex; align-items: center; gap: 6px; padding: 4px 8px;
+    background: rgba(15,23,42,.5); border-radius: 6px; font-size: 12px;
+  }
+  .file .icon { font-size: 14px; }
+  .file code { color: #22c55e; font-family: 'Orbitron', monospace; font-size: 10px; }
+  .file span { color: #64748b; font-size: 10px; }
+
+  .steps-mini { margin: 3mm 0; }
+  .step-m {
+    display: flex; align-items: center; gap: 10px; padding: 6px 10px;
+    margin: 3px 0; background: rgba(34,197,94,.04); border-radius: 8px;
+  }
+  .step-m .num {
+    width: 24px; height: 24px; background: #22c55e; color: #020617;
+    border-radius: 50%; font-family: 'Orbitron', monospace; font-size: 12px;
+    display: flex; align-items: center; justify-content: center; font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .req { margin: 3mm 0; }
+  .req div { display: flex; align-items: center; gap: 6px; padding: 2px 0; font-size: 12px; }
+  .req .check { color: #22c55e; }
+  .req .label { color: #94a3b8; }
+
+  .box {
+    background: rgba(34,197,94,.04); border: 1px solid rgba(34,197,94,.12);
+    border-radius: 10px; padding: 10px 14px; margin: 3mm 0;
+  }
+  .box h4 { font-size: 13px; color: #22c55e; margin-bottom: 3px; }
+  .box p { font-size: 12px; margin: 1mm 0; }
+
+  .theme-morph { text-align: center; margin: 3mm 0; }
+  .theme-morph img { max-width: 100%; border-radius: 10px; border: 1px solid rgba(34,197,94,.18); }
+
+  .footer {
+    position: absolute; bottom: 10mm; left: 18mm; right: 18mm;
+    text-align: center; border-top: 1px solid rgba(34,197,94,.1);
+    padding-top: 4px;
+  }
+  .footer span { font-size: 10px; color: #64748b; }
+  .footer .brand { font-family: 'Orbitron', monospace; color: #22c55e; }
+  code.c { color: #22c55e; background: rgba(34,197,94,.1); padding: 0 4px; border-radius: 3px; font-family: 'Orbitron', monospace; font-size: 11px; }
+  kbd { background: rgba(0,0,0,.5); border: 1px solid rgba(34,197,94,.25); border-radius: 4px; padding: 0 6px; font-family: 'Orbitron', monospace; font-size: 10px; color: #22c55e; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <h1>Mini Mission Control</h1>
+    <div class="sub">Two-device peer-to-peer video call + D-pad + optional micro:bit bridge</div>
+    <div class="ver">v1.0.0 &bull; Call &bull; Command &bull; Control</div>
+    <div class="line"></div>
+  </div>
+
+  <div class="thanks">
+    <strong>Welcome, tiny astronaut 🧑‍🚀✨</strong> Thank you for buying Mini Mission Control! Think of it as <em>FaceTime + Game Controller + micro:bit walkie-talkie</em>: open it on two devices, type the same room code, and you are live &mdash; video, audio, a D-pad, text, and text-to-speech, all peer-to-peer through the browser.
+  </div>
+
+  <div class="theme-morph">
+    <img src="theme-morph.gif" alt="Mini Mission Control &mdash; two devices calling each other">
+  </div>
+
+  <h2>First 3 Things To Do</h2>
+  <div class="steps-mini">
+    <div class="step-m"><div class="num">1</div><span><strong style="color:#22c55e;">Open it on two devices.</strong> Load the live URL <a style="color:#22d3ee;">https://abourdim.github.io/mission-control/</a> in Chrome on both. A laptop + a phone is the classic combo.</span></div>
+    <div class="step-m"><div class="num">2</div><span><strong style="color:#22c55e;">Type the same room code, then Start camera + Connect.</strong> Both devices type the <em>same</em> code (<code class="c">pizza</code>, <code class="c">alpha-42</code>, whatever). Press <strong style="color:#22c55e;">🎥 Start camera</strong>, allow permissions, then <strong style="color:#22c55e;">✅ Connect</strong>.</span></div>
+    <div class="step-m"><div class="num">3</div><span><strong style="color:#22c55e;">Play.</strong> Use the <strong>D-pad</strong> (UP/DOWN/LEFT/RIGHT/STOP). Type text &mdash; press <kbd>Enter</kbd> to send. Tap <strong style="color:#22d3ee;">Speak</strong> or <strong style="color:#22d3ee;">Remote speak</strong> for TTS. Optional: pair a BBC micro:bit V2 over BLE &mdash; the D-pad will forward to it.</span></div>
+  </div>
+
+  <h2>What&apos;s in the ZIP</h2>
+  <div class="files">
+    <div class="file"><span class="icon">🌐</span><code>index.html</code><span>&mdash; Main app</span></div>
+    <div class="file"><span class="icon">🎨</span><code>styles.css</code><span>&mdash; Styling</span></div>
+    <div class="file"><span class="icon">📞</span><code>js/peer.js</code><span>&mdash; PeerJS wiring</span></div>
+    <div class="file"><span class="icon">🎮</span><code>js/dpad.js</code><span>&mdash; D-pad controller</span></div>
+    <div class="file"><span class="icon">🗣️</span><code>js/tts.js</code><span>&mdash; Local + Remote TTS</span></div>
+    <div class="file"><span class="icon">📡</span><code>js/microbit.js</code><span>&mdash; BLE UART bridge</span></div>
+    <div class="file"><span class="icon">📖</span><code>docs/guide.html</code><span>&mdash; Full user guide</span></div>
+    <div class="file"><span class="icon">⌨️</span><code>docs/reference.html</code><span>&mdash; Quick reference</span></div>
+    <div class="file"><span class="icon">❓</span><code>docs/faq.html</code><span>&mdash; FAQ</span></div>
+    <div class="file"><span class="icon">📜</span><code>LICENSE.txt</code><span>&mdash; Your license</span></div>
+  </div>
+  <p style="font-size:11px;color:#64748b;">Printable extras live in <code class="c">etsy-package/</code>: quick-start card, quick-reference card, A3 classroom poster, sticker sheet, lesson plan.</p>
+
+  <h2>Requirements</h2>
+  <div class="req">
+    <div><span class="check">&#10003;</span><span class="label"><strong style="color:#fff;">Two devices</strong> with browsers (Chrome recommended)</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Camera + microphone on each device</span></div>
+    <div><span class="check">&#10003;</span><span class="label">A live network connection (this is a peer-to-peer call, not offline)</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Optional: BBC micro:bit <strong style="color:#fff;">V2</strong> for the BLE D-pad bridge</span></div>
+    <div><span class="check">&#10003;</span><span class="label">HTTPS required for the micro:bit bridge (Web Bluetooth)</span></div>
+  </div>
+
+  <h2>Key Features</h2>
+  <div class="box">
+    <p><strong style="color:#22d3ee;">Call:</strong> two-device peer-to-peer video + audio (PeerJS) &bull; room-code pairing</p>
+    <p><strong style="color:#22d3ee;">Command:</strong> D-pad UP/DOWN/LEFT/RIGHT/STOP &bull; text messages &bull; Speak (local TTS) &bull; Remote speak</p>
+    <p><strong style="color:#22d3ee;">Control:</strong> optional micro:bit V2 BLE UART bridge &mdash; D-pad forwards to the board</p>
+    <p><strong style="color:#22d3ee;">Polish:</strong> camera switch &bull; mic mute &bull; mirror self/remote &bull; remote fullscreen &bull; snapshot PNG &bull; WebM recording &bull; HUD overlay &bull; log panel &bull; cache cleaner</p>
+  </div>
+
+  <h2>Privacy</h2>
+  <div class="box">
+    <h4>Peer-to-Peer &mdash; Your Media Doesn&apos;t Sit on a Server</h4>
+    <p>Video and audio flow directly between the two devices through WebRTC. A tiny signalling service only helps the two browsers find each other &mdash; the call content itself is peer-to-peer.</p>
+  </div>
+
+  <h2>Keyboard Shortcuts</h2>
+  <p>Only two: <kbd>Enter</kbd> to send a text message, <kbd>Escape</kbd> to close the firmware modal. Everything else is a button or a tap.</p>
+
+  <h2>Need Help?</h2>
+  <div class="box">
+    <p>Open <code class="c">docs/guide.html</code> for the complete walkthrough and troubleshooting.</p>
+    <p>Open <code class="c">docs/faq.html</code> for the top buyer questions.</p>
+    <p>Stuck on pairing? Make sure both devices typed the <strong style="color:#22c55e;">exact same room code</strong>.</p>
+  </div>
+
+  <div class="footer">
+    <span>Thank you for supporting indie educational software! &bull; </span>
+    <span class="brand">Mini Mission Control v1.0.0</span>
+    <span> &bull; Free lifetime updates via Etsy</span>
+  </div>
+
+</div>
+<!-- QR-BLOCK-START -->
+<div style="position:fixed;right:12mm;bottom:12mm;display:flex;gap:8mm;align-items:center;
+  background:rgba(10,14,18,0.92);color:#e8ffe8;padding:4mm 5mm;border-radius:3mm;
+  box-shadow:0 2mm 6mm rgba(0,0,0,0.35);font-family:-apple-system,Segoe UI,sans-serif;
+  max-width:80mm;z-index:9999;">
+  <img src="data:image/png;base64,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" alt="QR code — scan to open live demo" style="width:24mm;height:24mm;background:#fff;padding:1mm;border-radius:1.5mm;display:block;"/>
+  <div style="display:flex;flex-direction:column;gap:1mm;min-width:0;">
+    <div style="font-weight:700;font-size:9pt;color:#00ff88;line-height:1.2;">Run it now — no install</div>
+    <div style="font-size:7pt;opacity:0.75;line-height:1.3;word-break:break-all;">abourdim.github.io/mission-control/</div>
+  </div>
+</div>
+<!-- QR-BLOCK-END -->
+</body>
+</html>
