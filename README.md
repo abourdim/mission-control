@@ -274,7 +274,7 @@ Use it if:
 
 ## 🏁 Mission ideas (fun things to build next)
 
-- Add real robot actions on the micro:bit (motors/servo)
+- Add real robot actions on the micro:bit (motors, actuators)
 - Add buttons like “A”, “B”, “Laser”, “Dance” 💃
 - Add a “secret emoji channel” 😺🚀🍕
 

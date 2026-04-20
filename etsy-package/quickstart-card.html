@@ -79,69 +79,69 @@
 
   <div class="header">
     <h1>Mini Mission Control</h1>
-    <div class="sub">Browser BLE Control Panel for the two devices (laptop + phone)</div>
-    <div class="tagline">No install &bull; No account &bull; 100% local &bull; EN / FR / AR</div>
+    <div class="sub">Two-device video call + D-pad command channel (laptop &harr; phone)</div>
+    <div class="tagline">Call &bull; Command &bull; Control &bull; No install, no account</div>
     <div class="line"></div>
   </div>
 
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <div class="icon">🤖</div>
-      <h3>Flash the Firmware</h3>
-      <p>Open <a style="color:#22d3ee;">makecode.microbit.org</a>, switch to JavaScript, paste <code class="code">makecode.ts</code>, hit <strong style="color:#22c55e;">Download</strong> and drag to your micro:bit V2.</p>
+      <div class="icon">🌐</div>
+      <h3>Open on TWO Devices</h3>
+      <p>Open the same link on a laptop <strong style="color:#fff;">and</strong> a phone &mdash; for example <strong style="color:#22c55e;">Chrome</strong> on both. GitHub Pages or any HTTPS host works.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <div class="icon">🌐</div>
-      <h3>Open the App</h3>
-      <p>Double-click <code class="code">index.html</code> in <strong style="color:#fff;">Chrome</strong> or <strong style="color:#fff;">Edge</strong>. No server, no install. Works offline as a PWA.</p>
+      <div class="icon">🔗</div>
+      <h3>Match the Room Code</h3>
+      <p>In the <strong style="color:#22c55e;">Room</strong> box, type the <strong style="color:#fff;">same</strong> code on both devices (default: <code class="code">demo</code>).</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <div class="icon">📡</div>
-      <h3>Pair over BLE</h3>
-      <p>Click <span class="pill pg">Connect</span>, pick <strong style="color:#fff;">BBC micro:bit [xxxxx]</strong> in the browser prompt. The board LEDs flash a tick.</p>
+      <div class="icon">🎥</div>
+      <h3>Start Camera</h3>
+      <p>Press <span class="pill pg">🎥 Start camera</span> on each device and allow camera &amp; microphone when prompted.</p>
     </div>
     <div class="step">
       <div class="step-num">4</div>
-      <div class="icon">🎛️</div>
-      <h3>Play with the Tabs</h3>
-      <p>LEDs, Sensors, Servos, GamePad, Graph, 3D board, Bench, About. Press <kbd style="background:rgba(0,0,0,.5);border:1px solid rgba(34,197,94,.25);border-radius:5px;padding:1px 6px;font-size:11px;font-family:'Orbitron',monospace;color:#22c55e;">1</kbd>–<kbd style="background:rgba(0,0,0,.5);border:1px solid rgba(34,197,94,.25);border-radius:5px;padding:1px 6px;font-size:11px;font-family:'Orbitron',monospace;color:#22c55e;">8</kbd> to jump.</p>
+      <div class="icon">✅</div>
+      <h3>Connect</h3>
+      <p>Press <span class="pill pg">✅ Connect</span>. The first device becomes host; the second becomes guest. Remote video appears; status goes green.</p>
     </div>
     <div class="step step-full">
       <div class="step-num">5</div>
-      <div class="icon">📈</div>
-      <h3>Graph It &amp; Save</h3>
-      <p>Open the <strong style="color:#22c55e;">Graph</strong> tab to see live temperature, light, sound and motion rolling across Chart.js. Press <kbd style="background:rgba(0,0,0,.5);border:1px solid rgba(34,197,94,.2);border-radius:4px;padding:0 6px;font-family:'Orbitron',monospace;font-size:11px;color:#22c55e;">F</kbd> for fullscreen, tap <span class="pill pb">Record</span> to capture a session and export it as JSON. No micro:bit? Try <strong style="color:#22d3ee;">Simulate Mode</strong>.</p>
+      <div class="icon">🎮</div>
+      <h3>Command &amp; Speak</h3>
+      <p>Hold the <strong style="color:#22c55e;">D-pad</strong> arrows to send <code class="code">UP</code> / <code class="code">DOWN</code> / <code class="code">LEFT</code> / <code class="code">RIGHT</code> / <code class="code">STOP</code>. Type a message and tap <span class="pill pb">Send</span>, <span class="pill pb">🔊 Speak</span> or <span class="pill pb">📡 Remote speak</span>. Optional: connect a <strong style="color:#22d3ee;">BBC micro:bit V2</strong> over Bluetooth and flip <strong>Bridge mode</strong> on to forward commands to the board.</p>
     </div>
   </div>
 
-  <div class="section-title">Essential Shortcuts</div>
+  <div class="section-title">Essential Actions</div>
   <div class="shortcuts">
-    <div class="shortcut"><kbd>Space</kbd><span>Pause stream</span></div>
-    <div class="shortcut"><kbd>1-8</kbd><span>Switch tab</span></div>
-    <div class="shortcut"><kbd>P</kbd><span>LED presets</span></div>
-    <div class="shortcut"><kbd>F</kbd><span>Fullscreen graph</span></div>
-    <div class="shortcut"><kbd>K</kbd><span>Clear graph</span></div>
-    <div class="shortcut"><kbd>Esc</kbd><span>Close overlay</span></div>
-    <div class="shortcut"><kbd>?</kbd><span>Shortcuts help</span></div>
-    <div class="shortcut"><kbd>T</kbd><span>Cycle themes</span></div>
+    <div class="shortcut"><kbd>Enter</kbd><span>Send text</span></div>
+    <div class="shortcut"><kbd>Esc</kbd><span>Close modal</span></div>
+    <div class="shortcut"><kbd>▲▼◀▶</kbd><span>D-pad hold</span></div>
+    <div class="shortcut"><kbd>■</kbd><span>Stop command</span></div>
+    <div class="shortcut"><kbd>🔇</kbd><span>Mute mic</span></div>
+    <div class="shortcut"><kbd>🔄</kbd><span>Switch camera</span></div>
+    <div class="shortcut"><kbd>⛶</kbd><span>Remote fullscreen</span></div>
+    <div class="shortcut"><kbd>🧽</kbd><span>Clean cache</span></div>
   </div>
 
   <div class="section-title">Highlights</div>
   <div class="features">
-    <div class="feat"><strong>5&times;5 LED Matrix</strong>Draw, presets, hex patterns</div>
-    <div class="feat"><strong>Live Sensors</strong>Temp, light, sound, accel, compass</div>
-    <div class="feat"><strong>Dual Servos P1/P2</strong>Sliders, gauges, OFF buttons</div>
-    <div class="feat"><strong>3D Board View</strong>micro:bit, Buggy, Arm, Balance, Weather</div>
-    <div class="feat"><strong>4 Themes</strong>Stealth, Neon, Arctic, Blaze</div>
-    <div class="feat"><strong>Trilingual</strong>English, Français, العربية</div>
+    <div class="feat"><strong>Video + Audio Call</strong>Two-way camera, mic, mute, switch</div>
+    <div class="feat"><strong>D-pad Command Channel</strong>UP / DOWN / LEFT / RIGHT / STOP</div>
+    <div class="feat"><strong>Text &amp; Text-to-Speech</strong>Local or remote spoken messages</div>
+    <div class="feat"><strong>Snapshot &amp; Record</strong>PNG snap, WebM record of remote</div>
+    <div class="feat"><strong>HUD + Remote Fullscreen</strong>Overlay commands; ask the other side</div>
+    <div class="feat"><strong>Optional micro:bit Bridge</strong>BLE UART forwards to BBC micro:bit V2</div>
   </div>
 
   <div class="footer">
     <div class="url">Mini Mission Control v1.0.0</div>
-    <div class="copy">For two devices (laptop + phone) &bull; Web Bluetooth required &bull; Chrome / Edge</div>
+    <div class="copy">Two devices (laptop + phone) &bull; Chrome recommended &bull; HTTPS or localhost &bull; optional BBC micro:bit V2</div>
   </div>
 
 </div>

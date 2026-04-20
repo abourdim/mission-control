@@ -1,7 +1,13 @@
-*.log
-node_modules/
+# macOS
 .DS_Store
-.vscode/
-.idea/
-.claude/
-Thumbs.db
+
+# Node
+/node_modules/
+/package-lock.json
+
+# Built Etsy artifacts
+etsy-package/output/
+etsy-package/MissionControl-v*/
+
+# Track the shipped ZIP for reference
+!etsy-package/MissionControl-v*.zip

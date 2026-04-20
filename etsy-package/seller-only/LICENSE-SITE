@@ -1,4 +1,4 @@
-{{PRODUCT_NAME}} — School Site License Agreement
+Mini Mission Control — School Site License Agreement
 Copyright (c) 2026 Abdelhak Bourdim. All rights reserved.
 
 This Site License supersedes the Single-User License for any copy of the
@@ -6,7 +6,7 @@ Software delivered under a "School Site License" purchase on Etsy, Teachers
 Pay Teachers, or directly from the author.
 
 1. DEFINITIONS
-   "Software" — the {{PRODUCT_NAME}} application and accompanying files.
+   "Software" — the Mini Mission Control application and accompanying files.
    "Site" — one (1) physical school, campus, library, or learning center
    located at a single street address.
    "Authorized Users" — up to thirty (30) teachers, instructors, or staff
@@ -45,9 +45,8 @@ Pay Teachers, or directly from the author.
    offered at a discounted renewal rate.
 
 6. THIRD-PARTY COMPONENTS
-   The Software loads Chart.js (MIT) and Three.js (MIT) from public CDNs.
-   Those libraries remain under their own licenses and are not covered by
-   this agreement.
+   The Software loads PeerJS (MIT) from a public CDN. That library remains
+   under its own license and is not covered by this agreement.
 
 7. NO WARRANTY
    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS

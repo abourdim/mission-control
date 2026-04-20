@@ -11,16 +11,17 @@ on Etsy.
 These are the three items flagged as "likely launch killers" in the review
 that require human hands. Don't hit Publish until they're done.
 
-- [ ] **Photograph a real micro:bit propped on a laptop running the app.**
-      Replace the current text-only hero (mockup 1) — hardware in the photo
-      is the single biggest Etsy thumbnail conversion factor for teacher-
-      product listings. Follow the staging note in ETSY_LISTING.md.
+- [ ] **Photograph a real laptop + phone side-by-side** showing both
+      Mini Mission Control consoles with green status chips and a
+      D-pad pressed on the phone. Replace the current text-only hero
+      (mockup 1) — real hardware in frame is the single biggest Etsy
+      thumbnail conversion factor. Follow the staging note in ETSY_LISTING.md.
 - [ ] **Record the 60-second listing video** following
       `seller-only/etsy-playbook.html` (EN). Export ≤100 MB, 1080p+,
       upload as the listing video. Etsy algorithmically prefers listings
       with videos by ~30%.
-- [ ] **Create the LAUNCH10 Etsy promo code** (Shop Manager → Marketing
-      → Sales & coupons → new code `LAUNCH10`, $7 discount off $12.99,
+- [ ] **Create the MCLAUNCH Etsy promo code** (Shop Manager → Marketing
+      → Sales & coupons → new code `MCLAUNCH`, $7 discount off $12.99,
       10 uses, expires 14 days). Paste the review-request template from
       ETSY_LISTING.md to the first 10 buyers.
 
@@ -30,12 +31,12 @@ that require human hands. Don't hit Publish until they're done.
 
 ### 🖼 Listing imagery
 
-- [ ] **Shoot a real micro:bit photo** for the hero. Current hero
+- [ ] **Shoot a real two-device photo** for the hero. Current hero
       (`etsy-mockups/etsy-mockup-1.png`) uses only an app screenshot.
       Reviewers flagged that listings with *physical hardware + the
-      app together* convert better. Retake the hero with a micro:bit
-      V2 held next to (or propped on top of) a laptop showing the
-      Sensors tab. Good light, plain background, crop square.
+      app together* convert better. Retake the hero with a laptop
+      and a phone both open to the mission console (green status chips,
+      matching room code visible). Good light, plain background, crop square.
 - [ ] **Test Etsy's square thumbnail crop** on mockup 1. The canvas
       is 2000×1500 (4:3). Etsy will center-crop to square for the
       search thumbnail — make sure the product name and the
@@ -95,7 +96,7 @@ that require human hands. Don't hit Publish until they're done.
       listing has 3 reviews. Drives buyers back for the full thing.
 - [ ] **Stand up the lead-magnet landing page** — free 3-lesson PDF
       behind an email opt-in. Builds a remarketing list.
-- [ ] **Create the LAUNCH10 promo code** (first 10 buyers: $12.99 → $7
+- [ ] **Create the MCLAUNCH promo code** (first 10 buyers: $12.99 → $7
       with review request). Ships reviews fast.
 - [ ] **Duplicate listing in FR + AR** using `etsy-playbook-fr.html` +
       `etsy-playbook-ar.html` scripts. Same ZIP, localized copy.

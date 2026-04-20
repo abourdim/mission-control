@@ -3,1093 +3,160 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Etsy Listing Playbook — Mini Mission Control</title>
+<title>Mini Mission Control — Etsy Listing Kit (v1.0.0)</title>
 <style>
-  :root{
-    --bg:#0f1115; --panel:#161a22; --panel2:#1b2030; --text:#e7ecf3; --muted:#8a93a6;
-    --accent:#5fb1ff; --accent2:#7af0c7; --warn:#ffb84d; --danger:#ff6b7a; --purple:#b48fff;
-    --border:#252b39; --code-bg:#0b0e14; --hl:#2a3346;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-  code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;background:var(--hl);padding:1px 6px;border-radius:4px}
-  pre{margin:0}
-  .wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:32px;padding:24px}
-  @media(max-width:900px){.wrap{grid-template-columns:1fr;padding:16px}.toc{position:static!important;max-height:none!important}}
-  header.hero{padding:48px 24px 32px;background:linear-gradient(135deg,#2b1a38 0%,#0f1115 100%);border-bottom:1px solid var(--border)}
-  header.hero .inner{max-width:1200px;margin:0 auto}
-  header.hero h1{margin:0 0 8px;font-size:32px;letter-spacing:-0.5px}
-  header.hero .sub{color:var(--muted);font-size:16px;max-width:820px}
-  header.hero .pill{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--panel2);color:var(--purple);font-size:12px;font-weight:600;margin-bottom:12px;letter-spacing:0.4px;text-transform:uppercase}
-  header.hero .stats{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap}
-  header.hero .stat{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:10px 16px}
-  header.hero .stat .n{font-size:22px;font-weight:700;color:var(--accent2)}
-  header.hero .stat .l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
-  .toc{position:sticky;top:24px;align-self:start;max-height:calc(100vh - 48px);overflow-y:auto;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px}
-  .toc h3{margin:0 0 8px;font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
-  .toc h3:not(:first-child){margin-top:16px}
-  .toc ul{list-style:none;padding:0;margin:0}
-  .toc li{margin:2px 0}
-  .toc li a{display:block;padding:5px 8px;border-radius:6px;color:var(--text);font-size:13px}
-  .toc li a:hover{background:var(--hl);text-decoration:none}
-  .toc input[type=search]{width:100%;padding:8px 10px;border-radius:6px;border:1px solid var(--border);background:var(--code-bg);color:var(--text);font-size:13px;margin-bottom:8px}
-  main{min-width:0}
-  section{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px;scroll-margin-top:20px}
-  section h2{margin:0 0 4px;font-size:22px;letter-spacing:-0.3px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  section h2 .num{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;border-radius:8px;background:var(--accent);color:#0f1115;font-size:14px;font-weight:700;padding:0 8px;font-variant-numeric:tabular-nums}
-  section h2 .num.purple{background:var(--purple)}
-  section h2 .num.green{background:var(--accent2)}
-  section h2 .num.amber{background:var(--warn)}
-  section h2 .num.red{background:var(--danger)}
-  section .intro{color:var(--muted);margin:6px 0 18px}
-  section h3{margin:24px 0 10px;font-size:16px;color:var(--accent2)}
-  section h4{margin:16px 0 8px;font-size:14px;color:var(--purple);letter-spacing:0.2px}
-  section ul,section ol{padding-left:22px}
-  section li{margin:4px 0}
-  .copy{position:relative;background:var(--code-bg);border:1px solid var(--border);border-radius:10px;margin:10px 0}
-  .copy .label{position:absolute;top:8px;left:12px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px}
-  .copy pre{padding:32px 14px 14px;overflow:auto;color:#dce4ef;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
-  .copy.long pre{max-height:320px;overflow-y:auto}
-  .copy.ltr pre{direction:ltr}
-  .copy.rtl pre{direction:rtl;text-align:right}
-  .copy .btn{position:absolute;top:8px;right:8px;background:var(--panel2);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:12px;cursor:pointer;font-weight:500;transition:all 0.15s}
-  .copy .btn:hover{background:var(--accent);color:#0f1115;border-color:var(--accent)}
-  .copy .btn.copied{background:var(--accent2);color:#0f1115;border-color:var(--accent2)}
-  .callout{padding:12px 14px;border-radius:8px;border-left:3px solid var(--accent);background:var(--panel2);margin:14px 0;font-size:14px}
-  .callout.warn{border-left-color:var(--warn)} .callout.warn::before{content:"⚠️  "}
-  .callout.tip{border-left-color:var(--accent2)} .callout.tip::before{content:"💡  "}
-  .callout.danger{border-left-color:var(--danger)} .callout.danger::before{content:"🚫  "}
-  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
-  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
-  th{font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);font-weight:600}
-  tbody tr:hover{background:var(--hl)}
-  kbd{font-family:"SF Mono",Menlo,monospace;background:var(--hl);border:1px solid var(--border);border-bottom-width:2px;border-radius:4px;padding:1px 6px;font-size:12px}
-  details.idea{background:var(--panel2);border:1px solid var(--border);border-radius:10px;margin:10px 0;overflow:hidden;transition:border-color .15s}
-  details.idea[open]{border-color:var(--accent)}
-  details.idea summary{padding:14px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;align-items:center;gap:10px}
-  details.idea summary::-webkit-details-marker{display:none}
-  details.idea summary::before{content:"▶";color:var(--accent);font-size:10px;transition:transform 0.2s}
-  details.idea[open] summary::before{transform:rotate(90deg)}
-  details.idea summary:hover{background:var(--hl)}
-  details.idea .body{padding:0 16px 16px}
-  details.idea .rank{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--accent);color:#0f1115;letter-spacing:0.3px;margin-right:6px}
-  details.idea .rank.gold{background:#ffd54a;color:#6a4e00}
-  details.idea .rank.silver{background:#c5cfdc;color:#323a4a}
-  details.idea .rank.bronze{background:#e8a36e;color:#4d2b0a}
-  footer{text-align:center;color:var(--muted);font-size:12px;padding:32px 16px}
-  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--accent2);color:#0f1115;padding:10px 18px;border-radius:999px;font-weight:600;font-size:13px;transition:transform 0.3s ease;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
-  .toast.show{transform:translateX(-50%) translateY(0)}
-  .badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--hl);color:var(--muted);margin-left:4px}
-  .badge.new{background:var(--accent2);color:#0f1115;font-weight:700}
+  body { font-family: ui-sans-serif, system-ui, sans-serif; max-width: 920px; margin: 0 auto; padding: 24px; background: #020617; color: #e2e8f0; line-height: 1.6; }
+  h1, h2, h3 { color: #22c55e; }
+  h1 { border-bottom: 2px solid #22c55e; padding-bottom: 8px; }
+  h2 { margin-top: 28px; border-left: 4px solid #22c55e; padding-left: 10px; }
+  code, pre { background: #0b1226; color: #22d3ee; padding: 2px 6px; border-radius: 4px; }
+  pre { padding: 12px; overflow: auto; border: 1px solid rgba(34,197,94,.2); white-space: pre-wrap; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+  th, td { border-bottom: 1px solid rgba(34,197,94,.15); padding: 8px 10px; text-align: left; }
+  th { color: #22d3ee; }
+  .rtl { direction: rtl; text-align: right; background: #0b1226; padding: 14px 18px; border-radius: 8px; border: 1px solid rgba(34,197,94,.2); }
+  ul { padding-left: 20px; }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="inner">
-    <span class="pill">Seller playbook • All copy ready to paste</span>
-    <h1>Etsy Listing Playbook — Mini Mission Control</h1>
-    <p class="sub">Every piece of copy you need, one click from your clipboard. Three listings, 10 expansion ideas, 4 video scripts, 6 message templates, 3 outreach emails. Search the sidebar to jump anywhere.</p>
-    <div class="stats">
-      <div class="stat"><div class="n">3</div><div class="l">Listings</div></div>
-      <div class="stat"><div class="n">10</div><div class="l">Sell ideas</div></div>
-      <div class="stat"><div class="n">35+</div><div class="l">Copy blocks</div></div>
-      <div class="stat"><div class="n">v1.0.0</div><div class="l">Version</div></div>
-    </div>
-  </div>
-</header>
-
-<div class="wrap">
-  <aside class="toc">
-    <input type="search" id="tocSearch" placeholder="Filter sections…" aria-label="Filter">
-    <h3>Main listing</h3>
-    <ul>
-      <li><a href="#l1">Title, category, tags</a></li>
-      <li><a href="#l2">Description</a></li>
-      <li><a href="#l3">Pricing</a></li>
-      <li><a href="#l4">Photo &amp; video plan</a></li>
-      <li><a href="#l5">Listing FAQ</a></li>
-    </ul>
-    <h3>Messages</h3>
-    <ul>
-      <li><a href="#m1">Shop announcement</a></li>
-      <li><a href="#m2">Auto-reply (paid)</a></li>
-      <li><a href="#m3">Pre-purchase reply</a></li>
-      <li><a href="#m4">7-day follow-up</a></li>
-    </ul>
-    <h3>Marketing</h3>
-    <ul>
-      <li><a href="#k1">Video scripts</a></li>
-      <li><a href="#k2">Screenshot checklist</a></li>
-      <li><a href="#k3">Pinterest pins</a></li>
-      <li><a href="#k4">Free-traffic playbook</a></li>
-    </ul>
-    <h3>Other listings</h3>
-    <ul>
-      <li><a href="#s1">Site License ($149)</a></li>
-      <li><a href="#s2">Arabic market</a></li>
-    </ul>
-    <h3>Sell ideas (10)</h3>
-    <ul>
-      <li><a href="#i1">1. Workshop-in-a-USB</a></li>
-      <li><a href="#i2">2. District pitch deck</a></li>
-      <li><a href="#i3">3. Ambassador program</a></li>
-      <li><a href="#i4">4. Stripe for repeats</a></li>
-      <li><a href="#i5">5. Discord community</a></li>
-      <li><a href="#i6">6. Student certificates</a></li>
-      <li><a href="#i7">7. Back-to-School bundle</a></li>
-      <li><a href="#i8">8. Instructables funnel</a></li>
-      <li><a href="#i9">9. White-label kits</a></li>
-      <li><a href="#i10">10. Exit-intent banner</a></li>
-    </ul>
-    <h3>Reference</h3>
-    <ul>
-      <li><a href="#r1">Launch priority</a></li>
-    </ul>
-  </aside>
-
-  <main>
-
-    <!-- ============ MAIN LISTING ============ -->
-    <section id="l1">
-      <h2><span class="num">1</span> Main listing — title, category, tags, materials</h2>
-
-      <h3>Title (140 char max)</h3>
-      <div class="copy"><span class="label">Title</span><button class="btn" data-copy>Copy</button>
-        <pre>micro:bit V2 Playground — Bluetooth Web App + Illustrated Guide | 8 Tabs, 5 Robots, Live Graphs | STEM Classroom | Digital Download</pre>
-      </div>
-
-      <h3>Category</h3>
-      <p>Craft Supplies &amp; Tools → Patterns &amp; How To → <b>Tutorials</b></p>
-      <p>About this listing: <b>I did · A finished product · Made to order</b></p>
-
-      <h3>Tags (13 max, lowercase, ≤20 chars each)</h3>
-      <div class="copy"><span class="label">Tags</span><button class="btn" data-copy>Copy</button>
-        <pre>microbit
-microbit v2
-stem
-coding for kids
-bbc microbit
-bluetooth app
-makecode
-classroom resource
-homeschool stem
-robotics
-web bluetooth
-edtech
-sensor playground</pre>
-      </div>
-
-      <h3>Materials (13, boosts SEO)</h3>
-      <div class="copy"><span class="label">Materials</span><button class="btn" data-copy>Copy</button>
-        <pre>html
-css
-javascript
-web bluetooth
-chartjs
-threejs
-makecode
-typescript
-pwa
-digital download
-zip file
-instant download
-source code</pre>
-      </div>
-
-      <h3>Files to upload</h3>
-      <p><code>~/Desktop/micromission-control-v1.0.zip</code> (172 KB, well under Etsy's 20 MB limit).</p>
-    </section>
-
-    <section id="l2">
-      <h2><span class="num">2</span> Description (the paragraph Etsy renders top-to-bottom)</h2>
-      <div class="copy long"><span class="label">Description</span><button class="btn" data-copy>Copy</button>
-        <pre>🎮 Mini Mission Control — the all-in-one Bluetooth control panel for the two devices (laptop + phone)
-
-Turn your micro:bit into an interactive STEM lab — no installs, no accounts, no cloud. Just open it in your browser and connect.
-
-✨ What you get (instant download):
-• A complete web app (HTML, CSS, JS) you run locally in Chrome or Edge
-• Ready-to-flash micro:bit firmware (makecode.ts)
-• ILLUSTRATED trilingual user guide (EN/FR/AR) with built-in diagrams:
-  — architecture diagram • micro:bit V2 pin-out • firmware flow storyboard
-  — interactive LED playground inside the guide (click cells, copy hex commands)
-  — visual troubleshooting: decision tree, symptom picker, icon gallery, reset recipe
-• A printable Quick Setup guide (SETUP.md)
-• 4 themes (Stealth, Neon, Arctic, Blaze)
-• 8 tabs: LED Matrix, Sensors, Servos, GamePad, Graph, 3D Board, Bench, Settings
-• 5 interactive 3D models (micro:bit, Buggy, Robot Arm, Balance Game, Weather Station)
-• Session recording, live graphs, annotations, JSON export
-• Beginner &amp; Expert modes — grows with the learner
-
-🧒 Perfect for: classrooms, homeschool, after-school clubs, makerspaces, STEM camps, robotics enthusiasts, parents teaching kids to code.
-
-⚙️ Requires:
-• two devices (laptop + phone) (sold separately)
-• Chrome or Edge browser on a desktop, laptop, or Android device
-• Bluetooth enabled
-
-❌ Does NOT work on: Safari, Firefox, iPhone, iPad. (Web Bluetooth limitation — not the app.)
-
-📦 Delivery: Instant download after purchase — a single ZIP file.
-
-📜 License: Single-teacher / single-family use. Use it in your own classroom or home as much as you like. You may NOT resell, redistribute, or upload it elsewhere.
-
-💬 Questions? Message me before buying — happy to help.</pre>
-      </div>
-      <div class="callout warn">Etsy shows <b>plain text only</b> — line breaks preserve, bullets display as "•" literal. Don't use Markdown here.</div>
-    </section>
-
-    <section id="l3">
-      <h2><span class="num">3</span> Pricing ladder</h2>
-      <table>
-        <thead><tr><th>Tier</th><th>Price</th><th>When</th></tr></thead>
-        <tbody>
-          <tr><td>Launch (post-V1.0.0)</td><td>$12.99</td><td>First 30 days — illustrated guide justifies the bump vs a plain ZIP</td></tr>
-          <tr><td>Standard</td><td>$17.99</td><td>After 5+ five-star reviews</td></tr>
-          <tr><td>With lesson plan</td><td>$29.99</td><td>Add a 1-page printable lesson plan PDF</td></tr>
-          <tr><td>School Site License</td><td>$149</td><td>Separate listing — up to 30 teachers at one site</td></tr>
-          <tr><td>District</td><td>$499+</td><td>3+ sites — quote via Etsy message</td></tr>
-        </tbody>
-      </table>
-      <div class="callout tip">Fees on $12.99: $0.20 listing + 6.5% transaction + ~3% processing = you net <b>~$11.00</b>.</div>
-    </section>
-
-    <section id="l4">
-      <h2><span class="num">4</span> Photo &amp; video plan</h2>
-
-      <h3>10-photo checklist</h3>
-      <ol>
-        <li><b>01-hero.png</b> — LED Matrix tab + real micro:bit next to laptop, square crop</li>
-        <li><b>02-sensors.png</b> — Sensors tab, all sparklines populated, board in motion</li>
-        <li><b>03-graph.png</b> — Graph in fullscreen, Neon theme, ~3 datasets plotting</li>
-        <li><b>04-3d.png</b> — 3D Board tab, Buggy model at 3/4 angle</li>
-        <li><b>05-themes.png</b> — 2×2 grid of all four themes</li>
-        <li><b>06-mobile.png</b> — Mobile width (414×896 via Chrome DevTools)</li>
-        <li><b>07-onboarding.png</b> — Onboarding overlay visible (run <code>localStorage.clear()</code> first)</li>
-        <li><b>08-compatibility.png</b> — ✅/❌ infographic (design in Canva)</li>
-        <li><b>09-features.png</b> — feature-wall text-on-image (Canva)</li>
-        <li><b>10-setup-preview.png</b> — SETUP.md rendered in a browser or as PDF</li>
-      </ol>
-      <div class="callout warn">Compress via <a href="https://tinypng.com" target="_blank" rel="noopener">TinyPNG</a> before upload. Never show GitHub, macOS menu bar with your name, or other browser tabs.</div>
-
-      <h3>15-second listing video (silent autoplay loop)</h3>
-      <table>
-        <thead><tr><th>Time</th><th>Shot</th></tr></thead>
-        <tbody>
-          <tr><td>0–2s</td><td>"Connect" button pulse → click → green chip</td></tr>
-          <tr><td>2–4s</td><td>Finger draws on LED grid → real micro:bit mirrors pattern</td></tr>
-          <tr><td>4–6s</td><td>Tilt physical board → 3D Buggy tilts in sync</td></tr>
-          <tr><td>6–9s</td><td>Live graph drawing sine wave, Neon theme</td></tr>
-          <tr><td>9–12s</td><td>Cycle all 4 themes (~700ms each)</td></tr>
-          <tr><td>12–15s</td><td>End card: logo + "works in Chrome / Edge"</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="l5">
-      <h2><span class="num">5</span> Listing FAQ (add inside the description or in a separate section)</h2>
-      <h4>Q: Do I need to know how to code?</h4><p>No — just flash the firmware once and click Connect.</p>
-      <h4>Q: Will this work on my iPad?</h4><p>No. Apple does not allow Web Bluetooth in any iOS browser. Use a laptop, Chromebook, or Android tablet.</p>
-      <h4>Q: Can I use this in my classroom of 30 students?</h4><p>Yes — single teacher, one school, unlimited students. For multi-teacher / district licenses, message me.</p>
-      <h4>Q: Do you offer refunds?</h4><p>Etsy doesn't allow refunds on instant digital downloads, so please read the requirements carefully before purchasing.</p>
-      <h4>Q: Will it get updates?</h4><p>Free bug-fix updates for 12 months — message me with your Etsy order number.</p>
-    </section>
-
-    <!-- ============ MESSAGES ============ -->
-    <section id="m1">
-      <h2><span class="num green">M</span> Shop announcement</h2>
-      <p class="intro">Paste in <b>Shop Manager → Info &amp; Appearance → Announcement</b>.</p>
-      <div class="copy"><span class="label">Announcement</span><button class="btn" data-copy>Copy</button>
-        <pre>🎮 STEM tools for makers, teachers, and curious kids — instant digital downloads you can use the same day. Built and tested by a working educator. Questions before buying? Message me anytime — I usually reply within a few hours.</pre>
-      </div>
-    </section>
-
-    <section id="m2">
-      <h2><span class="num green">M</span> Auto-reply after payment</h2>
-      <p class="intro">Paste in <b>Shop Manager → Settings → Info &amp; Appearance → Message to buyers</b>. Replace <code>[Your name]</code> first.</p>
-      <div class="copy long"><span class="label">Auto-reply</span><button class="btn" data-copy>Copy</button>
-        <pre>Thank you so much for your order! 🎉
-
-Your download is ready right now — Etsy has emailed you the link, and you can also grab it from You → Purchases &amp; Reviews.
-
-📘 Start here: unzip the file and open SETUP.md (5-minute guide). You'll need a two devices (laptop + phone) and Chrome or Edge — Safari and iPhones won't work (that's a Web Bluetooth limitation, not the app).
-
-💬 Stuck? Reply to this message with your Etsy order number and a screenshot — I'll get back to you within 24 hours.
-
-📜 A small ask: this is a single-user license. Please use it freely in your own classroom or home, but don't resell or re-upload it. Full terms are in the LICENSE file inside the ZIP.
-
-⭐ If it works well for you, a quick review would mean a lot — small shops live and die by them.
-
-Happy hacking!
-— [Your name]</pre>
-      </div>
-    </section>
-
-    <section id="m3">
-      <h2><span class="num green">M</span> Pre-purchase reply (manual)</h2>
-      <p class="intro">For "will it work on my iPad?" questions before they buy.</p>
-      <div class="copy long"><span class="label">Pre-purchase</span><button class="btn" data-copy>Copy</button>
-        <pre>Hi! Great question — quick check before you buy:
-
-1. Do you have a two devices (laptop + phone) (the one with the gold microphone)? V1 is missing the sound sensor and a couple of features.
-2. What browser will you be using? It must be Chrome or Edge on a desktop, laptop, Chromebook, or Android tablet. Safari, Firefox, iPhone, and iPad are not supported (Web Bluetooth limitation).
-
-If both are a yes, you're good to go. Let me know if you'd like me to send a 30-second demo video before you decide.</pre>
-      </div>
-    </section>
-
-    <section id="m4">
-      <h2><span class="num green">M</span> 7-day follow-up</h2>
-      <div class="copy long"><span class="label">Follow-up</span><button class="btn" data-copy>Copy</button>
-        <pre>Hi! Just checking in — were you able to get the Mini Mission Control running this week? If you ran into anything, reply here and I'll sort it out. If it worked smoothly, a star rating on the listing helps me keep building tools like this. Either way, thanks for the support!</pre>
-      </div>
-    </section>
-
-    <!-- ============ MARKETING ============ -->
-    <section id="k1">
-      <h2><span class="num purple">K</span> Video scripts</h2>
-
-      <h3>30-second demo (for pre-purchase replies — hosted on Loom/YouTube)</h3>
-      <div class="copy long"><span class="label">Voiceover script</span><button class="btn" data-copy>Copy</button>
-        <pre>(0:00) "This is the Mini Mission Control. It runs in your browser — no installs."
-(0:04) "Plug in a micro:bit V2, click Connect, pick it from the list. Done."
-(0:09) "You get eight tabs: LED matrix, live sensors, two servo channels, a gamepad, recordable graphs, and five interactive 3D models that move when the board moves."
-(0:18) "Tilt the board — the 3D buggy tilts. Press a button — the screen lights up. Everything is live."
-(0:24) "It's a one-time download. Use it in your classroom, home-school, or maker space. Link's in the description."
-(0:30) End card: shop URL.</pre>
-      </div>
-    </section>
-
-    <section id="k2">
-      <h2><span class="num purple">K</span> Screenshot prep</h2>
-      <h3>Setup</h3>
-      <ul>
-        <li>Chrome at <b>1440×900</b>, bookmarks bar hidden (<kbd>⌘⇧B</kbd>).</li>
-        <li>Real micro:bit V2 connected. Simulate Mode <b>ON</b> for graph shots.</li>
-        <li>Capture via <kbd>⌘⇧4</kbd> → <kbd>Space</kbd> → click window for shadow-included PNGs.</li>
-        <li>Save to <code>~/Desktop/etsy-photos/</code> as <code>01-hero.png</code> … <code>10-setup-preview.png</code>.</li>
-      </ul>
-      <div class="callout danger">Never include: macOS menu bar with your name, other browser tabs, any reference to GitHub / "open source" / "source code".</div>
-    </section>
-
-    <section id="k3">
-      <h2><span class="num purple">K</span> Pinterest pins — titles, description, hashtags</h2>
-      <p class="intro">Sizes: standard pin <b>1000×1500</b>, idea pin <b>1080×1920</b>. Make 3–5 pins per listing.</p>
-
-      <h3>5 pin titles (rotate, keyword-rich)</h3>
-      <div class="copy"><span class="label">Pin titles</span><button class="btn" data-copy>Copy</button>
-        <pre>Turn a micro:bit into a STEM lab — works in any browser
-The micro:bit Bluetooth app every STEM teacher wishes existed
-Homeschool STEM: 8 tabs, 5 robots, zero installs
-micro:bit V2 + Chrome = a $10 robotics classroom
-From "what's a micro:bit" to "I built a robot" in 5 minutes</pre>
-      </div>
-
-      <h3>Pin description (500 chars, SEO-optimized)</h3>
-      <div class="copy long"><span class="label">Pin description A</span><button class="btn" data-copy>Copy</button>
-        <pre>Looking for a micro:bit project that works straight from the browser? Mini Mission Control gives you 8 tabs of live control — LED matrix, sensors, servos, gamepad, real-time graphs, and 5 interactive 3D models — all over Bluetooth. Perfect for STEM teachers, homeschool parents, and after-school clubs. No installs, no accounts. Works on Chrome and Edge. One-time download. #microbit #STEM #homeschool #coding #edtech</pre>
-      </div>
-      <div class="copy long"><span class="label">Pin description B</span><button class="btn" data-copy>Copy</button>
-        <pre>The Bluetooth control panel for the two devices (laptop + phone) that turns one $20 board into an entire robotics lab. Draw on the LEDs, watch live sensor graphs, drive a 3D buggy with the on-screen gamepad, and record sessions for science class. Browser-based — no installs. Instant download from Etsy. #microbit #classroomresources #stemforkids #robotics #makered</pre>
-      </div>
-
-      <h3>Hashtag bank (rotate — don't reuse the same set)</h3>
-      <div class="copy"><span class="label">Hashtags</span><button class="btn" data-copy>Copy</button>
-        <pre>#microbit #microbitV2 #STEM #STEAM #STEMforkids #STEMteacher #homeschoolSTEM #classroomresources #edtech #makered #codingforkids #learntoprogram #robotics #BBCmicrobit #chromebookclassroom #afterschoolclub</pre>
-      </div>
-    </section>
-
-    <section id="k4">
-      <h2><span class="num purple">K</span> Free-traffic playbook</h2>
-      <table>
-        <thead><tr><th>Channel</th><th>Approach</th></tr></thead>
-        <tbody>
-          <tr><td>TikTok / Reels</td><td>Reuse 15-sec demo. Hook in first 1.5s: tilt board → 3D buggy tilts. Caption: <i>"Bought my class a $20 STEM lab"</i>.</td></tr>
-          <tr><td>Reddit</td><td>Build karma in <a href="https://reddit.com/r/microbit" target="_blank" rel="noopener">r/microbit</a>, <a href="https://reddit.com/r/edtech" target="_blank" rel="noopener">r/edtech</a>, <a href="https://reddit.com/r/homeschool" target="_blank" rel="noopener">r/homeschool</a> for 2–3 weeks first. Then post a demo (no Etsy link). DM the link privately.</td></tr>
-          <tr><td>Facebook groups</td><td>Highest conversion of all free channels. Search "micro:bit teachers", "BBC micro:bit Educators", "Homeschool STEM", "Coding with Kids". Most allow promo on Fridays — read pinned rules.</td></tr>
-          <tr><td>YouTube</td><td>Long-term. Weekly 5-min "what you can build" videos. Compounds over 6+ months.</td></tr>
-        </tbody>
-      </table>
-      <div class="callout danger">Do NOT cold-DM teachers on LinkedIn (spam flag). Do NOT buy "Etsy SEO course" upsells (Etsy's <a href="https://www.etsy.com/seller-handbook" target="_blank" rel="noopener">Seller Handbook</a> is free and better). Do NOT run Etsy Ads on day one.</div>
-    </section>
-
-    <!-- ============ SITE LICENSE ============ -->
-    <section id="s1">
-      <h2><span class="num amber">2</span> Site License listing ($149 → $499 district)</h2>
-      <p class="intro">One site-license sale ≈ 15 individual sales. Same ZIP contents, different LICENSE. File: <code>~/Desktop/micromission-control-v1.0-site-license.zip</code>.</p>
-
-      <h3>Title</h3>
-      <div class="copy"><span class="label">Title</span><button class="btn" data-copy>Copy</button>
-        <pre>micro:bit V2 Playground — SCHOOL SITE LICENSE | Up to 30 Teachers, Unlimited Students | STEM Classroom App | Instant Digital Download</pre>
-      </div>
-
-      <h3>Description</h3>
-      <div class="copy long"><span class="label">Description</span><button class="btn" data-copy>Copy</button>
-        <pre>🏫 School Site License — micro:bit V2 Playground
-
-The browser-based micro:bit control panel, licensed for your whole school.
-
-✅ What the license covers:
-• Up to 30 teachers / instructors at ONE physical school, library, or learning center
-• Unlimited students — no per-seat fees, no activation keys, no headaches
-• On-site, remote, and after-school program use
-• Free bug-fix updates for 12 months
-• Internal modification and distribution among staff
-
-🛠️ What you get (instant download):
-• The full Mini Mission Control web app (runs locally in any Chromebook / laptop)
-• Ready-to-flash firmware (makecode.ts) for two devices (laptop + phone)
-• Printable setup guide
-• Signed Site License certificate (fill in your school name and keep on file)
-
-👩‍🏫 Perfect for: STEM departments, robotics clubs, library maker corners, summer camps, after-school coding programs.
-
-⚙️ Requires: two devices (laptop + phone) (sold separately) + Chrome or Edge. Not supported: Safari, Firefox, iPhone, iPad (Web Bluetooth limitation).
-
-🏢 Need more than one site? Message me before buying — I offer discounted multi-site and district licenses.
-
-📜 You may use and modify internally, but may not redistribute outside your school. Full terms in the LICENSE file.</pre>
-      </div>
-
-      <h3>Tags</h3>
-      <div class="copy"><span class="label">Site-license tags</span><button class="btn" data-copy>Copy</button>
-        <pre>microbit
-school license
-site license
-stem classroom
-bulk license
-district license
-teacher resource
-classroom software
-microbit v2
-coding curriculum
-robotics club
-bbc microbit
-edtech bulk</pre>
-      </div>
-
-      <h3>Custom auto-reply</h3>
-      <div class="copy long"><span class="label">Site-license auto-reply</span><button class="btn" data-copy>Copy</button>
-        <pre>Thank you for licensing Mini Mission Control for your school! 🏫
-
-Your download is in You → Purchases &amp; Reviews. Inside the ZIP you'll find a LICENSE file — please fill in your school name, address, your email, and this Etsy order number, and keep it on file.
-
-I'll email you a personalized Site License Certificate (PDF) within 24 hours.
-
-📘 Start with SETUP.md. A good first step is to flash the firmware on 2–3 staff micro:bits, then share the unzipped folder on your school's shared drive.
-
-🏢 Multiple sites? Reply here with how many — I offer a district discount starting at 3 sites.
-
-💬 For support, include your Etsy order number and the school name. I reply within 24h on weekdays.</pre>
-      </div>
-    </section>
-
-    <!-- ============ ARABIC ============ -->
-    <section id="s2">
-      <h2><span class="num amber">3</span> Arabic listing (uncontested market)</h2>
-      <p class="intro">V8.2 already ships full AR + RTL UI. Target: MENA homeschool + Arabic-speaking diaspora. Same ZIP as English.</p>
-
-      <h3>Title</h3>
-      <div class="copy rtl"><span class="label">Arabic title</span><button class="btn" data-copy>Copy</button>
-        <pre>لوحة تحكم مايكروبت V2 عبر البلوتوث — تطبيق STEM للمعلمين والأطفال | تحميل فوري | Microbit Playground Arabic</pre>
-      </div>
-
-      <h3>Description</h3>
-      <div class="copy long rtl"><span class="label">Arabic description</span><button class="btn" data-copy>Copy</button>
-        <pre>🎮 لوحة تحكم مايكروبت — تطبيق متكامل عبر البلوتوث للوحة two devices (laptop + phone)
-
-حوّل المايكروبت إلى مختبر STEM تفاعلي — بدون تثبيت، بدون حساب، بدون إنترنت. فقط افتح المتصفح واتصل.
-
-✨ ما ستحصل عليه (تحميل فوري):
-• تطبيق ويب كامل (HTML, CSS, JS) يعمل محلياً في متصفح Chrome أو Edge
-• برنامج جاهز للمايكروبت (makecode.ts)
-• دليل إعداد مطبوع
-• 4 ثيمات (ستيلث، نيون، أركتيك، بليز)
-• 8 تبويبات: مصفوفة LED، المستشعرات، المحركات، جويباد، الرسم البياني، عرض ثلاثي الأبعاد، البنش، الإعدادات
-• 5 نماذج ثلاثية الأبعاد تفاعلية (مايكروبت، روبوت، ذراع روبوتي، لعبة توازن، محطة طقس)
-• تسجيل الجلسات، رسوم بيانية حية، تصدير JSON
-• وضع المبتدئ ووضع الخبير — يتطور مع المتعلم
-• واجهة عربية كاملة مع دعم RTL (اليمين إلى اليسار)
-
-🧒 مناسب لـ: الفصول الدراسية، التعليم المنزلي، النوادي المدرسية، ورش الصنع، معسكرات STEM، الأطفال المهتمين بالبرمجة والروبوتات.
-
-⚙️ يتطلب:
-• لوحة two devices (laptop + phone) (تُشترى بشكل منفصل)
-• متصفح Chrome أو Edge على كمبيوتر أو لابتوب أو جهاز أندرويد
-• تفعيل البلوتوث
-
-❌ لا يعمل على: Safari، Firefox، iPhone، iPad (قيود Web Bluetooth).
-
-📦 التسليم: تحميل فوري بعد الشراء — ملف ZIP واحد.
-
-📜 الترخيص: استخدام شخصي وتعليمي. لا يجوز إعادة البيع أو إعادة النشر.
-
-💬 هل لديك سؤال قبل الشراء؟ راسلني وسأجيبك بالعربية في غضون ساعات.</pre>
-      </div>
-
-      <h3>Tags (Arabic + English mix)</h3>
-      <div class="copy"><span class="label">Arabic tags</span><button class="btn" data-copy>Copy</button>
-        <pre>مايكروبت
-STEM أطفال
-تعليم البرمجة
-روبوت للأطفال
-تحميل رقمي
-تعليم منزلي
-microbit arabic
-arabic stem
-homeschool arabic
-coding arabic
-برمجة للأطفال
-علوم stem
-microbit v2</pre>
-      </div>
-
-      <h3>Auto-reply (Arabic)</h3>
-      <div class="copy long rtl"><span class="label">Arabic auto-reply</span><button class="btn" data-copy>Copy</button>
-        <pre>شكراً جزيلاً على طلبك! 🎉
-
-تم تجهيز التحميل فوراً — ستجد الرابط في بريدك الإلكتروني ومن خلال حسابك في Etsy → Purchases &amp; Reviews.
-
-📘 ابدأ من هنا: فك ضغط الملف وافتح SETUP.md (دليل 5 دقائق). تحتاج لوحة two devices (laptop + phone) ومتصفح Chrome أو Edge — لا يعمل على Safari أو iPhone (قيود Web Bluetooth).
-
-💬 واجهت مشكلة؟ راسلني برقم الطلب وصورة من الشاشة — سأرد خلال 24 ساعة.
-
-📜 الترخيص: استخدام شخصي / فصل دراسي واحد. يُرجى عدم إعادة البيع.
-
-⭐ إذا أعجبك التطبيق، تقييم بنجوم يعني الكثير — المتاجر الصغيرة تعيش على التقييمات.
-
-برمجة ممتعة!
-— [اسمك]</pre>
-      </div>
-
-      <div class="callout tip"><b>Pricing:</b> $12.99 USD — don't discount for Arabic buyers. Diaspora pays in USD; MENA expects foreign digital goods at international prices.</div>
-    </section>
-
-    <!-- ============ 10 SELL IDEAS ============ -->
-    <section>
-      <h2><span class="num red">10</span> Tier-2 sell ideas — 10 launch kits</h2>
-      <p class="intro">Ranked by non-obviousness × payoff. Click any card to expand the full kit.</p>
-
-      <details class="idea" id="i1">
-        <summary><span class="rank gold">1</span> 🥇 Workshop-in-a-USB — physical listing, $29.99<span class="badge new">NEW</span></summary>
-        <div class="body">
-          <p>Flash firmware + copy the app folder onto a cheap 4 GB USB stick. Ship the stick + printed Quick-Start card. Buyers plug in → double-click <code>index.html</code> → pair → done.</p>
-          <p><b>Why Etsy rewards this:</b> physical listings rank higher in search, refund risk is near-zero, converts the "afraid to flash" market (~40%).</p>
-
-          <h4>Listing title</h4>
-          <div class="copy"><span class="label">Title</span><button class="btn" data-copy>Copy</button>
-            <pre>Plug-and-Play micro:bit V2 STEM USB — Pre-Flashed + Illustrated Guide | Workshop-in-a-USB | Ships from France</pre>
-          </div>
-
-          <h4>Description</h4>
-          <div class="copy long"><span class="label">Description</span><button class="btn" data-copy>Copy</button>
-            <pre>🔌 Plug-and-Play micro:bit V2 STEM USB — everything ready, zero setup
-
-Tired of the "install → flash → paste → pray" dance? This USB stick does it for you. One plug-in and your students are drawing on the LEDs in 30 seconds.
-
-📦 What ships to your door:
-• 1× 4 GB USB stick containing the complete Mini Mission Control app
-• 1× Pre-flashed two devices (laptop + phone) (firmware already loaded, shows the X icon on first power-on)
-• 1× Illustrated Quick-Start card (EN/FR/AR, printed on 250 gsm cardstock)
-• 1× Padded envelope, tracked delivery
-
-🧑‍🏫 Perfect for: homeschool parents, first-time STEM teachers, library maker corners, after-school clubs.
-
-⚙️ How it works:
-1. Plug in the USB stick
-2. Power the micro:bit (USB or batteries — batteries sold separately)
-3. Double-click index.html — it opens in Chrome/Edge
-4. Click Connect
-5. You're in. No installs, no accounts, no cloud.
-
-📜 License: single-user, full terms in the LICENSE file on the stick.
-
-✈️ Shipping: from France via tracked Lettre Suivie. Europe: 3–7 days. US / Canada: 7–14 days. Rest of world: 10–21 days.
-
-💬 Questions? Message me — I reply within 24h.</pre>
-          </div>
-
-          <h4>Price ladder</h4>
-          <ul>
-            <li>Launch (first 10 units): <b>$29.99</b> + €4.50 shipping EU / $9 worldwide</li>
-            <li>Standard: <b>$39.99</b></li>
-            <li>Stick-only (no board): <b>$14.99</b></li>
-          </ul>
-
-          <h4>Per-unit cost at 20-unit bulk</h4>
-          <table>
-            <tbody>
-              <tr><td>USB stick</td><td>$2.50</td></tr>
-              <tr><td>two devices (laptop + phone) (wholesale)</td><td>$12.00</td></tr>
-              <tr><td>Printed card (250 gsm)</td><td>$0.80</td></tr>
-              <tr><td>Padded envelope + label</td><td>$0.60</td></tr>
-              <tr><td><b>Total COGS</b></td><td><b>~$15.90</b></td></tr>
-              <tr><td><b>Margin @ $29.99</b></td><td><b>~$14</b></td></tr>
-            </tbody>
-          </table>
-
-          <h4>Packing checklist</h4>
-          <div class="copy"><span class="label">Print + tape to packing desk</span><button class="btn" data-copy>Copy</button>
-            <pre>[ ] USB stick inserted into sleeve
-[ ] micro:bit V2 in anti-static bag
-[ ] Quick-Start card on top
-[ ] Thank-you sticker
-[ ] Envelope sealed
-[ ] Tracking label attached
-[ ] Scan + mark shipped in Etsy within 24h</pre>
-          </div>
-        </div>
-      </details>
-
-      <details class="idea" id="i2">
-        <summary><span class="rank silver">2</span> 🥈 School-district pitch deck — $499+ starter, $2,500+ closes<span class="badge new">NEW</span></summary>
-        <div class="body">
-          <p>A 10-slide PDF + cover-letter template, sold on Etsy as "School-District Licensing — Quote on Request" at <b>$499</b> (upsell to $2,500+ via Etsy message).</p>
-
-          <h4>Listing title</h4>
-          <div class="copy"><span class="label">Title</span><button class="btn" data-copy>Copy</button>
-            <pre>Mini Mission Control — District-Wide STEM Licensing | Quote for 3+ Schools | Includes Teacher Training Materials</pre>
-          </div>
-
-          <h4>10-slide deck outline</h4>
-          <ol>
-            <li><b>Cover</b> — logo + "District-Wide Licensing Proposal for [District Name]"</li>
-            <li><b>The problem</b> — "Most STEM software requires installs / accounts / cloud approvals. IT says no. Teachers get stuck."</li>
-            <li><b>What it is</b> — screenshot + tab map + one sentence</li>
-            <li><b>Standards alignment</b> — 8 tabs mapped to Common Core / ISTE / national STEM frameworks</li>
-            <li><b>What the district gets</b> — unlimited schools + teachers + students + 12mo updates + 4 posters + 3 live training sessions</li>
-            <li><b>Adoption ROI</b> — 3 schools × 800 students = $1.04 per student per year</li>
-            <li><b>IT concerns</b> — no cloud, no accounts, no data leaves device, offline-capable PWA, Chromebook-friendly</li>
-            <li><b>Teacher support</b> — illustrated guide + symptom picker = fewer help-desk tickets</li>
-            <li><b>Timeline</b> — Week 1 license, Weeks 2–4 training, Month 2 in classrooms</li>
-            <li><b>Call to action</b> — "Reply to schedule a 30-minute call"</li>
-          </ol>
-
-          <h4>Cover-letter template</h4>
-          <div class="copy long"><span class="label">Cover letter</span><button class="btn" data-copy>Copy</button>
-            <pre>Dear [Principal / Head of STEM / Superintendent] [Last Name],
-
-My name is [Your Name], and I am the developer of Mini Mission Control — a browser-based STEM tool already in use by educators in [countries]. I am writing to propose a District-Wide License for [District Name].
-
-In the attached 10-slide proposal you will find:
-• What the tool is, demonstrated with screenshots
-• Its alignment to your curriculum standards
-• A cost-per-student breakdown (approximately $1 per student per year)
-• IT department FAQ — everything runs locally, no student data is collected
-• Suggested rollout timeline
-
-I would value a 30-minute introductory call with you or your STEM coordinator. I am flexible on licensing terms and happy to offer a pilot for one school before district-wide commitment.
-
-I look forward to hearing from you.
-
-Warmly,
-[Your Name]
-[Shop Name / Workshop·DIY]
-[Email] • [Phone] • [Etsy Shop URL]</pre>
-          </div>
-
-          <h4>Sales process</h4>
-          <ol>
-            <li>District finds listing → messages via Etsy "Request a Quote"</li>
-            <li>Reply within 24h with deck + cover letter</li>
-            <li>Schedule a 30-min call (Google Meet)</li>
-            <li>Send written quote within 48h</li>
-            <li>Contract via DocuSign (free tier)</li>
-            <li>Payment via invoice / bank transfer (Etsy's limit is $2,500)</li>
-            <li>Close the lead on Etsy with a $499 "Consulting Fee" item so Etsy's algorithm records the sale</li>
-          </ol>
-
-          <h4>Expected close rate</h4>
-          <ul>
-            <li>Cold outreach: ~2% → 1 sale per 50 emails</li>
-            <li>Inbound (listing found): ~15% → 1 sale per 7 messages</li>
-            <li><b>Even 1 sale/year = $2,500 = 167 individual Etsy sales</b></li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="idea" id="i3">
-        <summary><span class="rank bronze">3</span> 🥉 Teacher Ambassador program — free marketing engine<span class="badge new">NEW</span></summary>
-        <div class="body">
-          <p>Offer <b>5 teachers</b> a free perpetual license + $50 Etsy credit in exchange for a 300-word blog post, a quote, and one Pinterest pin.</p>
-
-          <h4>Outreach email</h4>
-          <div class="copy long"><span class="label">Cold email</span><button class="btn" data-copy>Copy</button>
-            <pre>Subject: Free lifetime license + $50 for a 300-word blog post?
-
-Hi [First Name],
-
-I run a small Etsy shop called [Shop Name] — I make a browser-based micro:bit playground app. I saw your [Twitter / blog / review] and the way you talk about STEM resonated with me.
-
-I'm launching an Ambassador program for 5 teachers this quarter. Here's what it looks like:
-
-What I give you:
-- A free perpetual license for the full app (normally $17.99)
-- A free School Site License for your school (normally $149)
-- $50 Etsy credit to spend however you want
-- Early access to everything I ship for the next 12 months
-- Your name on the shop page as a featured teacher
-
-What I ask:
-- A 300-word post on your school site or blog — honest, with at least one photo of your classroom using it
-- Permission to quote you (with attribution) in my Etsy listings
-- One Pinterest pin on your account (I'll design it, you just click Pin)
-
-That's it. No webinars, no long-form content, no NDA. If after 30 days of using it you don't think it's worth a post, keep everything — no hard feelings.
-
-If you're interested reply with "Send me the details" and I'll put the license and credit in your inbox tonight.
-
-— [Your name]
-[Shop URL]
-
-P.S. I'm happy to answer any skeptical questions first. You can check my reviews here: [link]</pre>
-          </div>
-
-          <h4>7-day follow-up</h4>
-          <div class="copy"><span class="label">Follow-up</span><button class="btn" data-copy>Copy</button>
-            <pre>Hi [First Name] — bumping this in case it slipped past. No pressure at all, just wanted to make sure you saw it. The offer stays open through [date 2 weeks out].</pre>
-          </div>
-
-          <h4>Tracking spreadsheet columns</h4>
-          <p><code>Name</code>, <code>Email</code>, <code>School</code>, <code>Date offered</code>, <code>Date accepted</code>, <code>Blog URL</code>, <code>Pin URL</code>, <code>Review?</code>, <code>Total reach</code></p>
-
-          <h4>Expected ROI</h4>
-          <ul>
-            <li>5 permanent backlinks, 5 testimonials, 5 classroom photos</li>
-            <li>Residual ~$225/year from a one-time $250 outlay</li>
-            <li>Social proof is the single biggest Etsy → TpT conversion lever</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="idea" id="i4">
-        <summary><span class="rank">4</span> Stripe checkout link for past buyers — zero Etsy fees on repeats</summary>
-        <div class="body">
-          <p>Etsy takes ~10% on every sale. Once a buyer has completed an order, you may contact them for future upgrades outside Etsy (Etsy policy allows this for "previously delivered digital items").</p>
-
-          <h4>Setup (45 min, one-time)</h4>
-          <ol>
-            <li>Create a free <a href="https://stripe.com" target="_blank" rel="noopener">Stripe</a> account</li>
-            <li>Products → add <code>Mini Mission Control v9</code></li>
-            <li>Payment Links → create one per product, copy URL</li>
-            <li>Google Sheet log: <code>Etsy Order #</code>, <code>Email</code>, <code>Date</code>, <code>Product</code></li>
-          </ol>
-
-          <h4>Upgrade email</h4>
-          <div class="copy long"><span class="label">Stripe upgrade email</span><button class="btn" data-copy>Copy</button>
-            <pre>Subject: v9 is here — free update for you + $5 Stripe link inside
-
-Hi [First Name],
-
-Last year you bought Mini Mission Control on Etsy (order #[X]). Thank you! I just shipped v9 — it has [new feature 1], [new feature 2], and [new feature 3].
-
-Because you're an early supporter:
-• The update is FREE — download here: [Stripe link w/ $0 code]
-• Or the full "Workshop Pack" with 4 printable posters + lesson plan is $19.99
-  (normally $29.99): [Stripe link]
-
-No Etsy needed. I get to skip the 10% fee, you get a 33% discount — we both win.
-
-— [Your name]</pre>
-          </div>
-
-          <h4>Math</h4>
-          <p>100 Etsy buyers × 20% upgrade rate × $19.99 = <b>$400/year</b> pure margin. Compounds as buyer base grows.</p>
-          <div class="callout warn">Never send during an open order. Never mention Stripe in Etsy messages. If Etsy asks: "I sent an upgrade notification about a new product to a past customer, as permitted by post-order policy."</div>
-        </div>
-      </details>
-
-      <details class="idea" id="i5">
-        <summary><span class="rank">5</span> Discord / Telegram community — $5/month recurring</summary>
-        <div class="body">
-          <p>50 members → $250/month passive recurring revenue. Natural moat, buyer retention, content flywheel.</p>
-
-          <h4>What $5/month buys</h4>
-          <ul>
-            <li>Access to <code>#teachers-lounge</code></li>
-            <li>Monthly 30-min Zoom with you (recorded)</li>
-            <li>Priority email support (&lt;4h)</li>
-            <li>Pre-release access to new features</li>
-            <li>Members-only 10% discount code</li>
-          </ul>
-
-          <h4>Launch playbook</h4>
-          <ol>
-            <li>Open community free for first 30 members (Founding Members — forever free, social proof)</li>
-            <li>At member #31, switch to $5/mo</li>
-            <li>Every Etsy buyer gets an invite in the auto-reply: <i>"Join 30+ teachers — first month free"</i></li>
-            <li>Pin best posts monthly, screenshot for Pinterest (content flywheel)</li>
-          </ol>
-
-          <h4>Billing options</h4>
-          <ul>
-            <li><b>Stripe Subscriptions</b> — unique invite links per member</li>
-            <li><b>Patreon</b> (10% fee, handles everything)</li>
-            <li><b>Gumroad memberships</b> (free tier, clean UI)</li>
-          </ul>
-
-          <h4>Month-6 revenue projection</h4>
-          <p>15 paid × $5 = $75/mo → ramping to $250/mo = <b>$3,000/year recurring</b> by month 12.</p>
-        </div>
-      </details>
-
-      <details class="idea" id="i6">
-        <summary><span class="rank">6</span> Student completion certificates — $6.99 printable</summary>
-        <div class="body">
-          <p>Teachers buy specifically to reward students. ~25% of app buyers also buy certificates.</p>
-
-          <h4>What ships</h4>
-          <ul>
-            <li>Printable PDF (A4 + US Letter)</li>
-            <li>Fillable fields: student name, class, teacher signature, date</li>
-            <li>4 designs: "My First LED", "Sensor Scientist", "Robot Builder", "Playground Master"</li>
-          </ul>
-
-          <h4>Implementation (~1h)</h4>
-          <p>Clone <code>SITE_LICENSE_CERTIFICATE.html</code> (already built), swap wording, add emojis, change seal to "STEM Achievement", export 4 variants as standalone HTML.</p>
-
-          <h4>Listing copy</h4>
-          <div class="copy"><span class="label">Title</span><button class="btn" data-copy>Copy</button>
-            <pre>STEM Achievement Certificates for micro:bit Students — 4 Printable Designs | Editable PDF | Instant Download</pre>
-          </div>
-          <div class="copy long"><span class="label">Description</span><button class="btn" data-copy>Copy</button>
-            <pre>🏆 Reward your students — 4 printable certificates for Mini Mission Control milestones.
-• I Made My First LED
-• Sensor Scientist
-• Robot Builder
-• Playground Master
-
-Editable fields for student name, class, date, teacher signature. Print on any paper. Prints well in color OR black &amp; white.
-
-Perfect as end-of-workshop rewards, homeschool milestones, or parent-facing proof of progress. Works standalone — no app purchase required, but designed to pair with our Mini Mission Control.
-
-Price: $6.99</pre>
-          </div>
-
-          <h4>Attach math</h4>
-          <p>50 app sales/mo × 25% × $6.99 = <b>$87/mo pure margin</b>. Zero support burden.</p>
-        </div>
-      </details>
-
-      <details class="idea" id="i7">
-        <summary><span class="rank">7</span> Back-to-School seasonal bundle — $39.99, Aug 1 – Sep 15 only</summary>
-        <div class="body">
-          <p>Urgency + seasonality = Etsy's biggest algorithm trigger. Sales spikes push all your other listings up.</p>
-
-          <h4>Bundle contents</h4>
-          <ul>
-            <li>Full app (standard ZIP)</li>
-            <li>4 printable posters (pin-out, architecture, symptom chart, firmware storyboard)</li>
-            <li>1 lesson plan PDF</li>
-            <li>30-day STEM challenge (fillable tracker)</li>
-            <li>Parent handout</li>
-            <li>Workshop timing sheet</li>
-            <li><b>Back-to-School bonus:</b> a 20-min Zoom onboarding call with you ($149 value)</li>
-          </ul>
-
-          <h4>Marketing copy</h4>
-          <div class="copy long"><span class="label">Back-to-School copy</span><button class="btn" data-copy>Copy</button>
-            <pre>🍎 Back-to-School 2026 Bundle — Complete micro:bit STEM Classroom Kit
-
-Everything you need for your first STEM workshop of the year. Available Aug 1 – Sep 15 ONLY.
-
-🎁 This month only: 20-min Zoom onboarding call with the creator. $149 value, included free.
-
-Ships instantly. License covers one teacher / one family. Full terms in LICENSE.
-
-💨 Last day: September 15, 2026.</pre>
-          </div>
-
-          <h4>Revenue math</h4>
-          <p>Normal month: 15 sales × $12.99 = $195. Back-to-School: 30 sales × $39.99 = <b>$1,200</b>. Plus the algorithm halo for months afterwards.</p>
-        </div>
-      </details>
-
-      <details class="idea" id="i8">
-        <summary><span class="rank">8</span> Free Instructables funnel — SEO Etsy can't buy</summary>
-        <div class="body">
-          <p>Instructables has domain authority ~85 and ranks well on Google. Each tutorial becomes a top-of-funnel page feeding Etsy.</p>
-
-          <h4>3 tutorial ideas</h4>
-          <ol>
-            <li>"How to make a micro:bit thermometer in 5 minutes" — manual MakeCode version</li>
-            <li>"micro:bit sound level meter — no code needed"</li>
-            <li>"Control a servo from your laptop via Bluetooth"</li>
-          </ol>
-
-          <h4>Soft CTA at the end of every tutorial</h4>
-          <div class="copy long"><span class="label">Instructable CTA</span><button class="btn" data-copy>Copy</button>
-            <pre>🎉 Congrats — your thermometer is working!
-
-Want to plot the temperature, record sessions, and export CSV data without writing any extra code? My browser-based Mini Mission Control does all of that out of the box (it's what I used to take the screenshots in this tutorial). You can find it here: [Etsy URL].
-
-Either way — happy making!</pre>
-          </div>
-
-          <h4>SEO math</h4>
-          <p>3 tutorials × ~500 monthly Google visitors each × 2% Etsy CTR × 3% conversion = <b>~3 sales/month forever</b>. Bonus: every tutorial invites backlinks.</p>
-
-          <h4>Republish strategy</h4>
-          <p>Same content on Hackster.io, Instructables, and your own blog (canonicalize one). Pinterest pin links to Instructable (not Etsy — Pinterest prefers content destinations).</p>
-        </div>
-      </details>
-
-      <details class="idea" id="i9">
-        <summary><span class="rank">9</span> White-label to robotics-kit makers — $1/kit licensing</summary>
-        <div class="body">
-          <p>Distributors move 5,000–20,000 kits/year. Even small ones close 5k × $1 = <b>$5,000/year recurring</b>.</p>
-
-          <h4>Target companies &amp; contact intel</h4>
-          <table>
-            <thead><tr><th>Company</th><th>Region</th><th>Contact</th></tr></thead>
-            <tbody>
-              <tr><td>Kitronik</td><td>UK</td><td>Contact form on <a href="https://www.kitronik.co.uk/pages/contact-us" target="_blank" rel="noopener">kitronik.co.uk/pages/contact-us</a> — tick "Education" / "Wholesale". Likely: <code>sales@kitronik.co.uk</code> (verify on Hunter.io).</td></tr>
-              <tr><td>The Pi Hut</td><td>UK</td><td><a href="https://support.thepihut.com" target="_blank" rel="noopener">support.thepihut.com</a> — submit under "Business / Wholesale".</td></tr>
-              <tr><td>ElecFreaks</td><td>China</td><td><a href="https://www.elecfreaks.com/contact" target="_blank" rel="noopener">elecfreaks.com/contact</a> — likely <code>info@elecfreaks.com</code> (verify).</td></tr>
-              <tr><td>SparkFun</td><td>US</td><td><a href="https://www.sparkfun.com/partnerships" target="_blank" rel="noopener">sparkfun.com/partnerships</a> is the canonical page.</td></tr>
-              <tr><td><b>GoTronic ✓</b></td><td>France</td><td>Phone <b>03 24 27 93 42</b> • 35 ter route nationale, Blagny 08110 • Contact form at <a href="https://www.gotronic.fr" target="_blank" rel="noopener">gotronic.fr</a>. Local, est. 1990, sells to schools — best-qualified lead.</td></tr>
-              <tr><td>Génération Robots</td><td>France</td><td><a href="https://www.generationrobots.com" target="_blank" rel="noopener">generationrobots.com</a> contact form. Schools-heavy.</td></tr>
-            </tbody>
-          </table>
-
-          <h4>How to find the decision-maker email</h4>
-          <ol>
-            <li><a href="https://hunter.io" target="_blank" rel="noopener">hunter.io</a> — 25 free searches/month, returns email patterns</li>
-            <li>LinkedIn — search <code>[Company] "partnerships"</code> or <code>"business development"</code>, note name</li>
-            <li>Hunter Email Finder → verified email</li>
-            <li><a href="https://apollo.io" target="_blank" rel="noopener">Apollo.io</a> (shortcut) — 100 free B2B emails/mo without needing names first</li>
-          </ol>
-
-          <h4>Cold email</h4>
-          <div class="copy long"><span class="label">White-label pitch</span><button class="btn" data-copy>Copy</button>
-            <pre>Subject: White-label micro:bit app for your kits — $1/unit licensing
-
-Hi [Name],
-
-I'm the developer of Mini Mission Control — a browser-based app that turns a bare micro:bit V2 into an interactive STEM lab (LEDs, sensors, servos, graphs, 3D). You can see it at [Etsy URL].
-
-Proposal: I license you a co-branded version of the app ("Powered by [Your Company]" footer, your logo) to ship with your micro:bit kits. Buyers scan the QR code on the box and get the full app — no cloud, no install.
-
-Licensing: $1 per kit sold, minimum 1,000 kits per year. You pay nothing upfront; I invoice quarterly based on your reported sales.
-
-Benefits to you: a differentiator over competitors. Buyers perceive "kit + software" as higher value than "just a board."
-
-Happy to send a 2-page spec or hop on a 20-min call. What's easier?
-
-— [Your name]
-[LinkedIn / Etsy shop]</pre>
-          </div>
-
-          <h4>Contract terms to request</h4>
-          <ul>
-            <li>$1/unit, paid quarterly in arrears</li>
-            <li>Minimum 1,000 units/year</li>
-            <li>12-month auto-renew, 60-day cancel notice</li>
-            <li>You keep all IP; they get non-exclusive co-branding</li>
-            <li>Annual audit right</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="idea" id="i10">
-        <summary><span class="rank">10</span> Exit-intent banner inside guide.html — converts free readers<span class="badge">SHIPPED</span></summary>
-        <div class="body">
-          <p>Already added to <a href="../../docs/guide.html" target="_blank" rel="noopener">docs/guide.html</a>. Shows only on public hosting (hides on <code>file://</code>) and for visitors who haven't connected a micro:bit yet.</p>
-
-          <h4>Before going live, update the link</h4>
-          <p>Open <code>guide.html</code>, find <code>https://www.etsy.com/your-shop-url</code>, replace with your real Etsy listing URL.</p>
-
-          <h4>Expected lift</h4>
-          <p>100 guide visitors/mo × 5% banner click × 15% Etsy conversion = <b>~1 extra sale/mo per 100 guide visitors</b>. Scales linearly with Pinterest / Google traffic.</p>
-
-          <h4>Hosting strategy</h4>
-          <ul>
-            <li><b>Option A (recommended):</b> host <code>guide.html</code> publicly at <code>workshop-diy.org/microbit-guide/</code> → banner auto-shows</li>
-            <li><b>Option B:</b> teaser version (first 3 sections only) public, full guide stays paid</li>
-            <li><b>Option C:</b> leave banner in the buyer ZIP — the <code>file://</code> check hides it for buyers automatically</li>
-          </ul>
-        </div>
-      </details>
-    </section>
-
-    <!-- ============ LAUNCH PRIORITY ============ -->
-    <section id="r1">
-      <h2><span class="num">LP</span> Launch priority — what to ship in the next 4 weeks</h2>
-      <table>
-        <thead><tr><th>Rank</th><th>Idea</th><th>Why this order</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td><a href="#i4">Stripe for repeat buyers</a></td><td>Costs nothing, recovers 10% of fees on existing sales</td></tr>
-          <tr><td>2</td><td><a href="#i6">Student certificates</a></td><td>1h build, $87/mo attach revenue</td></tr>
-          <tr><td>3</td><td><a href="#i1">Workshop-in-a-USB</a></td><td>Physical listing boosts Etsy ranking</td></tr>
-          <tr><td>4</td><td><a href="#i3">Ambassador program</a></td><td>Free long-term marketing</td></tr>
-          <tr><td>5</td><td><a href="#i7">Back-to-School bundle</a></td><td>Seasonal algorithm boost</td></tr>
-          <tr><td>6</td><td><a href="#i10">Exit-intent banner</a></td><td>Build once, converts forever (already shipped ✓)</td></tr>
-          <tr><td>7</td><td><a href="#i8">Instructables funnel</a></td><td>Passive SEO flywheel</td></tr>
-          <tr><td>8</td><td><a href="#i2">District pitch deck</a></td><td>One close = year's income, but long cycle</td></tr>
-          <tr><td>9</td><td><a href="#i5">Discord community</a></td><td>Recurring revenue but needs weekly engagement</td></tr>
-          <tr><td>10</td><td><a href="#i9">White-label licensing</a></td><td>Highest upside, slowest close cycle</td></tr>
-        </tbody>
-      </table>
-      <div class="callout tip">If you have 4 weeks, ship #1 + #2 + #3 + #4. Those four compound together.</div>
-    </section>
-
-    <footer>Seller-only playbook — do not include in the buyer ZIP. Last updated 2026-04-18 (V1.0.0).</footer>
-  </main>
+<h1>Mini Mission Control — Etsy Listing Kit (v1.0.0)</h1>
+<p>Copy-paste-ready listing text for Etsy. Edit prices/tags to match your shop policies.</p>
+
+<h2>1. Listing Title (140 chars max)</h2>
+<pre>Mini Mission Control — Two-Device Video Call + D-pad Command Channel · Browser STEM Kit · Optional BBC micro:bit V2 Bridge · Instant Download</pre>
+
+<h2>2. Short description (first 160 chars, shown in search)</h2>
+<pre>Browser-based mission console: two devices, one room code, live video + audio + D-pad + text-to-speech. Optional BBC micro:bit V2 bridge. No install, no account.</pre>
+
+<h2>3. Full description</h2>
+<p>🎮 <b>Mini Mission Control</b> — a browser-based video call + command channel between two devices.</p>
+<p>Open one HTML file on a laptop and a phone, match a room code, and you get live two-way video, a D-pad that streams commands as JSON, text messaging, and text-to-speech — no install, no account, no backend, no tracking.</p>
+
+<h3>WHAT YOU GET</h3>
+<ul>
+  <li>📹 Two-way video + audio call (PeerJS / WebRTC under the hood)</li>
+  <li>🎮 D-pad command channel — UP / DOWN / LEFT / RIGHT / STOP with pressed/release events as JSON</li>
+  <li>✉️ Text messaging over the data channel</li>
+  <li>🔊 Local Speak and 📡 Remote Speak (make the <em>other</em> device talk)</li>
+  <li>📸 Snapshot (PNG) and ⏺️ Record (WebM) the remote feed</li>
+  <li>⛶ Remote fullscreen request and 👁 HUD overlay on the video</li>
+  <li>🪞 Mirror self, ↔️ Flip remote, 🔇 Mute mic, 🔄 Switch front/rear camera</li>
+  <li>🧩 Optional BBC micro:bit V2 bridge over BLE UART (forwards commands as <code>CMD UP 1</code> / <code>CMD STOP 1</code> lines)</li>
+  <li>📝 Logs panel showing every TX / RX / ACK packet</li>
+</ul>
+
+<h3>WHAT'S IN YOUR DOWNLOAD</h3>
+<ul>
+  <li><code>index.html</code> — the mission console</li>
+  <li><code>js/app.js</code> — PeerJS, camera, D-pad, BLE bridge</li>
+  <li><code>css/style.css</code> — dark console look</li>
+  <li><code>makecode.ts</code> — optional firmware for a BBC micro:bit V2</li>
+  <li><code>README.md</code> + <code>USERGUIDE.html</code> — full walkthrough</li>
+  <li><code>etsy-package/</code> — printables: A4 quick-start, quick-reference sheet, A3 classroom poster, 30 achievement stickers, 45-minute lesson plan</li>
+  <li><code>LICENSE.txt</code> — personal / classroom single-user license</li>
+</ul>
+
+<h3>REQUIREMENTS</h3>
+<ul>
+  <li>Two devices with cameras + microphones (laptop + phone is typical)</li>
+  <li>Chrome recommended on both (Safari works for video, not for the Bluetooth bridge)</li>
+  <li>HTTPS host (GitHub Pages works great) or localhost</li>
+  <li>A network that allows peer-to-peer (some school Wi-Fi blocks it)</li>
+  <li>Optional: a BBC micro:bit V2 for the Bluetooth bridge</li>
+</ul>
+
+<h3>WHO IT'S FOR</h3>
+<p>Teachers running STEM workshops · home-schooling families · robotics clubs · makers prototyping remote-control projects · anyone who wants to drive a thing from another room.</p>
+
+<h3>PRIVACY FIRST</h3>
+<p>Video, audio, and commands go peer-to-peer between the two devices. No accounts, no analytics, no cloud storage of recordings. Everything stays in your browser.</p>
+
+<h3>LIFETIME UPDATES</h3>
+<p>Every version shipped from this listing is yours forever. Re-download the latest ZIP anytime from your Etsy Purchases page.</p>
+
+<p>Happy driving! 🚀🎮🧑‍🚀</p>
+
+<h2>4. Pricing (Standard tier)</h2>
+<table>
+  <tr><th>Tier</th><th>Who</th><th>Price</th></tr>
+  <tr><td>Launch</td><td>Early-bird single user</td><td>$12.99</td></tr>
+  <tr><td>Standard</td><td>One teacher / family / maker</td><td>$17.99</td></tr>
+  <tr><td>Bundle</td><td>App + all printables + lesson plan</td><td>$29.99</td></tr>
+  <tr><td>Tripwire</td><td>Post-launch upsell entry</td><td>$5</td></tr>
+  <tr><td>Site license</td><td>Up to 30 teachers at one school</td><td>$199</td></tr>
+  <tr><td>District / OEM</td><td>Multiple sites</td><td>$499</td></tr>
+  <tr><td>Promo <code>MCLAUNCH</code></td><td>Launch-week tripwire</td><td>$7</td></tr>
+</table>
+
+<h2>5. 13 Etsy Tags (20 chars each)</h2>
+<p>video call · webrtc · peerjs · STEM education · robotics · kids coding · teacher resource · remote control · dpad · classroom · home school · makerspace · micro:bit</p>
+
+<h2>6. Materials (what powers it)</h2>
+<p>HTML5 · JavaScript · PeerJS · WebRTC · Web Bluetooth · Web Speech API · MediaRecorder · MakeCode TypeScript</p>
+
+<h2>7. Image sequence (7 images)</h2>
+<table>
+  <tr><th>#</th><th>What</th><th>Who it's for</th></tr>
+  <tr><td>1</td><td>Hero: laptop + phone side-by-side, consoles visible, status green, "Call · Command · Control"</td><td>Scroll-stopper</td></tr>
+  <tr><td>2</td><td>Close-up of both Room boxes showing the same code, arrow between them</td><td>Scanner</td></tr>
+  <tr><td>3</td><td>Phone with D-pad pressed; laptop Logs printing <code>[RX][DPAD] UP 1</code></td><td>Proof of real-time</td></tr>
+  <tr><td>4</td><td>Text box → speaker pulse on the other device — 📡 Remote speak</td><td>Wow moment</td></tr>
+  <tr><td>5</td><td>Phone + laptop + BBC micro:bit V2 showing an LED arrow matching the D-pad</td><td>Maker angle</td></tr>
+  <tr><td>6</td><td>Flat-lay of printables: quick-start, reference, A3 poster, stickers</td><td>Teacher</td></tr>
+  <tr><td>7</td><td>Dark-gradient text card: single-user license · lifetime updates · no cloud · Chrome</td><td>Buyer reassurance</td></tr>
+</table>
+
+<h2>8. Listing video (≤60 s)</h2>
+<table>
+  <tr><th>Time</th><th>Activity</th><th>Notes</th></tr>
+  <tr><td>0–3 s</td><td>Title card: "Call · Command · Control"</td><td>Hook</td></tr>
+  <tr><td>3–10 s</td><td>Both devices open page, match room code, Start camera, Connect</td><td>Context</td></tr>
+  <tr><td>10–25 s</td><td>Hold D-pad on phone → laptop Logs scrolls <code>[RX][DPAD] UP 1</code></td><td>Live proof</td></tr>
+  <tr><td>25–35 s</td><td>Type "Mission is go" → 📡 Remote speak → other device speaks</td><td>Wow</td></tr>
+  <tr><td>35–50 s</td><td>Optional: Bridge ON with a BBC micro:bit V2; ▶ RIGHT → board shows ➡</td><td>Payoff</td></tr>
+  <tr><td>50–60 s</td><td>"Full kit — link in description." Logo + handle freeze frame</td><td>CTA</td></tr>
+</table>
+
+<h2>9. Alt / Arabic listing (for bilingual shops)</h2>
+<p>Some sellers publish a duplicate Arabic listing. Use the MSA Arabic description below alongside the English title.</p>
+
+<h3>Arabic title</h3>
+<div class="rtl">Mini Mission Control — لوحة تحكم مهمة في المتصفح لجهازين (حاسوب + هاتف) للمعلمين والأطفال · بدون تثبيت · Chrome · جسر micro:bit اختياري</div>
+
+<h3>Arabic short description (160 chars)</h3>
+<div class="rtl">لوحة تحكم مهمة في المتصفح: جهازان، رمز غرفة واحد، مكالمة فيديو + صوت حية + D-pad + تحويل النص إلى كلام. جسر BBC micro:bit V2 اختياري. بدون تثبيت، بدون حساب.</div>
+
+<h3>Arabic full description (condensed)</h3>
+<div class="rtl">
+🎮 <b>Mini Mission Control</b> — مكالمة فيديو + قناة أوامر D-pad بين جهازين، كلها في المتصفح.
+<p>افتح ملف HTML واحداً على حاسوب وهاتف، اكتب نفس رمز الغرفة، وستحصل على: فيديو وصوت ثنائي الاتجاه، D-pad ترسل الأوامر كـ JSON، رسائل نصية، وتحويل النص إلى كلام — بدون تثبيت، بدون حساب، بدون خادم، بدون تتبُّع.</p>
+<p><b>ما ستحصل عليه</b></p>
+<ul>
+  <li>📹 مكالمة فيديو + صوت ثنائية الاتجاه (PeerJS / WebRTC)</li>
+  <li>🎮 قناة أوامر D-pad — UP / DOWN / LEFT / RIGHT / STOP مع أحداث الضغط والإفلات</li>
+  <li>✉️ رسائل نصية، 🔊 Speak محلي، 📡 Remote Speak</li>
+  <li>📸 لقطة PNG، ⏺️ تسجيل WebM، ⛶ ملء شاشة عن بُعد، 👁 HUD</li>
+  <li>🧩 جسر اختياري إلى BBC micro:bit V2 عبر BLE UART</li>
+  <li>📝 لوحة Logs تعرض كل TX / RX / ACK</li>
+</ul>
+<p><b>المتطلبات</b>: جهازان بكاميرا وميكروفون، Chrome مُستحسَن، HTTPS أو localhost.</p>
+<p><b>الخصوصية</b>: كل شيء اتصال مباشر بين الجهازين، بدون حساب، بدون سحابة.</p>
 </div>
 
-<div class="toast" id="toast">Copied!</div>
+<h2>10. SEO long-tail keywords</h2>
+<p><code>browser video call between two devices</code> · <code>d-pad command channel webrtc</code> · <code>peer-to-peer classroom stem</code> · <code>no-install remote control</code> · <code>bbc micro:bit bluetooth bridge</code> · <code>teacher resource video walkie talkie</code> · <code>privacy-first classroom video</code></p>
 
-<script>
-(function(){
-  document.querySelectorAll('button[data-copy]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var pre = btn.parentElement.querySelector('pre');
-      var text = pre.innerText;
-      navigator.clipboard.writeText(text).then(function(){
-        btn.classList.add('copied');
-        btn.textContent = 'Copied ✓';
-        show('Copied to clipboard');
-        setTimeout(function(){ btn.classList.remove('copied'); btn.textContent = 'Copy'; }, 1800);
-      }).catch(function(){
-        var ta = document.createElement('textarea');
-        ta.value = text; document.body.appendChild(ta); ta.select();
-        try { document.execCommand('copy'); show('Copied'); } catch(e){ show('Copy failed — select manually'); }
-        document.body.removeChild(ta);
-      });
-    });
-  });
+<h2>11. FAQ snippets</h2>
+<p><b>Q: Do I need a micro:bit to use this?</b><br>No. The video call + D-pad + remote speak all work with just two browsers. The micro:bit bridge is an optional bonus.</p>
+<p><b>Q: Does it work on iPhone / Safari?</b><br>Video and audio work on Safari. The optional Bluetooth bridge requires Chrome. For the full experience, use Chrome on both.</p>
+<p><b>Q: Does it work on school Wi-Fi?</b><br>Usually yes, but some networks block peer-to-peer. Test first with a phone hotspot as a backup.</p>
+<p><b>Q: Is any video recorded or uploaded?</b><br>No. The connection is peer-to-peer. Snapshots/recordings save locally to the capturing device only.</p>
+<p><b>Q: Can I use it across my school or district?</b><br>Yes. Site license covers up to 30 teachers at one school; district license covers multiple sites.</p>
 
-  var toast = document.getElementById('toast'); var tt;
-  function show(msg){ toast.textContent = msg; toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 1800); }
+<p style="text-align:center;color:#64748b;margin-top:40px;font-size:13px">
+  <em>Mini Mission Control v1.0.0 · Standard pricing tier · Promo code <code>MCLAUNCH</code> → $7</em>
+</p>
 
-  // Smooth-scroll TOC
-  document.querySelectorAll('.toc a').forEach(function(a){
-    a.addEventListener('click', function(e){
-      var href = a.getAttribute('href');
-      if (href && href.indexOf('#') === 0) {
-        e.preventDefault();
-        var el = document.querySelector(href);
-        if (el) { el.scrollIntoView({behavior:'smooth', block:'start'}); // also open <details> if collapsed
-          if (el.tagName.toLowerCase() === 'details') el.open = true;
-        }
-      }
-    });
-  });
-
-  // TOC search filter
-  var search = document.getElementById('tocSearch');
-  if (search) {
-    search.addEventListener('input', function(){
-      var q = this.value.toLowerCase().trim();
-      document.querySelectorAll('.toc ul li').forEach(function(li){
-        var t = li.textContent.toLowerCase();
-        li.style.display = (!q || t.indexOf(q) !== -1) ? '' : 'none';
-      });
-    });
-  }
-})();
-</script>
 </body>
 </html>

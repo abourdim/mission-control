@@ -56,7 +56,7 @@ Licensor: the original author (as listed in the Etsy listing)
 
    Because this is an instant digital download, refunds cannot be offered
    once the ZIP has been delivered. Please verify compatibility (Chrome or
-   Edge on desktop, two devices (laptop + phone)) before purchasing. If the product
+   Edge on desktop, two devices (laptop + phone); optional BBC micro:bit V2) before purchasing. If the product
    does not work as described on a supported browser, contact the
    Licensor via Etsy messaging within 14 days — we will make it right.
 

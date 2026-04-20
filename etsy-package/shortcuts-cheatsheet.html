@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mini Mission Control Keyboard Shortcuts Cheat Sheet</title>
+<title>Mini Mission Control Quick Reference Cheat Sheet</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@500&family=Tajawal:wght@400;500;700&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -72,89 +72,79 @@
 <div class="page">
 
   <div class="header">
-    <h1>Mini Mission Control Shortcuts</h1>
+    <h1>Mini Mission Control Quick Reference</h1>
     <span>Cheat Sheet &mdash; Laminate Me!</span>
   </div>
-  <div class="laminate-tip">Print &rarr; Laminate &rarr; Stick near your micro:bit</div>
+  <div class="laminate-tip">Print &rarr; Laminate &rarr; Stick near the mission console</div>
 
   <div class="cols">
 
     <!-- Column 1 -->
     <div>
       <div class="group">
-        <div class="group-title">Streaming &amp; Data</div>
-        <div class="row"><kbd>Space</kbd><span class="label">Pause / Resume sensor stream</span></div>
-        <div class="row"><kbd>K</kbd><span class="label">Clear graph buffer</span></div>
-        <div class="row"><kbd>F</kbd><span class="label">Toggle fullscreen graph</span></div>
-        <div class="row"><kbd>R</kbd><span class="label">Start / Stop session recording</span></div>
+        <div class="group-title">Setup (both devices)</div>
+        <div class="row"><kbd>1</kbd><span class="label">Open the same URL on laptop + phone</span></div>
+        <div class="row"><kbd>2</kbd><span class="label">Type the <strong>same</strong> Room code</span></div>
+        <div class="row"><kbd>3</kbd><span class="label">Press 🎥 Start camera &mdash; allow permissions</span></div>
+        <div class="row"><kbd>4</kbd><span class="label">Press ✅ Connect &mdash; host/guest auto-picked</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">Tabs (1&ndash;8)</div>
-        <div class="row"><kbd>1</kbd><span class="label">LEDs &mdash; 5&times;5 matrix</span></div>
-        <div class="row"><kbd>2</kbd><span class="label">Sensors &mdash; live readings</span></div>
-        <div class="row"><kbd>3</kbd><span class="label">Servos &mdash; P1 &amp; P2</span></div>
-        <div class="row"><kbd>4</kbd><span class="label">GamePad &mdash; D-pad + Fire</span></div>
-        <div class="row"><kbd>5</kbd><span class="label">Graph &mdash; Chart.js live plot</span></div>
-        <div class="row"><kbd>6</kbd><span class="label">3D Board &mdash; Three.js view</span></div>
-        <div class="row"><kbd>7</kbd><span class="label">Bench &mdash; raw JSON console</span></div>
-        <div class="row"><kbd>8</kbd><span class="label">About &mdash; version &amp; credits</span></div>
+        <div class="group-title">D-pad Commands (sent as JSON)</div>
+        <div class="row"><kbd>▲ UP</kbd><span class="label">cmd:"UP", pressed:true / false</span></div>
+        <div class="row"><kbd>▼ DOWN</kbd><span class="label">cmd:"DOWN"</span></div>
+        <div class="row"><kbd>◀ LEFT</kbd><span class="label">cmd:"LEFT"</span></div>
+        <div class="row"><kbd>▶ RIGHT</kbd><span class="label">cmd:"RIGHT"</span></div>
+        <div class="row"><kbd>■ Stop</kbd><span class="label">cmd:"STOP" &mdash; halt motion</span></div>
       </div>
     </div>
 
     <!-- Column 2 -->
     <div>
       <div class="group">
-        <div class="group-title">LEDs &amp; Overlays</div>
-        <div class="row"><kbd>P</kbd><span class="label">Open LED preset picker</span></div>
-        <div class="row"><kbd>C</kbd><span class="label">Clear LED matrix</span></div>
-        <div class="row"><kbd>H</kbd><span class="label">Heart preset</span></div>
-        <div class="row"><kbd>S</kbd><span class="label">Smile preset</span></div>
-        <div class="row"><kbd>Esc</kbd><span class="label">Close any overlay / fullscreen</span></div>
+        <div class="group-title">Text &amp; Speak</div>
+        <div class="row"><kbd>Enter</kbd><span class="label">In text box &mdash; send message</span></div>
+        <div class="row"><kbd>Send</kbd><span class="label">Data-channel message to peer</span></div>
+        <div class="row"><kbd>🔊 Speak</kbd><span class="label"><strong>This</strong> device says it out loud</span></div>
+        <div class="row"><kbd>📡 Remote speak</kbd><span class="label">Make the <strong>other</strong> device speak it</span></div>
+        <div class="row"><kbd>Esc</kbd><span class="label">Close firmware / remote-fullscreen modal</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">3D Board Models</div>
-        <div class="row"><kbd>M</kbd><span class="label">Switch model (cycle)</span></div>
-        <div class="row"><span style="font-size:14px;">🔲</span><span class="label">micro:bit V2 board</span></div>
-        <div class="row"><span style="font-size:14px;">🚗</span><span class="label">Buggy robot</span></div>
-        <div class="row"><span style="font-size:14px;">🦾</span><span class="label">Robot Arm</span></div>
-        <div class="row"><span style="font-size:14px;">🎯</span><span class="label">Balance game</span></div>
-        <div class="row"><span style="font-size:14px;">🌦️</span><span class="label">Weather station</span></div>
-      </div>
-
-      <div class="group">
-        <div class="group-title">Themes &amp; View</div>
-        <div class="row"><kbd>T</kbd><span class="label">Cycle theme (Stealth &rarr; Neon &rarr; Arctic &rarr; Blaze)</span></div>
-        <div class="row"><kbd>L</kbd><span class="label">Cycle language (EN &rarr; FR &rarr; AR)</span></div>
-        <div class="row"><kbd>?</kbd><span class="label">Show shortcuts help overlay</span></div>
+        <div class="group-title">Video Controls</div>
+        <div class="row"><kbd>🔇 Mute mic</kbd><span class="label">Silence your microphone</span></div>
+        <div class="row"><kbd>🔄 Switch</kbd><span class="label">Front &harr; rear camera (phone)</span></div>
+        <div class="row"><kbd>🪞 Mirror</kbd><span class="label">Flip your local preview</span></div>
+        <div class="row"><kbd>↔️ Flip remote</kbd><span class="label">Flip the remote video display</span></div>
+        <div class="row"><kbd>✋ Hang up</kbd><span class="label">End the session</span></div>
       </div>
     </div>
 
     <!-- Column 3 -->
     <div>
       <div class="group">
-        <div class="group-title">BLE State Cheat Sheet</div>
-        <div class="ble-row"><span class="dot d-gray"></span><span class="label"><strong style="color:#cbd5e1;">Disconnected</strong> &mdash; click Connect to pair</span></div>
-        <div class="ble-row"><span class="dot d-amber"></span><span class="label"><strong style="color:#fbbf24;">Pairing</strong> &mdash; choose "BBC micro:bit [xxxxx]"</span></div>
-        <div class="ble-row"><span class="dot d-green"></span><span class="label"><strong style="color:#22c55e;">Connected</strong> &mdash; data is streaming live</span></div>
-        <div class="ble-row"><span class="dot d-blue"></span><span class="label"><strong style="color:#22d3ee;">Simulate</strong> &mdash; fake data, no board needed</span></div>
-        <div class="ble-row"><span class="dot d-red"></span><span class="label"><strong style="color:#ef4444;">Error</strong> &mdash; auto-retry 3x, then prompt</span></div>
+        <div class="group-title">Connection State</div>
+        <div class="ble-row"><span class="dot d-gray"></span><span class="label"><strong style="color:#cbd5e1;">Not connected</strong> &mdash; press ✅ Connect</span></div>
+        <div class="ble-row"><span class="dot d-amber"></span><span class="label"><strong style="color:#fbbf24;">Dialing</strong> &mdash; PeerJS negotiating</span></div>
+        <div class="ble-row"><span class="dot d-green"></span><span class="label"><strong style="color:#22c55e;">Live</strong> &mdash; video + data streaming</span></div>
+        <div class="ble-row"><span class="dot d-blue"></span><span class="label"><strong style="color:#22d3ee;">Idle</strong> &mdash; waiting for peer</span></div>
+        <div class="ble-row"><span class="dot d-red"></span><span class="label"><strong style="color:#ef4444;">Error</strong> &mdash; check Logs panel</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">Servos (P1 / P2)</div>
-        <div class="row"><kbd>Q</kbd> / <kbd>A</kbd><span class="label">P1 servo +/- 10&deg;</span></div>
-        <div class="row"><kbd>W</kbd> / <kbd>S</kbd><span class="label">P2 servo +/- 10&deg;</span></div>
-        <div class="row"><kbd>0</kbd><span class="label">Center both servos (90&deg;)</span></div>
-        <div class="row"><kbd>O</kbd><span class="label">Servos OFF (detach PWM)</span></div>
+        <div class="group-title">Optional micro:bit Bridge</div>
+        <div class="row"><kbd>🔗 Connect</kbd><span class="label">Pair BBC micro:bit [xxxxx] over BLE</span></div>
+        <div class="row"><kbd>🚀 Start sending</kbd><span class="label">Bridge ON &mdash; forward cmds to board</span></div>
+        <div class="row"><kbd>🛑 Stop</kbd><span class="label">Bridge OFF</span></div>
+        <div class="row"><kbd>🧪 Send TEST</kbd><span class="label">Ping line to confirm UART works</span></div>
+        <div class="row"><kbd>🔌 Firmware</kbd><span class="label">Show MakeCode code to flash</span></div>
       </div>
 
       <div class="group">
         <div class="group-title">Pro Tips</div>
         <div class="row" style="flex-direction:column;align-items:start;">
-          <span class="label" style="color:#22d3ee;">No board? Turn on <strong>Simulate Mode</strong> in Settings for Sine/Random/Ramp data.</span>
-          <span class="label" style="color:#64748b;font-size:11px;">Only <strong>Chrome</strong> / <strong>Edge</strong> (desktop or Android) support Web Bluetooth.</span>
+          <span class="label" style="color:#22d3ee;">Camera needs <strong>HTTPS</strong> or <strong>localhost</strong>. Bluetooth needs <strong>Chrome</strong> on desktop / Android.</span>
+          <span class="label" style="color:#64748b;font-size:11px;">Stuck? Press <strong>🧽 Clean cache</strong>. Haunted? Check the <strong>Logs</strong> panel first.</span>
         </div>
       </div>
     </div>
@@ -163,7 +153,7 @@
 
   <div class="footer">
     <span>Mini Mission Control v1.0.0 &bull; Print on A4 landscape, laminate, love.</span>
-    <span class="brand">For the two devices (laptop + phone)</span>
+    <span class="brand">Two devices (laptop + phone) &bull; Optional BBC micro:bit V2</span>
   </div>
 
 </div>

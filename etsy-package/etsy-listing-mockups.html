@@ -13,10 +13,8 @@
     margin: 20px auto; page-break-after: always;
   }
 
-  /* ===== MOCKUP 1: Hero (screenshot + compat badge) ===== */
   .m1 {
     background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #020617 100%);
-    /* Side padding keeps hero content inside Etsy's 1500x1500 square crop. */
     padding: 80px 300px;
   }
   .m1::before {
@@ -32,10 +30,14 @@
   .m1 .copy .pg { background: rgba(34,197,94,.14); color: #22c55e; border: 2px solid rgba(34,197,94,.4); }
   .m1 .copy .pb { background: rgba(34,211,238,.14); color: #22d3ee; border: 2px solid rgba(34,211,238,.4); }
   .m1 .copy .py { background: rgba(251,191,36,.14); color: #fbbf24; border: 2px solid rgba(251,191,36,.4); }
-  .m1 .screenshot { position: relative; border-radius: 22px; overflow: hidden; border: 4px solid rgba(34,197,94,.35); box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 120px rgba(34,197,94,.15); }
-  .m1 .screenshot img { display: block; width: 100%; height: auto; }
-  /* Etsy square-crops the first photo: ~250px lost on each side of 2000x1500.
-     Keep the badge inside the centered 1500x1500 safe zone. */
+  .m1 .screenshot {
+    position: relative; border-radius: 22px; overflow: hidden;
+    border: 4px solid rgba(34,197,94,.35); box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 120px rgba(34,197,94,.15);
+    aspect-ratio: 16/10; background: #020617; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 30px; color: #22c55e; font-family: 'Righteous', sans-serif;
+  }
+  .m1 .screenshot .demo-big { font-size: 90px; }
+  .m1 .screenshot .demo-label { font-size: 30px; color: #22d3ee; letter-spacing: 3px; }
   .m1 .compat {
     position: absolute; top: 50px; right: 310px; background: #fbbf24; color: #020617;
     padding: 18px 28px; border-radius: 14px; font-weight: 900; font-size: 22px;
@@ -51,7 +53,6 @@
   .led-tl { top: 40px; left: 40px; } .led-tr { top: 40px; right: 40px; }
   .led-bl { bottom: 40px; left: 40px; } .led-br { bottom: 40px; right: 40px; }
 
-  /* ===== MOCKUP 2: Feature grid ===== */
   .m2 { background: linear-gradient(180deg,#020617,#0f172a); padding: 80px 100px; }
   .m2 h2 { font-family: 'Righteous', sans-serif; font-size: 60px; color: #22c55e; text-align: center; margin-bottom: 40px; }
   .m2 .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
@@ -63,7 +64,6 @@
   .m2 .cell h4 { font-family: 'Righteous', sans-serif; font-size: 22px; color: #22c55e; margin: 8px 0 4px; }
   .m2 .cell p { font-size: 15px; color: #64748b; }
 
-  /* ===== MOCKUP 3: Teacher pitch ===== */
   .m3 { background: #020617; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 80px; }
   .m3 .icon { font-size: 140px; margin-bottom: 10px; }
   .m3 h2 { font-family: 'Righteous', sans-serif; font-size: 68px; color: #22d3ee; text-align: center; }
@@ -76,7 +76,6 @@
   .m3 .quote p { font-size: 20px; color: #cbd5e1; font-style: italic; }
   .m3 .quote .who { font-size: 15px; color: #22c55e; margin-top: 10px; font-weight: 700; }
 
-  /* ===== MOCKUP 4: Kid pitch ===== */
   .m4 {
     background: radial-gradient(circle at 30% 30%, #0f3d1e, #020617 70%);
     display: flex; align-items: center; justify-content: center; flex-direction: column;
@@ -91,7 +90,6 @@
     border-radius: 20px; padding: 20px 34px; font-size: 26px; color: #22c55e; font-family: 'Righteous', sans-serif;
   }
 
-  /* ===== MOCKUP 5: What's in the ZIP ===== */
   .m5 { background: #020617; padding: 80px 100px; }
   .m5 h2 { font-family: 'Righteous', sans-serif; font-size: 60px; color: #22c55e; text-align: center; margin-bottom: 50px; }
   .m5 .items { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -103,7 +101,6 @@
   .m5 .item h3 { font-family: 'Righteous', sans-serif; font-size: 26px; color: #22c55e; }
   .m5 .item p { font-size: 18px; color: #94a3b8; margin-top: 4px; }
 
-  /* ===== MOCKUP 6: Themes showcase ===== */
   .m6 {
     background: #020617;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -112,60 +109,38 @@
   .m6 h2 { font-family: 'Righteous', sans-serif; font-size: 60px; color: #22c55e; margin-bottom: 10px; }
   .m6 .sub { font-size: 26px; color: #94a3b8; margin-bottom: 40px; }
   .m6 .row { display: flex; gap: 24px; }
-  .m6 .theme {
-    width: 400px; height: 520px; border-radius: 22px; padding: 30px;
+  .m6 .stage {
+    width: 440px; height: 520px; border-radius: 22px; padding: 30px;
     display: flex; flex-direction: column; justify-content: space-between;
     box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    background: #020617; color: #22c55e; border: 2px solid #22c55e;
   }
-  .m6 .theme h4 { font-family: 'Righteous', sans-serif; font-size: 40px; }
-  .m6 .theme .icon { font-size: 90px; align-self: center; }
-  .m6 .theme .desc { font-size: 18px; }
-  .m6 .t-stealth { background: #020617; color: #22c55e; border: 2px solid #22c55e; }
-  .m6 .t-stealth .desc { color: #94a3b8; }
-  .m6 .t-neon { background: #0b0117; color: #22d3ee; border: 2px solid #22d3ee; }
-  .m6 .t-neon .desc { color: #a855f7; }
-  .m6 .t-arctic { background: #f0f9ff; color: #0369a1; border: 2px solid #0ea5e9; }
-  .m6 .t-arctic .desc { color: #475569; }
-  .m6 .t-blaze { background: #fff7ed; color: #c2410c; border: 2px solid #f97316; }
-  .m6 .t-blaze .desc { color: #78350f; }
-
-  /* ===== MOCKUP 7: Trilingual ===== */
-  .m7 { background: #020617; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; padding: 80px; }
-  .m7 h2 { font-family: 'Righteous', sans-serif; font-size: 64px; color: #22c55e; }
-  .m7 .sub { font-size: 26px; color: #94a3b8; margin-top: -16px; }
-  .m7 .langs { display: flex; gap: 60px; }
-  .m7 .lang {
-    text-align: center; padding: 50px 70px;
-    background: rgba(15,23,42,.6); border: 2px solid rgba(34,197,94,.18);
-    border-radius: 26px; min-width: 420px;
-  }
-  .m7 .lang .flag { font-size: 90px; }
-  .m7 .lang h3 { font-family: 'Righteous', sans-serif; font-size: 36px; color: #22c55e; margin: 14px 0; }
-  .m7 .lang p { font-size: 20px; color: #64748b; }
-  .m7 .lang.rtl { direction: rtl; }
-  .m7 .lang.rtl p { font-size: 24px; color: #cbd5e1; }
+  .m6 .stage h4 { font-family: 'Righteous', sans-serif; font-size: 40px; }
+  .m6 .stage .icon { font-size: 90px; align-self: center; }
+  .m6 .stage .desc { font-size: 18px; color: #94a3b8; }
 </style>
 </head>
 <body>
 
-<!-- MOCKUP 1: Hero (screenshot + compatibility badge) -->
+<!-- MOCKUP 1: Hero -->
 <div class="mockup m1">
   <div class="led led-tl"></div><div class="led led-tr"></div><div class="led led-bl"></div><div class="led led-br"></div>
   <div class="hero">
     <div class="copy">
-      <h1>micro:bit<br>Playground</h1>
-      <div class="sub">Call • Command • Control</div>
-      <div class="tagline">Browser control panel for the two devices (laptop + phone).<br>No install. No account. Pair over Bluetooth and go.</div>
+      <h1>Mini<br>Mission<br>Control</h1>
+      <div class="sub">Call &bull; Command &bull; Control</div>
+      <div class="tagline">Two devices. One room code. Live video + audio, a D-pad command channel, and text-to-speech &mdash; all in the browser. Optional BBC micro:bit V2 bridge.</div>
       <div class="pills">
         <div class="pill pg">Zero Install</div>
-        <div class="pill pb">100% Local</div>
+        <div class="pill pb">Peer-to-Peer</div>
         <div class="pill py">Kid-Friendly</div>
       </div>
     </div>
     <div class="screenshot">
-      <img src="../assets/app-screenshot.png" alt="Mini Mission Control — Sensors tab">
-      <div class="compat">Chrome &amp; Edge only<small>(not Safari / iPhone)</small></div>
+      <div class="demo-big">📹 &harr; 🎮</div>
+      <div class="demo-label">LAPTOP &harr; PHONE</div>
     </div>
+    <div class="compat">Chrome recommended<small>(HTTPS or localhost)</small></div>
   </div>
   <div class="bottom">
     <span class="brand">Mini Mission Control v1.0.0</span>
@@ -173,95 +148,83 @@
   </div>
 </div>
 
-<!-- MOCKUP 2: What's in the ZIP (moved up for faster value reveal) -->
+<!-- MOCKUP 2: What's in the ZIP -->
 <div class="mockup m5">
   <h2>What&apos;s In The ZIP</h2>
   <div class="items">
-    <div class="item"><div class="emoji">🌐</div><div><h3>The Playground App</h3><p>Single-page web app, opens in Chrome/Edge, works offline as a PWA</p></div></div>
-    <div class="item"><div class="emoji">🤖</div><div><h3>makecode.ts Firmware</h3><p>Drop into MakeCode, flash to your micro:bit V2 &mdash; UART BLE ready</p></div></div>
-    <div class="item"><div class="emoji">🎲</div><div><h3>5 Three.js 3D Models</h3><p>micro:bit, Buggy, Robot Arm, Balance, Weather Station</p></div></div>
-    <div class="item"><div class="emoji">📖</div><div><h3>Trilingual User Guide</h3><p>guide.html in EN / FR / AR with full RTL</p></div></div>
-    <div class="item"><div class="emoji">🗺️</div><div><h3>Printable Quick-Start Card</h3><p>A4 portrait &mdash; flash, open, pair, play</p></div></div>
-    <div class="item"><div class="emoji">⌨️</div><div><h3>Shortcuts Cheat Sheet</h3><p>A4 landscape &mdash; laminate near your laptop</p></div></div>
-    <div class="item"><div class="emoji">🎨</div><div><h3>A3 Classroom Poster</h3><p>&ldquo;We Control Robots with Code!&rdquo; for the lab wall</p></div></div>
-    <div class="item"><div class="emoji">📋</div><div><h3>Lesson Plan + Sample</h3><p>45-minute ready-to-teach template with rubric</p></div></div>
-    <div class="item"><div class="emoji">⭐</div><div><h3>30 Achievement Stickers</h3><p>Printable badges: &ldquo;I Connected BLE!&rdquo; and more</p></div></div>
+    <div class="item"><div class="emoji">🌐</div><div><h3>The Mission Console</h3><p>Single-page web app. Open in Chrome, host on GitHub Pages or localhost.</p></div></div>
+    <div class="item"><div class="emoji">🤖</div><div><h3>makecode.ts Firmware</h3><p>Optional: drop into MakeCode, flash to a BBC micro:bit V2 for the Bluetooth bridge.</p></div></div>
+    <div class="item"><div class="emoji">🎥</div><div><h3>Two-Way Video + Audio</h3><p>PeerJS / WebRTC under the hood. No server to run.</p></div></div>
+    <div class="item"><div class="emoji">📖</div><div><h3>User Guide + README</h3><p>USERGUIDE.html and README.md &mdash; full walkthrough with troubleshooting.</p></div></div>
+    <div class="item"><div class="emoji">🗺️</div><div><h3>Printable Quick-Start Card</h3><p>A4 portrait &mdash; open, match code, connect, drive.</p></div></div>
+    <div class="item"><div class="emoji">⌨️</div><div><h3>Quick Reference Sheet</h3><p>A4 landscape &mdash; laminate near the mission desk.</p></div></div>
+    <div class="item"><div class="emoji">🎨</div><div><h3>A3 Classroom Poster</h3><p>&ldquo;Call, Command, Control!&rdquo; for the lab wall.</p></div></div>
+    <div class="item"><div class="emoji">📋</div><div><h3>Lesson Plan + Sample</h3><p>45-minute two-device rover race, ready to teach, with rubric.</p></div></div>
+    <div class="item"><div class="emoji">⭐</div><div><h3>30 Achievement Stickers</h3><p>Mission-themed badges: First Contact, Bridge ON, Rover Race Winner.</p></div></div>
     <div class="item"><div class="emoji">📜</div><div><h3>Classroom License</h3><p>Use across your school or organization. Lifetime for v1.x.</p></div></div>
   </div>
 </div>
 
-<!-- MOCKUP 2: Feature grid -->
+<!-- MOCKUP 3: Feature grid -->
 <div class="mockup m2">
   <h2>Everything Built In</h2>
   <div class="grid">
-    <div class="cell"><div class="emoji">📡</div><h4>One-Click BLE</h4><p>Web Bluetooth pairing with auto-reconnect</p></div>
-    <div class="cell"><div class="emoji">💡</div><h4>5&times;5 LED Matrix</h4><p>Draw, presets, hex patterns</p></div>
-    <div class="cell"><div class="emoji">🌡️</div><h4>Live Sensors</h4><p>Temp, light, sound, accel, compass</p></div>
-    <div class="cell"><div class="emoji">⚙️</div><h4>Dual Servos</h4><p>P1 &amp; P2 with live gauges &amp; OFF</p></div>
-    <div class="cell"><div class="emoji">🎮</div><h4>GamePad</h4><p>D-pad + Fire for games &amp; robots</p></div>
-    <div class="cell"><div class="emoji">📈</div><h4>Chart.js Graph</h4><p>Live plot, fullscreen, annotate</p></div>
-    <div class="cell"><div class="emoji">🎲</div><h4>3D Board View</h4><p>5 Three.js models to explore</p></div>
-    <div class="cell"><div class="emoji">⏺</div><h4>Session Recording</h4><p>Record, replay, export JSON</p></div>
-    <div class="cell"><div class="emoji">🎨</div><h4>4 Themes</h4><p>Stealth, Neon, Arctic, Blaze</p></div>
-    <div class="cell"><div class="emoji">🌐</div><h4>EN / FR / AR</h4><p>Full RTL Arabic support</p></div>
-    <div class="cell"><div class="emoji">🎲</div><h4>Simulate Mode</h4><p>Fake data when no board is around</p></div>
-    <div class="cell"><div class="emoji">⌨️</div><h4>Keyboard Shortcuts</h4><p>Space, 1&ndash;8, P, F, K, Esc</p></div>
-    <div class="cell"><div class="emoji">📱</div><h4>Installable PWA</h4><p>Works offline after first load</p></div>
-    <div class="cell"><div class="emoji">🧙</div><h4>Beginner + Expert</h4><p>Safe mode or raw JSON bench</p></div>
-    <div class="cell"><div class="emoji">📝</div><h4>Code Snippets</h4><p>MakeCode examples built in</p></div>
-    <div class="cell"><div class="emoji">🔒</div><h4>Zero Tracking</h4><p>No accounts, no cloud, ever</p></div>
+    <div class="cell"><div class="emoji">🎥</div><h4>Two-Way Call</h4><p>Video + audio over PeerJS / WebRTC</p></div>
+    <div class="cell"><div class="emoji">🔗</div><h4>Shared Room Code</h4><p>Type the same string on both devices</p></div>
+    <div class="cell"><div class="emoji">🎮</div><h4>D-pad Channel</h4><p>UP / DOWN / LEFT / RIGHT / STOP as JSON</p></div>
+    <div class="cell"><div class="emoji">✉️</div><h4>Text Messages</h4><p>Send typed text over the data channel</p></div>
+    <div class="cell"><div class="emoji">🔊</div><h4>Local Speak</h4><p>This device says the text out loud</p></div>
+    <div class="cell"><div class="emoji">📡</div><h4>Remote Speak</h4><p>Make the other device talk on demand</p></div>
+    <div class="cell"><div class="emoji">📸</div><h4>Snapshot</h4><p>Save a PNG of the remote video</p></div>
+    <div class="cell"><div class="emoji">⏺️</div><h4>Record</h4><p>Capture the remote feed as WebM</p></div>
+    <div class="cell"><div class="emoji">⛶</div><h4>Remote Fullscreen</h4><p>Ask the other side to go fullscreen</p></div>
+    <div class="cell"><div class="emoji">👁️</div><h4>HUD Overlay</h4><p>See command pulses on top of video</p></div>
+    <div class="cell"><div class="emoji">🪞</div><h4>Mirror / Flip</h4><p>Flip self-preview or remote feed</p></div>
+    <div class="cell"><div class="emoji">🔇</div><h4>Mute &amp; Switch</h4><p>Mute mic, switch front/rear camera</p></div>
+    <div class="cell"><div class="emoji">🧩</div><h4>micro:bit Bridge</h4><p>Optional BLE UART to BBC micro:bit V2</p></div>
+    <div class="cell"><div class="emoji">🔌</div><h4>Firmware Modal</h4><p>Copy MakeCode code, open in browser</p></div>
+    <div class="cell"><div class="emoji">📝</div><h4>Logs Panel</h4><p>Every TX / RX / ACK line visible</p></div>
+    <div class="cell"><div class="emoji">🔒</div><h4>Peer-to-Peer</h4><p>Direct between devices, no accounts</p></div>
   </div>
 </div>
 
-<!-- MOCKUP 3: Teacher pitch -->
+<!-- MOCKUP 4: Teacher pitch -->
 <div class="mockup m3">
   <div class="icon">🍎</div>
   <h2>Made for Teachers</h2>
-  <div class="sub">A 45-minute STEM lesson, ready to go. No install day. No student accounts. No &ldquo;miss, it froze again.&rdquo; Pair, play, graph, export. Done.</div>
+  <div class="sub">A 45-minute collaborative STEM lesson, ready to go. No install day. No student accounts. Pair two devices, steer with the D-pad, debug from the Logs panel. Optional micro:bit for the physical rover.</div>
   <div class="quotes">
     <div class="quote">
-      <p>&ldquo;Pair one micro:bit, project the graph, and the whole class sees live sensor data. It turns physics into something they can <em>touch</em>.&rdquo;</p>
+      <p>&ldquo;One laptop, one phone, one shared room code. The driver-spotter dynamic teaches networking <em>and</em> teamwork in one lesson.&rdquo;</p>
       <div class="who">&mdash; Any teacher, anywhere</div>
     </div>
     <div class="quote">
-      <p>&ldquo;Privacy friendly &mdash; nothing leaves the laptop. Our IT team loves that there is nothing to whitelist.&rdquo;</p>
+      <p>&ldquo;Everything is peer-to-peer in the browser. Nothing to whitelist, no student logins, nothing leaves our network.&rdquo;</p>
       <div class="who">&mdash; School IT department</div>
     </div>
   </div>
 </div>
 
-<!-- MOCKUP 4: Kid pitch -->
+<!-- MOCKUP 5: Kid pitch -->
 <div class="mockup m4">
-  <h2>You Made<br>The Robot<br>Move!</h2>
-  <div class="sub">Tiny board. Big ideas. Bluetooth magic.</div>
-  <div class="emojis">🤖 💡 📡</div>
+  <h2>You Just<br>Drove a Robot<br>From Across<br>the Room!</h2>
+  <div class="sub">Two devices. One room code. Zero installs.</div>
+  <div class="emojis">🧑‍🚀 📹 🎮</div>
   <div class="promise">
-    <div>Click Connect</div>
-    <div>Draw on LEDs</div>
-    <div>Spin the servo</div>
+    <div>Match the code</div>
+    <div>Press Connect</div>
+    <div>Hold the D-pad</div>
   </div>
 </div>
 
-<!-- MOCKUP 6: Themes showcase -->
+<!-- MOCKUP 6: Bridge showcase -->
 <div class="mockup m6">
-  <h2>Four Built-In Themes</h2>
-  <div class="sub">Cycle with <strong style="color:#22c55e;">T</strong> &mdash; the whole UI transforms.</div>
+  <h2>Optional micro:bit Bridge</h2>
+  <div class="sub">Pair a BBC micro:bit V2 over BLE UART and flip Bridge ON &mdash; D-pad commands become real-world motion.</div>
   <div class="row">
-    <div class="theme t-stealth"><h4>Stealth</h4><div class="icon">🥷</div><div class="desc">Pitch-black OLED-friendly dark mode with green accents. The default.</div></div>
-    <div class="theme t-neon"><h4>Neon</h4><div class="icon">💠</div><div class="desc">Cyberpunk cyan &amp; magenta. Dim the lights, plug in the board.</div></div>
-    <div class="theme t-arctic"><h4>Arctic</h4><div class="icon">❄️</div><div class="desc">Crisp light mode for daylight classrooms and projectors.</div></div>
-    <div class="theme t-blaze"><h4>Blaze</h4><div class="icon">🔥</div><div class="desc">Warm light theme with orange highlights &mdash; cozy and readable.</div></div>
-  </div>
-</div>
-
-<!-- MOCKUP 7: Trilingual -->
-<div class="mockup m7">
-  <h2>Speaks Three Languages</h2>
-  <div class="sub">Full UI + guide in EN / FR / AR. Arabic ships with real RTL.</div>
-  <div class="langs">
-    <div class="lang"><div class="flag">🇬🇧</div><h3>English</h3><p>Complete interface &amp; user guide</p></div>
-    <div class="lang"><div class="flag">🇫🇷</div><h3>Français</h3><p>Interface compl&egrave;te et guide</p></div>
-    <div class="lang rtl"><div class="flag">🇩🇿</div><h3>العربية</h3><p>واجهة كاملة مع دعم الكتابة من اليمين لليسار</p></div>
+    <div class="stage"><h4>📱 Device B</h4><div class="icon">🎮</div><div class="desc">Phone held by the driver. D-pad pressed. JSON sent.</div></div>
+    <div class="stage"><h4>💻 Device A</h4><div class="icon">📡</div><div class="desc">Laptop receives over PeerJS, forwards over Bluetooth UART to the board.</div></div>
+    <div class="stage"><h4>🤖 micro:bit</h4><div class="icon">➡️</div><div class="desc">Board shows the arrow, ACKs back over UART, ready to drive motors.</div></div>
   </div>
 </div>
 

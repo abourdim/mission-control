@@ -79,68 +79,68 @@
 
   <div class="header">
     <h1>Mini Mission Control</h1>
-    <div class="sub">Browser BLE Control Panel for the two devices (laptop + phone)</div>
+    <div class="sub">Two-Device Video Call + D-pad Command Channel (laptop &harr; phone)</div>
     <div class="ver">v1.0.0 &bull; Digital Download</div>
     <div class="line"></div>
   </div>
 
   <div class="thanks">
-    <strong>Thank you for buying Mini Mission Control!</strong> You just grabbed a zero-install, zero-account, browser-local control panel for the two devices (laptop + phone). Everything runs on your machine &mdash; no cloud, no telemetry, no nonsense. This page walks you through the first three things to do.
+    <strong>Thank you for buying Mini Mission Control!</strong> You just grabbed a zero-install, zero-account, browser-local mission console that pairs two devices over a shared room code &mdash; live video, live audio, a D-pad command channel, text-to-speech, and an optional Bluetooth bridge to a BBC micro:bit V2. Everything runs in your browser. No cloud, no telemetry, no accounts.
   </div>
 
   <h2>First 3 Things To Do</h2>
   <div class="steps-mini">
-    <div class="step-m"><div class="num">1</div><span><strong style="color:#22c55e;">Flash the firmware.</strong> Open <a style="color:#22d3ee;">makecode.microbit.org</a>, switch to JavaScript, paste <code class="c">makecode.ts</code>, click Download, and drag the <code class="c">.hex</code> to your micro:bit V2. The board will show an <strong style="color:#fff;">X</strong>.</span></div>
-    <div class="step-m"><div class="num">2</div><span><strong style="color:#22c55e;">Open the app.</strong> Double-click <code class="c">index.html</code> in <strong style="color:#fff;">Chrome</strong> or <strong style="color:#fff;">Edge</strong>. It loads locally. Click <strong style="color:#22c55e;">Connect</strong>, pick your board, watch the status dot turn green.</span></div>
-    <div class="step-m"><div class="num">3</div><span><strong style="color:#22c55e;">Play.</strong> Press <kbd>1</kbd>&hellip;<kbd>8</kbd> to hop between LEDs, Sensors, Servos, GamePad, Graph, 3D, Bench, About. Tap <kbd>F</kbd> for fullscreen graph. No board? Flip on <strong style="color:#22d3ee;">Simulate Mode</strong>.</span></div>
+    <div class="step-m"><div class="num">1</div><span><strong style="color:#22c55e;">Open the site on TWO devices.</strong> Serve <code class="c">index.html</code> from GitHub Pages (HTTPS) or run <code class="c">python -m http.server 8000</code> locally. Open the URL on both a laptop <strong>and</strong> a phone, in Chrome.</span></div>
+    <div class="step-m"><div class="num">2</div><span><strong style="color:#22c55e;">Match the room code.</strong> Type the same text (default: <code class="c">demo</code>) in the Room box on both devices. Press <strong>🎥 Start camera</strong>, allow permissions, then <strong>✅ Connect</strong>. One device auto-picks host, the other guest.</span></div>
+    <div class="step-m"><div class="num">3</div><span><strong style="color:#22c55e;">Play.</strong> Hold the D-pad arrows to send <code class="c">UP</code>/<code class="c">DOWN</code>/<code class="c">LEFT</code>/<code class="c">RIGHT</code>. Tap <strong>📡 Remote speak</strong> to make the other device talk. Optional: connect a BBC micro:bit V2 over BLE and flip Bridge mode on.</span></div>
   </div>
 
   <h2>What&apos;s in the ZIP</h2>
   <div class="files">
-    <div class="file"><span class="icon">🌐</span><code>index.html</code><span>&mdash; Main app</span></div>
-    <div class="file"><span class="icon">🎨</span><code>styles.css</code><span>&mdash; 4 themes</span></div>
-    <div class="file"><span class="icon">📦</span><code>sw.js</code><span>&mdash; Offline PWA</span></div>
-    <div class="file"><span class="icon">🤖</span><code>makecode.ts</code><span>&mdash; Firmware</span></div>
-    <div class="file"><span class="icon">⚙️</span><code>js/*.js</code><span>&mdash; BLE + logic</span></div>
-    <div class="file"><span class="icon">🎲</span><code>js/models/</code><span>&mdash; 5 3D models</span></div>
-    <div class="file"><span class="icon">📖</span><code>docs/guide.html</code><span>&mdash; Full user guide</span></div>
-    <div class="file"><span class="icon">⌨️</span><code>docs/cheatsheet.html</code><span>&mdash; Shortcuts</span></div>
-    <div class="file"><span class="icon">❓</span><code>docs/faq.html</code><span>&mdash; FAQ</span></div>
+    <div class="file"><span class="icon">🌐</span><code>index.html</code><span>&mdash; Mission console</span></div>
+    <div class="file"><span class="icon">🎨</span><code>css/style.css</code><span>&mdash; Dark console look</span></div>
+    <div class="file"><span class="icon">⚙️</span><code>js/app.js</code><span>&mdash; PeerJS, camera, D-pad, BLE</span></div>
+    <div class="file"><span class="icon">🖼️</span><code>logo.svg</code><span>&mdash; Site logo</span></div>
+    <div class="file"><span class="icon">🤖</span><code>makecode.ts</code><span>&mdash; micro:bit firmware</span></div>
+    <div class="file"><span class="icon">📖</span><code>README.md</code><span>&mdash; Full walkthrough</span></div>
+    <div class="file"><span class="icon">📘</span><code>USERGUIDE.html</code><span>&mdash; User guide</span></div>
+    <div class="file"><span class="icon">🖨️</span><code>quickstart-card.html</code><span>&mdash; A4 printable</span></div>
+    <div class="file"><span class="icon">📋</span><code>shortcuts-cheatsheet.html</code><span>&mdash; Quick reference</span></div>
     <div class="file"><span class="icon">📜</span><code>LICENSE.txt</code><span>&mdash; Your license</span></div>
   </div>
-  <p style="font-size:11px;color:#64748b;">Printable extras live in <code class="c">etsy-package/</code>: quick-start card, shortcut cheat sheet, A3 classroom poster, sticker sheet, lesson plan.</p>
+  <p style="font-size:11px;color:#64748b;">Printable extras live in <code class="c">etsy-package/</code>: quick-start card, quick reference, A3 classroom poster, sticker sheet, lesson plan.</p>
 
   <h2>Requirements</h2>
   <div class="req">
-    <div><span class="check">&#10003;</span><span class="label">BBC micro:bit <strong style="color:#fff;">V2</strong> (V1 lacks the sound sensor)</span></div>
-    <div><span class="check">&#10003;</span><span class="label">Chrome 90+ or Edge 90+ on desktop or Android (Web Bluetooth)</span></div>
-    <div><span class="check">&#10003;</span><span class="label">Bluetooth enabled on the host device</span></div>
-    <div><span class="check">&#10003;</span><span class="label">Optional: hobby servos on pins <strong style="color:#22c55e;">P1</strong> / <strong style="color:#22c55e;">P2</strong></span></div>
-    <div><span class="check">&#10003;</span><span class="label">No internet needed after first load &mdash; installs as a PWA</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Two devices (laptop + phone works great) &mdash; each with camera + microphone</span></div>
+    <div><span class="check">&#10003;</span><span class="label"><strong style="color:#fff;">Chrome</strong> is best on both. Safari/iPhone works for video but not for Bluetooth.</span></div>
+    <div><span class="check">&#10003;</span><span class="label">HTTPS host (GitHub Pages) or <code class="c">localhost</code> for camera permissions</span></div>
+    <div><span class="check">&#10003;</span><span class="label">A Wi-Fi network that permits peer-to-peer (some school Wi-Fi blocks it)</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Optional: a <strong style="color:#22c55e;">BBC micro:bit V2</strong> for the Bluetooth bridge</span></div>
   </div>
 
   <h2>Key Features</h2>
   <div class="box">
-    <p><strong style="color:#22d3ee;">Control:</strong> 5&times;5 LED matrix &bull; 2 servos (P1/P2) &bull; buzzer &bull; D-pad gamepad</p>
-    <p><strong style="color:#22d3ee;">Read:</strong> temperature &bull; light &bull; sound &bull; accelerometer &bull; compass &bull; buttons &bull; touch pins</p>
-    <p><strong style="color:#22d3ee;">Visualize:</strong> Chart.js live graph (fullscreen, record, export JSON) &bull; 3D Three.js board view with 5 models</p>
-    <p><strong style="color:#22d3ee;">Polish:</strong> 4 themes &bull; EN / FR / AR &bull; simulate mode &bull; keyboard shortcuts &bull; PWA offline</p>
+    <p><strong style="color:#22d3ee;">Call:</strong> two-way video + audio (PeerJS / WebRTC) &bull; mute mic &bull; switch camera &bull; mirror / flip &bull; hang up</p>
+    <p><strong style="color:#22d3ee;">Command:</strong> D-pad (UP / DOWN / LEFT / RIGHT / STOP) sent as pressed/release JSON over the data channel</p>
+    <p><strong style="color:#22d3ee;">Control:</strong> text messages &bull; local speak &bull; remote speak &bull; snapshot (PNG) &bull; record (WebM) &bull; HUD overlay &bull; remote fullscreen request</p>
+    <p><strong style="color:#22d3ee;">Bridge (optional):</strong> forwards D-pad commands to a BBC micro:bit V2 over BLE UART as <code class="c">CMD UP 1</code> / <code class="c">CMD STOP 1</code> lines</p>
   </div>
 
   <h2>Privacy</h2>
   <div class="box">
-    <h4>100% Local &mdash; Zero Data Collection</h4>
-    <p>Runs entirely in your browser. No accounts, no cloud, no tracking, no analytics. Sessions, settings, and recordings stay on your device. Safe for school networks.</p>
+    <h4>100% Peer-to-Peer &mdash; No Account, No Cloud Storage</h4>
+    <p>Video, audio, and commands stream directly between your two devices via PeerJS&apos;s signalling. No recordings are sent anywhere by default. Everything stays local. Safe for classroom use.</p>
   </div>
 
-  <h2>Languages</h2>
-  <p>Built-in <strong style="color:#fff;">English</strong>, <strong style="color:#fff;">Français</strong>, and <strong style="color:#fff;">العربية</strong> (full RTL). Cycle with <kbd>L</kbd>.</p>
+  <h2>Language</h2>
+  <p>The app itself is in English. The seller-only marketing playbooks ship in <strong style="color:#fff;">English</strong>, <strong style="color:#fff;">Français</strong>, and <strong style="color:#fff;">العربية</strong> for international listings.</p>
 
   <h2>Need Help?</h2>
   <div class="box">
-    <p>Open <code class="c">docs/guide.html</code> for the complete walkthrough and troubleshooting.</p>
-    <p>Open <code class="c">docs/faq.html</code> for the top buyer questions.</p>
-    <p>Press <kbd>?</kbd> inside the app for the built-in shortcuts overlay.</p>
+    <p>Open <code class="c">USERGUIDE.html</code> for the complete walkthrough and troubleshooting.</p>
+    <p>Open the in-app <strong>Logs</strong> panel &mdash; every TX/RX/ACK line is there.</p>
+    <p>Haunted? Press <strong>🧽 Clean cache</strong> inside the app.</p>
   </div>
 
   <div class="footer">

@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "description": "Mini Mission Control — Call • Command • Control",
-  "scripts": { "build:etsy": "node etsy-package/build-package.js" },
-  "devDependencies": { "@playwright/test": "^1.48.0" }
+  "scripts": {
+    "build:etsy": "node etsy-package/build-package.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
 }

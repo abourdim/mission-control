@@ -8,13 +8,14 @@
   "VERSION_UPPER": "V1.0.0",
   "VERSION_PLAIN": "1.0.0",
   "TAGLINE": "Call • Command • Control",
-  "HARDWARE": "two devices (laptop + phone)",
+  "HARDWARE": "two devices (laptop + phone); optional BBC micro:bit V2",
   "PRICE_LAUNCH": "12.99",
   "PRICE_STANDARD": "17.99",
   "PRICE_BUNDLE": "29.99",
   "PRICE_TRIPWIRE": "5",
   "PRICE_SITE": "199",
   "PRICE_DISTRICT": "499",
-  "PROMO_CODE": "LAUNCH10",
-  "PROMO_PRICE": "7"
+  "PROMO_CODE": "MCLAUNCH",
+  "PROMO_PRICE": "7",
+  "ALLOWED_TERMS": []
 }
