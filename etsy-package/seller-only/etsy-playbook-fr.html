@@ -24,22 +24,50 @@
   body { max-width: 1080px; margin: 0 auto; padding: 24px 18px 80px; }
   a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed rgba(34,197,94,.4); }
   a:hover { color: var(--accent2); border-bottom-color: var(--accent2); }
-  .slate { background: radial-gradient(ellipse at top right, rgba(34,211,238,.14), transparent 60%), linear-gradient(180deg, var(--panel2), var(--panel)); border: 2px solid var(--border); border-radius: 18px; padding: 36px 28px 28px; text-align: center; margin-bottom: 22px; box-shadow: var(--shadow); }
+
+  .slate {
+    background:
+      radial-gradient(ellipse at top right, rgba(34,211,238,.14), transparent 60%),
+      linear-gradient(180deg, var(--panel2), var(--panel));
+    border: 2px solid var(--border);
+    border-radius: 18px; padding: 36px 28px 28px;
+    text-align: center; margin-bottom: 22px; box-shadow: var(--shadow);
+  }
   .slate-clap { font-size: 56px; line-height: 1; margin-bottom: 8px; filter: drop-shadow(0 0 18px rgba(34,197,94,.5)); }
   .slate h1 { font-family: var(--display); font-size: 2rem; letter-spacing: 1.4px; margin: 6px 0 4px; color: var(--accent); font-weight: 900; }
   .slate h1 span { color: var(--accent2); }
   .slate .tag { color: var(--muted); font-size: .92rem; letter-spacing: .8px; text-transform: uppercase; }
   .slate .meta { display: flex; justify-content: center; gap: 24px; margin-top: 16px; font-size: .82rem; color: var(--muted); flex-wrap: wrap; }
   .slate .meta b { color: var(--ink); font-weight: 700; }
-  .toc { position: sticky; top: 0; z-index: 50; background: rgba(11,18,38,.93); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 14px; padding: 8px 12px; margin-bottom: 22px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-  .toc a { background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.25); border-radius: 10px; padding: 6px 12px; font-size: .82rem; font-weight: 600; border-bottom: none; }
+
+  .toc {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,18,38,.93); backdrop-filter: blur(8px);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 8px 12px; margin-bottom: 22px;
+    display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+  }
+  .toc a {
+    background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.25);
+    border-radius: 10px; padding: 6px 12px; font-size: .82rem; font-weight: 600;
+    border-bottom: none;
+  }
   .toc a:hover { background: rgba(34,197,94,.2); color: var(--accent); }
-  .slug { font-family: var(--mono); text-transform: uppercase; letter-spacing: 1.3px; font-size: .78rem; color: var(--accent); background: linear-gradient(90deg, rgba(34,197,94,.15), transparent); border-left: 4px solid var(--accent); padding: 8px 12px; margin: 28px 0 14px; border-radius: 0 8px 8px 0; }
+
+  .slug {
+    font-family: var(--mono); text-transform: uppercase; letter-spacing: 1.3px;
+    font-size: .78rem; color: var(--accent);
+    background: linear-gradient(90deg, rgba(34,197,94,.15), transparent);
+    border-left: 4px solid var(--accent); padding: 8px 12px;
+    margin: 28px 0 14px; border-radius: 0 8px 8px 0;
+  }
   h2 { font-family: var(--display); letter-spacing: 1px; color: var(--accent); margin: 8px 0 12px; font-size: 1.5rem; }
   h3 { color: var(--ink); margin-top: 18px; font-size: 1.12rem; }
   h4 { color: var(--accent2); font-size: 1rem; margin: 14px 0 6px; font-family: var(--display); }
   p { margin: 8px 0; }
+
   .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin: 12px 0; box-shadow: var(--shadow); }
+
   .checklist { list-style: none; padding: 0; margin: 0; }
   .checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: 8px; transition: background .15s; cursor: pointer; user-select: none; }
   .checklist li:hover { background: rgba(34,197,94,.07); }
@@ -47,6 +75,7 @@
   .checklist li.checked label { color: var(--muted); text-decoration: line-through; opacity: .65; }
   .checklist label { cursor: pointer; flex: 1; }
   .where { color: var(--muted); font-size: .82rem; display: block; margin-top: 2px; }
+
   .scene { background: linear-gradient(180deg, var(--panel2), var(--panel)); border: 1px solid var(--border); border-radius: 14px; margin: 14px 0; overflow: hidden; }
   .scene-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(0,0,0,.3); border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: .78rem; text-transform: uppercase; letter-spacing: 1.3px; }
   .scene-time { color: var(--accent); font-weight: 700; font-size: 1.05rem; }
@@ -60,18 +89,24 @@
   .say-label { font-family: var(--mono); font-size: .68rem; letter-spacing: 1.4px; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
   .do { background: rgba(34,211,238,.08); border-left: 3px solid var(--accent2); border-radius: 0 10px 10px 0; padding: 12px 14px; font-family: var(--mono); font-size: .85rem; color: var(--ink); }
   .do-label { font-size: .68rem; letter-spacing: 1.4px; color: var(--accent2); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+
   .copybox { position: relative; background: #050b18; border: 1px solid var(--border); border-radius: 10px; padding: 12px 44px 12px 14px; font-family: var(--mono); font-size: .86rem; color: var(--accent); white-space: pre-wrap; margin: 8px 0; }
   .copybtn { position: absolute; top: 6px; right: 6px; background: var(--accent); color: #05140a; border: none; border-radius: 6px; padding: 4px 10px; font-size: .7rem; font-weight: 800; cursor: pointer; font-family: var(--display); letter-spacing: .5px; }
   .copybtn:hover { background: var(--accent2); color: #03141a; }
+
   table { width: 100%; border-collapse: collapse; margin: 12px 0; }
   th, td { padding: 9px 12px; border-bottom: 1px solid var(--border); text-align: left; font-size: .9rem; }
   th { color: var(--accent2); font-family: var(--display); font-size: .82rem; text-transform: uppercase; letter-spacing: .8px; }
   tr:hover td { background: rgba(34,197,94,.04); }
+
   code { background: rgba(34,197,94,.12); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-family: var(--mono); font-size: .88em; }
   kbd { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-family: var(--mono); font-size: .82em; color: var(--accent); }
+
   .pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
   .pill { background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.3); color: var(--accent2); padding: 4px 10px; border-radius: 999px; font-size: .78rem; font-weight: 600; font-family: var(--mono); }
+
   @media (max-width: 640px) { body { padding: 14px 10px; } .slate h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } }
+
   .lang-strip { display: flex; justify-content: center; gap: 8px; margin: 0 0 14px; font-family: var(--mono); font-size: .78rem; }
   .lang-strip a { background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.28); border-radius: 8px; padding: 4px 12px; color: var(--accent2); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; border-bottom: 1px solid rgba(34,211,238,.28); }
   .lang-strip a.active { background: rgba(34,197,94,.18); border-color: var(--accent); color: var(--accent); }
@@ -90,173 +125,185 @@
   <div class="slate-clap">🎬</div>
   <div class="tag">— PLAYBOOK ETSY · v1.0.0 —</div>
   <h1>Mini <span>Mission Control</span></h1>
-  <div class="tag">La démo d&rsquo;annonce en 1 minute &middot; extraits prêts à copier</div>
-  <div class="meta"><span><b>Format :</b> portrait 9:16</span><span><b>Durée :</b> &le; 60 s</span><span><b>Objectif :</b> transformer les curieux en acheteurs</span></div>
+  <div class="tag">La démo d'annonce en 1 minute · extraits prêts à copier</div>
+  <div class="meta"><span><b>Format :</b> portrait 9:16</span><span><b>Durée :</b> ≤ 60 s</span><span><b>Objectif :</b> transformer les curieux en acheteurs</span></div>
 </div>
 
 <div class="toc">
   <a href="#preflight">✅ Préparation</a>
   <a href="#arc">🎬 Arc 60 s</a>
   <a href="#script">📜 Script</a>
-  <a href="#listing">🛒 Texte d&rsquo;annonce</a>
+  <a href="#listing">🛒 Texte d'annonce</a>
   <a href="#tags">🏷 Étiquettes</a>
   <a href="#images">📸 Images</a>
   <a href="#mistakes">⚠️ Erreurs</a>
 </div>
 
+<!-- ═══════════ PRÉPARATION ═══════════ -->
 <div class="slug" id="preflight">SLUG — CHECKLIST DE PRÉPARATION · UNE FOIS PAR TOURNAGE</div>
-<h2>Avant d&rsquo;appuyer sur Rec</h2>
+<h2>Avant d'appuyer sur Rec</h2>
 <div class="card">
   <ul class="checklist" onclick="var li=event.target.closest('li');if(li)li.classList.toggle('checked')">
-    <li><input type="checkbox"><label>Deux appareils prêts : un ordinateur portable et un téléphone, les deux sur Chrome<span class="where">Safari / iPhone fonctionne pour la vidéo mais pas pour le pont Bluetooth optionnel</span></label></li>
-    <li><input type="checkbox"><label>Les deux appareils ouvrent le site en HTTPS (GitHub Pages) ou en localhost<span class="where">La permission caméra nécessite HTTPS ou localhost</span></label></li>
-    <li><input type="checkbox"><label>Le même code de salle saisi sur les deux appareils<span class="where">Par défaut : <code>demo</code>. Écrivez-le à l&rsquo;écran pour que les spectateurs puissent le copier</span></label></li>
-    <li><input type="checkbox"><label>🎥 Démarrer caméra appuyé sur chaque appareil, permissions accordées<span class="where">Si le bouton reste désactivé, rouvrez l&rsquo;onglet</span></label></li>
-    <li><input type="checkbox"><label>✅ Connecter appuyé &mdash; la puce d&rsquo;état est <strong>verte</strong> sur les deux<span class="where">Le rôle hôte / invité est choisi automatiquement</span></label></li>
-    <li><input type="checkbox"><label>Optionnel : BBC micro:bit V2 appairé en BLE, mode Bridge activé<span class="where">Seulement si vous voulez montrer les flèches LED qui reflètent la D-pad</span></label></li>
+    <li><input type="checkbox"><label>Deux appareils prêts (ordinateur + téléphone, le duo classique)<span class="where">Caméra, micro et Chrome nécessaires sur chacun</span></label></li>
+    <li><input type="checkbox"><label>L'URL live se charge sur les deux : <code>https://abourdim.github.io/mission-control/</code><span class="where">HTTPS obligatoire pour le pont BLE micro:bit optionnel</span></label></li>
+    <li><input type="checkbox"><label>Un code de room mémorable choisi (ex. <code>pizza</code>, <code>alpha-42</code>)<span class="where">Les deux appareils DOIVENT taper le MÊME code</span></label></li>
+    <li><input type="checkbox"><label>Permissions caméra + micro accordées sur les deux appareils</label></li>
+    <li><input type="checkbox"><label>Nettoyeur de cache exécuté sur les deux (état propre pour la démo)</label></li>
+    <li><input type="checkbox"><label>Optionnel : BBC micro:bit V2 flashé avec le firmware BLE UART<span class="where">Uniquement pour montrer le pont D-pad → micro:bit</span></label></li>
     <li><input type="checkbox"><label>Téléphone en 9:16 sur trépied, éclairé de face</label></li>
-    <li><input type="checkbox"><label>Bureau dégagé &mdash; uniquement les deux appareils (et la carte si besoin) dans le cadre</label></li>
-    <li><input type="checkbox"><label>Script lu à voix haute une fois &mdash; chronométré sous 55 s</label></li>
+    <li><input type="checkbox"><label>Bureau dégagé — uniquement les deux appareils et le micro:bit dans le cadre</label></li>
+    <li><input type="checkbox"><label>Script lu à voix haute une fois — chronométré sous 55 s</label></li>
   </ul>
 </div>
 
-<div class="slug" id="arc">SLUG — L&rsquo;ARC DE 60 SECONDES</div>
+<!-- ═══════════ ARC ═══════════ -->
+<div class="slug" id="arc">SLUG — L'ARC DE 60 SECONDES</div>
 <h2>Structure</h2>
 <div class="card">
   <pre style="color:var(--accent2);font-family:var(--mono);font-size:.9rem;line-height:1.7;margin:0">
- 0–3 s   ACCROCHE    « Regardez-moi piloter quelque chose d&rsquo;une autre pièce, dans le navigateur. »
- 3–10 s  CONTEXTE    Deux appareils côte à côte, le même code de salle saisi sur les deux.
-10–35 s  DÉMO        D-pad sur le téléphone → la vidéo distante sur l&rsquo;ordinateur réagit. Remote speak.
-35–50 s  RÉCOMPENSE  Optionnel : Bridge activé &mdash; une vraie carte micro:bit reflète la D-pad avec ses flèches LED.
-50–55 s  CTA         « Kit complet dans ma boutique &mdash; lien en description. »
-55–60 s  IMAGE FIN   Logo + pseudo figé pour l&rsquo;aperçu en boucle.</pre>
+ 0–3 s   ACCROCHE    « Deux appareils, un code de room, et vous êtes en direct. »
+ 3–10 s  CONTEXTE    Les deux navigateurs ouverts, même code tapé, bouton Connecter pressé.
+10–35 s  DÉMO        Vidéo + audio en direct. D-pad envoie des commandes. Remote speak parle.
+35–50 s  RÉCOMPENSE  Optionnel : appairez un micro:bit V2, le D-pad pilote alors la carte par BLE.
+50–55 s  CTA         « Kit complet dans ma boutique — lien ci-dessous. »
+55–60 s  IMAGE FIN   Logo + pseudo figé pour l'aperçu en boucle.</pre>
 </div>
 
+<!-- ═══════════ SCRIPT ═══════════ -->
 <div class="slug" id="script">SLUG — SCRIPT SCÈNE PAR SCÈNE</div>
-<h2>Modèle : « Deux appareils, un code de salle, zéro installation »</h2>
+<h2>Modèle : « Deux navigateurs deviennent un centre de mission »</h2>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:00–00:03</span><span class="scene-phase phase-hook">ACCROCHE</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div>« Et si deux navigateurs pouvaient se parler comme des talkies-walkies &mdash; avec une D-pad en plus ? »</div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div>Ouvrir le site sur un ordinateur et un téléphone, côte à côte. Titre à l&rsquo;écran : « Mini Mission Control ».</div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Deux appareils, un code de room, et vous êtes en direct — vidéo, voix et D-pad entre eux. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Cadre partagé : téléphone à gauche, ordinateur à droite. Les deux affichent la page Mission Control.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:03–00:10</span><span class="scene-phase phase-demo">CONTEXTE</span></div>
+  <div class="scene-head"><span class="scene-time">00:03–00:10</span><span class="scene-phase phase-demo">CONTEXTE · APPAIRAGE</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div>« Même site sur les deux. Même code de salle. Caméra. Connecter. »</div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div>Saisir <code>demo</code> dans le champ Room sur chaque appareil. Appuyer sur 🎥 Démarrer caméra, puis ✅ Connecter. Les puces d&rsquo;état passent au vert.</div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Tapez le même code sur les deux, pressez Démarrer la caméra, puis Connecter. Terminé. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Zoom sur le champ de code → taper <code>pizza</code> sur les deux → <strong>🎥 Démarrer la caméra</strong> → <strong>✅ Connecter</strong>. La vidéo distante apparaît.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">DÉMO &middot; D-PAD + VIDÉO</span></div>
+  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">DÉMO · APPEL + D-PAD</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div>« Maintenez ▲ sur le téléphone &mdash; l&rsquo;ordinateur le voit en direct. Stop. Et on journalise chaque paquet. »</div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div>Maintenir ▲ UP sur le téléphone ; le panneau Logs de l&rsquo;ordinateur affiche <code>[RX][DPAD] UP 1</code> puis <code>UP 0</code> au relâchement. Appuyer sur ■ Stop pour la chute.</div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Faites un signe à l'autre appareil. Puis appuyez sur le D-pad — la commande traverse. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Faire un signe sur le téléphone → l'ordinateur le voit. Taper <strong>⬆ HAUT</strong>, <strong>➡ DROITE</strong>, <strong>■ STOP</strong>. Le panneau log montre les commandes reçues en face.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">DÉMO &middot; REMOTE SPEAK</span></div>
+  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">DÉMO · TEXTE + TTS</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div>« Tapez un message, appuyez sur Remote speak &mdash; l&rsquo;autre appareil le dit à voix haute. »</div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div>Saisir « La mission est lancée » dans le champ texte, appuyer sur 📡 Remote speak. Plan sur le haut-parleur de l&rsquo;ordinateur, petite onde audio.</div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Tapez un message, appuyez sur Entrée. Pressez Remote speak — l'autre téléphone parle à voix haute. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Taper « bonjour astronaute » dans le champ texte → <kbd>Entrée</kbd>. Taper <strong>Remote speak</strong> → le haut-parleur de l'ordi le lit.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">RÉCOMPENSE &middot; PONT MICRO:BIT</span></div>
+  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">RÉCOMPENSE · PONT MICRO:BIT</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div>« Optionnel : connectez un micro:bit, activez Bridge &mdash; chaque appui D-pad devient une vraie flèche LED. »</div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div>🔗 Connecter le micro:bit. 🚀 Démarrer l&rsquo;envoi. Appuyer sur ▶ DROITE sur le téléphone &mdash; la carte affiche ➡. Zoom.</div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Branchez un micro:bit V2, appairez-le en Bluetooth, et le D-pad pilote aussi la carte. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Appairer le micro:bit V2. Taper les flèches du D-pad → les LED de la carte réagissent. Reculer pour montrer les trois : téléphone + ordi + micro:bit.</div>
   </div>
 </div>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:50–00:60</span><span class="scene-phase phase-cta">CTA + IMAGE DE FIN</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div>« Kit complet, mises à jour à vie &mdash; lien en description. Enseignants, mentionnez-moi quand vous l&rsquo;utilisez. »</div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div>Passer à un overlay logo + pseudo. Tenir 3 s immobile &mdash; ça devient l&rsquo;image de la boucle.</div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Kit complet, mises à jour à vie — lien en description. Enseignants, mentionnez-moi quand vous l'utilisez. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Passez à un overlay logo + pseudo. Maintenez 3 secondes immobile — ça devient l'image de la boucle.</div>
   </div>
 </div>
 
-<div class="slug" id="listing">SLUG — TEXTE D&rsquo;ANNONCE PRÊT À COPIER</div>
+<!-- ═══════════ TEXTE D'ANNONCE ═══════════ -->
+<div class="slug" id="listing">SLUG — TEXTE D'ANNONCE PRÊT À COPIER</div>
 <h2>Titre Etsy (140 caractères max)</h2>
-<div class="copybox">Mini Mission Control — Appel vidéo à deux appareils + D-pad pour enseignants &amp; enfants · Sans installation · Chrome · Pont micro:bit optionnel<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
+<div class="copybox">Mini Mission Control — Appel vidéo pair-à-pair entre deux appareils + D-pad + synthèse vocale · Pont micro:bit V2 optionnel · Chrome · Sans installation<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
 
-<h2>Description courte (160 premiers caractères &mdash; affichés en recherche)</h2>
-<div class="copybox">Console de mission dans le navigateur : deux appareils, un code de salle, vidéo + audio + D-pad + synthèse vocale en direct. Pont BBC micro:bit V2 optionnel. Sans installation, sans compte.<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
+<h2>Description courte (160 premiers caractères — affichés en recherche)</h2>
+<div class="copybox">Un appel vidéo pair-à-pair entre deux appareils avec D-pad, chat texte et synthèse vocale. Même code de room sur les deux, pressez Connecter — vous êtes en direct. Pont micro:bit V2 optionnel.<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
 
 <h2>Description complète</h2>
-<div class="copybox">🎮 Mini Mission Control — un appel vidéo entre deux appareils avec canal de commandes D-pad, dans le navigateur.
+<div class="copybox">🎮 Mini Mission Control — Appeler • Commander • Contrôler.
 
-Ouvrez un seul fichier HTML sur un ordinateur et un téléphone, saisissez le même code de salle, et vous obtenez : vidéo + audio bidirectionnels, une D-pad qui envoie des commandes JSON, des messages texte et la synthèse vocale — sans installation, sans compte, sans serveur, sans tracking.
+Ouvrez la page sur deux appareils. Tapez le même code de room. Pressez Connecter. Vous avez un appel vidéo pair-à-pair avec un D-pad entre les deux — dans le navigateur, sans installation, sans compte.
+
+Pensez : FaceTime + manette de jeu + talkie-walkie micro:bit.
 
 CE QUE VOUS OBTENEZ
-• 📹 Appel vidéo + audio bidirectionnel (PeerJS / WebRTC)
-• 🎮 Canal de commandes D-pad — UP / DOWN / LEFT / RIGHT / STOP avec événements appui / relâchement
-• ✉️ Messagerie texte sur le canal de données
-• 🔊 Speak local et 📡 Remote Speak (faire parler l&rsquo;autre appareil)
-• 📸 Snapshot PNG et ⏺️ Enregistrement WebM du flux distant
-• ⛶ Demande de plein écran distant et 👁 incrustation HUD sur la vidéo
-• 🪞 Miroir local, ↔️ Flip distant, 🔇 Mute micro, 🔄 Caméra avant / arrière
-• 🧩 Pont optionnel vers une BBC micro:bit V2 en BLE UART (transmet CMD UP 1 / CMD STOP 1)
-• 📝 Panneau Logs qui affiche chaque paquet TX / RX / ACK
+• 📞 Appel vidéo + audio pair-à-pair entre deux appareils (PeerJS)
+• 🔤 Appairage par code de room (les deux appareils tapent le même code)
+• 🎮 D-pad : HAUT / BAS / GAUCHE / DROITE / STOP envoyés en pair-à-pair
+• 💬 Messages texte via le canal de données
+• 🗣️ Synthèse vocale locale (Speak) + Remote speak (faire parler l'autre appareil)
+• 📡 Pont BBC micro:bit V2 optionnel — le D-pad est transmis à la carte via BLE UART
+• 🔄 Changement de caméra, 🎙️ coupure micro, 🪞 miroir soi / distant, ⛶ plein écran distant
+• 📸 Capture (PNG), ⏺ enregistrement (WebM)
+• 🛰️ Superposition HUD, 📋 panneau de log, 🧹 nettoyeur de cache
+
+CONFIGURATION EN 5 ÉTAPES
+1. Ouvrez la page sur deux appareils
+2. Tapez le même code de room sur les deux
+3. Pressez 🎥 Démarrer la caméra (autorisez les permissions)
+4. Pressez ✅ Connecter (l'un devient hôte, l'autre invité)
+5. Profitez — D-pad, texte, TTS, pont micro:bit optionnel
 
 CONTENU DU TÉLÉCHARGEMENT
-• index.html — la console de mission
-• js/app.js — PeerJS, caméra, D-pad, pont BLE
-• css/style.css — look console sombre
-• makecode.ts — firmware optionnel pour la BBC micro:bit V2
-• README.md + USERGUIDE.html — guide complet
-• etsy-package/ — imprimables : carte de démarrage, aide-mémoire, affiche A3, stickers, plan de leçon
-• LICENSE.txt — licence mono-utilisateur personnelle / classe
+• index.html — l'application complète
+• js/ — câblage PeerJS, D-pad, TTS, pont micro:bit optionnel
+• docs/ — guide illustré, référence rapide, FAQ, playbook Etsy
+• Extras imprimables : carte de démarrage, poster A3, plan de leçon, autocollants
+• LICENSE — licence mono-utilisateur personnelle / classe
 
 PRÉREQUIS
-• Deux appareils avec caméra et micro (ordinateur + téléphone, typiquement)
-• Chrome recommandé sur les deux (Safari : vidéo OK, Bluetooth non)
-• HTTPS (GitHub Pages fonctionne bien) ou localhost
-• Un réseau qui autorise le pair-à-pair (certains Wi-Fi scolaires le bloquent)
-• Optionnel : une BBC micro:bit V2 pour le pont Bluetooth
+• Deux appareils avec navigateur (Chrome recommandé)
+• Caméra + microphone sur chaque appareil
+• Une connexion réseau active (c'est un appel pair-à-pair, pas hors ligne)
+• Optionnel : BBC micro:bit V2 pour le pont BLE
+• HTTPS obligatoire pour Bluetooth
+
+RACCOURCIS CLAVIER
+Seulement deux : Entrée (envoyer le texte), Échap (fermer le modal firmware).
 
 POUR QUI
-Enseignants en ateliers STEM · familles en école à la maison · clubs de robotique · makers qui prototypent du pilotage à distance · toute personne curieuse de piloter un objet d&rsquo;une autre pièce.
+Enseignants en ateliers STEM / communication numérique · familles en école à la maison · clubs de robotique · makers prototypant des projets P2P · toute personne curieuse du web pair-à-pair.
 
-CONFIDENTIALITÉ D&rsquo;ABORD
-Vidéo, audio et commandes circulent directement entre les deux appareils en pair-à-pair. Pas de comptes, pas d&rsquo;analytique, aucun enregistrement envoyé dans le cloud. Tout reste dans votre navigateur.
+CONFIDENTIALITÉ D'ABORD
+La vidéo et l'audio circulent directement entre les deux appareils. Un minuscule service de signalisation les aide seulement à se trouver — le contenu de l'appel reste pair-à-pair.
 
 MISES À JOUR À VIE
-Chaque version publiée depuis cette annonce vous appartient. Retéléchargez le dernier ZIP à tout moment depuis votre page Achats Etsy.
+Chaque version publiée depuis cette annonce est à vous pour toujours. Retéléchargez à tout moment depuis votre page Achats Etsy.
 
-Bon pilotage ! 🚀🎮🧑‍🚀<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
+Bienvenue, petit astronaute 🧑‍🚀✨<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
 
 <h2>Tarifs</h2>
 <table>
   <tr><th>Niveau</th><th>Pour qui</th><th>Prix</th></tr>
-  <tr><td>Lancement</td><td>Tarif découverte mono-utilisateur</td><td><code>12,99 $</code></td></tr>
-  <tr><td>Standard</td><td>Un enseignant / famille / maker</td><td><code>17,99 $</code></td></tr>
-  <tr><td>Bundle</td><td>App + imprimables + plan de leçon</td><td><code>29,99 $</code></td></tr>
-  <tr><td>Site</td><td>Jusqu&rsquo;à 30 enseignants dans un établissement</td><td><code>199 $</code></td></tr>
-  <tr><td>District / OEM</td><td>Plusieurs sites &mdash; MP via la commande Etsy</td><td><code>499 $</code></td></tr>
-  <tr><td>Promo (<code>MCLAUNCH</code>)</td><td>Tripwire de semaine de lancement</td><td><code>7 $</code></td></tr>
+  <tr><td>Mono-utilisateur</td><td>Un enseignant / famille / maker</td><td><code>{{PRICE}}</code></td></tr>
+  <tr><td>Classe / Site</td><td>Jusqu'à 30 enseignants dans une école, élèves illimités</td><td><code>{{PRICE}}</code></td></tr>
+  <tr><td>District / OEM</td><td>Plusieurs sites — MP via la commande Etsy</td><td>Sur devis</td></tr>
 </table>
 
+<!-- ═══════════ ÉTIQUETTES ═══════════ -->
 <div class="slug" id="tags">SLUG — ÉTIQUETTES + MATÉRIAUX</div>
-<h2>13 étiquettes Etsy (20 caractères max)</h2>
+<h2>13 étiquettes Etsy (20 caractères chacune)</h2>
 <div class="pills">
+  <span class="pill">pair à pair</span>
   <span class="pill">appel vidéo</span>
   <span class="pill">webrtc</span>
-  <span class="pill">peerjs</span>
   <span class="pill">éducation</span>
   <span class="pill">STEM</span>
-  <span class="pill">robotique</span>
+  <span class="pill">d-pad</span>
   <span class="pill">code enfants</span>
   <span class="pill">ressource prof</span>
-  <span class="pill">pilotage distant</span>
-  <span class="pill">dpad</span>
+  <span class="pill">synthèse vocale</span>
+  <span class="pill">micro:bit</span>
   <span class="pill">classe</span>
   <span class="pill">école maison</span>
   <span class="pill">makerspace</span>
@@ -268,49 +315,51 @@ Bon pilotage ! 🚀🎮🧑‍🚀<button class="copybtn" onclick="navigator.cli
   <span class="pill">JavaScript</span>
   <span class="pill">PeerJS</span>
   <span class="pill">WebRTC</span>
-  <span class="pill">Web Bluetooth</span>
   <span class="pill">Web Speech API</span>
+  <span class="pill">Web Bluetooth</span>
   <span class="pill">MediaRecorder</span>
-  <span class="pill">MakeCode TypeScript</span>
 </div>
 
 <h2>Mots-clés SEO</h2>
-<p><code>dans-le-navigateur</code> &middot; <code>sans-installation</code> &middot; <code>respect-vie-privée</code> &middot; <code>pair-à-pair</code> &middot; <code>appel vidéo</code> &middot; <code>pilotage à distance</code> &middot; <code>ressource enseignant</code> &middot; <code>atelier STEM</code> &middot; <code>micro:bit V2</code></p>
+<p><code>dans-le-navigateur</code> · <code>sans-installation</code> · <code>pair-à-pair</code> · <code>appel vidéo</code> · <code>webrtc</code> · <code>ressource enseignant</code> · <code>atelier STEM</code> · <code>micro:bit V2</code></p>
 
+<!-- ═══════════ IMAGES ═══════════ -->
 <div class="slug" id="images">SLUG — ORDRE DES 7 IMAGES</div>
-<h2>Séquence d&rsquo;images (Etsy affiche 1 &amp; 2 en plus grand)</h2>
+<h2>Séquence d'images (Etsy affiche 1 &amp; 2 en plus grand)</h2>
 <div class="card">
   <ol style="padding-left:22px;line-height:2">
-    <li><strong>Hero</strong> &mdash; ordinateur + téléphone côte à côte, les deux affichant la console, puces d&rsquo;état vertes. Titre en Orbitron.</li>
-    <li><strong>Code de salle partagé</strong> &mdash; gros plan des deux champs Room affichant le même code, une flèche entre les deux.</li>
-    <li><strong>Gros plan D-pad</strong> &mdash; écran du téléphone avec D-pad tenue, panneau Logs de l&rsquo;ordinateur en train d&rsquo;afficher les lignes TX / RX.</li>
-    <li><strong>Remote speak</strong> &mdash; un appareil en train de saisir, l&rsquo;autre avec une onde sonore graphique.</li>
-    <li><strong>Pont optionnel</strong> &mdash; téléphone, ordinateur et une BBC micro:bit V2 affichant une flèche LED qui correspond à l&rsquo;appui D-pad.</li>
-    <li><strong>Imprimables</strong> &mdash; carte de démarrage, aide-mémoire, affiche A3, stickers en flat-lay.</li>
-    <li><strong>Carte texte</strong> &mdash; « Licence mono-utilisateur &middot; Mises à jour à vie &middot; Pas de cloud &middot; Chrome recommandé » sur dégradé sombre.</li>
+    <li><strong>Hero</strong> — écran partagé de deux appareils en plein appel, D-pad visible, titre en surimpression en Orbitron.</li>
+    <li><strong>Rituel d'appairage</strong> — séquence en 4 images : code de room → Démarrer caméra → Connecter → appel en direct.</li>
+    <li><strong>Gros plan du D-pad</strong> — boutons HAUT/BAS/GAUCHE/DROITE/STOP avec flèches lumineuses.</li>
+    <li><strong>Texte + TTS</strong> — champ texte en cours d'envoi + icône haut-parleur côté distant.</li>
+    <li><strong>Pont micro:bit</strong> — téléphone + ordinateur + BBC micro:bit V2, les trois dans un seul plan.</li>
+    <li><strong>Poster enfants</strong> — le poster A3 « We Call, We Command, We Control! ».</li>
+    <li><strong>Carte texte</strong> — « Call • Command • Control · Licence mono-utilisateur · Mises à jour à vie · Chrome » sur dégradé sombre.</li>
   </ol>
 </div>
 
+<!-- ═══════════ ERREURS ═══════════ -->
 <div class="slug" id="mistakes">SLUG — À ÉVITER</div>
 <h2>Erreurs fréquentes</h2>
 <table>
   <tr><th>❌ À éviter</th><th>✅ À faire</th></tr>
-  <tr><td>Commencer par « Bonjour, je suis&hellip; » + 10 s d&rsquo;intro</td><td>Ouvrir avec les deux appareils qui reflètent un appui D-pad dans les 3 premières secondes</td></tr>
-  <tr><td>Filmer en paysage (16:9)</td><td>Portrait 9:16 &mdash; Etsy lit en auto sur mobile</td></tr>
-  <tr><td>Filmer sur un Wi-Fi scolaire qui bloque le P2P</td><td>Tester la connexion avant le tournage, ou utiliser un partage de connexion</td></tr>
-  <tr><td>Oublier les sous-titres (Etsy joue muet)</td><td>Incruster les sous-titres ou ajouter un texte à chaque scène</td></tr>
-  <tr><td>Montrer le pont micro:bit sur iPhone + Safari</td><td>Toujours démontrer le pont micro:bit sur Chrome / ordinateur</td></tr>
-  <tr><td>Sauter le CTA</td><td>Dire « lien en description » dans les 5 dernières secondes à chaque fois</td></tr>
+  <tr><td>Commencer par « Bonjour, je suis… » + 10 s d'intro</td><td>Ouvrir avec les deux appareils à l'écran, le code de room en train d'être tapé</td></tr>
+  <tr><td>Filmer en paysage (16:9)</td><td>Portrait 9:16 — Etsy lit en auto sur mobile</td></tr>
+  <tr><td>Deux appareils trop proches</td><td>Les séparer assez pour éviter le feedback micro, ou en couper un</td></tr>
+  <tr><td>Oublier les sous-titres (Etsy joue muet)</td><td>Incruster des sous-titres ou ajouter un texte à chaque scène</td></tr>
+  <tr><td>Montrer le pont micro:bit sans HTTPS</td><td>Toujours démontrer le pont BLE depuis l'URL HTTPS live</td></tr>
+  <tr><td>Sauter le CTA</td><td>Dire « lien ci-dessous » dans les 5 dernières secondes à chaque fois</td></tr>
 </table>
 
+<!-- ═══════════ CARTE RAPIDE ═══════════ -->
 <div class="slug">SLUG — AIDE-MÉMOIRE DE POCHE</div>
-<div class="copybox">PRÉ     Deux appareils · Chrome · Même code de salle · Caméra ON · Connecté vert
-TOURNE  Accroche en 3 s · D-pad reflétée · Remote speak · Pont optionnel · CTA
-POST    Couper à 55 s · sous-titres incrustés · première image = miniature
+<div class="copybox">PRÉ     Deux appareils · Chrome · cam/micro OK · même code de room · téléphone 9:16
+TOURNE  Accroche en 3 s · Connecter → appel live · D-pad envoie · Remote speak · pont micro:bit · CTA
+POST    Coupez à 55 s · sous-titres incrustés · première image = miniature
 ANNONCE Titre · desc 160 car. · 13 étiquettes · 7 images · tarifs</div>
 
 <p style="text-align:center;margin-top:40px;color:var(--muted);font-size:.85rem">
-  Mini Mission Control v1.0.0 &mdash; Playbook Etsy 1 minute &middot; imprimer en A4 &middot; plastifier &middot; à garder à côté de votre matériel de tournage
+  Mini Mission Control v1.0.0 — Playbook Etsy 1 minute · imprimer en A4 · plastifier · à garder à côté de votre matériel de tournage
 </p>
 
 </body>

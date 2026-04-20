@@ -141,7 +141,7 @@
 
   <main>
     <div class="say" id="say">Press <span style="color: var(--accent)">Space</span> to start</div>
-    <div class="do" id="do">Pre-flight: laptop + phone both open · same Wi-Fi · Chrome/HTTPS · room code ready · tagline visible</div>
+    <div class="do" id="do">Pre-flight: 2 devices · Chrome · cam/mic OK · same room code · 9:16 phone</div>
   </main>
 
   <footer>
@@ -156,15 +156,15 @@
 
 <script>
 const SCENES = [
-  { t: 0,  phase: 'HOOK',     say: '"Two devices. One room code. Call, Command, Control — in 60 seconds."', do: 'Split-screen: <strong>laptop</strong> on left, <strong>phone</strong> on right, both on the same page.' },
-  { t: 3,  phase: 'CONTEXT',  say: '"Same room code on both sides — tap Start camera."',                    do: 'Type matching room code. Tap <strong>Start camera</strong> on phone and laptop. Video tiles light up.' },
-  { t: 10, phase: 'DEMO 1',   say: '"Hit Connect — live video, live audio, peer to peer."',                 do: 'Click <strong>Connect</strong>. Two faces appear side by side. HUD overlay shows peer status.' },
-  { t: 20, phase: 'DEMO 2',   say: '"Kid taps UP on the D-pad — laptop receives the command instantly."',   do: 'Phone: press <strong>UP</strong> on D-pad. Laptop caption shows <strong>CMD UP</strong>. Optional micro:bit V2 lights an arrow.' },
-  { t: 30, phase: 'PAYOFF',   say: '"Type a message, press Speak — it reads aloud on the other device."',    do: 'Type in the text box → <strong>Send</strong>. Tap <strong>Speak</strong>. Remote device talks back.' },
-  { t: 40, phase: 'STYLE',    say: '"Snapshot the moment, record the call, done — no install, no account."', do: 'Tap <strong>Snapshot</strong> — thumbnail saves. Toggle <strong>Record</strong>. Quick cut between HUD and video tiles.' },
-  { t: 50, phase: 'CTA',      say: '"Link below — lifetime updates, works on any two devices with cameras."', do: 'Face-cam. <strong>Eye contact with the lens</strong>, not the screen.' },
-  { t: 55, phase: 'END',      say: '"Call. Command. Control."',                                                do: 'Hold still. Tagline + logo overlay freezes. This becomes the <strong>loop frame</strong>.' },
-  { t: 60, phase: 'CUT',      say: 'CUT',                                                                      do: 'Watch playback once. Aim for under 55s. Trim if needed.' },
+  { t: 0,  phase: 'HOOK',     say: '"Two devices, one room code, and you\'re live — video, voice, and a D-pad between them."', do: 'Split frame: <strong>phone + laptop</strong>, both showing the Mission Control page.' },
+  { t: 3,  phase: 'CONTEXT',  say: '"Type the same room code. Start camera. Connect."',                                         do: 'Type <strong>pizza</strong> on both → <strong>🎥 Start camera</strong> → <strong>✅ Connect</strong>. Remote video appears.' },
+  { t: 10, phase: 'DEMO 1',   say: '"Wave at the other side. Then press the D-pad — the command flies across."',               do: 'Wave on phone → laptop sees it. Tap <strong>⬆ UP</strong>, <strong>➡ RIGHT</strong>, <strong>■ STOP</strong>. Log panel shows commands on the other side.' },
+  { t: 20, phase: 'DEMO 2',   say: '"Type a message, hit Enter. Press Remote speak — the other phone talks out loud."',        do: 'Type "hello astronaut", <strong>Enter</strong>. Tap <strong>Remote speak</strong> → the laptop speaker reads it aloud.' },
+  { t: 30, phase: 'PAYOFF',   say: '"Pair a micro:bit V2 and the D-pad drives the board too."',                                do: 'Pair <strong>BBC micro:bit V2</strong> over BLE. Tap D-pad arrows → the board\'s LEDs react.' },
+  { t: 40, phase: 'STYLE',    say: '"Snapshot, record, mirror, remote fullscreen — all one tap."',                             do: '<strong>📸 Snapshot</strong> → PNG downloads. <strong>⏺ Record</strong> → WebM. Mirror toggle. Fullscreen remote.' },
+  { t: 50, phase: 'CTA',      say: '"Link below — lifetime updates, teachers and kids welcome."',                              do: 'Face-cam. <strong>Eye contact with the lens</strong>, not the screen.' },
+  { t: 55, phase: 'END',      say: '"Welcome, tiny astronaut."',                                                                do: 'Hold still. Logo + handle overlay freezes. This becomes the <strong>loop frame</strong>.' },
+  { t: 60, phase: 'CUT',      say: 'CUT',                                                                                       do: 'Watch playback once. Aim for under 55s. Trim if needed.' },
 ];
 
 const clock = document.getElementById('clock');
@@ -236,7 +236,7 @@ function reset() {
   document.body.classList.add('idle');
   phase.textContent = 'READY';
   say.innerHTML = 'Press <span style="color: var(--accent)">Space</span> to start';
-  doEl.textContent = 'Pre-flight: laptop + phone both open · same Wi-Fi · Chrome/HTTPS · room code ready · tagline visible';
+  doEl.textContent = 'Pre-flight: 2 devices · Chrome · cam/mic OK · same room code · 9:16 phone';
   clock.textContent = '0:00';
   clock.classList.remove('over');
   bar.style.width = '0%';

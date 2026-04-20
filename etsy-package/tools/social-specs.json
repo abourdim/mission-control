@@ -1,0 +1,40 @@
+{
+  "_comment": "Social media kit specs — 4 aspect ratios per language, driven by generate-social.mjs. Screenshots resolved from output/<lang>/screenshots/.",
+
+  "formats": [
+    { "name": "ig-post",    "w": 1080, "h": 1080, "label": "Instagram feed",   "layout": "square" },
+    { "name": "ig-story",   "w": 1080, "h": 1920, "label": "Instagram story",  "layout": "portrait" },
+    { "name": "twitter",    "w": 1200, "h": 675,  "label": "Twitter / X",      "layout": "landscape" },
+    { "name": "linkedin",   "w": 1200, "h": 627,  "label": "LinkedIn",         "layout": "landscape" }
+  ],
+
+  "screenshot": "screenshot-hero.png",
+
+  "en": {
+    "brand": "mission-control",
+    "kicker": "TWO DEVICES · ONE D-PAD",
+    "title": "Call. Command.\nControl.",
+    "subtitle": "Peer-to-peer video · D-pad · Optional micro:bit bridge",
+    "cta": "Try the demo →",
+    "url": "abourdim.github.io/mission-control",
+    "hashtags": "#microbit  #STEM  #EdTech"
+  },
+  "fr": {
+    "brand": "mission-control",
+    "kicker": "DEUX APPAREILS · UN D-PAD",
+    "title": "Appeler. Commander.\nContrôler.",
+    "subtitle": "Vidéo pair-à-pair · D-pad · Pont micro:bit optionnel",
+    "cta": "Essayer la démo →",
+    "url": "abourdim.github.io/mission-control",
+    "hashtags": "#microbit  #STEM  #EdTech"
+  },
+  "ar": {
+    "brand": "mission-control",
+    "kicker": "جهازان · D-PAD واحد",
+    "title": "اتصل. تحكّم.\nقُد.",
+    "subtitle": "فيديو مباشر بين جهازين · D-pad · جسر micro:bit اختياري",
+    "cta": "← جرّب العرض التوضيحي",
+    "url": "abourdim.github.io/mission-control",
+    "hashtags": "#microbit  #STEM  #EdTech"
+  }
+}

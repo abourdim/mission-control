@@ -24,22 +24,50 @@
   body { max-width: 1080px; margin: 0 auto; padding: 24px 18px 80px; }
   a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed rgba(34,197,94,.4); }
   a:hover { color: var(--accent2); border-bottom-color: var(--accent2); }
-  .slate { background: radial-gradient(ellipse at top left, rgba(34,211,238,.14), transparent 60%), linear-gradient(180deg, var(--panel2), var(--panel)); border: 2px solid var(--border); border-radius: 18px; padding: 36px 28px 28px; text-align: center; margin-bottom: 22px; box-shadow: var(--shadow); }
+
+  .slate {
+    background:
+      radial-gradient(ellipse at top left, rgba(34,211,238,.14), transparent 60%),
+      linear-gradient(180deg, var(--panel2), var(--panel));
+    border: 2px solid var(--border);
+    border-radius: 18px; padding: 36px 28px 28px;
+    text-align: center; margin-bottom: 22px; box-shadow: var(--shadow);
+  }
   .slate-clap { font-size: 56px; line-height: 1; margin-bottom: 8px; filter: drop-shadow(0 0 18px rgba(34,197,94,.5)); }
   .slate h1 { font-family: var(--display); font-size: 2rem; letter-spacing: 1.4px; margin: 6px 0 4px; color: var(--accent); font-weight: 900; }
   .slate h1 span { color: var(--accent2); }
   .slate .tag { color: var(--muted); font-size: .92rem; letter-spacing: .8px; }
   .slate .meta { display: flex; justify-content: center; gap: 24px; margin-top: 16px; font-size: .82rem; color: var(--muted); flex-wrap: wrap; }
   .slate .meta b { color: var(--ink); font-weight: 700; }
-  .toc { position: sticky; top: 0; z-index: 50; background: rgba(11,18,38,.93); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 14px; padding: 8px 12px; margin-bottom: 22px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-  .toc a { background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.25); border-radius: 10px; padding: 6px 12px; font-size: .82rem; font-weight: 600; border-bottom: none; }
+
+  .toc {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11,18,38,.93); backdrop-filter: blur(8px);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 8px 12px; margin-bottom: 22px;
+    display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+  }
+  .toc a {
+    background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.25);
+    border-radius: 10px; padding: 6px 12px; font-size: .82rem; font-weight: 600;
+    border-bottom: none;
+  }
   .toc a:hover { background: rgba(34,197,94,.2); color: var(--accent); }
-  .slug { font-family: var(--mono); letter-spacing: 1.3px; font-size: .82rem; color: var(--accent); background: linear-gradient(270deg, rgba(34,197,94,.15), transparent); border-right: 4px solid var(--accent); padding: 8px 12px; margin: 28px 0 14px; border-radius: 8px 0 0 8px; }
+
+  .slug {
+    font-family: var(--mono); letter-spacing: 1.3px;
+    font-size: .78rem; color: var(--accent);
+    background: linear-gradient(270deg, rgba(34,197,94,.15), transparent);
+    border-right: 4px solid var(--accent); padding: 8px 12px;
+    margin: 28px 0 14px; border-radius: 8px 0 0 8px;
+  }
   h2 { font-family: var(--display); letter-spacing: 1px; color: var(--accent); margin: 8px 0 12px; font-size: 1.5rem; }
   h3 { color: var(--ink); margin-top: 18px; font-size: 1.12rem; }
   h4 { color: var(--accent2); font-size: 1rem; margin: 14px 0 6px; font-family: var(--display); }
   p { margin: 8px 0; }
+
   .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin: 12px 0; box-shadow: var(--shadow); }
+
   .checklist { list-style: none; padding: 0; margin: 0; }
   .checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 10px; border-radius: 8px; transition: background .15s; cursor: pointer; user-select: none; }
   .checklist li:hover { background: rgba(34,197,94,.07); }
@@ -47,34 +75,40 @@
   .checklist li.checked label { color: var(--muted); text-decoration: line-through; opacity: .65; }
   .checklist label { cursor: pointer; flex: 1; }
   .where { color: var(--muted); font-size: .82rem; display: block; margin-top: 2px; }
+
   .scene { background: linear-gradient(180deg, var(--panel2), var(--panel)); border: 1px solid var(--border); border-radius: 14px; margin: 14px 0; overflow: hidden; }
-  .scene-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(0,0,0,.3); border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: .82rem; letter-spacing: 1.3px; }
+  .scene-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(0,0,0,.3); border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: .78rem; letter-spacing: 1.3px; }
   .scene-time { color: var(--accent); font-weight: 700; font-size: 1.05rem; }
-  .scene-phase { padding: 3px 10px; border-radius: 999px; font-size: .72rem; font-weight: 800; }
+  .scene-phase { padding: 3px 10px; border-radius: 999px; font-size: .68rem; font-weight: 800; }
   .phase-hook { background: rgba(245,158,11,.18); color: var(--hook); border: 1px solid rgba(245,158,11,.4); }
   .phase-demo { background: rgba(34,211,238,.18); color: var(--demo); border: 1px solid rgba(34,211,238,.4); }
   .phase-payoff { background: rgba(34,197,94,.18); color: var(--payoff); border: 1px solid rgba(34,197,94,.4); }
   .phase-cta { background: rgba(239,68,68,.18); color: var(--cta); border: 1px solid rgba(239,68,68,.4); }
   .scene-body { padding: 14px 16px; display: grid; grid-template-columns: 1fr; gap: 12px; }
   .say { background: rgba(0,0,0,.3); border-right: 3px solid var(--accent); border-radius: 10px 0 0 10px; padding: 12px 14px; }
-  .say-label { font-family: var(--mono); font-size: .72rem; letter-spacing: 1.4px; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
-  .do { background: rgba(34,211,238,.08); border-right: 3px solid var(--accent2); border-radius: 10px 0 0 10px; padding: 12px 14px; font-family: var(--sans); font-size: .92rem; color: var(--ink); }
-  .do-label { font-size: .72rem; letter-spacing: 1.4px; color: var(--accent2); font-weight: 700; margin-bottom: 6px; }
-  .copybox { position: relative; background: #050b18; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px 12px 54px; font-family: var(--sans); font-size: .95rem; color: var(--accent); white-space: pre-wrap; margin: 8px 0; }
-  .copybtn { position: absolute; top: 6px; left: 6px; background: var(--accent); color: #05140a; border: none; border-radius: 6px; padding: 4px 10px; font-size: .72rem; font-weight: 800; cursor: pointer; font-family: var(--display); letter-spacing: .5px; }
+  .say-label { font-family: var(--mono); font-size: .68rem; letter-spacing: 1.4px; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
+  .do { background: rgba(34,211,238,.08); border-right: 3px solid var(--accent2); border-radius: 10px 0 0 10px; padding: 12px 14px; font-family: var(--mono); font-size: .85rem; color: var(--ink); }
+  .do-label { font-size: .68rem; letter-spacing: 1.4px; color: var(--accent2); font-weight: 700; margin-bottom: 6px; }
+
+  .copybox { position: relative; background: #050b18; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px 12px 44px; font-family: var(--mono); font-size: .86rem; color: var(--accent); white-space: pre-wrap; margin: 8px 0; direction: ltr; text-align: right; }
+  .copybtn { position: absolute; top: 6px; left: 6px; background: var(--accent); color: #05140a; border: none; border-radius: 6px; padding: 4px 10px; font-size: .7rem; font-weight: 800; cursor: pointer; font-family: var(--display); letter-spacing: .5px; }
   .copybtn:hover { background: var(--accent2); color: #03141a; }
+
   table { width: 100%; border-collapse: collapse; margin: 12px 0; }
-  th, td { padding: 9px 12px; border-bottom: 1px solid var(--border); text-align: right; font-size: .95rem; }
+  th, td { padding: 9px 12px; border-bottom: 1px solid var(--border); text-align: right; font-size: .9rem; }
   th { color: var(--accent2); font-family: var(--display); font-size: .82rem; letter-spacing: .8px; }
   tr:hover td { background: rgba(34,197,94,.04); }
+
   code { background: rgba(34,197,94,.12); color: var(--accent); padding: 2px 6px; border-radius: 4px; font-family: var(--mono); font-size: .88em; direction: ltr; display: inline-block; }
-  kbd { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-family: var(--mono); font-size: .82em; color: var(--accent); direction: ltr; display: inline-block; }
+  kbd { background: var(--panel); border: 1px solid var(--border); border-radius: 4px; padding: 2px 8px; font-family: var(--mono); font-size: .82em; color: var(--accent); }
+
   .pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
-  .pill { background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.3); color: var(--accent2); padding: 4px 10px; border-radius: 999px; font-size: .85rem; font-weight: 600; font-family: var(--sans); }
-  pre { direction: ltr; text-align: left; }
+  .pill { background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.3); color: var(--accent2); padding: 4px 10px; border-radius: 999px; font-size: .78rem; font-weight: 600; }
+
   @media (max-width: 640px) { body { padding: 14px 10px; } .slate h1 { font-size: 1.5rem; } h2 { font-size: 1.2rem; } }
+
   .lang-strip { display: flex; justify-content: center; gap: 8px; margin: 0 0 14px; font-family: var(--mono); font-size: .78rem; }
-  .lang-strip a { background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.28); border-radius: 8px; padding: 4px 12px; color: var(--accent2); letter-spacing: 1.2px; font-weight: 700; border-bottom: 1px solid rgba(34,211,238,.28); }
+  .lang-strip a { background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.28); border-radius: 8px; padding: 4px 12px; color: var(--accent2); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; border-bottom: 1px solid rgba(34,211,238,.28); }
   .lang-strip a.active { background: rgba(34,197,94,.18); border-color: var(--accent); color: var(--accent); }
   .lang-strip a:hover { background: rgba(34,211,238,.22); color: var(--accent2); }
 </style>
@@ -89,229 +123,243 @@
 
 <div class="slate">
   <div class="slate-clap">🎬</div>
-  <div class="tag">— دليل Etsy · v1.0.0 —</div>
+  <div class="tag">— دليل Etsy · الإصدار 1.0.0 —</div>
   <h1>Mini <span>Mission Control</span></h1>
-  <div class="tag">عرض الإعلان في دقيقة &middot; مقتطفات جاهزة للنسخ</div>
-  <div class="meta"><span><b>الصيغة:</b> عمودي 9:16</span><span><b>المدة:</b> &le; 60 ث</span><span><b>الهدف:</b> تحويل المتصفحين إلى مشترين</span></div>
+  <div class="tag">عرض المنتج في دقيقة واحدة · مقتطفات جاهزة للنسخ</div>
+  <div class="meta"><span><b>الصيغة:</b> عمودي 9:16</span><span><b>المدة:</b> ≤ 60 ثانية</span><span><b>الهدف:</b> تحويل المتصفحين إلى مشترين</span></div>
 </div>
 
 <div class="toc">
-  <a href="#preflight">✅ قبل التصوير</a>
-  <a href="#arc">🎬 قوس 60 ث</a>
-  <a href="#script">📜 السيناريو</a>
+  <a href="#preflight">✅ التحضير</a>
+  <a href="#arc">🎬 قوس 60 ثانية</a>
+  <a href="#script">📜 النص</a>
   <a href="#listing">🛒 نص الإعلان</a>
   <a href="#tags">🏷 الوسوم</a>
   <a href="#images">📸 الصور</a>
   <a href="#mistakes">⚠️ الأخطاء</a>
 </div>
 
-<div class="slug" id="preflight">قائمة التحقق قبل التصوير &middot; مرة واحدة في كل جلسة</div>
-<h2>قبل الضغط على زر التسجيل</h2>
+<!-- ═══════════ التحضير ═══════════ -->
+<div class="slug" id="preflight">قائمة التحقق قبل التصوير · مرة واحدة لكل جلسة</div>
+<h2>قبل الضغط على تسجيل</h2>
 <div class="card">
   <ul class="checklist" onclick="var li=event.target.closest('li');if(li)li.classList.toggle('checked')">
-    <li><input type="checkbox"><label>جهازان جاهزان: حاسوب محمول وهاتف، كلاهما على متصفح Chrome<span class="where">Safari / iPhone يعمل مع الفيديو ولكن ليس مع جسر Bluetooth الاختياري</span></label></li>
-    <li><input type="checkbox"><label>الجهازان يفتحان الموقع عبر HTTPS (GitHub Pages) أو localhost<span class="where">إذن الكاميرا يتطلب HTTPS أو localhost</span></label></li>
-    <li><input type="checkbox"><label>نفس رمز الغرفة مكتوب على الجهازين<span class="where">الافتراضي: <code>demo</code>. اكتبه على الشاشة ليتمكن المشاهدون من نسخه</span></label></li>
-    <li><input type="checkbox"><label>الضغط على 🎥 تشغيل الكاميرا على كل جهاز، مع منح الأذونات<span class="where">إذا بقي الزر معطلاً، أعد فتح علامة التبويب</span></label></li>
-    <li><input type="checkbox"><label>الضغط على ✅ اتصال &mdash; شارة الحالة <strong>خضراء</strong> على الجهازين<span class="where">دور المضيف / الضيف يُختار تلقائياً</span></label></li>
-    <li><input type="checkbox"><label>اختياري: BBC micro:bit V2 مُقرَن عبر BLE ووضع Bridge مُفعَّل<span class="where">فقط إذا كنت تريد عرض أسهم LED تعكس D-pad</span></label></li>
-    <li><input type="checkbox"><label>الهاتف في وضع 9:16 على حامل ثلاثي، مُضاء من الأمام</label></li>
-    <li><input type="checkbox"><label>المكتب نظيف &mdash; فقط الجهازان (واللوحة عند الحاجة) داخل الإطار</label></li>
-    <li><input type="checkbox"><label>قراءة السيناريو مرة بصوت عالٍ &mdash; مع ضبط الزمن تحت 55 ث</label></li>
+    <li><input type="checkbox"><label>جهازان جاهزان (حاسوب + هاتف، الثنائي الكلاسيكي)<span class="where">يلزم لكل منهما كاميرا وميكروفون ومتصفح Chrome</span></label></li>
+    <li><input type="checkbox"><label>الرابط المباشر يفتح على كليهما: <code>https://abourdim.github.io/mission-control/</code><span class="where">HTTPS إلزامي لجسر BLE الاختياري مع micro:bit</span></label></li>
+    <li><input type="checkbox"><label>تم اختيار رمز غرفة يسهل تذكّره (مثل <code>pizza</code> أو <code>alpha-42</code>)<span class="where">يجب أن يكتب الجهازان نفس الرمز تمامًا</span></label></li>
+    <li><input type="checkbox"><label>منح إذني الكاميرا والميكروفون على الجهازين</label></li>
+    <li><input type="checkbox"><label>تشغيل منظّف الكاش على الجهازين (حالة نظيفة للعرض)</label></li>
+    <li><input type="checkbox"><label>اختياري: BBC micro:bit V2 محمَّل ببرنامج BLE UART الثابت<span class="where">ضروري فقط إن كنت ستعرض جسر D-pad → micro:bit</span></label></li>
+    <li><input type="checkbox"><label>الهاتف بوضع 9:16 على ترايبود، مضاء من الأمام</label></li>
+    <li><input type="checkbox"><label>المكتب مرتَّب — الجهازان وmicro:bit فقط في الإطار</label></li>
+    <li><input type="checkbox"><label>قراءة النص بصوت عالٍ مرة واحدة — بزمن أقل من 55 ثانية</label></li>
   </ul>
 </div>
 
+<!-- ═══════════ القوس ═══════════ -->
 <div class="slug" id="arc">قوس الستين ثانية</div>
 <h2>البنية</h2>
 <div class="card">
-  <pre style="color:var(--accent2);font-family:var(--mono);font-size:.9rem;line-height:1.7;margin:0">
- 0–3 s   HOOK        "Watch me drive something from another room — in the browser."
- 3–10 s  CONTEXT     Two devices side-by-side, same room code typed on both.
-10–35 s  DEMO        D-pad on phone → laptop sees it live. Remote speak.
-35–50 s  PAYOFF      Optional: Bridge ON — a real micro:bit mirrors the D-pad with LED arrows.
-50–55 s  CTA         "Full kit in my shop — link below."
-55–60 s  END FRAME   Logo + handle frozen for the loop preview.</pre>
+  <pre style="color:var(--accent2);font-family:var(--mono);font-size:.9rem;line-height:1.7;margin:0;direction:ltr;text-align:left">
+ 0–3 s   HOOK        «جهازان، رمز غرفة واحد، وأنت على الهواء.»
+ 3–10 s  CONTEXT     المتصفحان مفتوحان، نفس الرمز مكتوب، ضغط زر Connect.
+10–35 s  DEMO        فيديو + صوت مباشران. D-pad ينقل الأوامر. Remote speak يتكلم.
+35–50 s  PAYOFF      اختياري: إقران micro:bit V2، وD-pad يقود اللوحة عبر BLE.
+50–55 s  CTA         «الكيت الكامل في متجري — الرابط بالأسفل.»
+55–60 s  END FRAME   الشعار + المعرّف مجمَّدان لإطار التكرار.</pre>
 </div>
 
-<div class="slug" id="script">السيناريو مشهداً بمشهد</div>
-<h2>النموذج: &laquo;جهازان، رمز غرفة واحد، صفر تثبيت&raquo;</h2>
+<!-- ═══════════ النص ═══════════ -->
+<div class="slug" id="script">النص مشهدًا مشهدًا</div>
+<h2>القالب: «متصفحان يصبحان مركز قيادة»</h2>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:00–00:03</span><span class="scene-phase phase-hook">HOOK</span></div>
+  <div class="scene-head"><span class="scene-time">00:00–00:03</span><span class="scene-phase phase-hook">الخطاف</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div>&laquo;ماذا لو تحدّث متصفحان مع بعضهما مثل جهازَي لاسلكي &mdash; مع ذراع تحكم D-pad؟&raquo;</div>
-    <div class="do"><div class="do-label">🎬 افعل</div>افتح الموقع على الحاسوب والهاتف جنباً إلى جنب. بطاقة عنوان على الشاشة: &laquo;Mini Mission Control&raquo;.</div>
+    <div class="say"><div class="say-label">🎙 قل</div>«جهازان، رمز غرفة واحد، وأنت على الهواء — فيديو وصوت وD-pad بينهما.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>إطار مقسوم: الهاتف على اليمين، الحاسوب على اليسار. كلاهما يعرض صفحة Mission Control.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:03–00:10</span><span class="scene-phase phase-demo">CONTEXT</span></div>
+  <div class="scene-head"><span class="scene-time">00:03–00:10</span><span class="scene-phase phase-demo">السياق · الإقران</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div>&laquo;افتح نفس الموقع على الجهازين. اكتب نفس رمز الغرفة. شغّل الكاميرا. اتصل.&raquo;</div>
-    <div class="do"><div class="do-label">🎬 افعل</div>اكتب <code>demo</code> في خانة Room على كل جهاز. اضغط 🎥 تشغيل الكاميرا ثم ✅ اتصال. تتحوّل شارات الحالة إلى اللون الأخضر.</div>
+    <div class="say"><div class="say-label">🎙 قل</div>«اكتب نفس الرمز على الجهازين، اضغط تشغيل الكاميرا، ثم اتصال. انتهى.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>زُم على حقل رمز الغرفة ← اكتب <code>pizza</code> على الجهازين ← اضغط <strong>🎥 تشغيل الكاميرا</strong> ← اضغط <strong>✅ اتصال</strong>. يظهر الفيديو البعيد.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">DEMO &middot; D-PAD + فيديو</span></div>
+  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">العرض · المكالمة + D-pad</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div>&laquo;استمر بالضغط على ▲ على الهاتف &mdash; الحاسوب يرى ذلك مباشرةً. ثم Stop. وكل حزمة مسجَّلة في لوحة Logs.&raquo;</div>
-    <div class="do"><div class="do-label">🎬 افعل</div>استمر بالضغط على ▲ UP على الهاتف؛ لوحة Logs على الحاسوب تطبع <code>[RX][DPAD] UP 1</code> ثم <code>UP 0</code> عند الإفلات. اضغط ■ Stop كنكتة ختامية.</div>
+    <div class="say"><div class="say-label">🎙 قل</div>«لوِّح للطرف الآخر. ثم اضغط D-pad — الأمر يعبر فورًا.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>لوِّح على الهاتف ← الحاسوب يرى ذلك. اضغط <strong>⬆ أعلى</strong>، <strong>➡ يمين</strong>، <strong>■ STOP</strong>. لوحة السجل تُظهر وصول الأوامر على الجانب الآخر.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">DEMO &middot; REMOTE SPEAK</span></div>
+  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">العرض · النص + TTS</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div>&laquo;اكتب رسالة واضغط Remote speak &mdash; الجهاز الآخر سيقولها بصوت عالٍ.&raquo;</div>
-    <div class="do"><div class="do-label">🎬 افعل</div>اكتب &laquo;انطلقت المهمة&raquo; في خانة النص واضغط 📡 Remote speak. لقطة قريبة لسماعة الحاسوب مع موجة صوتية خفيفة.</div>
+    <div class="say"><div class="say-label">🎙 قل</div>«اكتب رسالة واضغط Enter. ثم اضغط Remote speak — الهاتف الآخر ينطق الرسالة بصوت عالٍ.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>اكتب «مرحبًا أيها الرائد» في صندوق النص ← <kbd>Enter</kbd>. اضغط <strong>Remote speak</strong> ← مكبر صوت الحاسوب يقرأها.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">PAYOFF &middot; جسر micro:bit</span></div>
+  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">المكافأة · جسر micro:bit</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div>&laquo;اختياري: اربط BBC micro:bit، فعّل Bridge &mdash; كل ضغطة D-pad تصير سهم LED حقيقياً.&raquo;</div>
-    <div class="do"><div class="do-label">🎬 افعل</div>🔗 اتصل بـ micro:bit. 🚀 Start sending. اضغط ▶ RIGHT على الهاتف &mdash; اللوحة تعرض ➡. تقريب اللقطة.</div>
+    <div class="say"><div class="say-label">🎙 قل</div>«وصِّل micro:bit V2، اقرنه عبر Bluetooth، ويصبح D-pad يقود اللوحة أيضًا.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>اقرن micro:bit V2. اضغط أسهم D-pad ← مصابيح اللوحة تستجيب. تراجع بالكاميرا لتُظهر الثلاثة: الهاتف + الحاسوب + micro:bit.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:50–00:60</span><span class="scene-phase phase-cta">CTA + لقطة النهاية</span></div>
+  <div class="scene-head"><span class="scene-time">00:50–00:60</span><span class="scene-phase phase-cta">CTA + إطار الختام</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div>&laquo;الحزمة كاملة وتحديثات مدى الحياة &mdash; الرابط في الوصف. أيها المعلّمون، اذكروني حين تستخدمونها.&raquo;</div>
-    <div class="do"><div class="do-label">🎬 افعل</div>انتقل إلى طبقة شعار + معرِّف. احتفظ 3 ثوانٍ ثابتة &mdash; تصبح لقطة الحلقة.</div>
+    <div class="say"><div class="say-label">🎙 قل</div>«طقم كامل، تحديثات مدى الحياة — الرابط في الوصف. أيها المعلمون، اذكروني عند استخدامه.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>انتقل إلى طبقة الشعار + المعرّف. ثبّت 3 ثوانٍ بلا حركة — لتصبح إطار التكرار.</div>
   </div>
 </div>
 
-<div class="slug" id="listing">نص الإعلان جاهز للنسخ</div>
-<h2>عنوان Etsy (140 حرفاً كحد أقصى)</h2>
-<div class="copybox">Mini Mission Control — لوحة تحكم مهمة في المتصفح لجهازين (حاسوب + هاتف) للمعلمين والأطفال · بدون تثبيت · Chrome · جسر micro:bit اختياري<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPY</button></div>
+<!-- ═══════════ نص الإعلان ═══════════ -->
+<div class="slug" id="listing">نص إعلان جاهز للنسخ</div>
+<h2>عنوان Etsy (140 حرفًا كحد أقصى)</h2>
+<div class="copybox">Mini Mission Control — مكالمة فيديو P2P بين جهازين + D-pad + تحويل النص إلى كلام · جسر micro:bit V2 اختياري · Chrome · بلا تثبيت<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
 
-<h2>الوصف القصير (أول 160 حرفاً &mdash; تظهر في البحث)</h2>
-<div class="copybox">لوحة تحكم مهمة في المتصفح: جهازان، رمز غرفة واحد، مكالمة فيديو + صوت حية + D-pad + تحويل النص إلى كلام. جسر BBC micro:bit V2 اختياري. بدون تثبيت، بدون حساب.<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPY</button></div>
+<h2>الوصف المختصر (أول 160 حرفًا — تظهر في البحث)</h2>
+<div class="copybox">مكالمة فيديو نِدّيّة بين جهازين مع D-pad ودردشة نصية وتحويل النص إلى كلام. اكتب نفس رمز الغرفة على كليهما، اضغط اتصال — أنت على الهواء. جسر BBC micro:bit V2 اختياري.<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
 
 <h2>الوصف الكامل</h2>
-<div class="copybox">🎮 Mini Mission Control — مكالمة فيديو + قناة أوامر D-pad بين جهازين، كلها في المتصفح.
+<div class="copybox">🎮 Mini Mission Control — اتّصل • أمر • تحكّم.
 
-افتح ملف HTML واحداً على حاسوب وهاتف، اكتب نفس رمز الغرفة، وستحصل على: فيديو وصوت ثنائي الاتجاه، D-pad ترسل الأوامر كـ JSON، رسائل نصية، وتحويل النص إلى كلام — بدون تثبيت، بدون حساب، بدون خادم، بدون تتبُّع.
+افتح الصفحة على جهازين. اكتب نفس رمز الغرفة. اضغط Connect. أنت الآن في مكالمة فيديو نِدّيّة بينهما مع D-pad — داخل المتصفح، بلا تثبيت، بلا حساب.
+
+تخيَّل: FaceTime + يد تحكم ألعاب + جهاز اتصال لاسلكي مع micro:bit.
 
 ما ستحصل عليه
-• 📹 مكالمة فيديو + صوت ثنائية الاتجاه (PeerJS / WebRTC)
-• 🎮 قناة أوامر D-pad — UP / DOWN / LEFT / RIGHT / STOP مع أحداث الضغط والإفلات
-• ✉️ رسائل نصية على قناة البيانات
-• 🔊 Speak محلي و📡 Remote Speak (جعل الجهاز الآخر يتحدث)
-• 📸 لقطة PNG و⏺️ تسجيل WebM للبث البعيد
-• ⛶ طلب ملء الشاشة البعيد و👁 طبقة HUD على الفيديو
-• 🪞 مرآة ذاتية، ↔️ قلب بعيد، 🔇 كتم الميكروفون، 🔄 تبديل الكاميرا
-• 🧩 جسر اختياري إلى BBC micro:bit V2 عبر BLE UART (يرسل CMD UP 1 / CMD STOP 1)
-• 📝 لوحة Logs تعرض كل حزمة TX / RX / ACK
+• 📞 مكالمة فيديو + صوت نِدّيّة بين جهازين (PeerJS)
+• 🔤 إقران برمز الغرفة (الجهازان يكتبان نفس الرمز)
+• 🎮 D-pad: أعلى / أسفل / يسار / يمين / STOP تُرسَل P2P
+• 💬 رسائل نصية عبر قناة البيانات
+• 🗣️ تحويل نص إلى كلام محلي (Speak) + Remote speak (يُنطِق الجهاز الآخر)
+• 📡 جسر BBC micro:bit V2 اختياري — D-pad يُمرَّر إلى اللوحة عبر BLE UART
+• 🔄 تبديل الكاميرا، 🎙️ كتم الميكروفون، 🪞 عكس الذات / البعيد، ⛶ شاشة كاملة للبعيد
+• 📸 لقطة (PNG)، ⏺ تسجيل (WebM)
+• 🛰️ طبقة HUD، 📋 لوحة السجل، 🧹 منظّف الكاش
 
-محتوى الملف
-• index.html — لوحة تحكم المهمة
-• js/app.js — PeerJS، الكاميرا، D-pad، جسر BLE
-• css/style.css — مظهر وحدة تحكم داكن
-• makecode.ts — برنامج اختياري لـ BBC micro:bit V2
-• README.md + USERGUIDE.html — دليل كامل
-• etsy-package/ — مطبوعات: بطاقة البداية السريعة، ورقة اختصارات، ملصق A3، ملصقات، خطة درس
-• LICENSE.txt — ترخيص فردي شخصي / صفّي
+الإعداد في 5 خطوات
+1. افتح الصفحة على جهازين
+2. اكتب نفس رمز الغرفة على كليهما
+3. اضغط 🎥 تشغيل الكاميرا (امنح الأذونات)
+4. اضغط ✅ اتصال (أحدهما يصبح مضيفًا، والآخر ضيفًا)
+5. استمتع — D-pad، نص، TTS، جسر micro:bit اختياري
+
+محتويات التنزيل
+• index.html — التطبيق الكامل
+• js/ — سِلك PeerJS، D-pad، TTS، جسر micro:bit الاختياري
+• docs/ — دليل مصور، مرجع سريع، أسئلة شائعة، دليل Etsy
+• إضافات للطباعة: بطاقة البدء السريع، ملصق A3، خطة درس، ملصقات
+• LICENSE — رخصة مستخدم وحيد للاستخدام الشخصي / الصفي
 
 المتطلبات
-• جهازان لكل منهما كاميرا وميكروفون (حاسوب + هاتف هو الأنسب)
-• Chrome مُستحسَن على كليهما (Safari: فيديو نعم، Bluetooth لا)
-• استضافة HTTPS (GitHub Pages ممتاز) أو localhost
-• شبكة تسمح بالاتصال المباشر (بعض شبكات المدارس تحجبه)
-• اختياري: BBC micro:bit V2 لجسر Bluetooth
+• جهازان بمتصفح (Chrome مُستحسن)
+• كاميرا + ميكروفون على كل جهاز
+• اتصال شبكي حي (هذه مكالمة نِدّيّة، ليست دون اتصال)
+• اختياري: BBC micro:bit V2 للجسر عبر BLE
+• HTTPS إلزامي لاستخدام Bluetooth
 
-لمن هو هذا المنتج
-المعلّمون في ورش STEM · عائلات التعليم المنزلي · نوادي الروبوتات · المبتكرون الذين يبنون تطبيقات تحكُّم عن بُعد · كل من يريد قيادة شيء من غرفة أخرى.
+اختصارات لوحة المفاتيح
+اثنان فقط: Enter (إرسال النص)، Escape (إغلاق نافذة البرنامج الثابت).
 
-الخصوصية أولاً
-الفيديو والصوت والأوامر تنتقل مباشرةً بين الجهازين. بدون حسابات، بدون تحليلات، بدون تخزين سحابي للتسجيلات. كل شيء يبقى في متصفحك.
+لمن هو موجَّه
+المعلمون في ورش STEM / التواصل الرقمي · الأسر التي تدرّس منزليًا · نوادي الروبوتات · صانعو مشاريع P2P · كل مهتم بويب النِّدّ-للنِّدّ.
+
+الخصوصية أولًا
+الفيديو والصوت يتدفقان مباشرة بين الجهازين. خدمة إشارات صغيرة تساعدهما على إيجاد بعضهما فقط — محتوى المكالمة يبقى بين الجهازين.
 
 تحديثات مدى الحياة
-كل نسخة تُطرَح عبر هذا الإعلان تصبح ملكك إلى الأبد. أعد تحميل آخر ZIP في أي وقت من صفحة مشترياتك على Etsy.
+كل إصدار يُطرح من هذا الإعلان هو ملكك للأبد. أعد تنزيله في أي وقت من صفحة مشترياتك في Etsy.
 
-قيادة سعيدة! 🚀🎮🧑‍🚀<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPY</button></div>
+مرحبًا أيها الرائد الصغير 🧑‍🚀✨<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
 
-<h2>الأسعار</h2>
+<h2>فئات الأسعار</h2>
 <table>
-  <tr><th>المستوى</th><th>لمن</th><th>السعر</th></tr>
-  <tr><td>إطلاق</td><td>سعر الإطلاق المبكّر لفرد واحد</td><td><code>12.99 $</code></td></tr>
-  <tr><td>قياسي</td><td>معلم / عائلة / صانع واحد</td><td><code>17.99 $</code></td></tr>
-  <tr><td>حزمة</td><td>التطبيق + جميع المطبوعات + خطة درس</td><td><code>29.99 $</code></td></tr>
-  <tr><td>موقع</td><td>حتى 30 معلماً في مدرسة واحدة</td><td><code>199 $</code></td></tr>
-  <tr><td>منطقة / OEM</td><td>مواقع متعددة &mdash; تواصل عبر طلب Etsy</td><td><code>499 $</code></td></tr>
-  <tr><td>ترويج (<code>MCLAUNCH</code>)</td><td>عرض أسبوع الإطلاق</td><td><code>7 $</code></td></tr>
+  <tr><th>الفئة</th><th>لمن</th><th>السعر</th></tr>
+  <tr><td>مستخدم وحيد</td><td>معلم / عائلة / صانع واحد</td><td><code>{{PRICE}}</code></td></tr>
+  <tr><td>صف / موقع</td><td>حتى 30 معلمًا في مدرسة واحدة، طلاب بلا حدود</td><td><code>{{PRICE}}</code></td></tr>
+  <tr><td>منطقة / OEM</td><td>مواقع متعددة — تواصل عبر طلب Etsy</td><td>حسب الطلب</td></tr>
 </table>
 
+<!-- ═══════════ الوسوم ═══════════ -->
 <div class="slug" id="tags">الوسوم والمواد</div>
-<h2>13 وسماً على Etsy (20 حرفاً لكل وسم)</h2>
+<h2>13 وسمًا لـ Etsy (20 حرفًا لكل وسم)</h2>
 <div class="pills">
+  <span class="pill">نِدّ-للنِدّ</span>
   <span class="pill">مكالمة فيديو</span>
   <span class="pill">webrtc</span>
-  <span class="pill">peerjs</span>
   <span class="pill">تعليم</span>
   <span class="pill">STEM</span>
-  <span class="pill">روبوتات</span>
+  <span class="pill">d-pad</span>
   <span class="pill">برمجة أطفال</span>
-  <span class="pill">مورد معلم</span>
-  <span class="pill">تحكم عن بعد</span>
-  <span class="pill">dpad</span>
-  <span class="pill">صف</span>
+  <span class="pill">مورد للمعلم</span>
+  <span class="pill">تحويل نص-كلام</span>
+  <span class="pill">micro:bit</span>
+  <span class="pill">غرفة صف</span>
   <span class="pill">تعليم منزلي</span>
-  <span class="pill">makerspace</span>
+  <span class="pill">ميكرسبيس</span>
 </div>
 
-<h2>المواد (ما يشغّله)</h2>
+<h2>المواد (ما الذي يشغّله)</h2>
 <div class="pills">
   <span class="pill">HTML5</span>
   <span class="pill">JavaScript</span>
   <span class="pill">PeerJS</span>
   <span class="pill">WebRTC</span>
-  <span class="pill">Web Bluetooth</span>
   <span class="pill">Web Speech API</span>
+  <span class="pill">Web Bluetooth</span>
   <span class="pill">MediaRecorder</span>
-  <span class="pill">MakeCode TypeScript</span>
 </div>
 
 <h2>كلمات SEO</h2>
-<p><code>في-المتصفح</code> &middot; <code>بدون-تثبيت</code> &middot; <code>يحمي-الخصوصية</code> &middot; <code>اتصال-مباشر</code> &middot; <code>مكالمة فيديو</code> &middot; <code>تحكم عن بعد</code> &middot; <code>مورد معلم</code> &middot; <code>ورشة STEM</code> &middot; <code>micro:bit V2</code></p>
+<p><code>browser-based</code> · <code>no-install</code> · <code>peer-to-peer</code> · <code>video call</code> · <code>webrtc</code> · <code>teacher resource</code> · <code>STEM workshop</code> · <code>micro:bit V2</code></p>
 
-<div class="slug" id="images">ترتيب الصور السبع</div>
-<h2>تسلسل الصور (Etsy يعرض الأولى والثانية بالحجم الأكبر)</h2>
+<!-- ═══════════ الصور ═══════════ -->
+<div class="slug" id="images">ترتيب الصور السبع للإعلان</div>
+<h2>تسلسل الصور (Etsy يعرض 1 و 2 بأكبر حجم)</h2>
 <div class="card">
   <ol style="padding-right:22px;line-height:2">
-    <li><strong>الصورة البارزة</strong> &mdash; حاسوب + هاتف جنباً إلى جنب، كلاهما يعرض اللوحة وشارات الحالة خضراء. عنوان بخط Orbitron.</li>
-    <li><strong>رمز الغرفة المشترك</strong> &mdash; لقطة قريبة لخانتَي Room تعرضان نفس الرمز، مع سهم بينهما.</li>
-    <li><strong>D-pad عن قرب</strong> &mdash; شاشة الهاتف مع D-pad مضغوطة، ولوحة Logs على الحاسوب تطبع سطور TX / RX.</li>
-    <li><strong>Remote speak</strong> &mdash; جهاز يكتب، والآخر مع موجة صوتية.</li>
-    <li><strong>الجسر الاختياري</strong> &mdash; هاتف وحاسوب وBBC micro:bit V2 يعرض سهم LED يطابق ضغطة D-pad.</li>
-    <li><strong>المطبوعات</strong> &mdash; بطاقة البداية السريعة، ورقة الاختصارات، ملصق A3، ملصقات في صورة flat-lay.</li>
-    <li><strong>بطاقة نصية</strong> &mdash; &laquo;ترخيص لمستخدم واحد &middot; تحديثات مدى الحياة &middot; بلا سحابة &middot; Chrome مُستحسَن&raquo; على تدرّج داكن.</li>
+    <li><strong>الصورة البطل</strong> — شاشة مقسومة لجهازين في منتصف المكالمة، D-pad ظاهر، عنوان Orbitron فوقها.</li>
+    <li><strong>طقس الإقران</strong> — تسلسل من 4 لقطات: رمز الغرفة ← تشغيل الكاميرا ← اتصال ← مكالمة حية.</li>
+    <li><strong>لقطة قريبة لـ D-pad</strong> — أزرار الأسهم الخمسة والـ STOP مع توهّج.</li>
+    <li><strong>النص + TTS</strong> — صندوق النص أثناء الإرسال + أيقونة مكبر الصوت على الطرف الآخر.</li>
+    <li><strong>جسر micro:bit</strong> — الهاتف + الحاسوب + BBC micro:bit V2، الثلاثة في إطار واحد.</li>
+    <li><strong>ملصق للأطفال</strong> — ملصق A3 «We Call, We Command, We Control!».</li>
+    <li><strong>بطاقة نصية</strong> — «Call • Command • Control · رخصة مستخدم وحيد · تحديثات مدى الحياة · Chrome» على تدرج داكن.</li>
   </ol>
 </div>
 
-<div class="slug" id="mistakes">تجنّب هذه الأخطاء</div>
-<h2>الأخطاء الشائعة</h2>
+<!-- ═══════════ الأخطاء ═══════════ -->
+<div class="slug" id="mistakes">تجنَّب ذلك</div>
+<h2>أخطاء شائعة</h2>
 <table>
   <tr><th>❌ لا تفعل</th><th>✅ افعل</th></tr>
-  <tr><td>البدء بـ &laquo;أهلاً، أنا&hellip;&raquo; + 10 ث مقدمة</td><td>افتتح بالجهازين يعكسان ضغطة D-pad في أول 3 ثوانٍ</td></tr>
-  <tr><td>التصوير أفقياً (16:9)</td><td>عمودي 9:16 &mdash; Etsy يشغّله تلقائياً على الجوال</td></tr>
-  <tr><td>التصوير على Wi-Fi مدرسي يحجب P2P</td><td>اختبر الاتصال قبل التصوير أو استخدم نقطة اتصال من الهاتف</td></tr>
-  <tr><td>إهمال الترجمة النصية (Etsy يشغّل بلا صوت)</td><td>أدرج الترجمة أو ضع نصاً في كل مشهد</td></tr>
-  <tr><td>عرض الجسر على iPhone + Safari</td><td>اعرض جسر micro:bit دائماً على Chrome / حاسوب</td></tr>
-  <tr><td>تجاهل الـ CTA</td><td>قل &laquo;الرابط في الوصف&raquo; في آخر 5 ثوانٍ في كل مرة</td></tr>
+  <tr><td>ابدأ بـ «مرحبًا، أنا…» مع 10 ثوانٍ من المقدمة</td><td>افتح والجهازان على الشاشة بالفعل ورمز الغرفة يُكتَب</td></tr>
+  <tr><td>التصوير بالوضع الأفقي (16:9)</td><td>عمودي 9:16 — Etsy يشغّل تلقائيًا على الجوال</td></tr>
+  <tr><td>جهازان قريبان جدًا من بعضهما</td><td>أبعِدهما بما يكفي لتجنّب تغذية الميكروفون، أو اكتم أحدهما</td></tr>
+  <tr><td>نسيان الترجمة (Etsy يشغّل كتم الصوت)</td><td>ادمج الترجمة أو أضف نصًا في كل مشهد</td></tr>
+  <tr><td>عرض جسر micro:bit بدون HTTPS</td><td>اعرض جسر BLE دائمًا من الرابط المباشر HTTPS</td></tr>
+  <tr><td>تخطي CTA</td><td>قل «الرابط في الأسفل» في آخر 5 ثوانٍ في كل مرة</td></tr>
 </table>
 
-<div class="slug">بطاقة مساعدة صغيرة</div>
-<div class="copybox">PRE    جهازان · Chrome · نفس رمز الغرفة · كاميرا ON · شارة خضراء
-SHOOT  Hook in 3 s · D-pad mirrored · Remote speak · Optional bridge · CTA
-POST   قصّ إلى 55 ث · ترجمة مدموجة · أول إطار = مصغَّرة
-LIST   عنوان · وصف 160 حرف · 13 وسم · 7 صور · أسعار</div>
+<!-- ═══════════ بطاقة سريعة ═══════════ -->
+<div class="slug">بطاقة الجيب المرجعية</div>
+<div class="copybox">قبل     جهازان · Chrome · كاميرا/ميكروفون مسموحان · نفس رمز الغرفة · هاتف 9:16
+صوِّر   خطاف في 3 ثوانٍ · اتصال ← مكالمة حية · D-pad يطلق · Remote speak · جسر micro:bit · CTA
+بعد     قصّ إلى 55 ثانية · ترجمة مدمجة · أول إطار = المصغَّرة
+أعلن    عنوان · وصف 160 حرفًا · 13 وسمًا · 7 صور · فئات الأسعار</div>
 
 <p style="text-align:center;margin-top:40px;color:var(--muted);font-size:.85rem">
-  Mini Mission Control v1.0.0 &mdash; دليل Etsy في دقيقة &middot; اطبعه A4 &middot; لمِّعه &middot; ضعه بجانب معدّات التصوير
+  Mini Mission Control v1.0.0 — دليل Etsy في دقيقة · اطبع بحجم A4 · غلّفه · واحتفظ به بجانب معدات التصوير
 </p>
 
 </body>

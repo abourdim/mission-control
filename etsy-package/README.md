@@ -49,4 +49,4 @@ etsy-package/
 Start with [USERGUIDE.html](USERGUIDE.html) for the full workflow.
 
 > This folder was generated from [`etsy-package-template/`](../../etsy-package-template).
-> Regenerate with `node ../etsy-package-template/apply-template.js --force` after editing `product.json`.
+> Regenerate with `node ../etsy-package-template/apply-template.mjs --force` after editing `product.json`.

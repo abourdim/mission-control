@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mini Mission Control Quick Reference Cheat Sheet</title>
+<title>Mini Mission Control — Quick Reference Card</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@500&family=Tajawal:wght@400;500;700&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,6 +66,10 @@
   .d-red { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,.6); }
   .d-blue { background: #22d3ee; box-shadow: 0 0 8px rgba(34,211,238,.6); }
   .d-gray { background: #475569; }
+
+  .dpad { display: grid; grid-template-columns: repeat(3, 28px); grid-template-rows: repeat(3, 28px); gap: 3px; justify-content: center; margin: 2px auto 4px; }
+  .dpad div { background: rgba(0,0,0,.5); border: 1px solid rgba(34,197,94,.3); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #22c55e; font-family: 'Orbitron', monospace; }
+  .dpad .empty { visibility: hidden; }
 </style>
 </head>
 <body>
@@ -73,78 +77,89 @@
 
   <div class="header">
     <h1>Mini Mission Control Quick Reference</h1>
-    <span>Cheat Sheet &mdash; Laminate Me!</span>
+    <span>Card &mdash; Laminate Me!</span>
   </div>
-  <div class="laminate-tip">Print &rarr; Laminate &rarr; Stick near the mission console</div>
+  <div class="laminate-tip">Print &rarr; Laminate &rarr; Stick near your call rig</div>
 
   <div class="cols">
 
     <!-- Column 1 -->
     <div>
       <div class="group">
-        <div class="group-title">Setup (both devices)</div>
-        <div class="row"><kbd>1</kbd><span class="label">Open the same URL on laptop + phone</span></div>
-        <div class="row"><kbd>2</kbd><span class="label">Type the <strong>same</strong> Room code</span></div>
-        <div class="row"><kbd>3</kbd><span class="label">Press 🎥 Start camera &mdash; allow permissions</span></div>
-        <div class="row"><kbd>4</kbd><span class="label">Press ✅ Connect &mdash; host/guest auto-picked</span></div>
+        <div class="group-title">Keyboard Shortcuts (only 2!)</div>
+        <div class="row"><kbd>Enter</kbd><span class="label">Send the typed text message</span></div>
+        <div class="row"><kbd>Esc</kbd><span class="label">Close the firmware modal</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">D-pad Commands (sent as JSON)</div>
-        <div class="row"><kbd>▲ UP</kbd><span class="label">cmd:"UP", pressed:true / false</span></div>
-        <div class="row"><kbd>▼ DOWN</kbd><span class="label">cmd:"DOWN"</span></div>
-        <div class="row"><kbd>◀ LEFT</kbd><span class="label">cmd:"LEFT"</span></div>
-        <div class="row"><kbd>▶ RIGHT</kbd><span class="label">cmd:"RIGHT"</span></div>
-        <div class="row"><kbd>■ Stop</kbd><span class="label">cmd:"STOP" &mdash; halt motion</span></div>
+        <div class="group-title">D-pad Controller</div>
+        <div class="dpad">
+          <div class="empty"></div><div>⬆</div><div class="empty"></div>
+          <div>⬅</div><div>■</div><div>➡</div>
+          <div class="empty"></div><div>⬇</div><div class="empty"></div>
+        </div>
+        <div class="row"><kbd>⬆ UP</kbd><span class="label">Sent peer-to-peer (forward)</span></div>
+        <div class="row"><kbd>⬇ DOWN</kbd><span class="label">Sent peer-to-peer (backward)</span></div>
+        <div class="row"><kbd>⬅ LEFT</kbd><span class="label">Sent peer-to-peer (turn left)</span></div>
+        <div class="row"><kbd>➡ RIGHT</kbd><span class="label">Sent peer-to-peer (turn right)</span></div>
+        <div class="row"><kbd>■ STOP</kbd><span class="label">Halt &mdash; sent peer-to-peer</span></div>
       </div>
     </div>
 
     <!-- Column 2 -->
     <div>
       <div class="group">
-        <div class="group-title">Text &amp; Speak</div>
-        <div class="row"><kbd>Enter</kbd><span class="label">In text box &mdash; send message</span></div>
-        <div class="row"><kbd>Send</kbd><span class="label">Data-channel message to peer</span></div>
-        <div class="row"><kbd>🔊 Speak</kbd><span class="label"><strong>This</strong> device says it out loud</span></div>
-        <div class="row"><kbd>📡 Remote speak</kbd><span class="label">Make the <strong>other</strong> device speak it</span></div>
-        <div class="row"><kbd>Esc</kbd><span class="label">Close firmware / remote-fullscreen modal</span></div>
+        <div class="group-title">Room-Code Rules</div>
+        <div class="row"><span class="label">✅ <strong style="color:#22c55e;">Both devices must type the same room code.</strong></span></div>
+        <div class="row"><span class="label">Short words work: <strong style="color:#22d3ee;">pizza</strong>, <strong style="color:#22d3ee;">alpha-42</strong>, <strong style="color:#22d3ee;">lab-7</strong>.</span></div>
+        <div class="row"><span class="label">Same room code = same pairing channel.</span></div>
+        <div class="row"><span class="label">One side becomes <strong style="color:#22c55e;">host</strong>, the other <strong style="color:#22d3ee;">guest</strong>.</span></div>
+        <div class="row"><span class="label">Change the code to make a fresh room.</span></div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Text + Voice</div>
+        <div class="row"><span style="font-size:14px;">💬</span><span class="label">Type in the text box, press <kbd>Enter</kbd> to send</span></div>
+        <div class="row"><span style="font-size:14px;">🗣️</span><span class="label"><strong style="color:#22c55e;">Speak</strong> &mdash; local text-to-speech</span></div>
+        <div class="row"><span style="font-size:14px;">📢</span><span class="label"><strong style="color:#22d3ee;">Remote speak</strong> &mdash; speak on the other side</span></div>
       </div>
 
       <div class="group">
         <div class="group-title">Video Controls</div>
-        <div class="row"><kbd>🔇 Mute mic</kbd><span class="label">Silence your microphone</span></div>
-        <div class="row"><kbd>🔄 Switch</kbd><span class="label">Front &harr; rear camera (phone)</span></div>
-        <div class="row"><kbd>🪞 Mirror</kbd><span class="label">Flip your local preview</span></div>
-        <div class="row"><kbd>↔️ Flip remote</kbd><span class="label">Flip the remote video display</span></div>
-        <div class="row"><kbd>✋ Hang up</kbd><span class="label">End the session</span></div>
+        <div class="row"><span style="font-size:14px;">🔄</span><span class="label">Camera switch (front / back)</span></div>
+        <div class="row"><span style="font-size:14px;">🎙️</span><span class="label">Mic mute</span></div>
+        <div class="row"><span style="font-size:14px;">🪞</span><span class="label">Mirror self / mirror remote</span></div>
+        <div class="row"><span style="font-size:14px;">⛶</span><span class="label">Remote fullscreen</span></div>
       </div>
     </div>
 
     <!-- Column 3 -->
     <div>
       <div class="group">
-        <div class="group-title">Connection State</div>
-        <div class="ble-row"><span class="dot d-gray"></span><span class="label"><strong style="color:#cbd5e1;">Not connected</strong> &mdash; press ✅ Connect</span></div>
-        <div class="ble-row"><span class="dot d-amber"></span><span class="label"><strong style="color:#fbbf24;">Dialing</strong> &mdash; PeerJS negotiating</span></div>
-        <div class="ble-row"><span class="dot d-green"></span><span class="label"><strong style="color:#22c55e;">Live</strong> &mdash; video + data streaming</span></div>
-        <div class="ble-row"><span class="dot d-blue"></span><span class="label"><strong style="color:#22d3ee;">Idle</strong> &mdash; waiting for peer</span></div>
-        <div class="ble-row"><span class="dot d-red"></span><span class="label"><strong style="color:#ef4444;">Error</strong> &mdash; check Logs panel</span></div>
+        <div class="group-title">Connection State Cheat Sheet</div>
+        <div class="ble-row"><span class="dot d-gray"></span><span class="label"><strong style="color:#cbd5e1;">Idle</strong> &mdash; type a room code &amp; press Connect</span></div>
+        <div class="ble-row"><span class="dot d-amber"></span><span class="label"><strong style="color:#fbbf24;">Pairing</strong> &mdash; waiting for the other device</span></div>
+        <div class="ble-row"><span class="dot d-green"></span><span class="label"><strong style="color:#22c55e;">Connected</strong> &mdash; video + audio live</span></div>
+        <div class="ble-row"><span class="dot d-blue"></span><span class="label"><strong style="color:#22d3ee;">micro:bit linked</strong> &mdash; BLE bridge active</span></div>
+        <div class="ble-row"><span class="dot d-red"></span><span class="label"><strong style="color:#ef4444;">Error</strong> &mdash; check camera/mic &amp; room code</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">Optional micro:bit Bridge</div>
-        <div class="row"><kbd>🔗 Connect</kbd><span class="label">Pair BBC micro:bit [xxxxx] over BLE</span></div>
-        <div class="row"><kbd>🚀 Start sending</kbd><span class="label">Bridge ON &mdash; forward cmds to board</span></div>
-        <div class="row"><kbd>🛑 Stop</kbd><span class="label">Bridge OFF</span></div>
-        <div class="row"><kbd>🧪 Send TEST</kbd><span class="label">Ping line to confirm UART works</span></div>
-        <div class="row"><kbd>🔌 Firmware</kbd><span class="label">Show MakeCode code to flash</span></div>
+        <div class="group-title">Capture &amp; HUD</div>
+        <div class="row"><span style="font-size:14px;">📸</span><span class="label">Snapshot &mdash; saves a PNG</span></div>
+        <div class="row"><span style="font-size:14px;">⏺</span><span class="label">Record &mdash; saves a WebM video</span></div>
+        <div class="row"><span style="font-size:14px;">🛰️</span><span class="label">HUD overlay &mdash; status info on top</span></div>
+        <div class="row"><span style="font-size:14px;">📋</span><span class="label">Log panel &mdash; what happened &amp; when</span></div>
+        <div class="row"><span style="font-size:14px;">🧹</span><span class="label">Cache cleaner &mdash; wipe stored state</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">Pro Tips</div>
+        <div class="group-title">Troubleshooting Quick Hits</div>
         <div class="row" style="flex-direction:column;align-items:start;">
-          <span class="label" style="color:#22d3ee;">Camera needs <strong>HTTPS</strong> or <strong>localhost</strong>. Bluetooth needs <strong>Chrome</strong> on desktop / Android.</span>
-          <span class="label" style="color:#64748b;font-size:11px;">Stuck? Press <strong>🧽 Clean cache</strong>. Haunted? Check the <strong>Logs</strong> panel first.</span>
+          <span class="label" style="color:#22d3ee;"><strong>Stuck on pairing?</strong> Check the room code matches <em>exactly</em> on both devices.</span>
+          <span class="label" style="color:#22d3ee;"><strong>Black self-view?</strong> Re-grant camera &amp; mic permissions in Chrome.</span>
+          <span class="label" style="color:#22d3ee;"><strong>micro:bit won't pair?</strong> Needs HTTPS &amp; a BBC micro:bit V2 with BLE UART firmware.</span>
+          <span class="label" style="color:#64748b;font-size:11px;">Live connection required &mdash; this is not an offline app.</span>
         </div>
       </div>
     </div>
@@ -153,7 +168,7 @@
 
   <div class="footer">
     <span>Mini Mission Control v1.0.0 &bull; Print on A4 landscape, laminate, love.</span>
-    <span class="brand">Two devices (laptop + phone) &bull; Optional BBC micro:bit V2</span>
+    <span class="brand">Call &bull; Command &bull; Control</span>
   </div>
 
 </div>

@@ -1,0 +1,64 @@
+{
+  "_comment": "A/B hero image specs. Each produces a 1500x1500 Etsy thumbnail. Ship 2-5 variants — Etsy's own image-order experiment picks the winner.",
+
+  "heroes": [
+    {
+      "name": "hero-teacher",
+      "theme": "arctic",
+      "accentColor": "#0077cc",
+      "screenshots": ["screenshot-hero.png"],
+      "title": "Call. Command.\nControl.",
+      "subtitle": "Two browsers · One D-pad · Classroom-ready",
+      "badge": "Chrome / Edge",
+      "footerLeft": "Peer-to-peer · No server · No account",
+      "footerRight": "micro:bit V2 bridge"
+    },
+    {
+      "name": "hero-kid",
+      "theme": "neon",
+      "accentColor": "#00ff88",
+      "screenshots": ["screenshot-hero.png"],
+      "title": "FaceTime + D-Pad\n+ micro:bit",
+      "subtitle": "Video, text, voice, commands — over one room code.",
+      "badge": "Works anywhere",
+      "footerLeft": "Kid-safe · No cloud · No sign-in",
+      "footerRight": "60-sec setup"
+    },
+    {
+      "name": "hero-maker",
+      "theme": "blaze",
+      "accentColor": "#ff6b35",
+      "screenshots": ["screenshot-hero.png"],
+      "title": "P2P Mission Control\nfor Makers",
+      "subtitle": "WebRTC data channel · D-pad bridge · BLE UART forward",
+      "badge": "Open source friendly",
+      "footerLeft": "PeerJS · micro:bit V2",
+      "footerRight": "Hack it"
+    },
+    {
+      "name": "hero-fr-teacher",
+      "theme": "arctic",
+      "accentColor": "#e63946",
+      "lang": "fr",
+      "screenshots": ["screenshot-hero.png"],
+      "title": "Appeler. Commander.\nContrôler.",
+      "subtitle": "Deux navigateurs · Un D-pad · Prêt pour la classe",
+      "badge": "Chrome / Edge",
+      "footerLeft": "Pair-à-pair · Sans serveur · Sans compte",
+      "footerRight": "Pont micro:bit V2"
+    },
+    {
+      "name": "hero-ar-teacher",
+      "theme": "arctic",
+      "accentColor": "#0077cc",
+      "lang": "ar",
+      "dir": "rtl",
+      "screenshots": ["screenshot-hero.png"],
+      "title": "اتصل. تحكّم.\nقُد.",
+      "subtitle": "متصفحان · D-pad واحد · جاهز للفصل",
+      "badge": "Chrome / Edge",
+      "footerLeft": "مباشر بين جهازين · بدون خادم · بدون حساب",
+      "footerRight": "جسر micro:bit V2"
+    }
+  ]
+}

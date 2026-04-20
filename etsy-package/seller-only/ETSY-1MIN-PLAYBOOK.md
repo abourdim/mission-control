@@ -6,109 +6,220 @@ A second-by-second script: **what to say** + **what to click / do** to produce a
 
 ---
 
-## Pre-flight (once per shoot)
+## Etsy video specs (memorise once)
 
-- [ ] Two devices ready: a laptop and a phone, both on Chrome
-- [ ] Both devices on the live site (GitHub Pages HTTPS or localhost)
-- [ ] Same room code typed on both (default: `demo`)
-- [ ] 🎥 Start camera pressed on each; permissions granted
-- [ ] ✅ Connect pressed — status chips are **green** on both
-- [ ] Optional: BBC micro:bit V2 paired over BLE, Bridge ON
-- [ ] Phone in 9:16 mode on a tripod, lit from the front
-- [ ] Desk cleared — only the two devices (and maybe the board) in frame
-- [ ] Script read aloud once — timed under 55 s
+| Spec | Value |
+|---|---|
+| **Length** | Max 60 seconds (aim for 55 s to be safe) |
+| **Aspect** | **9:16 portrait** — Etsy autoplays in the mobile feed |
+| **Resolution** | 1080 × 1920 minimum |
+| **Codec** | MP4 / H.264 + AAC audio |
+| **File size** | Under 100 MB |
+| **Audio** | Muted by default in feed → **captions or on-screen text are mandatory** |
+| **Cover frame** | First frame becomes the thumbnail — make it visually loud |
+| **Hook window** | First 3 seconds decide whether a scroller stops |
 
 ---
 
-## 60-second arc
+## Pre-flight checklist (90 seconds, do once per shoot)
+
+Before you press Record:
+
+- [ ] two devices (laptop + phone); optional BBC micro:bit V2 powered on, showing the **X** icon *(if not → re-flash `makecode.ts`)*
+- [ ] Chrome or Edge open with `index.html` loaded
+- [ ] BLE paired — status chip is **green**
+- [ ] Theme set — **Neon** photographs best; **Arctic** reads best in harsh daylight
+- [ ] Language matches your voiceover (EN / FR / AR)
+- [ ] micro:bit V2 ready if you re showing Robot Arm or Buggy
+- [ ] Tab 6 (3D) open with Buggy or Robot Arm selected — looks impressive in the hero shot
+- [ ] Phone in 9:16 on a tripod, front-lit, clean background
+- [ ] Desk cleared — only the phone + micro:bit + cable in frame
+- [ ] Captions app running OR on-screen text plan ready
+- [ ] Script read aloud once, timed under 55 seconds
+- [ ] Phone silenced, kids / dogs warned
+
+---
+
+## The 60-second arc
 
 ```
- 0–3 s   HOOK        "Two browsers talking like walkie-talkies — with a D-pad."
- 3–10 s  CONTEXT     Both devices on page · matching room code · Start camera · Connect
-10–35 s  DEMO        Hold D-pad on phone → laptop Logs scrolls RX lines live
-35–50 s  PAYOFF      Remote speak · optional micro:bit Bridge shows LED arrow
-50–55 s  CTA         "Full kit in my shop — link below."
-55–60 s  END FRAME   Logo + handle freeze
+ 0–3 s   HOOK        "Watch what this micro:bit does in 60 seconds."
+ 3–10 s  CONTEXT     Board → laptop → Connect → green chip.
+35–50 s  PAYOFF      Live graph with Simulate. Record / Replay / CSV.
+50–55 s  CTA         "Full kit, lifetime updates — link below."
+55–60 s  END FRAME   Logo + handle frozen for the loop preview.
+```
+
+Etsy loops the video, so the **end frame should match the cover** — keeps viewers watching the loop.
+
+---
+
+## Script Template A — "Your micro:bit becomes a playground" (hero demo)
+
+**Use case:** the main Etsy listing video. Showcases the 3D, the BLE pairing, and the live graph in one go.
+
+| Time | What to SAY | What to CLICK / DO |
+|---|---|---|
+| 0–3 s | *"Your micro:bit becomes a playground — in the browser, in 60 seconds."* | Close-up of the real board with the X icon on the LEDs. Your hand holds it. |
+| 3–10 s | *"One page, one click, paired."* | Cut to the laptop. Click **🔗 Connect to micro:bit** → pick the board → chip turns green. |
+| 20–30 s | *"Press A — the D-pad lights up. Send text — the remote speaks."* | Press a D-pad arrow. Cut to the RX bar highlighting on the other device in sync. |
+| 30–40 s | *"Live graph with record, replay, CSV. A lab in a browser tab."* | Tab **5 · Graph** → click **🎲 Simulate** → chart dances → hover on **⏺ Record** and **📄 CSV**. |
+| 40–50 s | *"4 themes, 3 languages, works offline, no install, no account."* | Quick theme swap (header dropdown) → show Neon → Arctic. |
+| 50–55 s | *"Link below — lifetime updates, teachers and kids welcome."* | Face-cam back on. Eye contact. |
+| 55–60 s | *"Happy hacking."* | Hold still. Logo + handle overlay freezes. This becomes the loop frame. |
+
+---
+
+## Script Template B — "Teacher Tuesday" (classroom angle)
+
+**Use case:** targeting teachers and STEM workshop organisers.
+
+| Time | What to SAY | What to CLICK / DO |
+|---|---|---|
+| 0–3 s | *"STEM teachers — you need to see this."* | Overhead shot of a laptop + 5 micro:bits laid out on a desk. |
+| 3–10 s | *"One browser tab. Live sensors. No install on 30 laptops."* | Click Connect. Status goes green. Cut to Logs panel — values streaming. |
+| 10–20 s | *"Calibrate the compass right in the UI. Baseline the sound for a quiet classroom."* | Logs panel → Calibrate. Show the Set Level / Set Ambient buttons. |
+| 20–30 s | *"Record a full lesson. Export CSV. Drop into a lab report."* | Graph tab → Record → Stop → Save Session → CSV. |
+| 30–40 s | *"4 themes — Arctic for projectors. 3 languages — Arabic with full RTL."* | Swap theme to Arctic. Swap language to Arabic — watch the UI flip RTL. |
+| 40–50 s | *"Site license for up to 30 teachers. Lifetime updates."* | Text overlay with the licensing tiers + Etsy shop name. |
+| 50–60 s | *"Link below. Tag me when you run a workshop."* | Face-cam, hold the micro:bit, smile, freeze on logo. |
+
+---
+
+## Script Template C — "Kid builds a robot" (parent / home-school angle)
+
+**Use case:** showing a young maker using the app — UGC / influencer feel.
+
+| Time | What to SAY | What to CLICK / DO |
+|---|---|---|
+| 0–3 s | *"My kid built a robot. With a browser tab."* | Close-up: a small hand tapping Connect. |
+| 3–10 s | *"The D-pad forwards to micro:bit. LED arrow displays the direction."* | Two laptops on screen. Phone calling a laptop. LED arrow lights up on the micro:bit. |
+| 10–20 s | *"D-pad in the browser → P2P data channel → LED arrow on the micro:bit."* | Press ⬆ on the D-pad → both browsers show the command → micro:bit LED draws an arrow. |
+| 20–30 s | *"Tilt the brain — the ball rolls to the targets."* | Tab 6 → Balance Game model. Tilt the board. Ball rolls. |
+| 30–40 s | *"Graph the sensors. Record the run. Replay for homework."* | Tab 5 → Record 3 s of accel → Replay → Save Session. |
+| 40–50 s | *"No login. Nothing leaves the computer. Offline after first load."* | Close the Wi-Fi indicator (airplane mode). App still works. |
+| 50–60 s | *"Full kit on Etsy. Link below."* | Kid holding the robot + board. Smile. Freeze. |
+
+---
+
+## During-recording tactics
+
+- **One scene per phase.** Do not cut every 2 s — it feels frantic.
+- **Switch scenes on words**, not mid-sentence.
+- **Pause 1 second on the graph record button** — visual emphasis.
+- **Look at the camera lens**, not the screen, during all CTAs.
+- **Smile for the final 3 seconds**. The loop frame matters.
+- **Watch the clock** — if you pass 55 s, re-cut. Etsy compresses aggressively.
+
+---
+
+## Common mistakes to avoid
+
+| ❌ Don't | ✅ Do |
+|---|---|
+| Start with "Hi, I'm…" + 10 s intro | First 3 s = the board tilting a 3D model on the laptop |
+| Film landscape (16:9) | 9:16 portrait — Etsy autoplays on mobile |
+| Demo on Safari / iPhone | Show Chrome/Edge only. iOS users will buy and refund |
+| Skip captions | Burn in captions — the feed is muted by default |
+| Whisper | Speak 15% louder and 10% slower than normal conversation |
+| Forget the CTA | "Link below" in the last 5 s, every single time |
+| End mid-sentence | Land your closing line. Then hold 2 seconds of silence |
+| Cluttered desk | Clean area in frame — even a tiny frame shows clutter |
+
+---
+
+## After you press Stop
+
+1. Watch the playback **once**, eyes off the script. Does it land?
+2. If >60 s → trim with a simple editor (iMovie, CapCut, DaVinci). Aim for 55 s.
+3. Burn in captions if you haven't already. Keep them centered below the subject.
+4. First frame — set it to a strong, still visual (the board in hand, or the logo). This is your cover.
+5. Export MP4 / H.264, under 100 MB.
+6. Upload to the Etsy listing. Verify autoplay. Check on a phone with sound off.
+
+---
+
+## Etsy-specific upload tips
+
+- Etsy listing videos appear at the top as an **autoplaying preview tile**. First frame is the cover — make it visually clean.
+- Use the listing **title** to echo the video's first words. If you say *"Your micro:bit becomes a playground"*, the listing title starts with *"Mini Mission Control — BLE Control Panel…"*.
+- Add the captions text into the listing **description** — searchable, helps SEO.
+- Tag the listing with words you actually said in the video.
+- Price tiers: single user `{{PRICE}}` · classroom / site `{{PRICE}}`.
+
+---
+
+## The 5-take rule
+
+**Never publish your first take.** Plan to do 3–5:
+
+1. **Take 1** — read the script literally. Find the awkward bits.
+2. **Take 2** — fix the awkward bits. Less reading, more talking.
+3. **Take 3** — drop the script. Talk to a friend, not to a camera.
+4. **Take 4** — slow down 10 %. Add one deliberate pause.
+5. **Take 5** — your keeper.
+
+---
+
+## Quick-reference cheat card
+
+```
+PRE     V2 has X icon · Chrome open · BLE green · 9:16 phone · Neon theme
+LAUNCH  Record → first words land in the first 3 seconds
+DURING  D-pad → P2P · Text → TTS · BLE → micro:bit
+AFTER   Stop → trim to 55 s → burn captions → first frame = thumbnail
+UPLOAD  Etsy listing → upload MP4 → echo first words in listing title
 ```
 
 ---
 
-## Scene-by-scene
+## Listing-page copy snippets
 
-### 00:00 – 00:03 · HOOK
-- **SAY** *(0:01)* "What if two browsers could talk like walkie-talkies — with a D-pad?"
-- **DO** Open the page on a laptop and a phone, side by side. Title card overlay: "Mini Mission Control".
+**Title (140 chars max):**
+```
+Mini Mission Control — BLE Control Panel for Teachers & Kids · Sensors · D-Pad · Live Graph · 3D Models · No Install · Chrome / Edge
+```
 
-### 00:03 – 00:10 · CONTEXT
-- **SAY** *(0:05)* "Same site on both. Same room code. Start camera. Connect."
-- **DO** Type `demo` in the Room box on each. Press 🎥 Start camera, then ✅ Connect. Status chips go green.
+**160-char short description:**
+```
+Browser-based P2P video + D-pad controller for two devices (laptop + phone); optional BBC micro:bit V2. Video, D-pad, text, TTS, and optional micro:bit bridge — all from Chrome. No install, no account.
+```
 
-### 00:10 – 00:25 · DEMO — D-pad across devices
-- **SAY** *(0:13)* "Hold UP on the phone — the laptop sees it live. Hit Stop. And we log every packet."
-- **DO** Hold ▲ UP on the phone; laptop Logs panel prints `[RX][DPAD] UP 1` then `UP 0` on release. Tap ■ Stop for the punch line.
+**13 Etsy tags:**
+```
+micro:bit, BLE, bluetooth, education, STEM, robotics, kids coding, teacher resource, sensors, D-pad, classroom, home school, makerspace
+```
 
-### 00:25 – 00:35 · DEMO — Remote Speak
-- **SAY** *(0:28)* "Type a message, tap Remote speak — the other device says it."
-- **DO** Type "Mission is go" and tap 📡 Remote speak. Cut to the laptop speaker; add a subtle audio pulse.
+**Materials:**
+```
+HTML5, JavaScript, Web Bluetooth, PeerJS, WebRTC, PWA, MakeCode, TypeScript
+```
 
-### 00:35 – 00:50 · PAYOFF — Optional micro:bit Bridge
-- **SAY** *(0:40)* "Connect a BBC micro:bit, flip Bridge ON — every D-pad press becomes a real LED arrow."
-- **DO** 🔗 Connect the board. 🚀 Start sending. Press ▶ RIGHT on the phone — board shows ➡. Zoom in.
+**SEO keywords:**
+```
+browser-based · no-install · privacy-first · offline-capable · web bluetooth · micro:bit V2 · STEM workshop · teacher resource
+```
 
-### 00:50 – 00:60 · CTA + END FRAME
-- **SAY** *(0:52)* "Full kit, lifetime updates — link in description."
-- **DO** Switch to logo + handle overlay. Hold 3 seconds still — becomes the loop frame.
+**Price tiers (fill the `{{PRICE}}` placeholders):**
 
----
-
-## Copy-ready listing snippets
-
-**Title (140 chars max)**
-> Mini Mission Control — Two-Device Video Call + D-pad Command Channel · Browser STEM Kit · Optional BBC micro:bit V2 Bridge · Instant Download
-
-**Short description (160 chars)**
-> Browser-based mission console: two devices, one room code, live video + audio + D-pad + text-to-speech. Optional BBC micro:bit V2 bridge. No install, no account.
-
-**13 Etsy tags**
-video call · webrtc · peerjs · STEM education · robotics · kids coding · teacher resource · remote control · dpad · classroom · home school · makerspace · micro:bit
-
-**Materials**
-HTML5 · JavaScript · PeerJS · WebRTC · Web Bluetooth · Web Speech API · MediaRecorder · MakeCode TypeScript
+| Tier | Who | Price |
+|---|---|---|
+| Single user | One teacher / family / maker | `{{PRICE}}` |
+| Classroom / Site | Up to 30 teachers at one school | `{{PRICE}}` |
+| District / OEM | Multiple sites — DM through order | Custom |
 
 ---
 
 ## 7-image listing order
 
-1. **Hero** — laptop + phone side by side, consoles visible, status chips green
-2. **Shared room code** — close-up of the Room boxes, arrow between them
-3. **D-pad proof** — phone with D-pad held, laptop Logs scrolling
-4. **Remote speak** — text → speaker wave on other device
-5. **Optional bridge** — BBC micro:bit V2 LED arrow matching D-pad press
-6. **Printables flat-lay** — quick-start, reference, A3 poster, stickers
-7. **Text card** — single-user license, lifetime updates, no cloud, Chrome
+1. **Hero** — real micro:bit + laptop, 3D model mirroring the board's tilt. Title overlay in Orbitron.
+2. **Panels overview** — grid screenshot of Room / micro:bit / Logs panels.
+3. **Live D-pad** — WebRTC close-up with RX bar lighting up on every press.
+4. **3D models** — split screenshot of Buggy + Robot Arm.
+5. **Hand-holding — real micro:bit V2 next to both devices, LED arrows lighting up.
+6. **Theme sampler** — 2×2 grid: Stealth · Neon · Arctic · Blaze.
+7. **License card** — "Single-user license · Lifetime updates · No cloud · Chrome / Edge" on a dark gradient.
 
 ---
 
-## Avoid these
-
-| ❌ Don't | ✅ Do |
-|---|---|
-| Start with "Hi, I'm…" intro | Open with both devices mirroring a D-pad press in 3 s |
-| Film landscape 16:9 | 9:16 portrait (Etsy autoplays on mobile) |
-| Shoot on school Wi-Fi that blocks P2P | Test first, use a phone hotspot as backup |
-| Forget captions | Burn in captions — Etsy plays muted |
-| Demo the micro:bit bridge on iPhone / Safari | Demo the bridge on Chrome / desktop |
-| Skip the CTA | Say "link below" in the last 5 seconds |
-
----
-
-## Pocket cheat card
-
-```
-PRE    Two devices · Chrome · Same room code · Camera ON · Connected green
-SHOOT  Hook in 3 s · D-pad mirrored · Remote speak · Optional bridge · CTA
-POST   Trim to 55 s · captions burn-in · first frame = thumbnail
-LIST   Title · 160-char desc · 13 tags · 7 images · price tiers
-```
-
-*Mini Mission Control v1.0.0 — Etsy 1-Min Playbook · print A4 · laminate · keep it next to the shoot rig*
+*Made for Mini Mission Control v1.0.0 — print this on A4, laminate, keep next to the shoot rig.*

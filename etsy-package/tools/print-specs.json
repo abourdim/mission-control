@@ -1,0 +1,91 @@
+{
+  "_comment": "Per-language strings for the poster (A3 portrait) and flyer (A4 portrait). Used by generate-print.mjs.",
+
+  "common": {
+    "url": "abourdim.github.io/mission-control",
+    "qrUrl": "https://abourdim.github.io/mission-control/?utm_source=etsy&utm_medium=print&utm_campaign=poster",
+    "screenshots": {
+      "teacher": "screenshot-hero.png",
+      "kid": "screenshot-hero.png",
+      "maker": "screenshot-hero.png"
+    }
+  },
+
+  "en": {
+    "brand": "mission-control",
+    "posterTitle": "Call. Command.\nControl.",
+    "posterKicker": "TWO DEVICES · ONE D-PAD",
+    "posterSubtitle": "Classroom-ready P2P video + D-pad. No server. No account.",
+    "features": [
+      { "icon": "📹", "h": "P2P video", "p": "Two browsers, one room code, live video and audio. Chrome / Edge." },
+      { "icon": "🎮", "h": "D-pad control", "p": "Send UP / DOWN / LEFT / RIGHT / STOP across the room or across the world." },
+      { "icon": "🤖", "h": "micro:bit bridge", "p": "Optional — forward D-pad commands to a BBC micro:bit V2 over BLE UART." }
+    ],
+    "steps": [
+      "Open the page on two devices.",
+      "Type the same room code on both.",
+      "Press Start camera — allow permissions.",
+      "Press Connect — host + guest link up.",
+      "D-pad, text, TTS, or bridge a micro:bit."
+    ],
+    "stepsHeader": "Get started in 60 seconds",
+    "qrCaption": "Scan to try the live demo",
+    "audienceLine": "For teachers, tiny astronauts, and makers.",
+    "footerLeft": "Chrome / Edge · HTTPS required · No account",
+    "footerRight": "Peer-to-peer · Optional micro:bit V2",
+    "flyerTagline": "FaceTime + Game Controller + walkie-talkie.",
+    "motto": "Every astronaut started by asking \"how do I talk to the other side?\""
+  },
+
+  "fr": {
+    "brand": "mission-control",
+    "posterTitle": "Appeler. Commander.\nContrôler.",
+    "posterKicker": "DEUX APPAREILS · UN D-PAD",
+    "posterSubtitle": "Vidéo pair-à-pair + D-pad prêts pour la classe. Sans serveur. Sans compte.",
+    "features": [
+      { "icon": "📹", "h": "Vidéo P2P", "p": "Deux navigateurs, un code de salle, vidéo et audio en direct. Chrome / Edge." },
+      { "icon": "🎮", "h": "Contrôle D-pad", "p": "Envoyez HAUT / BAS / GAUCHE / DROITE / STOP à travers la pièce ou le monde." },
+      { "icon": "🤖", "h": "Pont micro:bit", "p": "Optionnel — transmettez les commandes D-pad à un BBC micro:bit V2 via BLE UART." }
+    ],
+    "steps": [
+      "Ouvrez la page sur deux appareils.",
+      "Tapez le même code de salle sur les deux.",
+      "Pressez Démarrer la caméra — autorisez l'accès.",
+      "Pressez Connecter — hôte + invité se relient.",
+      "D-pad, texte, TTS, ou pont micro:bit."
+    ],
+    "stepsHeader": "Démarrez en 60 secondes",
+    "qrCaption": "Scannez pour la démo en direct",
+    "audienceLine": "Pour les enseignants, les petits astronautes et les makers.",
+    "footerLeft": "Chrome / Edge · HTTPS requis · Sans compte",
+    "footerRight": "Pair-à-pair · micro:bit V2 optionnel",
+    "flyerTagline": "FaceTime + Manette + talkie-walkie.",
+    "motto": "Chaque astronaute a commencé par demander « comment je parle à l'autre côté ? »"
+  },
+
+  "ar": {
+    "brand": "mission-control",
+    "posterTitle": "اتصل. تحكّم.\nقُد.",
+    "posterKicker": "جهازان · D-PAD واحد",
+    "posterSubtitle": "فيديو مباشر بين جهازين + D-pad جاهز للفصل. بدون خادم. بدون حساب.",
+    "features": [
+      { "icon": "📹", "h": "فيديو مباشر", "p": "متصفحان، رمز غرفة واحد، فيديو وصوت مباشران. Chrome / Edge." },
+      { "icon": "🎮", "h": "تحكم D-pad", "p": "أرسل فوق / تحت / يسار / يمين / STOP عبر الغرفة أو عبر العالم." },
+      { "icon": "🤖", "h": "جسر micro:bit", "p": "اختياري — مرّر أوامر D-pad إلى BBC micro:bit V2 عبر BLE UART." }
+    ],
+    "steps": [
+      "افتح الصفحة على جهازين.",
+      "اكتب نفس رمز الغرفة على الاثنين.",
+      "اضغط تشغيل الكاميرا — اسمح بالإذن.",
+      "اضغط اتصل — المضيف والضيف يرتبطان.",
+      "D-pad، نص، TTS، أو جسر micro:bit."
+    ],
+    "stepsHeader": "ابدأ خلال 60 ثانية",
+    "qrCaption": "امسح لتجربة العرض المباشر",
+    "audienceLine": "للمعلمين ورواد الفضاء الصغار والمبدعين.",
+    "footerLeft": "Chrome / Edge · HTTPS مطلوب · بدون حساب",
+    "footerRight": "نقطة إلى نقطة · micro:bit V2 اختياري",
+    "flyerTagline": "FaceTime + عصا تحكم + لاسلكي.",
+    "motto": "كل رائد فضاء بدأ بسؤال: «كيف أتحدث مع الطرف الآخر؟»"
+  }
+}

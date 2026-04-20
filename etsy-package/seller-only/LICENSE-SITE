@@ -45,8 +45,9 @@ Pay Teachers, or directly from the author.
    offered at a discounted renewal rate.
 
 6. THIRD-PARTY COMPONENTS
-   The Software loads PeerJS (MIT) from a public CDN. That library remains
-   under its own license and is not covered by this agreement.
+   The Software loads Chart.js (MIT) and Three.js (MIT) from public CDNs.
+   Those libraries remain under their own licenses and are not covered by
+   this agreement.
 
 7. NO WARRANTY
    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS

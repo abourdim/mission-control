@@ -81,7 +81,7 @@
     <div class="header-logo"><span>MC</span></div>
     <div class="header-text">
       <h1>Mini Mission Control Lesson Plan</h1>
-      <span>45-Minute STEM Lesson Planner &bull; v1.0.0</span>
+      <span>45-Minute STEM / Communication Lesson Planner &bull; v1.0.0</span>
     </div>
   </div>
 
@@ -100,14 +100,13 @@
 
   <div class="section"><div class="dot"></div> Materials &amp; Setup</div>
   <ul class="checklist">
-    <li>Two devices per team (laptop + phone, or two laptops)</li>
-    <li>Chrome or Edge on each device (latest)</li>
-    <li>The Mini Mission Control URL (GitHub Pages or localhost)</li>
-    <li>Working webcam + microphone on each device</li>
-    <li>A shared room code (written on the board)</li>
-    <li>Optional: one BBC micro:bit V2 per team, USB cable, MakeCode firmware flashed from <code>makecode.ts</code></li>
-    <li>Printed Quick-Start Card &amp; Quick Reference sheet</li>
-    <li>Classroom Wi-Fi that allows peer-to-peer (school Wi-Fi sometimes blocks it)</li>
+    <li>Two devices with browsers (Chrome recommended), camera + mic on each</li>
+    <li>Mini Mission Control opened on both devices (live URL or local copy)</li>
+    <li>Agreed-upon room code for the class (e.g. <code>lab-7</code>)</li>
+    <li>Optional: BBC micro:bit V2 with BLE UART firmware for the D-pad bridge</li>
+    <li>HTTPS required if using the micro:bit bridge</li>
+    <li>Printed Quick-Start Card &amp; Quick Reference Card</li>
+    <li>Space where two devices can be placed apart (so mics don't feedback)</li>
   </ul>
 
   <div class="section"><div class="dot"></div> Lesson Timeline (45 min)</div>
@@ -115,7 +114,7 @@
     <div class="trow thead">
       <div class="tcol-time">Time</div>
       <div class="tcol-act">Activity</div>
-      <div class="tcol-tool">Tool / Panel</div>
+      <div class="tcol-tool">Feature</div>
       <div class="tcol-notes">Notes</div>
     </div>
     <div class="trow"><div class="tcol-time"></div><div class="tcol-act"></div><div class="tcol-tool"></div><div class="tcol-notes"></div></div>
@@ -129,9 +128,9 @@
 
   <div class="section"><div class="dot"></div> Wrap-up</div>
   <ul class="checklist">
-    <li>Hang up calls (✋ Hang up on both devices)</li>
-    <li>Export the Logs panel for post-mortem</li>
-    <li>Each pair shares one thing that worked and one that didn&rsquo;t</li>
+    <li>Disconnect both devices</li>
+    <li>Run the cache cleaner between groups</li>
+    <li>Students share one thing they learned about peer-to-peer</li>
     <li>Exit-ticket question</li>
   </ul>
 
@@ -149,48 +148,46 @@
   <div class="header">
     <div class="header-logo"><span>MC</span></div>
     <div class="header-text">
-      <h1>Sample Lesson: Two-Device Rover Race</h1>
+      <h1>Sample Lesson: Pair, Command, Explore!</h1>
       <span>Ready-to-teach 45-minute example</span>
     </div>
   </div>
 
   <div class="field-row">
-    <div class="field"><label>Lesson Title</label><div class="input"><span class="sample">Two-Device Rover Race: Driver &amp; Spotter</span></div></div>
+    <div class="field"><label>Lesson Title</label><div class="input"><span class="sample">Pair, Command, Explore! &mdash; A Peer-to-Peer Adventure</span></div></div>
     <div class="field" style="width:30%;flex:none;"><label>Duration</label><div class="input"><span class="sample">45 minutes</span></div></div>
   </div>
   <div class="field-row">
-    <div class="field"><label>Grade / Age Group</label><div class="input"><span class="sample">Ages 9&ndash;14</span></div></div>
-    <div class="field"><label>Subject</label><div class="input"><span class="sample">STEM / Networking / Teamwork</span></div></div>
+    <div class="field"><label>Grade / Age Group</label><div class="input"><span class="sample">Ages 8&ndash;14</span></div></div>
+    <div class="field"><label>Subject</label><div class="input"><span class="sample">STEM / Digital Communication</span></div></div>
   </div>
 
   <div class="section"><div class="dot"></div> Learning Objectives</div>
-  <div class="field"><div class="input input-tall"><span class="sample">1. Establish a peer-to-peer video call between two devices using a shared room code.<br>2. Send and interpret D-pad commands across a data channel as JSON.<br>3. Collaborate as a driver/spotter pair using remote speak and remote fullscreen.<br>4. (Optional) Bridge commands to a BBC micro:bit V2 and observe LED arrows mirror the D-pad.</span></div></div>
+  <div class="field"><div class="input input-tall"><span class="sample">1. Pair two devices using a shared room code.<br>2. Hold a peer-to-peer video + audio call.<br>3. Send D-pad commands and text messages across the channel.<br>4. Explain, in their own words, what "peer-to-peer" means.</span></div></div>
 
   <div class="section"><div class="dot"></div> Lesson Timeline</div>
   <div class="timeline">
     <div class="trow thead">
       <div class="tcol-time">Time</div>
       <div class="tcol-act">Activity</div>
-      <div class="tcol-tool">Tool / Panel</div>
+      <div class="tcol-tool">Feature</div>
       <div class="tcol-notes">Notes</div>
     </div>
-    <div class="trow"><div class="tcol-time"><span class="sample">0&ndash;5</span></div><div class="tcol-act"><span class="sample">Hook: &ldquo;Can we drive a robot from another room?&rdquo;</span></div><div class="tcol-tool"><span class="sample">Demo video</span></div><div class="tcol-notes"><span class="sample">Show the D-pad</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">5&ndash;10</span></div><div class="tcol-act"><span class="sample">Open page on both devices, share a room code</span></div><div class="tcol-tool"><span class="sample">Room panel</span></div><div class="tcol-notes"><span class="sample">Write code on board</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">10&ndash;15</span></div><div class="tcol-act"><span class="sample">Start camera + Connect on both</span></div><div class="tcol-tool"><span class="sample">🎥 / ✅</span></div><div class="tcol-notes"><span class="sample">Allow permissions</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">15&ndash;25</span></div><div class="tcol-act"><span class="sample">D-pad test: sender presses, receiver watches logs</span></div><div class="tcol-tool"><span class="sample">Controls + Logs</span></div><div class="tcol-notes"><span class="sample">Look for TX/RX</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">25&ndash;35</span></div><div class="tcol-act"><span class="sample">Obstacle course: driver blind, spotter guides via Remote speak</span></div><div class="tcol-tool"><span class="sample">📡 Remote speak</span></div><div class="tcol-notes"><span class="sample">Swap roles halfway</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">35&ndash;40</span></div><div class="tcol-act"><span class="sample">Optional: flip Bridge mode ON with a micro:bit</span></div><div class="tcol-tool"><span class="sample">🔗 / 🚀 Start sending</span></div><div class="tcol-notes"><span class="sample">Watch LED arrows</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">40&ndash;45</span></div><div class="tcol-act"><span class="sample">Hang up, debrief, exit ticket</span></div><div class="tcol-tool"><span class="sample">✋ Hang up</span></div><div class="tcol-notes"><span class="sample">One win, one bug</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">0&ndash;5</span></div><div class="tcol-act"><span class="sample">Intro: "FaceTime + Game Controller + walkie-talkie"</span></div><div class="tcol-tool"><span class="sample">Talk only</span></div><div class="tcol-notes"><span class="sample">Set the analogy</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">5&ndash;15</span></div><div class="tcol-act"><span class="sample">Pairing ritual: room code &rarr; Start camera &rarr; Connect</span></div><div class="tcol-tool"><span class="sample">Room code + 🎥 + ✅</span></div><div class="tcol-notes"><span class="sample">Celebrate each pair that connects</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">15&ndash;30</span></div><div class="tcol-act"><span class="sample">D-pad control challenge &mdash; one student commands, the other reads the log</span></div><div class="tcol-tool"><span class="sample">D-pad + Log panel</span></div><div class="tcol-notes"><span class="sample">Optional: micro:bit V2 bridge</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">30&ndash;40</span></div><div class="tcol-act"><span class="sample">Text + TTS challenge: send 3 messages, make the remote device speak</span></div><div class="tcol-tool"><span class="sample">Text + Speak / Remote speak</span></div><div class="tcol-notes"><span class="sample">Enter to send</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">40&ndash;45</span></div><div class="tcol-act"><span class="sample">Reflection: what does peer-to-peer mean? What did the room code do?</span></div><div class="tcol-tool"><span class="sample">&mdash;</span></div><div class="tcol-notes"><span class="sample">Exit ticket</span></div></div>
   </div>
 
   <div class="callout">
-    <h4>Mini Mission Control features used in this lesson</h4>
+    <h4>Mission Control features used in this lesson</h4>
     <ul>
-      <li><span class="pill pg">PeerJS Video Call</span> two-way camera + mic over a shared room code</li>
-      <li><span class="pill pb">D-pad Data Channel</span> UP / DOWN / LEFT / RIGHT / STOP as pressed/release JSON</li>
-      <li><span class="pill py">Remote Speak</span> make the other device say text out loud with 🔊 / 📡</li>
-      <li><span class="pill pg">Logs Panel</span> every TX/RX/ACK line visible to the whole team</li>
-      <li><span class="pill pb">micro:bit Bridge (optional)</span> forwards commands to a BBC micro:bit V2 over BLE UART</li>
+      <li><span class="pill pg">Room-Code Pairing</span> both devices type the same code to find each other</li>
+      <li><span class="pill pb">P2P Video + Audio</span> PeerJS direct connection &mdash; no central server</li>
+      <li><span class="pill py">D-pad</span> UP / DOWN / LEFT / RIGHT / STOP sent peer-to-peer</li>
+      <li><span class="pill pg">Text + TTS</span> chat, local Speak, Remote speak over the data channel</li>
+      <li><span class="pill pb">Optional micro:bit bridge</span> D-pad forwards to a BBC micro:bit V2 via BLE UART</li>
     </ul>
   </div>
 
@@ -202,10 +199,10 @@
       <div class="tcol-tool">Good (2)</div>
       <div class="tcol-notes">Needs Work (1)</div>
     </div>
-    <div class="trow"><div class="tcol-time"><span class="sample">Connection setup</span></div><div class="tcol-act"><span class="sample">Connected with no help</span></div><div class="tcol-tool"><span class="sample">With 1 hint</span></div><div class="tcol-notes"><span class="sample">Needed help</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">D-pad teamwork</span></div><div class="tcol-act"><span class="sample">Clear driver/spotter roles</span></div><div class="tcol-tool"><span class="sample">Mostly coordinated</span></div><div class="tcol-notes"><span class="sample">Talked over each other</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">Log interpretation</span></div><div class="tcol-act"><span class="sample">Read TX/RX, explained a glitch</span></div><div class="tcol-tool"><span class="sample">Spotted logs</span></div><div class="tcol-notes"><span class="sample">Ignored logs</span></div></div>
-    <div class="trow"><div class="tcol-time"><span class="sample">Curiosity</span></div><div class="tcol-act"><span class="sample">Tried a hypothesis (flip, mirror, bridge)</span></div><div class="tcol-tool"><span class="sample">Followed guide</span></div><div class="tcol-notes"><span class="sample">Off-task</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">Pairing</span></div><div class="tcol-act"><span class="sample">Paired independently</span></div><div class="tcol-tool"><span class="sample">With 1 hint</span></div><div class="tcol-notes"><span class="sample">Needed help</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">D-pad use</span></div><div class="tcol-act"><span class="sample">Sent all 5 commands cleanly</span></div><div class="tcol-tool"><span class="sample">3&ndash;4 commands</span></div><div class="tcol-notes"><span class="sample">&lt; 3 commands</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">Text + TTS</span></div><div class="tcol-act"><span class="sample">Used both Speak and Remote speak</span></div><div class="tcol-tool"><span class="sample">Used one</span></div><div class="tcol-notes"><span class="sample">Only text</span></div></div>
+    <div class="trow"><div class="tcol-time"><span class="sample">Reflection</span></div><div class="tcol-act"><span class="sample">Explained peer-to-peer clearly</span></div><div class="tcol-tool"><span class="sample">Partially</span></div><div class="tcol-notes"><span class="sample">Unclear</span></div></div>
   </div>
 
   <div class="footer">

@@ -81,18 +81,18 @@
   <div>
     <h2>Pre-flight (90s)</h2>
     <ul>
-      <li>Two devices with cameras + mics (laptop + phone)</li>
-      <li>Chrome/Edge on both, page served over <strong>HTTPS</strong></li>
-      <li>Same Wi-Fi; room code typed on both sides</li>
-      <li>Camera + mic permissions granted on each device</li>
-      <li>Language matches voiceover (EN / FR / AR)</li>
-      <li>Tagline visible on-screen overlay: <strong>Call • Command • Control</strong></li>
-      <li>Optional micro:bit V2 paired via BLE (LED arrow demo)</li>
-      <li>Phone in 9:16 on tripod for split-screen framing</li>
-      <li>Desk cleared — laptop + phone + one prop only</li>
+      <li>Two devices ready (laptop + phone)</li>
+      <li>Chrome open on both, live URL loaded</li>
+      <li>Camera + mic permissions granted</li>
+      <li>Agreed room code picked (e.g. <code>pizza</code>)</li>
+      <li>Both devices typed the <strong>same</strong> room code</li>
+      <li>Cache cleaner run on both</li>
+      <li>Optional: BBC micro:bit V2 powered, BLE UART firmware ready</li>
+      <li>Phone in 9:16 on tripod, front-lit</li>
+      <li>Desk cleared — both devices + micro:bit visible</li>
       <li>Captions app ready OR overlay plan</li>
       <li>Script read once, under 55s</li>
-      <li>Notifications silenced, kids/dogs warned</li>
+      <li>Phone silenced, kids/dogs warned</li>
     </ul>
   </div>
 
@@ -113,9 +113,9 @@
     <ul>
       <li>One scene per phase — don't cut every 2s</li>
       <li>Switch on words, not mid-sentence</li>
-      <li>Hold 1s on every D-pad press so CMD shows</li>
+      <li>1s pause on Connect button</li>
       <li>Eye contact with lens on CTA</li>
-      <li>Land the tagline in the final 3s — loop frame</li>
+      <li>Smile for final 3s — loop frame</li>
       <li>If &gt; 55s, re-cut</li>
     </ul>
   </div>
@@ -127,14 +127,14 @@
     <tr><th>Time</th><th>Say</th><th>Do / Click</th></tr>
   </thead>
   <tbody>
-    <tr><td class="t">0–3s</td>   <td class="say">"Two devices. One room code. Call, Command, Control — in 60 seconds."</td>          <td class="do">Split-screen: laptop left, phone right, same page on both.</td></tr>
-    <tr><td class="t">3–10s</td>  <td class="say">"Same room code on both sides — tap Start camera."</td>                             <td class="do">Type matching room code. Tap Start camera. Video tiles light up <span class="ok">green</span>.</td></tr>
-    <tr><td class="t">10–20s</td> <td class="say">"Hit Connect — live video, live audio, peer to peer."</td>                          <td class="do">Click Connect. Two faces side by side. HUD overlay shows peer status.</td></tr>
-    <tr><td class="t">20–30s</td> <td class="say">"Kid taps UP on the D-pad — laptop receives the command instantly."</td>            <td class="do">Phone: press UP on D-pad. Laptop shows <strong>CMD UP</strong>. Optional micro:bit V2 lights arrow.</td></tr>
-    <tr><td class="t">30–40s</td> <td class="say">"Type a message, press Speak — it reads aloud on the other device."</td>            <td class="do">Type → Send. Tap Speak. Remote device talks back.</td></tr>
-    <tr><td class="t">40–50s</td> <td class="say">"Snapshot the moment, record the call, done — no install, no account."</td>        <td class="do">Snapshot thumbnail saves. Toggle Record. Quick cut HUD ↔ tiles.</td></tr>
-    <tr><td class="t">50–55s</td> <td class="say">"Link below — lifetime updates, works on any two devices with cameras."</td>        <td class="do">Face-cam. Eye contact with lens.</td></tr>
-    <tr><td class="t">55–60s</td> <td class="say">"Call. Command. Control."</td>                                                      <td class="do">Hold still. Tagline + logo freeze. Loop frame.</td></tr>
+    <tr><td class="t">0–3s</td>   <td class="say">"Two devices, one room code, and you're live — video, voice, and a D-pad."</td> <td class="do">Split frame: phone + laptop both showing the Mission Control page.</td></tr>
+    <tr><td class="t">3–10s</td>  <td class="say">"Type the same room code. Start camera. Connect."</td>                                 <td class="do">Type <code>pizza</code> on both. 🎥 Start camera. ✅ Connect. Remote video appears.</td></tr>
+    <tr><td class="t">10–20s</td> <td class="say">"Wave at the other side. Then press the D-pad."</td>                                    <td class="do">Wave on phone → laptop sees it. Tap ⬆ UP, ➡ RIGHT, ■ STOP. Log shows each arrive.</td></tr>
+    <tr><td class="t">20–30s</td> <td class="say">"Type a message — Enter. Remote speak makes it talk."</td>                             <td class="do">Type "hello astronaut", Enter. Tap Remote speak → laptop speaker reads it.</td></tr>
+    <tr><td class="t">30–40s</td> <td class="say">"Pair a micro:bit V2 and the D-pad drives the board too."</td>                         <td class="do">Pair micro:bit V2 over BLE. Tap D-pad arrows — board LEDs react.</td></tr>
+    <tr><td class="t">40–50s</td> <td class="say">"Snapshot. Record. Mirror. Fullscreen. All one tap."</td>                              <td class="do">📸 Snapshot → PNG downloads. ⏺ Record → WebM. Mirror toggle. Fullscreen remote.</td></tr>
+    <tr><td class="t">50–55s</td> <td class="say">"Link below — lifetime updates, teachers and kids welcome."</td>                      <td class="do">Face-cam. Eye contact with lens.</td></tr>
+    <tr><td class="t">55–60s</td> <td class="say">"Welcome, tiny astronaut."</td>                                                         <td class="do">Hold still. Logo + handle freeze. Loop frame.</td></tr>
   </tbody>
 </table>
 
@@ -145,21 +145,21 @@
       <li>Watch once, eyes off script</li>
       <li>Trim to 55s (iMovie / CapCut / DaVinci)</li>
       <li>Burn in captions — centered below subject</li>
-      <li>Set first frame = strong still visual (split-screen)</li>
+      <li>Set first frame = strong still visual</li>
       <li>Export MP4/H.264, &lt; 100 MB</li>
       <li>Upload · verify autoplay · phone + sound off</li>
     </ul>
   </div>
   <div>
     <h2>Cheat card</h2>
-<div class="cheat">PRE     2 devices · Chrome · HTTPS
-        same room code · 9:16 · desk clean
-LAUNCH  first words land in first 3s
-DURING  Start cam → Connect → D-pad UP
-        CMD UP · Speak · Snapshot
+<div class="cheat">PRE     2 devices · Chrome · cam/mic OK
+        same room code · 9:16 phone
+LAUNCH  hook words land in first 3s
+DURING  room code→Connect · D-pad fires
+        Remote speak · micro:bit bridge
 AFTER   Stop → trim 55s → captions
         first frame = thumbnail
-UPLOAD  echo "Call • Command • Control"</div>
+UPLOAD  echo first words in title</div>
   </div>
 </div>
 

@@ -63,6 +63,9 @@
   .box h4 { font-size: 13px; color: #22c55e; margin-bottom: 3px; }
   .box p { font-size: 12px; margin: 1mm 0; }
 
+  .theme-morph { text-align: center; margin: 3mm 0; }
+  .theme-morph img { max-width: 100%; border-radius: 10px; border: 1px solid rgba(34,197,94,.18); }
+
   .footer {
     position: absolute; bottom: 10mm; left: 18mm; right: 18mm;
     text-align: center; border-top: 1px solid rgba(34,197,94,.1);
@@ -79,68 +82,72 @@
 
   <div class="header">
     <h1>Mini Mission Control</h1>
-    <div class="sub">Two-Device Video Call + D-pad Command Channel (laptop &harr; phone)</div>
-    <div class="ver">v1.0.0 &bull; Digital Download</div>
+    <div class="sub">Two-device peer-to-peer video call + D-pad + optional micro:bit bridge</div>
+    <div class="ver">v1.0.0 &bull; Call &bull; Command &bull; Control</div>
     <div class="line"></div>
   </div>
 
   <div class="thanks">
-    <strong>Thank you for buying Mini Mission Control!</strong> You just grabbed a zero-install, zero-account, browser-local mission console that pairs two devices over a shared room code &mdash; live video, live audio, a D-pad command channel, text-to-speech, and an optional Bluetooth bridge to a BBC micro:bit V2. Everything runs in your browser. No cloud, no telemetry, no accounts.
+    <strong>Welcome, tiny astronaut 🧑‍🚀✨</strong> Thank you for buying Mini Mission Control! Think of it as <em>FaceTime + Game Controller + micro:bit walkie-talkie</em>: open it on two devices, type the same room code, and you are live &mdash; video, audio, a D-pad, text, and text-to-speech, all peer-to-peer through the browser.
+  </div>
+
+  <div class="theme-morph">
+    <img src="theme-morph.gif" alt="Mini Mission Control &mdash; two devices calling each other">
   </div>
 
   <h2>First 3 Things To Do</h2>
   <div class="steps-mini">
-    <div class="step-m"><div class="num">1</div><span><strong style="color:#22c55e;">Open the site on TWO devices.</strong> Serve <code class="c">index.html</code> from GitHub Pages (HTTPS) or run <code class="c">python -m http.server 8000</code> locally. Open the URL on both a laptop <strong>and</strong> a phone, in Chrome.</span></div>
-    <div class="step-m"><div class="num">2</div><span><strong style="color:#22c55e;">Match the room code.</strong> Type the same text (default: <code class="c">demo</code>) in the Room box on both devices. Press <strong>🎥 Start camera</strong>, allow permissions, then <strong>✅ Connect</strong>. One device auto-picks host, the other guest.</span></div>
-    <div class="step-m"><div class="num">3</div><span><strong style="color:#22c55e;">Play.</strong> Hold the D-pad arrows to send <code class="c">UP</code>/<code class="c">DOWN</code>/<code class="c">LEFT</code>/<code class="c">RIGHT</code>. Tap <strong>📡 Remote speak</strong> to make the other device talk. Optional: connect a BBC micro:bit V2 over BLE and flip Bridge mode on.</span></div>
+    <div class="step-m"><div class="num">1</div><span><strong style="color:#22c55e;">Open it on two devices.</strong> Load the live URL <a style="color:#22d3ee;">https://abourdim.github.io/mission-control/</a> in Chrome on both. A laptop + a phone is the classic combo.</span></div>
+    <div class="step-m"><div class="num">2</div><span><strong style="color:#22c55e;">Type the same room code, then Start camera + Connect.</strong> Both devices type the <em>same</em> code (<code class="c">pizza</code>, <code class="c">alpha-42</code>, whatever). Press <strong style="color:#22c55e;">🎥 Start camera</strong>, allow permissions, then <strong style="color:#22c55e;">✅ Connect</strong>.</span></div>
+    <div class="step-m"><div class="num">3</div><span><strong style="color:#22c55e;">Play.</strong> Use the <strong>D-pad</strong> (UP/DOWN/LEFT/RIGHT/STOP). Type text &mdash; press <kbd>Enter</kbd> to send. Tap <strong style="color:#22d3ee;">Speak</strong> or <strong style="color:#22d3ee;">Remote speak</strong> for TTS. Optional: pair a BBC micro:bit V2 over BLE &mdash; the D-pad will forward to it.</span></div>
   </div>
 
   <h2>What&apos;s in the ZIP</h2>
   <div class="files">
-    <div class="file"><span class="icon">🌐</span><code>index.html</code><span>&mdash; Mission console</span></div>
-    <div class="file"><span class="icon">🎨</span><code>css/style.css</code><span>&mdash; Dark console look</span></div>
-    <div class="file"><span class="icon">⚙️</span><code>js/app.js</code><span>&mdash; PeerJS, camera, D-pad, BLE</span></div>
-    <div class="file"><span class="icon">🖼️</span><code>logo.svg</code><span>&mdash; Site logo</span></div>
-    <div class="file"><span class="icon">🤖</span><code>makecode.ts</code><span>&mdash; micro:bit firmware</span></div>
-    <div class="file"><span class="icon">📖</span><code>README.md</code><span>&mdash; Full walkthrough</span></div>
-    <div class="file"><span class="icon">📘</span><code>USERGUIDE.html</code><span>&mdash; User guide</span></div>
-    <div class="file"><span class="icon">🖨️</span><code>quickstart-card.html</code><span>&mdash; A4 printable</span></div>
-    <div class="file"><span class="icon">📋</span><code>shortcuts-cheatsheet.html</code><span>&mdash; Quick reference</span></div>
+    <div class="file"><span class="icon">🌐</span><code>index.html</code><span>&mdash; Main app</span></div>
+    <div class="file"><span class="icon">🎨</span><code>styles.css</code><span>&mdash; Styling</span></div>
+    <div class="file"><span class="icon">📞</span><code>js/peer.js</code><span>&mdash; PeerJS wiring</span></div>
+    <div class="file"><span class="icon">🎮</span><code>js/dpad.js</code><span>&mdash; D-pad controller</span></div>
+    <div class="file"><span class="icon">🗣️</span><code>js/tts.js</code><span>&mdash; Local + Remote TTS</span></div>
+    <div class="file"><span class="icon">📡</span><code>js/microbit.js</code><span>&mdash; BLE UART bridge</span></div>
+    <div class="file"><span class="icon">📖</span><code>docs/guide.html</code><span>&mdash; Full user guide</span></div>
+    <div class="file"><span class="icon">⌨️</span><code>docs/reference.html</code><span>&mdash; Quick reference</span></div>
+    <div class="file"><span class="icon">❓</span><code>docs/faq.html</code><span>&mdash; FAQ</span></div>
     <div class="file"><span class="icon">📜</span><code>LICENSE.txt</code><span>&mdash; Your license</span></div>
   </div>
-  <p style="font-size:11px;color:#64748b;">Printable extras live in <code class="c">etsy-package/</code>: quick-start card, quick reference, A3 classroom poster, sticker sheet, lesson plan.</p>
+  <p style="font-size:11px;color:#64748b;">Printable extras live in <code class="c">etsy-package/</code>: quick-start card, quick-reference card, A3 classroom poster, sticker sheet, lesson plan.</p>
 
   <h2>Requirements</h2>
   <div class="req">
-    <div><span class="check">&#10003;</span><span class="label">Two devices (laptop + phone works great) &mdash; each with camera + microphone</span></div>
-    <div><span class="check">&#10003;</span><span class="label"><strong style="color:#fff;">Chrome</strong> is best on both. Safari/iPhone works for video but not for Bluetooth.</span></div>
-    <div><span class="check">&#10003;</span><span class="label">HTTPS host (GitHub Pages) or <code class="c">localhost</code> for camera permissions</span></div>
-    <div><span class="check">&#10003;</span><span class="label">A Wi-Fi network that permits peer-to-peer (some school Wi-Fi blocks it)</span></div>
-    <div><span class="check">&#10003;</span><span class="label">Optional: a <strong style="color:#22c55e;">BBC micro:bit V2</strong> for the Bluetooth bridge</span></div>
+    <div><span class="check">&#10003;</span><span class="label"><strong style="color:#fff;">Two devices</strong> with browsers (Chrome recommended)</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Camera + microphone on each device</span></div>
+    <div><span class="check">&#10003;</span><span class="label">A live network connection (this is a peer-to-peer call, not offline)</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Optional: BBC micro:bit <strong style="color:#fff;">V2</strong> for the BLE D-pad bridge</span></div>
+    <div><span class="check">&#10003;</span><span class="label">HTTPS required for the micro:bit bridge (Web Bluetooth)</span></div>
   </div>
 
   <h2>Key Features</h2>
   <div class="box">
-    <p><strong style="color:#22d3ee;">Call:</strong> two-way video + audio (PeerJS / WebRTC) &bull; mute mic &bull; switch camera &bull; mirror / flip &bull; hang up</p>
-    <p><strong style="color:#22d3ee;">Command:</strong> D-pad (UP / DOWN / LEFT / RIGHT / STOP) sent as pressed/release JSON over the data channel</p>
-    <p><strong style="color:#22d3ee;">Control:</strong> text messages &bull; local speak &bull; remote speak &bull; snapshot (PNG) &bull; record (WebM) &bull; HUD overlay &bull; remote fullscreen request</p>
-    <p><strong style="color:#22d3ee;">Bridge (optional):</strong> forwards D-pad commands to a BBC micro:bit V2 over BLE UART as <code class="c">CMD UP 1</code> / <code class="c">CMD STOP 1</code> lines</p>
+    <p><strong style="color:#22d3ee;">Call:</strong> two-device peer-to-peer video + audio (PeerJS) &bull; room-code pairing</p>
+    <p><strong style="color:#22d3ee;">Command:</strong> D-pad UP/DOWN/LEFT/RIGHT/STOP &bull; text messages &bull; Speak (local TTS) &bull; Remote speak</p>
+    <p><strong style="color:#22d3ee;">Control:</strong> optional micro:bit V2 BLE UART bridge &mdash; D-pad forwards to the board</p>
+    <p><strong style="color:#22d3ee;">Polish:</strong> camera switch &bull; mic mute &bull; mirror self/remote &bull; remote fullscreen &bull; snapshot PNG &bull; WebM recording &bull; HUD overlay &bull; log panel &bull; cache cleaner</p>
   </div>
 
   <h2>Privacy</h2>
   <div class="box">
-    <h4>100% Peer-to-Peer &mdash; No Account, No Cloud Storage</h4>
-    <p>Video, audio, and commands stream directly between your two devices via PeerJS&apos;s signalling. No recordings are sent anywhere by default. Everything stays local. Safe for classroom use.</p>
+    <h4>Peer-to-Peer &mdash; Your Media Doesn&apos;t Sit on a Server</h4>
+    <p>Video and audio flow directly between the two devices through WebRTC. A tiny signalling service only helps the two browsers find each other &mdash; the call content itself is peer-to-peer.</p>
   </div>
 
-  <h2>Language</h2>
-  <p>The app itself is in English. The seller-only marketing playbooks ship in <strong style="color:#fff;">English</strong>, <strong style="color:#fff;">Français</strong>, and <strong style="color:#fff;">العربية</strong> for international listings.</p>
+  <h2>Keyboard Shortcuts</h2>
+  <p>Only two: <kbd>Enter</kbd> to send a text message, <kbd>Escape</kbd> to close the firmware modal. Everything else is a button or a tap.</p>
 
   <h2>Need Help?</h2>
   <div class="box">
-    <p>Open <code class="c">USERGUIDE.html</code> for the complete walkthrough and troubleshooting.</p>
-    <p>Open the in-app <strong>Logs</strong> panel &mdash; every TX/RX/ACK line is there.</p>
-    <p>Haunted? Press <strong>🧽 Clean cache</strong> inside the app.</p>
+    <p>Open <code class="c">docs/guide.html</code> for the complete walkthrough and troubleshooting.</p>
+    <p>Open <code class="c">docs/faq.html</code> for the top buyer questions.</p>
+    <p>Stuck on pairing? Make sure both devices typed the <strong style="color:#22c55e;">exact same room code</strong>.</p>
   </div>
 
   <div class="footer">

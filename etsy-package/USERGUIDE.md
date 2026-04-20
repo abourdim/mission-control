@@ -96,33 +96,31 @@ All six are standalone HTML files designed to be rendered as PNGs by
 The HTML sources ship too, so teachers can tweak them.
 
 #### `quickstart-card.html` — A4 portrait
-- **What:** 5-step setup card (open on two devices → match room code →
-  start camera → connect → hold D-pad / remote speak).
+- **What:** 5-step setup card (flash firmware → open `index.html` →
+  Chrome/Edge → connect BLE → play).
 - **When to use:** buyers print it as the first thing they hold when they
   unzip the package. Also the cover image of the "Printables" bundle
   advertised on the listing.
 
 #### `shortcuts-cheatsheet.html` — A4 landscape
-- **What:** Quick reference for the mission console — setup flow,
-  D-pad commands, text/speak actions, video controls, connection-state
-  dots, and the optional micro:bit bridge.
+- **What:** Keyboard shortcuts (Space, 1–8, P, F, K, Esc), BLE state
+  cheat sheet, tab map.
 - **When to use:** teachers print and pin next to the classroom PC.
 
 #### `classroom-poster.html` — A3 portrait
-- **What:** "Call, Command, Control!" poster in 5 big kid-safe steps.
+- **What:** "We Control Robots with Code!" poster in 5 big kid-safe steps.
 - **When to use:** teachers print on A3 for classroom walls. Doubles as
   a strong visual for the listing cover.
 
 #### `lesson-plan-template.html` — A4 portrait
 - **What:** Editable 45-minute lesson-plan template + one ready-to-teach
-  sample ("Two-Device Rover Race: Driver & Spotter") with a rubric.
+  sample ("Hot or Not? The Sensor Detective") with a rubric.
 - **When to use:** sell the "teacher-friendly" angle. Print, fill in by
   hand or in Canva, hand out.
 
 #### `sticker-sheet.html` — A4 portrait
-- **What:** 30 circular mission-themed badges — First Contact,
-  Same Room Code, Camera Up, D-pad commanders, Remote Speak,
-  Snapshot, Bridge ON, Mission Commander.
+- **What:** 30 circular badges — "I Connected BLE!", theme icons, 3D
+  model crew, language badges, achievement stickers.
 - **When to use:** teachers print on sticker paper (Avery 22807 or
   similar) for student rewards. Great "bonus" in Etsy description.
 
@@ -139,12 +137,13 @@ The HTML sources ship too, so teachers can tweak them.
   elements, each 2000×1500 px. Rendered by `build-package.js` into
   `output/etsy-mockup-1.png` … `etsy-mockup-7.png`.
 - **The seven mockups:**
-  1. **Hero shot** — laptop + phone split, tagline "Call · Command · Control"
-  2. **What's in the ZIP** — file manifest
-  3. **Feature grid** — video call, D-pad, remote speak, snapshot, bridge, logs
-  4. **Teacher pitch** — "For teachers" with quotes
-  5. **Kid pitch** — big, playful, colorful
-  6. **Bridge showcase** — Device B → Device A → micro:bit flow
+  1. **Hero shot** — product name + tagline on Stealth background
+  2. **9-cell feature grid** — 6 panels × features
+  3. **Teacher pitch** — "For teachers" with quotes
+  4. **Kid pitch** — big, playful, colorful
+  5. **What's in the ZIP** — file manifest
+  6. **4-theme showcase** — Stealth / Neon / Arctic / Blaze
+  7. **Trilingual callout** — EN / FR / AR
 - **When to use:** upload as the 7 listing images on Etsy in this order.
   Etsy shows the first image as the thumbnail in search.
 
@@ -191,7 +190,7 @@ Etsy listing.
 
 #### `LICENSE-SITE`
 - **What:** legal text for the **School Site License** tier
-  ($199, up to 30 teachers at one school, unlimited students).
+  ($149+, up to 30 teachers at one school, unlimited students).
 - **When to use:** when you create the higher-tier listing on Etsy.
   Rename to `LICENSE` inside that tier's ZIP before shipping.
 
