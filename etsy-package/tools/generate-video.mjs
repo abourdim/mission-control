@@ -83,14 +83,14 @@ function resolveFont(preferBold) {
 
 // 8-scene arc — durations sum to 60.0s
 const SCENES = [
-  { id: 1, dur: 3,  type: 'title',  text: 'Mini Mission Control',                   subtitle: 'Call • Command • Control' },
-  { id: 2, dur: 7,  type: 'image',  src: 'screenshot-controls.png', effect: 'zoom-in' },
-  { id: 3, dur: 10, type: 'image',  src: 'screenshot-3d.png',       effect: 'pan-right' },
-  { id: 4, dur: 10, type: 'image',  src: 'screenshot-motors.png',   effect: 'zoom-in' },
-  { id: 5, dur: 10, type: 'image',  src: 'screenshot-graph.png',    effect: 'pan-left' },
-  { id: 6, dur: 10, type: 'image',  src: 'screenshot-sensors.png',  effect: 'zoom-out' },
-  { id: 7, dur: 5,  type: 'cta',    text: 'Full kit',                           subtitle: '' },
-  { id: 8, dur: 5,  type: 'end',    text: 'Mini Mission Control',                   subtitle: '' },
+  { id: 1, dur: 3,  type: 'title',  text: 'Mini Mission Control',   subtitle: 'Call • Command • Control' },
+  { id: 2, dur: 7,  type: 'image',  src: 'screenshot-live.png',     effect: 'zoom-in' },
+  { id: 3, dur: 10, type: 'image',  src: 'screenshot-room.png',     effect: 'pan-right' },
+  { id: 4, dur: 10, type: 'image',  src: 'screenshot-dpad.png',     effect: 'zoom-in' },
+  { id: 5, dur: 10, type: 'image',  src: 'screenshot-text.png',     effect: 'pan-left' },
+  { id: 6, dur: 10, type: 'image',  src: 'screenshot-microbit.png', effect: 'zoom-out' },
+  { id: 7, dur: 5,  type: 'cta',    text: 'Full kit',                subtitle: '' },
+  { id: 8, dur: 5,  type: 'end',    text: 'Mini Mission Control',   subtitle: '' },
 ];
 
 // -------- helpers --------

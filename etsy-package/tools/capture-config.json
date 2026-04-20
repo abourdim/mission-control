@@ -1,111 +1,95 @@
 {
-  "_rewrite": [
-    "⚠️ mission-control selectors (updated).",
-    "After apply-template.js runs, Mini Mission Control / https://abourdim.github.io/mission-control/ are substituted,",
-    "but every DOM selector (#connectionStatus, #tempValue, .tab-btn[data-page=...], etc.)",
-    "still targets mission-control's DOM. Walk each section and edit:",
-    "  1. tabs[].selector — your app's tab button selectors + data-page values",
-    "  2. synthetic.connect.* — your connect state DOM + globalCall",
-    "  3. synthetic.sensors — your sensor value element IDs",
-    "  4. synthetic.pills — delete or remap to your UI pill IDs",
-    "  5. synthetic.activityFeed — your log/activity container",
-    "  6. variants.themes.values — your theme names (or delete block)",
-    "  7. variants.models.* — your variant selector + values (or delete)",
-    "  8. pairs.* — only keep pairs that make sense for your product",
-    "  9. annotations — rewrite target selectors + captions",
-    " 10. heroTabs — which tabs to feature in multi-aspect mode",
-    "Ship capture-config.example.json alongside as a reference of mission-control's filled-in values."
-  ],
-
   "productName": "Mini Mission Control",
   "appContainer": ".app",
   "toastContainer": ".toast-container",
 
   "onboarding": {
-    "localStorageKey": "mb_onboarded",
+    "localStorageKey": "mc_onboarded",
     "closeSelectors": [".ob-close", "[data-close-onboarding]", "button:has-text(\"Start\")"]
   },
 
   "theme": {
-    "storageKey": "mb_theme",
-    "default": "neon",
+    "storageKey": "mc_theme",
+    "default": "default",
     "attr": "data-theme",
     "attrTarget": "html"
   },
 
   "tabs": [
-    { "slug": "controls", "selector": ".tab-btn[data-page=\"controls\"]", "settle": 500 },
-    { "slug": "sensors",  "selector": ".tab-btn[data-page=\"senses\"]",   "settle": 1000 },
-    { "slug": "controls",   "selector": ".tab-btn[data-page=\"D-pad\"]",   "settle": 800 },
-    { "slug": "gamepad",  "selector": ".tab-btn[data-page=\"gamepad\"]",  "settle": 600 },
-    { "slug": "graph",    "selector": ".tab-btn[data-page=\"graph\"]",    "settle": 1500,
-      "prep": { "action": "click", "selector": "button:has-text(\"Simulate\")", "wait": 2000 } },
-    { "slug": "3d",       "selector": ".tab-btn[data-page=\"board3d\"]",  "settle": 2000 },
-    { "slug": "bench",    "selector": ".tab-btn[data-page=\"bench\"]",    "settle": 500, "requiresExpert": true },
-    { "slug": "more",     "selector": ".tab-btn[data-page=\"others\"]",   "settle": 500 }
+    { "slug": "live",    "selector": ".card:has(#videoStage)", "settle": 500, "scrollTo": ".card-title" },
+    { "slug": "room",    "selector": "details:has(#roomCode)", "settle": 300, "scrollTo": "details:has(#roomCode)" },
+    { "slug": "dpad",    "selector": ".dpad-section", "settle": 300, "scrollTo": ".dpad-section" },
+    { "slug": "text",    "selector": "#textInput", "settle": 300, "scrollTo": "#textInput" },
+    { "slug": "microbit","selector": "details:has(#mbStatus)", "settle": 300, "scrollTo": "details:has(#mbStatus)" },
+    { "slug": "logs",    "selector": "details:has(#logList)", "settle": 300, "scrollTo": "details:has(#logList)" }
   ],
 
-  "expertMode": { "toggleSelector": "#expertModeBtn" },
-
   "synthetic": {
-    "silenceToastsGlobal": "window.showToast = () => {};",
     "connect": {
-      "globalCall": "setConnectionStatus(true)",
-      "pillSelector": "#connectionStatus",
-      "pillAddClass": "connected",
-      "pillRemoveClass": "disconnected",
-      "pillTextSelector": "span:last-child",
-      "pillText": "Connected",
-      "disableConnectSelector": "#connectBtn",
-      "enableDisconnectSelector": "#disconnectBtn"
+      "statusSelector": "#status",
+      "statusClassOn": "status-connected",
+      "pillOnText": { "en": "Connected", "fr": "Connecté", "ar": "متصل" },
+      "pillOffText": { "en": "Idle", "fr": "Inactif", "ar": "خامل" }
     },
-    "sensors": [
-      { "selector": "#tempValue",   "value": "22"   },
-      { "selector": "#lightValue",  "value": "148"  }
-    ],
-    "pills": [],
     "activityFeed": {
-      "selector": "#activity",
-      "entryClass": "activity-item",
-      "entries": [
-        "[10:42:03] 🔗 Paired with device",
-        "[10:42:04] 📡 Sensor stream active"
-      ]
-    }
+      "containerSelector": "#logList",
+      "entryClass": "log-entry",
+      "entries": {
+        "en": [
+          "Room code: ASTRO · Paired with device 2",
+          "Camera ready · 1280x720 · audio on",
+          "RX: DPAD LEFT pressed",
+          "RX: DPAD RIGHT released",
+          "Bluetooth UART to micro:bit CMSIS-DAP connected"
+        ],
+        "fr": [
+          "Code de salle : ASTRO · Appaire avec appareil 2",
+          "Camera prete · 1280x720 · audio active",
+          "RX : D-pad GAUCHE presse",
+          "RX : D-pad DROITE relache",
+          "UART Bluetooth vers micro:bit CMSIS-DAP connecte"
+        ],
+        "ar": [
+          "رمز الغرفة: ASTRO · مرتبط مع الجهاز 2",
+          "الكاميرا جاهزة · 1280x720 · الصوت مفعل",
+          "RX: D-pad يسار تم الضغط",
+          "RX: D-pad يمين تم الإفلات",
+          "UART Bluetooth إلى micro:bit CMSIS-DAP متصل"
+        ]
+      }
+    },
+    "pills": []
   },
 
   "variants": {
-    "themes": {
-      "tabSlug": "controls",
-      "values": ["stealth", "neon", "arctic", "blaze"]
-    },
-    "models": {
-      "tabSlug": "3d",
-      "selector": "#board3dModel",
-      "type": "select",
-      "values": ["microbit", "buggy", "arm", "balance", "weather"]
-    }
+    "themes": { "storageKey": "mc_theme", "values": [] },
+    "models": { "selector": null, "values": [] }
   },
 
-  "pairs": {
-    "connect": { "tabSlug": "controls" },
-    "graph":   { "tabSlug": "graph",
-                 "activate": { "selector": "button:has-text(\"Simulate\")", "wait": 2500 } }
-  },
+  "pairs": [],
 
   "annotations": [
-    { "sceneName": "graph",   "tabSlug": "graph",
-      "target": "#graphRecordBtn", "text": "One click to save", "side": "right" }
+    {
+      "slug": "live",
+      "tab": "live",
+      "target": "#videoStage",
+      "caption": {
+        "en": "Peer-to-peer video · WebRTC",
+        "fr": "Video pair-a-pair · WebRTC",
+        "ar": "فيديو بين الأقران · WebRTC"
+      }
+    },
+    {
+      "slug": "dpad",
+      "tab": "dpad",
+      "target": ".dpad-section",
+      "caption": {
+        "en": "D-pad commands over the data channel",
+        "fr": "Commandes D-pad via le canal de donnees",
+        "ar": "أوامر D-pad عبر قناة البيانات"
+      }
+    }
   ],
 
-  "heroTabs": ["controls", "3d", "graph"],
-
-  "audiences": [
-    { "name": "teacher-a", "theme": "arctic", "tabSlug": "controls", "synthetic": true },
-    { "name": "teacher-b", "theme": "arctic", "tabSlug": "graph",    "synthetic": true },
-    { "name": "kid-a",     "theme": "neon",   "tabSlug": "controls", "synthetic": true },
-    { "name": "maker-a",   "theme": "blaze",  "tabSlug": "motors",   "synthetic": true }
-  ],
-
-  "altTextSuffix": "Call • Command • Control"
+  "heroTabs": ["live", "dpad", "microbit"]
 }

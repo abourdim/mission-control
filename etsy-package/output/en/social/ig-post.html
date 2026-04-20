@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600;800;900&family=Tajawal:wght@400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: radial-gradient(circle at 20% 20%, #062b1a 0%, #020617 60%);
+    color: #e8ffe8;
+    position: relative;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(34,197,94,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .glow1 { position: absolute; inset: 0; background: radial-gradient(circle at 85% 10%, rgba(34,211,238,.18) 0%, transparent 45%); }
+  .glow2 { position: absolute; inset: 0; background: radial-gradient(circle at 10% 90%, rgba(34,197,94,.15) 0%, transparent 50%); }
+
+  .text-block { position: relative; padding: 50px 60px 0; text-align: left; z-index: 3; }
+  .kicker {
+    font-family: 'Orbitron', monospace;
+    font-size: 16px;
+    color: #22d3ee; letter-spacing: 0.22em;
+    margin-bottom: 16px;
+    
+  }
+  .title {
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    font-size: 76px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #22c55e;
+    text-shadow: 0 0 40px rgba(34,197,94,.35);
+    white-space: pre-line;
+  }
+  .subtitle {
+    font-size: 28px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-top: 20px;
+    line-height: 1.35;
+  }
+  .cta-row {
+    display: flex; align-items: center; gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .cta {
+    background: #22c55e; color: #020617;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 18px;
+    box-shadow: 0 8px 24px rgba(34,197,94,.45);
+  }
+  .url {
+    font-family: 'Orbitron', monospace;
+    font-size: 13px;
+    color: #94a3b8;
+    letter-spacing: 0.05em;
+  }
+
+  .shot-wrap { margin: 30px auto 0; width: 88%; z-index: 2; }
+  .shot-wrap img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.6), 0 0 0 1.5px rgba(34,197,94,.3);
+    display: block;
+    transform: perspective(1800px) rotateY(-5deg) translateY(0);
+  }
+
+  .bottom-strip {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 16px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(to top, rgba(2,6,23,.95), rgba(2,6,23,0));
+    z-index: 4;
+  }
+  .brand-mark {
+    font-family: 'Orbitron', monospace;
+    font-size: 12px;
+    color: #22c55e;
+    letter-spacing: 0.18em;
+  }
+  .hashtags {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 600;
+  }
+</style></head>
+<body>
+  <div class="grid"></div>
+  <div class="glow1"></div>
+  <div class="glow2"></div>
+
+  <div class="text-block">
+    <div class="kicker">TWO DEVICES · ONE D-PAD</div>
+    <div class="title">Call. Command.
+Control.</div>
+    <div class="subtitle">Peer-to-peer video · D-pad · Optional micro:bit bridge</div>
+    <div class="cta-row">
+      <div class="cta">Try the demo →</div>
+      <div class="url">abourdim.github.io/mission-control</div>
+    </div>
+  </div>
+
+  <div class="shot-wrap"><img src="file://D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/en/screenshots/screenshot-hero.png"></div>
+
+  <div class="bottom-strip">
+    <div class="brand-mark">MISSION-CONTROL</div>
+    <div class="hashtags">#microbit  #STEM  #EdTech</div>
+  </div>
+</body></html>

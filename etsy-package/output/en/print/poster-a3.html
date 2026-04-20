@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="UTF-8"><style>
+  @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@500;700&family=Inter:wght@400;600;800;900&family=Tajawal:wght@400;700;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A3 portrait; margin: 0; }
+  html, body { width: 297mm; height: 420mm; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #020617;
+    color: #e8ffe8;
+    overflow: hidden;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { width: 297mm; height: 420mm; padding: 16mm 18mm 60mm; position: relative; overflow: hidden; }
+  .page::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(34,197,94,.18) 0%, transparent 45%),
+      radial-gradient(circle at 85% 88%, rgba(34,211,238,.12) 0%, transparent 55%);
+  }
+  .page::after {
+    content: ''; position: absolute; inset: 10mm;
+    border: 1.5px solid rgba(34,197,94,.2); border-radius: 8mm;
+    pointer-events: none;
+  }
+
+  .kicker {
+    font-family: 'Orbitron', monospace; font-size: 11pt;
+    color: #22d3ee; letter-spacing: 0.25em;
+    margin-bottom: 4mm;
+    
+  }
+  .title {
+    font-family: 'Orbitron', 'Inter', sans-serif;
+    font-size: 56pt;
+    font-weight: 700;
+    color: #22c55e;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-shadow: 0 0 40px rgba(34,197,94,.3);
+    white-space: pre-line;
+    max-width: 240mm;
+  }
+  .subtitle {
+    font-size: 16pt;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-top: 6mm;
+    line-height: 1.35;
+    max-width: 240mm;
+  }
+
+  .hero-shot {
+    margin: 8mm auto 0;
+    width: 100%; max-width: 235mm; height: 180mm;
+    border-radius: 4mm; overflow: hidden;
+    box-shadow: 0 8mm 20mm rgba(0,0,0,.55), 0 0 0 1.5px rgba(34,197,94,.25);
+    background: #000;
+  }
+  .hero-shot img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+  .features {
+    display: flex; gap: 5mm; margin-top: 6mm;
+    margin-bottom: 55mm;
+  }
+  .feat {
+    flex: 1;
+    background: rgba(15,23,42,.75);
+    border: 1px solid rgba(34,197,94,.18);
+    border-radius: 4mm;
+    padding: 5mm 4mm;
+  }
+  .feat .icon { font-size: 22pt; display: block; margin-bottom: 2mm; }
+  .feat h3 { color: #22c55e; font-size: 14pt; font-weight: 800; margin-bottom: 2mm; }
+  .feat p { color: #94a3b8; font-size: 10pt; line-height: 1.4; }
+
+  .qr-block {
+    position: absolute; bottom: 14mm; right: 18mm;
+    display: flex; align-items: center; gap: 5mm;
+    background: rgba(10,14,18,.92); color: #e8ffe8;
+    padding: 5mm 6mm; border-radius: 3mm;
+    border: 1px solid rgba(34,197,94,.3);
+  }
+  .qr-block img { width: 32mm; height: 32mm; background: #fff; padding: 1mm; border-radius: 1mm; display: block; }
+  .qr-block .qr-caption { font-weight: 700; font-size: 11pt; color: #22c55e; line-height: 1.2; margin-bottom: 1.5mm; }
+  .qr-block .qr-url { font-family: 'Orbitron', monospace; font-size: 8pt; color: #94a3b8; letter-spacing: 0.05em; }
+
+  .footer {
+    position: absolute; bottom: 14mm; left: 18mm;
+    max-width: 120mm;
+  }
+  .footer .left { font-size: 9pt; color: #64748b; }
+  .footer .brand { font-family: 'Orbitron', monospace; font-size: 11pt; color: #22c55e; letter-spacing: 0.12em; margin-top: 2mm; }
+</style></head>
+<body><div class="page">
+  <div class="kicker">TWO DEVICES · ONE D-PAD</div>
+  <div class="title">Call. Command.
+Control.</div>
+  <div class="subtitle">Classroom-ready P2P video + D-pad. No server. No account.</div>
+
+  <div class="hero-shot"><img src="file://D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/en/screenshots/screenshot-hero.png"></div>
+
+  <div class="features">
+    
+    <div class="feat">
+      <span class="icon">📹</span>
+      <h3>P2P video</h3>
+      <p>Two browsers, one room code, live video and audio. Chrome / Edge.</p>
+    </div>
+    <div class="feat">
+      <span class="icon">🎮</span>
+      <h3>D-pad control</h3>
+      <p>Send UP / DOWN / LEFT / RIGHT / STOP across the room or across the world.</p>
+    </div>
+    <div class="feat">
+      <span class="icon">🤖</span>
+      <h3>micro:bit bridge</h3>
+      <p>Optional — forward D-pad commands to a BBC micro:bit V2 over BLE UART.</p>
+    </div>
+  </div>
+
+  <div class="qr-block">
+    <img src="data:image/png;base64,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">
+    <div>
+      <div class="qr-caption">Scan to try the live demo</div>
+      <div class="qr-url">abourdim.github.io/mission-control</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="left">Chrome / Edge · HTTPS required · No account<br>Peer-to-peer · Optional micro:bit V2</div>
+    <div class="brand">mission-control</div>
+  </div>
+</div></body></html>
