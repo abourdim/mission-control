@@ -118,6 +118,35 @@
   .m6 .stage h4 { font-family: 'Righteous', sans-serif; font-size: 40px; }
   .m6 .stage .icon { font-size: 90px; align-self: center; }
   .m6 .stage .desc { font-size: 18px; color: #94a3b8; }
+
+  /* ===== MOCKUP 7: Pricing / Bundle CTA ===== */
+  .m7 { background: radial-gradient(circle at 70% 30%, #0f3d1e, #020617 70%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; padding: 80px; }
+  .m7 h2 { font-family: 'Righteous', sans-serif; font-size: 72px; color: #22c55e; text-align: center; text-shadow: 0 0 60px rgba(34,197,94,.3); }
+  .m7 .sub { font-size: 28px; color: #22d3ee; text-align: center; margin-top: -10px; font-family: 'Righteous', sans-serif; letter-spacing: 2px; }
+  .m7 .tiers { display: flex; gap: 30px; margin-top: 30px; }
+  .m7 .tier {
+    width: 460px; min-height: 560px; border-radius: 24px; padding: 40px 36px;
+    background: rgba(15,23,42,.7); border: 2px solid rgba(34,197,94,.22);
+    display: flex; flex-direction: column; gap: 18px; position: relative;
+  }
+  .m7 .tier.featured { border-color: #fbbf24; box-shadow: 0 20px 60px rgba(251,191,36,.18); }
+  .m7 .tier .badge {
+    position: absolute; top: -18px; right: 30px; background: #fbbf24; color: #020617;
+    padding: 8px 18px; border-radius: 20px; font-weight: 900; font-size: 18px;
+    font-family: 'Righteous', sans-serif; letter-spacing: 1px;
+  }
+  .m7 .tier h3 { font-family: 'Righteous', sans-serif; font-size: 34px; color: #22d3ee; }
+  .m7 .tier .price { font-family: 'Righteous', sans-serif; font-size: 64px; color: #22c55e; }
+  .m7 .tier .price small { font-size: 22px; color: #64748b; font-family: 'Tajawal', sans-serif; font-weight: 500; }
+  .m7 .tier ul { list-style: none; padding: 0; margin-top: 8px; }
+  .m7 .tier li { font-size: 19px; color: #cbd5e1; padding: 8px 0; border-bottom: 1px dashed rgba(148,163,184,.15); }
+  .m7 .tier li:last-child { border-bottom: none; }
+  .m7 .promo {
+    background: rgba(251,191,36,.12); border: 2px dashed #fbbf24;
+    border-radius: 18px; padding: 22px 40px; margin-top: 10px;
+    font-family: 'Righteous', sans-serif; font-size: 28px; color: #fbbf24; letter-spacing: 2px;
+  }
+  .m7 .promo strong { color: #22c55e; font-size: 32px; }
 </style>
 </head>
 <body>
@@ -226,6 +255,52 @@
     <div class="stage"><h4>💻 Device A</h4><div class="icon">📡</div><div class="desc">Laptop receives over PeerJS, forwards over Bluetooth UART to the board.</div></div>
     <div class="stage"><h4>🤖 micro:bit</h4><div class="icon">➡️</div><div class="desc">Board shows the arrow, ACKs back over UART, ready to drive motors.</div></div>
   </div>
+</div>
+
+<!-- MOCKUP 7: Pricing / Bundle CTA -->
+<div class="mockup m7">
+  <h2>Launch It This Week</h2>
+  <div class="sub">Call &bull; Command &bull; Control</div>
+  <div class="tiers">
+    <div class="tier">
+      <h3>Launch Special</h3>
+      <div class="price">$12.99<small> / first 50 buyers</small></div>
+      <ul>
+        <li>Full Mini Mission Control app</li>
+        <li>Two-device video call + D-pad</li>
+        <li>Text messages &amp; text-to-speech</li>
+        <li>Snapshot &amp; record tools</li>
+        <li>User Guide + Quick-Start Card</li>
+        <li>Lifetime v1.x updates</li>
+      </ul>
+    </div>
+    <div class="tier featured">
+      <div class="badge">BEST VALUE</div>
+      <h3>Classroom Bundle</h3>
+      <div class="price">$29.99<small> / school site license</small></div>
+      <ul>
+        <li>Everything in Launch Special</li>
+        <li>45-min lesson plan + rubric</li>
+        <li>A3 classroom poster (print-ready)</li>
+        <li>30 mission achievement stickers</li>
+        <li>Optional BLE bridge firmware</li>
+        <li>Site license for your whole school</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <h3>Standard</h3>
+      <div class="price">$17.99<small> / after launch window</small></div>
+      <ul>
+        <li>Full app + all printables</li>
+        <li>User Guide &amp; Quick Reference</li>
+        <li>Two-device WebRTC room code</li>
+        <li>UP / DOWN / LEFT / RIGHT / STOP</li>
+        <li>Single-classroom license</li>
+        <li>Lifetime v1.x updates</li>
+      </ul>
+    </div>
+  </div>
+  <div class="promo">Code <strong>MCLAUNCH</strong> &rarr; $7 off &bull; launch week only</div>
 </div>
 
 </body>
