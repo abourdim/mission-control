@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Mission Control — chatbot preview</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 720px; margin: 0 auto; padding: 40px 24px 120px;
+    line-height: 1.55; color: #1a1d24; background: #fafbfc;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #0a0e12; color: #e8ecef; }
+    code, pre { background: #161b22; color: #e8ecef; }
+  }
+  h1 { color: #008855; font-size: 1.8em; margin-bottom: 8px; }
+  .kicker { color: #999; font-family: monospace; font-size: 12px; letter-spacing: 0.15em; }
+  .note {
+    background: rgba(0,255,136,0.08); border-left: 4px solid #00884a;
+    padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 20px 0;
+  }
+  code { background: #f0f2f5; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; }
+  pre { background: #f6f8fa; border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 16px; overflow-x: auto; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="kicker">CHATBOT · EN</div>
+<h1>Mini Mission Control — chatbot preview</h1>
+<p>This page is both a <strong>live preview</strong> of the pre-sale chatbot AND the embed snippet you paste into your live-demo page. The green button in the bottom-right is the chatbot — click it to try the canned FAQ rules.</p>
+
+<div class="note">
+  <strong>To embed on your live demo:</strong> copy this snippet to the bottom of your demo page's HTML:
+  <pre>&lt;script&gt;
+// window.__bitChatBotApi = 'https://chatbot.your-domain.com/api/chat';
+&lt;/script&gt;
+&lt;script src="embed.js"&gt;&lt;/script&gt;</pre>
+  <small>Uncomment <code>window.__bitChatBotApi</code> + deploy <code>api-stub-worker.js</code> to enable LLM mode (rules-only is free).</small>
+</div>
+
+<h2>What the chatbot answers</h2>
+<p>The canned rules in <code>faq-rules.json</code> cover the top pre-sale questions (compatibility, pairing, refunds, licensing, updates, privacy). Questions outside the rule set get a polite redirect to your Etsy inbox.</p>
+
+<h2>Files in this folder</h2>
+<ul>
+  <li><code>embed.js</code> — the widget (inject on any page)</li>
+  <li><code>faq-rules.json</code> — edit these to change answers; redeploy with no code changes</li>
+  <li><code>api-stub-worker.js</code> — optional Cloudflare Worker for LLM mode</li>
+  <li><code>embed.html</code> — this preview page + copy-paste snippet</li>
+</ul>
+
+<script>
+// window.__bitChatBotApi = 'https://chatbot.your-domain.com/api/chat';
+</script>
+<script src="embed.js"></script>
+</body>
+</html>

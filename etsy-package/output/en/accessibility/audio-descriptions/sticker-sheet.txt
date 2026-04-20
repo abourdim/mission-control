@@ -1,0 +1,1 @@
+Reward sticker sheet for Mini Mission Control. An A4 sheet with thirty circular badge designs arranged in a six-by-five grid. Each badge represents an achievement: I Connected BLE, Firmware Flasher, Ten Commands Sent, Sensor Reader, and so on. Intended to be printed on Avery 22807 round sticker paper.

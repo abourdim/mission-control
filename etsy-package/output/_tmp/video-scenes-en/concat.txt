@@ -1,0 +1,8 @@
+file 'D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/_tmp/video-scenes-en/scene-01.mp4'
+file 'D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/_tmp/video-scenes-en/scene-02.mp4'
+file 'D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/_tmp/video-scenes-en/scene-03.mp4'
+file 'D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/_tmp/video-scenes-en/scene-04.mp4'
+file 'D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/_tmp/video-scenes-en/scene-05.mp4'
+file 'D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/_tmp/video-scenes-en/scene-06.mp4'
+file 'D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/_tmp/video-scenes-en/scene-07.mp4'
+file 'D:/work/dev/16_workshop/102_etsy/mission-control/etsy-package/output/_tmp/video-scenes-en/scene-08.mp4'

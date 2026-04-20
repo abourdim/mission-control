@@ -1,0 +1,1 @@
+Welcome page for Mini Mission Control buyers. Single A4 page that greets new buyers and walks them through the first three things to do: flash the firmware, open the app in Chrome or Edge, and play. Includes a live animated preview at the top showing the app cycling through four themes.

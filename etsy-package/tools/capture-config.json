@@ -17,11 +17,11 @@
 
   "tabs": [
     { "slug": "live",    "selector": ".card:has(#videoStage)", "settle": 500, "scrollTo": ".card-title" },
-    { "slug": "room",    "selector": "details:has(#roomCode)", "settle": 300, "scrollTo": "details:has(#roomCode)" },
-    { "slug": "dpad",    "selector": ".dpad-section", "settle": 300, "scrollTo": ".dpad-section" },
-    { "slug": "text",    "selector": "#textInput", "settle": 300, "scrollTo": "#textInput" },
+    { "slug": "room",    "selector": "details:has(#roomInput)", "settle": 300, "scrollTo": "details:has(#roomInput)" },
+    { "slug": "dpad",    "selector": ".card:has(.dpad-section)", "settle": 300, "scrollTo": ".card:has(.dpad-section)" },
+    { "slug": "text",    "selector": ".card:has(#textInput)", "settle": 300, "scrollTo": ".card:has(#textInput)" },
     { "slug": "microbit","selector": "details:has(#mbStatus)", "settle": 300, "scrollTo": "details:has(#mbStatus)" },
-    { "slug": "logs",    "selector": "details:has(#logList)", "settle": 300, "scrollTo": "details:has(#logList)" }
+    { "slug": "logs",    "selector": "details:has(#log)", "settle": 300, "scrollTo": "details:has(#log)" }
   ],
 
   "synthetic": {
@@ -32,7 +32,7 @@
       "pillOffText": { "en": "Idle", "fr": "Inactif", "ar": "خامل" }
     },
     "activityFeed": {
-      "containerSelector": "#logList",
+      "containerSelector": "#log",
       "entryClass": "log-entry",
       "entries": {
         "en": [

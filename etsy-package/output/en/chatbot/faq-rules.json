@@ -1,0 +1,126 @@
+[
+  {
+    "id": "ipad-safari",
+    "keywords": [
+      "ipad",
+      "iphone",
+      "ios",
+      "safari"
+    ],
+    "answer": "Unfortunately iOS Safari doesn't support Web Bluetooth, so Mini Mission Control won't connect to a micro:bit on iPad or iPhone. Use Chrome or Edge on a laptop, desktop, or Android device instead."
+  },
+  {
+    "id": "chrome-edge",
+    "keywords": [
+      "browser",
+      "chrome",
+      "edge",
+      "firefox",
+      "compatibility"
+    ],
+    "answer": "Mini Mission Control runs in **Chrome 89+** and **Edge 89+** on Windows, macOS, Linux, Chromebook, and Android. Firefox and Safari aren't supported because they lack Web Bluetooth."
+  },
+  {
+    "id": "installation",
+    "keywords": [
+      "install",
+      "download",
+      "setup",
+      "how do i start"
+    ],
+    "answer": "No installation — Mini Mission Control is a single HTML file you open in Chrome or Edge. Download the ZIP from Etsy, unzip, double-click `index.html`, click **Connect**, pick your board. That's it."
+  },
+  {
+    "id": "microbit-version",
+    "keywords": [
+      "micro:bit v1",
+      "microbit v1",
+      "v1.5",
+      "old micro:bit"
+    ],
+    "answer": "Mini Mission Control is built for **BBC micro:bit V2**. V1.5 works for BLE sensors but doesn't have a microphone or speaker, so sound features won't respond. V1.0 lacks Bluetooth LE entirely and can't connect."
+  },
+  {
+    "id": "offline",
+    "keywords": [
+      "offline",
+      "no internet",
+      "wifi",
+      "internet needed"
+    ],
+    "answer": "After the first page load, Mini Mission Control works fully offline — it's a PWA. Once opened on a classroom Chromebook, students can keep using it without a network connection. Perfect for school firewalls."
+  },
+  {
+    "id": "multiple-students",
+    "keywords": [
+      "30 students",
+      "classroom",
+      "school",
+      "multiple",
+      "site license"
+    ],
+    "answer": "Each student opens the same HTML file locally. One Etsy purchase covers a single teacher; for a whole school site license, see the site-license option at checkout — up to 30 teachers at one site, same purchase."
+  },
+  {
+    "id": "firmware",
+    "keywords": [
+      "firmware",
+      "hex",
+      "makecode",
+      "flash"
+    ],
+    "answer": "Firmware is a short MakeCode program included as `makecode.ts`. Copy-paste into [makecode.microbit.org](https://makecode.microbit.org) (JavaScript mode), download the .hex, drag to your micro:bit. Once flashed, it works forever — Mini Mission Control pairs with it over BLE."
+  },
+  {
+    "id": "languages",
+    "keywords": [
+      "french",
+      "arabic",
+      "spanish",
+      "language",
+      "translate"
+    ],
+    "answer": "Mini Mission Control ships in English, French, and Arabic (with full RTL layout). Switch at the top-right flag picker. Other languages can be added by editing `js/lang.js`."
+  },
+  {
+    "id": "updates",
+    "keywords": [
+      "update",
+      "new version",
+      "upgrade",
+      "lifetime"
+    ],
+    "answer": "All future versions are free forever from your Etsy purchase history — open your order, re-download the latest ZIP. There's no cloud auto-update; you choose when to grab a new version."
+  },
+  {
+    "id": "data-privacy",
+    "keywords": [
+      "privacy",
+      "data",
+      "collect",
+      "cloud",
+      "sends"
+    ],
+    "answer": "Zero telemetry. Mini Mission Control has no server, no account, no cloud. All sensor data stays on the device. Your only network request is the first page load; after that everything runs in the browser tab."
+  },
+  {
+    "id": "csv-export",
+    "keywords": [
+      "csv",
+      "export",
+      "save data",
+      "spreadsheet"
+    ],
+    "answer": "The Graph tab records live sensor data and exports CSV — one row per sample, ready for Excel / Sheets / Python. You can also load back a saved CSV and replay it."
+  },
+  {
+    "id": "D-pad-motors",
+    "keywords": [
+      "button",
+      "motor",
+      "move",
+      "physical"
+    ],
+    "answer": "Mini Mission Control drives two D-pad connected to pins P1 and P2. The Motors tab has sliders for angle control, the D-Pad tab sends directional commands, and the 3D tab mirrors the board's orientation in real time."
+  }
+]
