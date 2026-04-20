@@ -155,9 +155,11 @@ async function main() {
   console.log('\n📁 Building ZIP structure...\n');
 
   const appFiles = [
-    'index.html', 'styles.css', 'sw.js', 'manifest.json',
+    'index.html', 'styles.css', 'style.css', 'script.js', 'app.js',
+    'sw.js', 'manifest.json', 'manifest.webmanifest',
     'makecode.ts', 'pxt.json', 'tests.html',
     'README.md', 'SETUP.md', 'CHANGELOG.md', 'LICENSE',
+    'logo.svg',
   ];
   for (const f of appFiles) {
     const src = join(ROOT, f);
@@ -165,9 +167,33 @@ async function main() {
     else warn(`missing app file: ${f}`);
   }
 
+  // Auto-include any extra files referenced by index.html (e.g. vendor libs,
+  // product-specific scripts) that weren't in the curated appFiles list.
+  const indexPath = join(ROOT, 'index.html');
+  if (existsSync(indexPath)) {
+    const html = readFileSync(indexPath, 'utf8');
+    const refRe = /(?:href|src)=["']([^"'?#]+)[?#]?[^"']*["']/g;
+    const extras = new Set();
+    let m;
+    while ((m = refRe.exec(html)) !== null) {
+      const ref = m[1];
+      if (ref.startsWith('http') || ref.startsWith('//') || ref.startsWith('data:') || ref.startsWith('#')) continue;
+      const bare = ref.replace(/^\.\//, '');
+      if (bare.includes('/')) continue; // dir-scoped refs handled by copyDir below
+      if (appFiles.includes(bare)) continue;
+      if (/\.(png|jpg|jpeg|gif|webp|ico|svg|css|js|mjs|webmanifest|json|ts)$/i.test(bare)) extras.add(bare);
+    }
+    for (const f of extras) {
+      const src = join(ROOT, f);
+      if (existsSync(src)) { copyFileSync(src, join(ZIP_DIR, f)); console.log(`  ✓ ${f} (auto)`); }
+    }
+  }
+
   copyDir('docs');
   copyDir('assets');
   copyDir('js');
+  copyDir('css');
+  copyDir('models');
 
   copyFileSync(join(PKG, 'LICENSE.txt'), join(ZIP_DIR, 'LICENSE.txt'));
   console.log('  ✓ LICENSE.txt');
