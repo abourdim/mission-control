@@ -74,7 +74,7 @@ Trois messages, envoyés dans l'ordre, à 3-7 jours d'intervalle. Adapter le ton
 > 2. **Bonus :** un code de réduction de 50 % sur la prochaine version majeure — `MERCI-{{PRENOM_MAJ}}-{{AAMM}}`. Usage unique. Sans date d'expiration.
 > 3. **Ce que je fais avec votre photo :** publication sur Pinterest cette semaine avec votre crédit, puis ajout à mon dossier de presse d'ici le mois prochain. Je vous envoie le lien Pinterest quand c'est en ligne, pour que vous puissiez le partager avec vos collègues.
 >
-> Si vous voulez rester informé(e) des nouvelles versions (nouveaux capteurs, nouveaux modèles 3D, etc.), répondez « oui MAJ » et je vous pinge quand 1.3.0 sort. Sinon je ne vous ennuie plus.
+> Si vous voulez rester informé(e) des nouvelles versions (nouvelles fonctionnalités, etc.), répondez « oui MAJ » et je vous pinge quand 1.3.0 sort. Sinon je ne vous ennuie plus.
 >
 > Encore merci,
 > — {{NOM}}

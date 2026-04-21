@@ -22,7 +22,7 @@
 
 ## Titre (140 caractères max)
 
-Application Bluetooth Web pour BBC micro:bit V2 + Guide Illustré | 8 Onglets, P2P Video, Graphiques en Direct | STEM École | Téléchargement Numérique
+Application Bluetooth Web pour BBC micro:bit V2 + Guide Illustré | Fonctions Complètes, P2P Video, Graphiques en Direct | STEM École | Téléchargement Numérique
 
 > Nom produit sur la boutique Etsy : **« Mini Mission Control »**. Utilisez la formulation **« pour le BBC micro:bit V2 »** partout afin de respecter les règles de marque de la Micro:bit Educational Foundation.
 
@@ -56,8 +56,8 @@ micro:bit, microbit v2, STEM, codage enfants, BBC microbit, application bluetoot
 >   — dépannage visuel : arbre de décision, sélecteur de symptôme, galerie d'icônes, recette de réinitialisation
 > • Guide de démarrage imprimable (`SETUP.md`)
 > • 4 thèmes (Stealth, Neon, Arctic, Blaze)
-> • 8 onglets : Matrice LED, Capteurs, D-pad, Manette, Graphique, Carte 3D, Banc, Paramètres
-> • 5 modèles 3D interactifs (micro:bit, Buggy, Bras robot, Jeu d'équilibre, Station météo)
+> • toutes les fonctionnalités : Matrice LED, Capteurs, D-pad, Manette, Graphique, Carte 3D, Banc, Paramètres
+> • un ensemble de fonctionnalités produit
 > • Enregistrement de sessions, graphiques en direct, annotations, export JSON
 > • Modes Débutant & Expert — évolue avec l'apprenant
 >

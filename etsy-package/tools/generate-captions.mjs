@@ -174,10 +174,10 @@ TEMPLATES_BY_LANG.fr = {
       `${PRODUCT} : transforme un micro:bit en jeu`,
     ],
     subtitles: [
-      `Capteurs, D-pad, modèles 3D. Sans install. Sans compte.`,
+      `Capteurs, D-pad, fonctionnalités. Sans install. Sans compte.`,
       `Fonctionne hors ligne après la première ouverture.`,
       `Dessine sur les LEDs. Écoute le buzzer. Incline le modèle 3D.`,
-      `8 onglets à explorer. Tes parents n'y comprendront rien.`,
+      `tout un outil à explorer. Tes parents n'y comprendront rien.`,
       `Code-le, envoie-le, regarde-le se passer.`,
     ],
     socialCaptions: [

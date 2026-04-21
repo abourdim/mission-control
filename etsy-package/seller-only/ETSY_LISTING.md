@@ -455,8 +455,8 @@ Etsy plays the listing video **muted and on loop**, so design it like a GIF. No 
 |------|------|-------|
 | 0:00 – 0:02 | App home screen, "🔗 Connect" button pulsing | Capture the click → device picker → green "Connected" chip |
 | 0:02 – 0:04 | Hand drags fingertip on the 5×5 LED grid → cut to micro:bit hardware lighting up the same pattern | Side-by-side split screen if possible |
-| 0:04 – 0:06 | Tilt the physical micro:bit → remote D-pad on screen tilts in sync | Use the Balance or Buggy 3D model |
-| 0:06 – 0:09 | Live graph drawing a sine wave in fullscreen, Neon theme | Smooth motion, bright glow |
+| 0:04 – 0:06 | Tilt the physical micro:bit → remote D-pad on screen tilts in sync | Use the Balance or Robot 3D model |
+| 0:06 – 0:09 | Live graph drawing a sine wave in fullscreen, default theme | Smooth motion, bright glow |
 | 0:09 – 0:12 | Fast cycle through all 4 themes (Stealth → Neon → Arctic → Blaze) | One theme per ~700ms |
 | 0:12 – 0:15 | End card: logo + text overlay "Mini Mission Control — works in Chrome / Edge" | Hold for 3 seconds, this is the loop seam |
 
@@ -496,10 +496,10 @@ Etsy shows photo #1 as a **square** in search results, and the first 5 above the
 
 | # | Tab / theme | What to capture | Overlay text |
 |---|-------------|-----------------|--------------|
-| 1 | **Hero** — Stealth theme, LED Matrix tab, micro:bit physically next to laptop | Square crop. App on screen, real hardware in frame. | "micro:bit V2 Playground" + "Instant download" |
+| 1 | **Hero** — dark theme, LED Matrix tab, micro:bit physically next to laptop | Square crop. App on screen, real hardware in frame. | "micro:bit V2 Playground" + "Instant download" |
 | 2 | Room panel, all sparklines populated, micro:bit being held in hand for motion | Show 6+ live values | "Live sensor dashboard — temp, light, sound, motion" |
-| 3 | Graph tab in **fullscreen**, Neon theme, ~3 datasets plotting | Capture mid-animation | "Real-time charts • record • export" |
-| 4 | Logs panel tab, Buggy model rotated to show wheels + LED screen | Drag to a 3/4 angle first | "5 interactive 3D models" |
+| 3 | Graph tab in **fullscreen**, default theme, ~3 datasets plotting | Capture mid-animation | "Real-time charts • record • export" |
+| 4 | Logs panel tab, Robot model rotated to show wheels + LED screen | Drag to a 3/4 angle first | "5 interactive 3D models" |
 | 5 | **2×2 grid** — one screenshot per theme (Stealth, Neon, Arctic, Blaze) | Same tab in each, e.g. Sensors | "4 themes — pick your vibe" |
 | 6 | Mobile-width view (DevTools → 414×896) of the LED Matrix tab | Use Chrome's device toolbar (`Cmd+Shift+M`) | "Works on Chromebooks & Android tablets" |
 | 7 | Onboarding overlay (clear localStorage with `localStorage.clear()` then reload) | Show all 4 welcome steps | "Friendly first-run guide" |
@@ -685,7 +685,7 @@ Same as English listing: `Craft Supplies & Tools → Patterns & How To → Tutor
 • دليل إعداد مطبوع
 • 4 ثيمات (ستيلث، نيون، أركتيك، بليز)
 • 8 تبويبات: مصفوفة LED، المستشعرات، المحركات، جويباد، الرسم البياني، عرض ثلاثي الأبعاد، البنش، الإعدادات
-• 5 نماذج ثلاثية الأبعاد تفاعلية (مايكروبت، روبوت، ذراع روبوتي، لعبة توازن، محطة طقس)
+• 5 نماذج ثلاثية الأبعاد تفاعلية (مايكروبت، روبوت، شاشة رئيسيةي، لعبة توازن، محطة طقس)
 • تسجيل الجلسات، رسوم بيانية حية، تصدير JSON
 • وضع المبتدئ ووضع الخبير — يتطور مع المتعلم
 • واجهة عربية كاملة مع دعم RTL (اليمين إلى اليسار)

@@ -30,8 +30,8 @@ Before you press Record:
 - [ ] BLE paired — status chip is **green**
 - [ ] Theme set — **Neon** photographs best; **Arctic** reads best in harsh daylight
 - [ ] Language matches your voiceover (EN / FR / AR)
-- [ ] micro:bit V2 ready if you re showing Robot Arm or Buggy
-- [ ] Tab 6 (3D) open with Buggy or Robot Arm selected — looks impressive in the hero shot
+- [ ] micro:bit V2 ready if you re showing Robot Arm or Robot
+- [ ] Main screen ready — looks impressive in the hero shot
 - [ ] Phone in 9:16 on a tripod, front-lit, clean background
 - [ ] Desk cleared — only the phone + micro:bit + cable in frame
 - [ ] Captions app running OR on-screen text plan ready
@@ -164,7 +164,7 @@ Etsy loops the video, so the **end frame should match the cover** — keeps view
 ## Quick-reference cheat card
 
 ```
-PRE     V2 has X icon · Chrome open · BLE green · 9:16 phone · Neon theme
+PRE     V2 has X icon · Chrome open · BLE green · 9:16 phone · default theme
 LAUNCH  Record → first words land in the first 3 seconds
 DURING  D-pad → P2P · Text → TTS · BLE → micro:bit
 AFTER   Stop → trim to 55 s → burn captions → first frame = thumbnail
@@ -215,7 +215,7 @@ browser-based · no-install · privacy-first · offline-capable · web bluetooth
 1. **Hero** — real micro:bit + laptop, 3D model mirroring the board's tilt. Title overlay in Orbitron.
 2. **Panels overview** — grid screenshot of Room / micro:bit / Logs panels.
 3. **Live D-pad** — WebRTC close-up with RX bar lighting up on every press.
-4. **3D models** — split screenshot of Buggy + Robot Arm.
+4. **3D models** — split screenshot of Robot + Robot Arm.
 5. **Hand-holding — real micro:bit V2 next to both devices, LED arrows lighting up.
 6. **Theme sampler** — 2×2 grid: Stealth · Neon · Arctic · Blaze.
 7. **License card** — "Single-user license · Lifetime updates · No cloud · Chrome / Edge" on a dark gradient.

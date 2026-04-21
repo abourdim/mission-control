@@ -387,7 +387,7 @@ straight to a specific state:
 | URL | What buyer sees |
 |---|---|
 | `#tab=graph` | Graph tab, ready to Simulate |
-| `#tab=board3d&theme=neon` | 3D micro:bit in Neon theme |
+| `#main` | Product demo screen |
 | `#tab=senses&lang=fr` | Logs panel in French |
 
 **Where:**
