@@ -147,10 +147,10 @@ TEMPLATES_BY_LANG.fr = {
       `Appairez une fois, streamez toujours · export CSV pour chaque leçon`,
       `Conçu pour les salles de STEM · licence école disponible`,
       `Mises à jour à vie · firmware ouvert · fonctionne hors ligne`,
-      `Capteurs réels, graphiques en direct, CSV prêts pour l'analyse`,
+      `Export de session prêt pour la classe`,
     ],
     socialCaptions: [
-      `Un onglet de navigateur a transformé mon micro:bit en labo de données. Les élèves ont mené une expérience de 20 minutes sans rien installer. 🔬`,
+      `Un onglet de navigateur transforme mon micro:bit en labo de données. Les élèves ont mené une expérience de 20 minutes sans rien installer. 🔬`,
       `Si vous avez déjà vu 30 Chromebooks bloqués sur une install Python, voici l'alternative.`,
       `Un achat Etsy. Zéro ticket DSI. Trente élèves qui tracent des données d'accéléromètre en direct.`,
     ],

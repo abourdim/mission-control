@@ -217,7 +217,7 @@ browser-based · no-install · privacy-first · offline-capable · web bluetooth
 3. **Live D-pad** — WebRTC close-up with RX bar lighting up on every press.
 4. **3D models** — split screenshot of Robot + Robot Arm.
 5. **Hand-holding — real micro:bit V2 next to both devices, LED arrows lighting up.
-6. **Theme sampler** — 2×2 grid: Stealth · Neon · Arctic · Blaze.
+6. **Theme sampler** — 2×2 grid: Default · Dark · Light · Accent.
 7. **License card** — "Single-user license · Lifetime updates · No cloud · Chrome / Edge" on a dark gradient.
 
 ---
