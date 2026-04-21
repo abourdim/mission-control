@@ -119,7 +119,7 @@ The HTML sources ship too, so teachers can tweak them.
   hand or in Canva, hand out.
 
 #### `sticker-sheet.html` — A4 portrait
-- **What:** 30 circular badges — "I Connected BLE!", theme icons, 3D
+- **What:** 30 circular badges — "I Paired My First Device!", theme icons, 3D
   model crew, language badges, achievement stickers.
 - **When to use:** teachers print on sticker paper (Avery 22807 or
   similar) for student rewards. Great "bonus" in Etsy description.

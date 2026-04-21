@@ -149,7 +149,7 @@ Paste this block into the listing just above the FAQ. No fabricated reviews — 
 
 1. Hero: micro:bit + laptop screen with the app open (LED matrix tab)
 2. Sensor dashboard screenshot
-3. **Demo GIF — 5-second silent loop of pairing + drawing on the 5×5 LED matrix** (auto-plays on Etsy, highest conversion slot after the hero)
+3. **Demo GIF — 5-second loop of the core product action** (auto-plays on Etsy, highest conversion slot after the hero)
 4. logs panel viewer screenshot
 5. All 4 themes side-by-side
 6. Mobile / tablet view

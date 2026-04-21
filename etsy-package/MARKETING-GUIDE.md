@@ -163,7 +163,7 @@ Short, loopable, autoplay-everywhere demonstrations of one specific feature.
 
 | File | Shows | Best channel |
 |---|---|---|
-| `ledmatrix-heart.gif` | Drawing a heart on the 5×5 LED matrix, progressive | Pinterest pin, Twitter/Bluesky reply to "what does it do?" |
+| `ledmatrix-heart.gif` | Demo GIF showing the product in use | Pinterest pin, Twitter/Bluesky reply to "what does it do?" |
 | `graph-record.gif` | Logs panel with Simulate running — live waveform | Etsy listing slot (secondary) · YouTube community post |
 | `3d-tilt-sweep.gif` | 3D model tilting ±40° over 5 seconds | Pinterest hover card · Instagram story sticker |
 | `theme-swap.gif` | All 4 themes cycle | "Customize it" bullet in the description · Twitter thread |
