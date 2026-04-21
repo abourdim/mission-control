@@ -46,7 +46,7 @@
 
 ## Title (140 char max — pack it with searchable keywords)
 
-Bluetooth Web App for BBC micro:bit V2 + Illustrated Guide | D-pad, TTS, Peer-to-Peer | STEM Classroom | Digital Download
+Two-Device P2P Video + D-pad Remote for Kids | FaceTime + Game Controller + Optional BBC micro:bit V2 Bridge | Digital Download
 
 > Product name in your Etsy shop is **"Mini Mission Control"** — use the phrase **"for the BBC micro:bit V2"** everywhere else to stay within the Micro:bit Educational Foundation's trademark-use guidelines.
 
@@ -57,7 +57,7 @@ Digital Downloads → Educational Resources
 
 ## Tags (13 max — Etsy lets you use all 13, use them)
 
-micro:bit, microbit v2, STEM, coding kids, BBC microbit, bluetooth app, MakeCode, classroom resource, homeschool STEM, robotics, web bluetooth, coding club, chromebook stem
+video call kids, peer to peer, webrtc app, kids walkie talkie, d-pad remote, screen share kids, microbit v2, STEM classroom, homeschool STEM, coding club, chromebook app, astronaut kids, space themed
 
 > Replaced the two weakest tags (`edtech` — corporate, not what teachers search; `sensor playground` — zero search volume) with `coding club` and `chromebook stem` (both strong long-tail teacher queries).
 
@@ -82,18 +82,16 @@ micro:bit, microbit v2, STEM, coding kids, BBC microbit, bluetooth app, MakeCode
 > 🧪 **Try it now** (Simulate mode, no micro:bit needed): <https://abourdim.github.io/mission-control/>
 >
 > ✨ **What you get** (instant download):
-> • A complete web app (HTML, CSS, JS) you run locally in Chrome or Edge
-> • Ready-to-flash micro:bit firmware (`makecode.ts`)
-> • **Illustrated trilingual user guide (EN/FR/AR) with built-in diagrams:**
->   — architecture diagram • micro:bit V2 pin-out • firmware flow storyboard
->   — interactive LED playground inside the guide (click cells, copy hex commands)
->   — visual troubleshooting: decision tree, symptom picker, icon gallery, reset recipe
-> • A printable Quick Setup guide (`SETUP.md`)
-> • 4 themes (Stealth, Neon, Arctic, Blaze)
-> • 3 panels: Room code, micro:bit bridge, Logs
-> • 5 interactive 3D models (micro:bit, Buggy, Robot Arm, Balance Game, Weather Station)
-> • Session recording, live graphs, annotations, JSON export
-> • Beginner & Expert modes — grows with the learner
+> • A complete **two-device peer-to-peer** web app — laptop ↔ phone, tablet ↔ laptop, two phones in two rooms
+> • **Video + audio call** via PeerJS / WebRTC (no server — traffic goes direct between devices)
+> • **D-pad remote**: UP / DOWN / LEFT / RIGHT / STOP — buttons on one device trigger on the other instantly
+> • **Text channel + local TTS** ("Speak") + **remote TTS** ("Remote speak") — type on one device, a voice speaks on the other
+> • **Room-code pairing** — both devices type the same code, they pair; no account, no login, no cloud
+> • **Optional BBC micro:bit V2 bridge** — D-pad commands forward over BLE UART to the micro:bit (LED arrows light up in real time)
+> • **Camera tools**: switch front/back, mute mic, mirror self, mirror remote, request remote fullscreen
+> • **Capture tools**: snapshot (PNG), record (WebM), toggle HUD overlay, live RX command bar
+> • **Log panel**: TX + RX + system events, cache cleaner, all local-only
+> • Works on any laptop, Chromebook, or Android phone with Chrome / Edge
 >
 > 🧒 **Perfect for**: classrooms, homeschool, after-school clubs, makerspaces, STEM camps, robotics enthusiasts, parents teaching kids to code.
 >
@@ -130,18 +128,20 @@ Paste this block into the listing just above the FAQ. No fabricated reviews — 
 
 ## Compare table for the description
 
-**What makes Mini Mission Control different?** Side-by-side with the two free alternatives most teachers try first:
+**What makes Mini Mission Control different?** Side-by-side with the alternatives kids + parents try:
 
-| Feature | Mini Mission Control | MakeCode Editor | Raw Web Bluetooth demos |
+| Feature | Mini Mission Control | Zoom / FaceTime | Walkie-talkie apps |
 |---|:---:|:---:|:---:|
-| Works in-browser, zero install | ✅ | ✅ | ✅ |
-| Ready-to-use sensor dashboard (temp, light, sound, accel, HUD, touch) | ✅ | ❌ | ❌ |
-| Live graph + CSV / PNG export + session record & replay | ✅ | ❌ | ❌ |
-| Dual button control UI with gauges and trim | ✅ | ❌ | Build it yourself |
-| 5 interactive 3D models (micro:bit, Buggy, Arm, Balance, Weather) | ✅ | ❌ | ❌ |
-| Trilingual EN/FR/AR with full RTL support | ✅ | Partial | ❌ |
-| Classroom lesson plan + printable stickers & A3 poster | ✅ | ❌ | ❌ |
-| Works offline after first load (installable PWA) | ✅ | ❌ | ❌ |
+| Peer-to-peer — no account, no server, no cloud | ✅ | ❌ | ❌ |
+| Real-time D-pad remote (not just video) | ✅ | ❌ | ❌ |
+| Text + TTS on BOTH sides (type here, speak there) | ✅ | ❌ | Voice only |
+| Optional BBC micro:bit V2 bridge | ✅ | ❌ | ❌ |
+| Runs on Chromebook + any laptop — no install, no app | ✅ | ✅ | ❌ |
+| Just paste a room code — no phone number, no email | ✅ | ❌ | ❌ |
+| Snapshot + record (WebM) built-in | ✅ | Paid tier | ❌ |
+| Trilingual UI — EN/FR/AR with RTL | ✅ | Partial | Partial |
+| Classroom lesson plan + printable stickers + A3 poster | ✅ | ❌ | ❌ |
+| "Astronaut" theme for kids | ✅ | ❌ | ❌ |
 
 ---
 
