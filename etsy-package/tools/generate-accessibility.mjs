@@ -51,7 +51,7 @@ const PRODUCT = CFG.productName || 'Product';
 
 const NARRATIONS_BY_LANG = {
   en: [
-    { name: 'classroom-poster',     text: `Classroom poster for ${PRODUCT}. The poster is designed for A3 portrait print, with a dark navy background and neon green accents. At the top, the title reads "We Control Robots With Code." Below that, a row of five colored icons represents the five main steps: Power On, Connect, Code, Test, and Play. Each step has a short description. The bottom third of the poster shows the class motto in large friendly text.` },
+    { name: 'classroom-poster',     text: `Classroom poster for ${PRODUCT}. The poster is designed for A3 portrait print, with a dark navy background and neon green accents. At the top, the title reads "We Link Two Devices in 3 Seconds." Below that, a row of five colored icons represents the five main steps: Power On, Connect, Code, Test, and Play. Each step has a short description. The bottom third of the poster shows the class motto in large friendly text.` },
     { name: 'quickstart-card',      text: `Quickstart card for ${PRODUCT}. An A4 portrait card intended for each student's desk. The card has five numbered panels arranged vertically. Panel one: Turn on your micro:bit. Panel two: Click Connect. Panel three: Pick your board from the list. Panel four: The status dot turns green. Panel five: You're ready to play. Each panel includes a small icon and a short instruction.` },
     { name: 'shortcuts-cheatsheet', text: `Keyboard shortcut cheatsheet for ${PRODUCT}. An A4 landscape card with three columns listing all the keyboard shortcuts. Left column covers navigation: number keys 1 through 7 switch tabs. Middle column covers actions: space bar to connect or disconnect, P to pause the graph, F for fullscreen. Right column covers BLE state indicators: green dot means connected, amber means connecting, red means disconnected.` },
     { name: 'lesson-plan-template', text: `Lesson plan template for ${PRODUCT}. A3 portrait, intended for teachers. The top half is an editable form with fields for lesson title, grade level, duration, materials, and learning objectives. The bottom half is a worked example: a 45-minute lesson called "Hot or Not, The Sensor Detective," with student activities, teacher prompts, and a rubric for assessment.` },
@@ -179,7 +179,7 @@ console.log(`\n⠃⠗⠇  Braille translations (Grade 1)\n`);
 
 const BRAILLE_BY_LANG = {
   en: [
-    { name: 'poster-title',   text: 'We control robots with code' },
+    { name: 'poster-title',   text: 'Call · Command · Control' },
     { name: 'poster-motto',   text: 'Every kid can code, every brain can invent' },
     { name: 'quickstart-1',   text: '1. Turn on your micro:bit' },
     { name: 'quickstart-2',   text: '2. Click Connect' },

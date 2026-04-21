@@ -1,12 +1,12 @@
 /**
  * Generate a synthetic sensor-data corpus — 100 CSV files covering plausible
- * micro:bit sensor sessions (temperature, light, sound, tilt, compass, etc.).
+ * micro:bit sensor sessions (Press a D-pad button, tilt, HUD, etc.).
  *
  * Purpose: makes the product hardware-OPTIONAL. Teachers without a micro:bit
  * can still teach data-analysis using the shipped datasets. Expands TAM
  * from "schools with hardware budget" to "any classroom with laptops."
  *
- * Each CSV matches the format produced by the app's Graph tab CSV export:
+ * Each CSV matches the format produced by the app's Logs panel CSV export:
  *   timestamp_ms,sensor_name,value
  *
  * Datasets are grouped by scenario:
@@ -16,7 +16,7 @@
  *   - dropped-board          (accel spike, steady before/after)
  *   - shake-tilt-sequence    (accel oscillating in all 3 axes)
  *   - sound-detective        (sudden claps, otherwise quiet)
- *   - compass-walk-north     (heading ~10° drifting)
+ *   - HUD-walk-north     (heading ~10° drifting)
  *   - button-presses         (A/B presses at intervals)
  *   - 5-second-bursts        (short recordings for quick-look examples)
  *
@@ -143,7 +143,7 @@ const SCENARIOS = {
     return out;
   },
 
-  'compass-walk-north': ({ duration_s = 60, hz = 5 }) => {
+  'HUD-walk-north': ({ duration_s = 60, hz = 5 }) => {
     const out = [];
     let h = 8 + gauss(0, 3);
     for (let i = 0; i < duration_s * hz; i++) {
@@ -151,7 +151,7 @@ const SCENARIOS = {
       h += gauss(0, 1.2);
       if (h < 0) h += 360;
       if (h >= 360) h -= 360;
-      out.push([t, 'compass', +h.toFixed(1)]);
+      out.push([t, 'HUD', +h.toFixed(1)]);
     }
     return out;
   },
@@ -195,7 +195,7 @@ const plan = [
   { scenario: 'dropped-board', n: 10 },
   { scenario: 'shake-tilt-sequence', n: 12 },
   { scenario: 'sound-detective', n: 10 },
-  { scenario: 'compass-walk-north', n: 9 },
+  { scenario: 'HUD-walk-north', n: 9 },
   { scenario: 'button-presses', n: 10 },
   { scenario: '5-second-bursts', n: 20 },
 ];
@@ -212,7 +212,7 @@ for (const { scenario, n } of plan) {
   for (let i = 1; i <= n; i++) {
     const extras = {};
     if (scenario === '5-second-bursts') {
-      extras.sensor = ['temp', 'light', 'sound', 'compass'][i % 4];
+      extras.sensor = ['temp', 'light', 'sound', 'HUD'][i % 4];
     }
     const samples = SCENARIOS[scenario]({ ...extras });
     const name = `${scenario}-${String(i).padStart(2, '0')}.csv`;
@@ -251,7 +251,7 @@ Import into Excel, Google Sheets, Python/pandas, or back into the
 | \`dropped-board\` | ${plan.find(p => p.scenario === 'dropped-board').n} | Event detection / impact physics |
 | \`shake-tilt-sequence\` | ${plan.find(p => p.scenario === 'shake-tilt-sequence').n} | FFT / periodicity |
 | \`sound-detective\` | ${plan.find(p => p.scenario === 'sound-detective').n} | Threshold detection |
-| \`compass-walk-north\` | ${plan.find(p => p.scenario === 'compass-walk-north').n} | Circular data, drift analysis |
+| \`HUD-walk-north\` | ${plan.find(p => p.scenario === 'HUD-walk-north').n} | Circular data, drift analysis |
 | \`button-presses\` | ${plan.find(p => p.scenario === 'button-presses').n} | Event-count histograms |
 | \`5-second-bursts\` | ${plan.find(p => p.scenario === '5-second-bursts').n} | Quick-look examples for lesson starters |
 

@@ -108,7 +108,7 @@ The HTML sources ship too, so teachers can tweak them.
 - **When to use:** teachers print and pin next to the classroom PC.
 
 #### `classroom-poster.html` — A3 portrait
-- **What:** "We Control Robots with Code!" poster in 5 big kid-safe steps.
+- **What:** "We Link Two Devices in 3 Seconds!" poster in 5 big kid-safe steps.
 - **When to use:** teachers print on A3 for classroom walls. Doubles as
   a strong visual for the listing cover.
 
@@ -137,12 +137,12 @@ The HTML sources ship too, so teachers can tweak them.
   elements, each 2000×1500 px. Rendered by `build-package.js` into
   `output/etsy-mockup-1.png` … `etsy-mockup-7.png`.
 - **The seven mockups:**
-  1. **Hero shot** — product name + tagline on Stealth background
+  1. **Hero shot** — product name + tagline on Dark background
   2. **9-cell feature grid** — 6 panels × features
   3. **Teacher pitch** — "For teachers" with quotes
   4. **Kid pitch** — big, playful, colorful
   5. **What's in the ZIP** — file manifest
-  6. **4-theme showcase** — Stealth / Neon / Arctic / Blaze
+  6. **4-theme showcase** — Dark / Default / Light / Accent
   7. **Trilingual callout** — EN / FR / AR
 - **When to use:** upload as the 7 listing images on Etsy in this order.
   Etsy shows the first image as the thumbnail in search.

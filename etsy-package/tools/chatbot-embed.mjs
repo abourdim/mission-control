@@ -151,7 +151,7 @@ RULES_BY_LANG.en = [
   {
     id: 'csv-export',
     keywords: ['csv', 'export', 'save data', 'spreadsheet'],
-    answer: `The Graph tab records live sensor data and exports CSV — one row per sample, ready for Excel / Sheets / Python. You can also load back a saved CSV and replay it.`,
+    answer: `The Logs panel records live sensor data and exports CSV — one row per sample, ready for Excel / Sheets / Python. You can also load back a saved CSV and replay it.`,
   },
   {
     id: 'D-pad-motors',

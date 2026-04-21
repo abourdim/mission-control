@@ -28,7 +28,7 @@ Before you press Record:
 - [ ] two devices (laptop + phone); optional BBC micro:bit V2 powered on, showing the **X** icon *(if not → re-flash `makecode.ts`)*
 - [ ] Chrome or Edge open with `index.html` loaded
 - [ ] BLE paired — status chip is **green**
-- [ ] Theme set — **Neon** photographs best; **Arctic** reads best in harsh daylight
+- [ ] Theme set — **Default** photographs best; **Light** reads best in harsh daylight
 - [ ] Language matches your voiceover (EN / FR / AR)
 - [ ] micro:bit V2 ready if you re showing Robot Arm or Robot
 - [ ] Main screen ready — looks impressive in the hero shot
@@ -64,7 +64,7 @@ Etsy loops the video, so the **end frame should match the cover** — keeps view
 | 3–10 s | *"One page, one click, paired."* | Cut to the laptop. Click **🔗 Connect to micro:bit** → pick the board → chip turns green. |
 | 20–30 s | *"Press A — the D-pad lights up. Send text — the remote speaks."* | Press a D-pad arrow. Cut to the RX bar highlighting on the other device in sync. |
 | 30–40 s | *"Live graph with record, replay, CSV. A lab in a browser tab."* | Tab **5 · Graph** → click **🎲 Simulate** → chart dances → hover on **⏺ Record** and **📄 CSV**. |
-| 40–50 s | *"4 themes, 3 languages, works offline, no install, no account."* | Quick theme swap (header dropdown) → show Neon → Arctic. |
+| 40–50 s | *"4 themes, 3 languages, works offline, no install, no account."* | Quick theme swap (header dropdown) → show Default → Light. |
 | 50–55 s | *"Link below — lifetime updates, teachers and kids welcome."* | Face-cam back on. Eye contact. |
 | 55–60 s | *"Happy hacking."* | Hold still. Logo + handle overlay freezes. This becomes the loop frame. |
 
@@ -78,9 +78,9 @@ Etsy loops the video, so the **end frame should match the cover** — keeps view
 |---|---|---|
 | 0–3 s | *"STEM teachers — you need to see this."* | Overhead shot of a laptop + 5 micro:bits laid out on a desk. |
 | 3–10 s | *"One browser tab. Live sensors. No install on 30 laptops."* | Click Connect. Status goes green. Cut to Logs panel — values streaming. |
-| 10–20 s | *"Calibrate the compass right in the UI. Baseline the sound for a quiet classroom."* | Logs panel → Calibrate. Show the Set Level / Set Ambient buttons. |
-| 20–30 s | *"Record a full lesson. Export CSV. Drop into a lab report."* | Graph tab → Record → Stop → Save Session → CSV. |
-| 30–40 s | *"4 themes — Arctic for projectors. 3 languages — Arabic with full RTL."* | Swap theme to Arctic. Swap language to Arabic — watch the UI flip RTL. |
+| 10–20 s | *"Calibrate the HUD right in the UI. Baseline the sound for a quiet classroom."* | Logs panel → Calibrate. Show the Set Level / Set Ambient buttons. |
+| 20–30 s | *"Record a full lesson. Export CSV. Drop into a lab report."* | Logs panel → Record → Stop → Save Session → CSV. |
+| 30–40 s | *"4 themes — Light for projectors. 3 languages — Arabic with full RTL."* | Swap theme to Light. Swap language to Arabic — watch the UI flip RTL. |
 | 40–50 s | *"Site license for up to 30 teachers. Lifetime updates."* | Text overlay with the licensing tiers + Etsy shop name. |
 | 50–60 s | *"Link below. Tag me when you run a workshop."* | Face-cam, hold the micro:bit, smile, freeze on logo. |
 

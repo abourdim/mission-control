@@ -13,8 +13,8 @@
     1. Delete this banner.
     2. Rewrite every mention of specific features, shortcuts,
        tab names, hardware interactions, etc. to match your product.
-    3. Verify with: grep -iE "servo|chart\.js|3d board|gamepad|
-       accelerometer|compass|led matrix|8 tabs|sensors tab" this-file.
+    3. Verify with: grep -iE "D-pad|chart\.js|3d board|gamepad|
+       D-pad direction|HUD|led matrix|3 panels (Room / Logs / micro:bit)|sensors tab" this-file.
   ═══════════════════════════════════════════════════════════════════════
 -->
 <html lang="en">
@@ -171,8 +171,8 @@
   <div class="led led-tl"></div><div class="led led-tr"></div><div class="led led-bl"></div><div class="led led-br"></div>
   <div class="hero">
     <div class="copy">
-      <h1>micro:bit<br>Playground</h1>
-      <div class="sub">{{TAGLINE}}</div>
+      <h1>Mini Mission Control</h1>
+      <div class="sub">Two devices. One D-pad. Peer-to-peer video in a browser tab.</div>
       <div class="tagline">Browser control panel for the BBC micro:bit V2.<br>No install. No account. Pair over Bluetooth and go.</div>
       <div class="pills">
         <div class="pill pg">Zero Install</div>
@@ -195,9 +195,9 @@
 <div class="mockup m5">
   <h2>What&apos;s In The ZIP</h2>
   <div class="items">
-    <div class="item"><div class="emoji">🌐</div><div><h3>The Playground App</h3><p>Single-page web app, opens in Chrome/Edge, works offline as a PWA</p></div></div>
+    <div class="item"><div class="emoji">🌐</div><div><h3>The App</h3><p>Single-page web app, opens in Chrome/Edge, works offline as a PWA</p></div></div>
     <div class="item"><div class="emoji">🤖</div><div><h3>makecode.ts Firmware</h3><p>Drop into MakeCode, flash to your micro:bit V2 &mdash; UART BLE ready</p></div></div>
-    <div class="item"><div class="emoji">🎲</div><div><h3>[TODO — your visualization if any]</h3><p>micro:bit, Buggy, [TODO — feature], Balance, Weather Station</p></div></div>
+    <div class="item"><div class="emoji">🎲</div><div><h3>[TODO — your visualization if any]</h3><p>micro:bit, remote device, [TODO — feature], Balance, Weather Station</p></div></div>
     <div class="item"><div class="emoji">📖</div><div><h3>Trilingual User Guide</h3><p>guide.html in EN / FR / AR with full RTL</p></div></div>
     <div class="item"><div class="emoji">🗺️</div><div><h3>Printable Quick-Start Card</h3><p>A4 portrait &mdash; flash, open, pair, play</p></div></div>
     <div class="item"><div class="emoji">⌨️</div><div><h3>Shortcuts Cheat Sheet</h3><p>A4 landscape &mdash; laminate near your laptop</p></div></div>
@@ -214,13 +214,13 @@
   <div class="grid">
     <div class="cell"><div class="emoji">📡</div><h4>One-Click BLE</h4><p>Web Bluetooth pairing with auto-reconnect</p></div>
     <div class="cell"><div class="emoji">💡</div><h4>5&times;5 LED Matrix</h4><p>Draw, presets, hex patterns</p></div>
-    <div class="cell"><div class="emoji">🌡️</div><h4>Live Sensors</h4><p>Temp, light, sound, accel, compass</p></div>
+    <div class="cell"><div class="emoji">🌡️</div><h4>Live Sensors</h4><p>Temp, light, sound, accel, HUD</p></div>
     <div class="cell"><div class="emoji">⚙️</div><h4>Dual [TODO — actuator if any]</h4><p>P1 &amp; P2 with live gauges &amp; OFF</p></div>
     <div class="cell"><div class="emoji">🎮</div><h4>[TODO — control surface]</h4><p>D-pad + Fire for games &amp; robots</p></div>
-    <div class="cell"><div class="emoji">📈</div><h4>[TODO — chart lib if any] Graph</h4><p>Live plot, fullscreen, annotate</p></div>
-    <div class="cell"><div class="emoji">🎲</div><h4>3D Board View</h4><p>5 Three.js models to explore</p></div>
+    <div class="cell"><div class="emoji">📈</div><h4>the screen Graph</h4><p>Live plot, fullscreen, annotate</p></div>
+    <div class="cell"><div class="emoji">🎲</div><h4>Video frame</h4><p>product features to explore</p></div>
     <div class="cell"><div class="emoji">⏺</div><h4>Session Recording</h4><p>Record, replay, export JSON</p></div>
-    <div class="cell"><div class="emoji">🎨</div><h4>4 Themes</h4><p>Stealth, Neon, Arctic, Blaze</p></div>
+    <div class="cell"><div class="emoji">🎨</div><h4>4 Themes</h4><p>Dark, Default, Light, Accent</p></div>
     <div class="cell"><div class="emoji">🌐</div><h4>EN / FR / AR</h4><p>Full RTL Arabic support</p></div>
     <div class="cell"><div class="emoji">🎲</div><h4>Simulate Mode</h4><p>Fake data when no board is around</p></div>
     <div class="cell"><div class="emoji">⌨️</div><h4>Keyboard Shortcuts</h4><p>Space, 1&ndash;8, P, F, K, Esc</p></div>
@@ -256,7 +256,7 @@
   <div class="promise">
     <div>Click Connect</div>
     <div>Draw on LEDs</div>
-    <div>Spin the servo</div>
+    <div>Press a D-pad button</div>
   </div>
 </div>
 
@@ -265,10 +265,10 @@
   <h2>Four Built-In Themes</h2>
   <div class="sub">Cycle with <strong style="color:#22c55e;">T</strong> &mdash; the whole UI transforms.</div>
   <div class="row">
-    <div class="theme t-stealth"><h4>Stealth</h4><div class="icon">🥷</div><div class="desc">Pitch-black OLED-friendly dark mode with green accents. The default.</div></div>
-    <div class="theme t-neon"><h4>Neon</h4><div class="icon">💠</div><div class="desc">Cyberpunk cyan &amp; magenta. Dim the lights, plug in the board.</div></div>
-    <div class="theme t-arctic"><h4>Arctic</h4><div class="icon">❄️</div><div class="desc">Crisp light mode for daylight classrooms and projectors.</div></div>
-    <div class="theme t-blaze"><h4>Blaze</h4><div class="icon">🔥</div><div class="desc">Warm light theme with orange highlights &mdash; cozy and readable.</div></div>
+    <div class="theme t-stealth"><h4>Dark</h4><div class="icon">🥷</div><div class="desc">Pitch-black OLED-friendly dark mode with green accents. The default.</div></div>
+    <div class="theme t-neon"><h4>Default</h4><div class="icon">💠</div><div class="desc">Cyberpunk cyan &amp; magenta. Dim the lights, plug in the board.</div></div>
+    <div class="theme t-arctic"><h4>Light</h4><div class="icon">❄️</div><div class="desc">Crisp light mode for daylight classrooms and projectors.</div></div>
+    <div class="theme t-blaze"><h4>Accent</h4><div class="icon">🔥</div><div class="desc">Warm light theme with orange highlights &mdash; cozy and readable.</div></div>
   </div>
 </div>
 

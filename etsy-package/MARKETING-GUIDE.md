@@ -42,9 +42,9 @@ experiment pick the winner, or rotate manually weekly.
 
 | File | When to use |
 |---|---|
-| `output/en/heroes/hero-teacher.png` | Default for launch — widest audience. Arctic palette, classroom pitch. |
-| `output/en/heroes/hero-kid.png` | A/B candidate. Neon palette, playground pitch. |
-| `output/en/heroes/hero-maker.png` | A/B candidate. Blaze palette, MakerFaire / hacker crowd. |
+| `output/en/heroes/hero-teacher.png` | Default for launch — widest audience. Light palette, classroom pitch. |
+| `output/en/heroes/hero-kid.png` | A/B candidate. Default palette, playground pitch. |
+| `output/en/heroes/hero-maker.png` | A/B candidate. Accent palette, MakerFaire / hacker crowd. |
 | `output/en/heroes/hero-laptop.png` | For listings embedded on a blog — the CSS laptop frame signals "runs on real hardware." |
 | `output/en/heroes/hero-fr.png` | Only for the FR-localized duplicate listing. |
 | `output/en/heroes/hero-ar.png` | Only for the AR-localized duplicate listing. |
@@ -164,7 +164,7 @@ Short, loopable, autoplay-everywhere demonstrations of one specific feature.
 | File | Shows | Best channel |
 |---|---|---|
 | `ledmatrix-heart.gif` | Drawing a heart on the 5×5 LED matrix, progressive | Pinterest pin, Twitter/Bluesky reply to "what does it do?" |
-| `graph-record.gif` | Graph tab with Simulate running — live waveform | Etsy listing slot (secondary) · YouTube community post |
+| `graph-record.gif` | Logs panel with Simulate running — live waveform | Etsy listing slot (secondary) · YouTube community post |
 | `3d-tilt-sweep.gif` | 3D model tilting ±40° over 5 seconds | Pinterest hover card · Instagram story sticker |
 | `theme-swap.gif` | All 4 themes cycle | "Customize it" bullet in the description · Twitter thread |
 | `speed-test/speed-test.gif` | "0 → live data in 3.2s" proof | Pinned tweet · Facebook group reply when a teacher asks "does this actually work?" |
@@ -180,7 +180,7 @@ Included in every buyer's download.
 | File (in ZIP at `printables/`) | Physical use |
 |---|---|
 | `quickstart-card.html` | A4 card for each student's desk. 5-step setup. |
-| `classroom-poster.html` | A3 poster for classroom wall. "We Control Robots With Code" + 5 steps. |
+| `classroom-poster.html` | A3 poster for classroom wall. "We Link Two Devices in 3 Seconds" + 5 steps. |
 | `shortcuts-cheatsheet.html` | A4 landscape. Laminate and tape near workstations. |
 | `lesson-plan-template.html` | A4 form + worked 45-min lesson. Photocopy for each teacher. |
 | `sticker-sheet.html` | A4, 30 achievement badges. Print on Avery 22807 sticker paper. |
@@ -386,7 +386,7 @@ straight to a specific state:
 
 | URL | What buyer sees |
 |---|---|
-| `#tab=graph` | Graph tab, ready to Simulate |
+| `#tab=graph` | Logs panel, ready to Simulate |
 | `#main` | Product demo screen |
 | `#tab=senses&lang=fr` | Logs panel in French |
 

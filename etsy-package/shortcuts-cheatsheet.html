@@ -13,8 +13,8 @@
     1. Delete this banner.
     2. Rewrite every mention of specific features, shortcuts,
        tab names, hardware interactions, etc. to match your product.
-    3. Verify with: grep -iE "servo|chart\.js|3d board|gamepad|
-       accelerometer|compass|led matrix|8 tabs|sensors tab" this-file.
+    3. Verify with: grep -iE "D-pad|chart\.js|3d board|gamepad|
+       D-pad direction|HUD|led matrix|3 panels (Room / Logs / micro:bit)|sensors tab" this-file.
   ═══════════════════════════════════════════════════════════════════════
 -->
 <html lang="en">
@@ -113,8 +113,8 @@
         <div class="row"><kbd>2</kbd><span class="label">Sensors &mdash; live readings</span></div>
         <div class="row"><kbd>3</kbd><span class="label">[TODO — actuator if any] &mdash; P1 &amp; P2</span></div>
         <div class="row"><kbd>4</kbd><span class="label">[TODO — control surface] &mdash; D-pad + Fire</span></div>
-        <div class="row"><kbd>5</kbd><span class="label">Graph &mdash; [TODO — chart lib if any] live plot</span></div>
-        <div class="row"><kbd>6</kbd><span class="label">3D Board &mdash; Three.js view</span></div>
+        <div class="row"><kbd>5</kbd><span class="label">Graph &mdash; the screen live plot</span></div>
+        <div class="row"><kbd>M</kbd><span class="label">Video frame &mdash; Three.js view</span></div>
         <div class="row"><kbd>7</kbd><span class="label">Bench &mdash; raw JSON console</span></div>
         <div class="row"><kbd>8</kbd><span class="label">About &mdash; version &amp; credits</span></div>
       </div>
@@ -132,10 +132,10 @@
       </div>
 
       <div class="group">
-        <div class="group-title">3D Board Models</div>
+        <div class="group-title">Video frame Models</div>
         <div class="row"><kbd>M</kbd><span class="label">Switch model (cycle)</span></div>
         <div class="row"><span style="font-size:14px;">🔲</span><span class="label">micro:bit V2 board</span></div>
-        <div class="row"><span style="font-size:14px;">🚗</span><span class="label">Buggy robot</span></div>
+        <div class="row"><span style="font-size:14px;">🚗</span><span class="label">remote device robot</span></div>
         <div class="row"><span style="font-size:14px;">🦾</span><span class="label">[TODO — feature]</span></div>
         <div class="row"><span style="font-size:14px;">🎯</span><span class="label">Balance game</span></div>
         <div class="row"><span style="font-size:14px;">🌦️</span><span class="label">Weather station</span></div>
@@ -143,7 +143,7 @@
 
       <div class="group">
         <div class="group-title">Themes &amp; View</div>
-        <div class="row"><kbd>T</kbd><span class="label">Cycle theme (Stealth &rarr; Neon &rarr; Arctic &rarr; Blaze)</span></div>
+        <div class="row"><kbd>T</kbd><span class="label">Cycle theme (Dark &rarr; Default &rarr; Light &rarr; Accent)</span></div>
         <div class="row"><kbd>L</kbd><span class="label">Cycle language (EN &rarr; FR &rarr; AR)</span></div>
         <div class="row"><kbd>?</kbd><span class="label">Show shortcuts help overlay</span></div>
       </div>
@@ -162,9 +162,9 @@
 
       <div class="group">
         <div class="group-title">[TODO — actuator if any] (P1 / P2)</div>
-        <div class="row"><kbd>Q</kbd> / <kbd>A</kbd><span class="label">P1 servo +/- 10&deg;</span></div>
-        <div class="row"><kbd>W</kbd> / <kbd>S</kbd><span class="label">P2 servo +/- 10&deg;</span></div>
-        <div class="row"><kbd>0</kbd><span class="label">Center both servos (90&deg;)</span></div>
+        <div class="row"><kbd>Q</kbd> / <kbd>A</kbd><span class="label">P1 D-pad +/- 10&deg;</span></div>
+        <div class="row"><kbd>W</kbd> / <kbd>S</kbd><span class="label">P2 D-pad +/- 10&deg;</span></div>
+        <div class="row"><kbd>0</kbd><span class="label">Center both D-pad (90&deg;)</span></div>
         <div class="row"><kbd>O</kbd><span class="label">[TODO — actuator if any] OFF (detach PWM)</span></div>
       </div>
 

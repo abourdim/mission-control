@@ -55,7 +55,7 @@ micro:bit, microbit v2, STEM, codage enfants, BBC microbit, application bluetoot
 >   — [TODO — feature spécifique au produit] (cliquez les cellules, copiez les commandes hex)
 >   — dépannage visuel : arbre de décision, sélecteur de symptôme, galerie d'icônes, recette de réinitialisation
 > • Guide de démarrage imprimable (`SETUP.md`)
-> • 4 thèmes (Stealth, Neon, Arctic, Blaze)
+> • 4 thèmes (Dark, Default, Light, Accent)
 > • toutes les fonctionnalités : Matrice LED, Capteurs, D-pad, Manette, Graphique, Carte 3D, Banc, Paramètres
 > • un ensemble de fonctionnalités produit
 > • Enregistrement de sessions, graphiques en direct, annotations, export JSON
