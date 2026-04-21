@@ -56,7 +56,7 @@
 
 ## <a id="t3"></a>Template 3 — Fablab / coordinateur makerspace
 
-**Objet :** Terrain de jeu Web Bluetooth pour les micro:bits de votre fablab
+**Objet :** Outil Web Bluetooth pour les micro:bits de votre fablab
 
 > Salut {{PRENOM}},
 >

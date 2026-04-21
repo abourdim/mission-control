@@ -167,7 +167,7 @@ TEMPLATES_BY_LANG.fr = {
   },
   kid: {
     heroTitles: [
-      `Ton micro:bit\ndevient un terrain de jeu`,
+      `Ton micro:bit\nprend vie dans ton navigateur`,
       `Commande des robots avec du code\n(et un onglet)`,
       `Fais bouger\nton micro:bit depuis l'écran`,
       `Dessine. Détecte. Bouge.\nTout sur une page.`,
@@ -176,7 +176,7 @@ TEMPLATES_BY_LANG.fr = {
     subtitles: [
       `Capteurs, D-pad, fonctionnalités. Sans install. Sans compte.`,
       `Fonctionne hors ligne après la première ouverture.`,
-      `Dessine sur les LEDs. Écoute le buzzer. Incline le modèle 3D.`,
+      `Explore ton produit. Découvre ce qu'il peut faire.`,
       `tout un outil à explorer. Tes parents n'y comprendront rien.`,
       `Code-le, envoie-le, regarde-le se passer.`,
     ],
