@@ -147,14 +147,14 @@
 <h2>قبل الضغط على تسجيل</h2>
 <div class="card">
   <ul class="checklist" onclick="var li=event.target.closest('li');if(li)li.classList.toggle('checked')">
-    <li><input type="checkbox"><label>جهاز micro:bit V2 يعمل ويعرض أيقونة <kbd>X</kbd><span class="where">إن لم يكن كذلك ← أعد تحميل <code>makecode.ts</code></span></label></li>
-    <li><input type="checkbox"><label>Chrome أو Edge مفتوح، وملف <code>index.html</code> محمَّل<span class="where">Safari وFirefox وiOS لن تعمل</span></label></li>
-    <li><input type="checkbox"><label>BLE متصل — شارة الحالة <strong>خضراء</strong><span class="where">اضغط 🔗 اتصال، ثم اختر BBC micro:bit من النافذة</span></label></li>
-    <li><input type="checkbox"><label>تم اختيار السمة — <strong>Neon</strong> تبدو الأفضل أمام الكاميرا<span class="where">الرأس ← قائمة رولر الطلاء</span></label></li>
-    <li><input type="checkbox"><label>المحرِّك موصول بـ P1 (عند عرض الذراع الروبوتية أو العربة)</label></li>
-    <li><input type="checkbox"><label>علامة تبويب 3D Board مفتوحة، مع اختيار العربة أو الذراع<span class="where">علامة التبويب 6 ← قائمة النماذج</span></label></li>
-    <li><input type="checkbox"><label>الهاتف بوضع 9:16 على ترايبود، مضاء من الأمام</label></li>
-    <li><input type="checkbox"><label>المكتب مرتَّب — اللوحة وقطعة واحدة فقط في الإطار</label></li>
+    <li><input type="checkbox"><label>جهازان جاهزان — هاتف + حاسوب (أو لوحي + حاسوب، أو هاتفان)<span class="where">كلاهما بـ Chrome أو Edge · السماح بالكاميرا والميكروفون</span></label></li>
+    <li><input type="checkbox"><label>الجهازان محمَّلان على <code>index.html</code> (أو افتح <code>abourdim.github.io/mission-control</code>)<span class="where">Safari وFirefox وiOS Safari لا تقرن بشكل موثوق — استخدم Chrome/Edge</span></label></li>
+    <li><input type="checkbox"><label>اختر رمز غرفة من 4 أحرف واكتبه على <strong>كلا</strong> الجهازين<span class="where">مثال: <code>ASTRO</code> — شارة «مقترن» تتحول إلى الأخضر خلال ثانيتين</span></label></li>
+    <li><input type="checkbox"><label>المكالمة المرئية شغّالة — كاميرتا الجهازين ظاهرتان على كل منهما<span class="where">بدِّل الأمامية/الخلفية إذا كانت الخلفية تُصوِّر المشهد أفضل</span></label></li>
+    <li><input type="checkbox"><label>(اختياري) BBC micro:bit V2 مقترن عبر BLE — شاشة LED صافية<span class="where">HTTPS شرط لـ Bluetooth — استخدم رابط العرض المباشر، لا file://</span></label></li>
+    <li><input type="checkbox"><label>اختبار مستوى الميكروفون — تكلَّم مرة، سجل RX يظهر على الجهاز الآخر</label></li>
+    <li><input type="checkbox"><label>هاتف التصوير جهاز <em>ثالث</em> في وضع عمودي 9:16 على ترايبود<span class="where">لا تصوِّر أبدًا بنفس الهاتف الذي يشغِّل التطبيق</span></label></li>
+    <li><input type="checkbox"><label>المكتب مرتَّب — فقط الجهازان + micro:bit (إن وُجد) داخل الإطار</label></li>
     <li><input type="checkbox"><label>قراءة النص بصوت عالٍ مرة واحدة — بزمن أقل من 55 ثانية</label></li>
   </ul>
 </div>
@@ -164,12 +164,13 @@
 <h2>البنية</h2>
 <div class="card">
   <pre style="color:var(--accent2);font-family:var(--mono);font-size:.9rem;line-height:1.7;margin:0">
- 0–3 s   HOOK        «Watch what this micro:bit does in 60 seconds.»
- 3–10 s  CONTEXT     Board on-screen, X icon → status turns green.
-10–35 s  DEMO        Tilt → 3D model follows. Press A → LED heart. Servo swings.
-35–50 s  PAYOFF      Zoom on live graph + 3D model mirroring real board.
-50–55 s  CTA         «Full kit in my shop — link below.»
-55–60 s  END FRAME   Logo + handle frozen for the loop preview.</pre>
+ 0–3 s   HOOK        "Two devices. One room code. Instant D-pad across the world."
+ 3–10 s  CONTEXT     Type "ASTRO" on both devices → paired chip goes green.
+10–25 s  DEMO 1      Video call live · press UP on phone → laptop RX bar lights UP.
+25–40 s  DEMO 2      Type "Dinner ready!" → tap REMOTE SPEAK → laptop says it aloud.
+40–50 s  PAYOFF      Optional micro:bit — D-pad arrow mirrored on the real LED matrix.
+50–55 s  CTA         "FaceTime + GameController + walkie-talkie. Link below."
+55–60 s  END FRAME   Split frame frozen — both cameras + room code on screen.</pre>
 </div>
 
 <!-- ═══════════ النص ═══════════ -->
@@ -178,103 +179,104 @@
      املأ كل سطر DIRE/FAIRE بنص خاص بـ Mini Mission Control قبل التصوير.
      لا تُرسل هذا الملف إلى الإنتاج مع النصوص المائلة كما هي. -->
 
-<h2>قالب 6 مشاهد — Mini Mission Control</h2>
-<p class="aka" style="color:#f59e0b;font-weight:700;">⚠️ المشاهد الستة أدناه قوالب فارغة. استبدل كل سطر بفعلٍ قابلٍ للتصوير خاصٍ بـ Mini Mission Control قبل تسجيل الفيديو.</p>
+<h2>سيناريو 6 مشاهد — Mini Mission Control</h2>
+<p class="aka" style="color:#22c55e;font-weight:700;">Call · Command · Control — مكالمة فيديو نظير-إلى-نظير + D-pad مشترك + جهاز لاسلكي بالنطق، في ملف HTML واحد. صوِّر بهذا الترتيب بالضبط.</p>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:00–00:03</span><span class="scene-phase phase-hook">الخطاف</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div><em>[جملة الجذب — ثانية واحدة، وعد واضح يوقف التمرير]</em></div>
-    <div class="do"><div class="do-label">🎬 افعل</div><em>[لقطة الجذب — ما يظهر على الشاشة أثناء الجملة]</em></div>
+    <div class="say"><div class="say-label">🎙 قل</div>«جهازان. رمز غرفة واحد. D-pad فوري يعبر العالم.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>إطار مقسوم: هاتف على اليسار، حاسوب على اليمين. التطبيق مفتوح على الاثنين. نفس رمز الغرفة من 4 أحرف (مثل <code>ASTRO</code>) مُعلَّم على الشاشتين.</div>
   </div>
 </div>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:03–00:10</span><span class="scene-phase phase-demo">السياق</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div><em>[لمن هذا المنتج، ما المشكلة التي يحلّها]</em></div>
-    <div class="do"><div class="do-label">🎬 افعل</div><em>[لقطة الإعداد — الاتصال، أول شاشة مفيدة]</em></div>
+    <div class="say"><div class="say-label">🎙 قل</div>«بلا خادم. بلا حساب. فقط رمز يكتبه الجهازان.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>اكتب <code>ASTRO</code> على الجهازين. شارة «مقترن» تتحول إلى الأخضر. معاينتا الكاميرتين تظهران — WebRTC نظير-إلى-نظير عبر PeerJS، بلا سحابة.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">العرض 1</span></div>
+  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">العرض 1 · فيديو + D-PAD</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div><em>[لحظة الإبهار الأولى — ميزة رئيسية لـ Mini Mission Control]</em></div>
-    <div class="do"><div class="do-label">🎬 افعل</div><em>[لقطة الفعل — 15 ثانية من الحركة المرئية]</em></div>
+    <div class="say"><div class="say-label">🎙 قل</div>«مكالمة مرئية مباشرة — وكل ضغطة زر تقفز فورًا عبر الجهازين.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>يعرض كل جهاز كاميرا الآخر. طفل يضغط <kbd>UP</kbd> على الهاتف → D-pad الحاسوب يضيء على UP فورًا وشريط RX يطبع <code>UP pressed</code>. تتابع LEFT وRIGHT وSTOP — كلٌّ يُعكَس لحظيًّا.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">العرض 2</span></div>
+  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">العرض 2 · نص + TTS عن بُعد</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div><em>[لحظة الإبهار الثانية — ميزة/حالة استخدام ثانية]</em></div>
-    <div class="do"><div class="do-label">🎬 افعل</div><em>[لقطة الفعل — 15 ثانية]</em></div>
+    <div class="say"><div class="say-label">🎙 قل</div>«اكتب هنا، يتكلم هناك. جهاز لاسلكي حقيقي للعائلات.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>يكتب الوالد <em>«العشاء جاهز!»</em> على الهاتف، يضغط <strong>REMOTE SPEAK</strong> — يقرأ الحاسوب الجملة بصوت عالٍ من السمّاعات عبر TTS المتصفح. أظهر سجل RX يتحرك على الجهاز المستقبِل.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">المكافأة</span></div>
+  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">المكافأة · جسر micro:bit</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div><em>[لماذا هذا مهم — الوقت الموفّر، المهارة المكتسبة، الأمان]</em></div>
-    <div class="do"><div class="do-label">🎬 افعل</div><em>[الشاشة التي تحمل الرسالة — تصدير، التقاط، نتيجة مرئية]</em></div>
+    <div class="say"><div class="say-label">🎙 قل</div>«FaceTime + GameController + جهاز لاسلكي. في ملف HTML واحد.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>(لمسة عتاد اختيارية.) BBC micro:bit V2 بين الجهازين. اضغط UP على D-pad الهاتف — شاشة LED ترسم سهم UP. اضغط LEFT — السهم يدور. الأوامر تمرّ عبر BLE UART إلى اللوحة.</div>
   </div>
 </div>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:50–00:60</span><span class="scene-phase phase-cta">CTA + إطار الختام</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 قل</div><em>[الدعوة للشراء — الطقم الكامل + الرابط في الوصف]</em></div>
-    <div class="do"><div class="do-label">🎬 افعل</div><em>[طبقة الشعار، إطار ختام ثابت لـ 3 ثوانٍ]</em></div>
+    <div class="say"><div class="say-label">🎙 قل</div>«نظير-إلى-نظير. Chrome أو Edge. آمن للأطفال. الرابط في الأسفل.»</div>
+    <div class="do"><div class="do-label">🎬 افعل</div>اختم على لقطة الإطار المقسوم مع الكاميرتين وشارة «مقترن» الخضراء. طبقة اسم المتجر + شعار Mini Mission Control. تثبيت 3 ثوانٍ لتبدأ الحلقة من هذه اللقطة.</div>
   </div>
 </div>
 
 <!-- ═══════════ نص الإعلان ═══════════ -->
 <div class="slug" id="listing">نص إعلان جاهز للنسخ</div>
 <h2>عنوان Etsy (140 حرفًا كحد أقصى)</h2>
-<div class="copybox">Mini Mission Control — لوحة تحكم BLE للمعلمين والأطفال · حساسات · محركات · مخطط حي · نماذج 3D · بلا تثبيت · Chrome / Edge<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
+<div class="copybox">Mini Mission Control — مكالمة فيديو نظير-إلى-نظير + D-Pad عن بُعد + جهاز لاسلكي TTS للأطفال · Chrome/Edge · بلا حساب · micro:bit اختياري<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
 
 <h2>الوصف المختصر (أول 160 حرفًا — تظهر في البحث)</h2>
-<div class="copybox">لوحة تحكم BLE داخل المتصفح للوحة BBC micro:bit V2. حساسات ومحركات ومخططات حية ونماذج ثلاثية الأبعاد ويد تحكم — كلها من Chrome. بلا تثبيت وبلا حساب.<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
+<div class="copybox">Call · Command · Control. اكتب رمز غرفة واحدًا على جهازين — مكالمة فيديو فورية، D-pad عن بُعد، جهاز لاسلكي ناطق. نظير-إلى-نظير، بلا سحابة.<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
 
 <h2>الوصف الكامل</h2>
-<div class="copybox">🎮 Mini Mission Control — لوحة تحكم BLE تعمل داخل المتصفح للوحة BBC micro:bit V2.
+<div class="copybox">🧑‍🚀 Mini Mission Control — Call · Command · Control.
 
-افتح ملف HTML واحدًا في Chrome أو Edge، واقترن عبر Bluetooth، وافتح 8 علامات تبويب من المرح التعليمي (STEM) التفاعلي — بلا تثبيت، بلا حساب، بلا خادم خلفي، بلا تتبع.
+جهازان. رمز غرفة واحد. ملف HTML واحد. مكالمة فيديو نظير-إلى-نظير فورية + D-pad مشترك بين الجهازين + جهاز لاسلكي بالنطق (TTS) — كل هذا في المتصفح، بلا خادم، بلا حساب، بلا سحابة.
 
 ما ستحصل عليه
-• 🎛 شبكة LED + أيقونات جاهزة + نص متحرك
-• 📡 حساسات مباشرة: الحرارة، الإضاءة، الصوت، مقياس التسارع، البوصلة، اللمس
-• ⚙️ محركان (P1 + P2) مع منزلقات ومؤشرات وضبط وأزرار إيقاف
-• 🎮 يد تحكم D-pad للروبوتات والألعاب
-• 📈 [TODO — ميزة منتجك الرئيسية]• 🎲 5 نماذج ثلاثية الأبعاد تفاعلية (Three.js): micro:bit، العربة، الذراع، التوازن، الطقس
-• 🎨 4 سمات (Stealth · Neon · Arctic · Blaze) + 3 لغات (EN · FR · AR مع دعم RTL كامل)
-• 📱 PWA — قابل للتثبيت ويعمل بدون إنترنت
-• 👶 وضع المبتدئ + 🧙 وضع الخبير
+• 📹 مكالمة فيديو + صوت نظير-إلى-نظير بين جهازين عبر PeerJS (WebRTC) — حاسوب↔هاتف، لوحي↔حاسوب، هاتفان، أي تركيبة
+• 🎮 D-pad مشترك بـ 5 أزرار (UP / DOWN / LEFT / RIGHT / STOP) — تضغط على الجهاز A، فتنفّذ على الجهاز B لحظيًّا
+• 💬 قناة نصية مع TTS محلي («Speak» — انطق هنا) وTTS عن بُعد («Remote speak» — اجعل الجهاز الآخر ينطق بصوت عالٍ)
+• 🔑 اقتران برمز الغرفة — اكتب نفس الرمز من 4 أحرف على الجهازين، فيقترنان. بلا حسابات، بلا تسجيل دخول.
+• 🤖 جسر اختياري BBC micro:bit V2 — أوامر D-pad تمرّ عبر BLE UART وتُضيء أيقونات الأسهم على شاشة LED
+• 🎥 أدوات الكاميرا — تبديل أمامي/خلفي، كتم الميكروفون، عكس الذات، عكس البعيد، طلب ملء الشاشة عن بُعد
+• 📸 أدوات الالتقاط — لقطة PNG، تسجيل WebM، تبديل طبقة HUD، شريط RX حي للأوامر
+• 📜 لوحة السجل — TX + RX + أحداث النظام، محلية فقط، منظِّف الكاش مدمج
+• 🧑‍🚀 استقبال بطابع رائد الفضاء: «أهلًا بك، رائد فضاء صغير»
 
 محتويات التنزيل
-• index.html — التطبيق الكامل
-• makecode.ts — برنامج micro:bit الثابت (تُحمَّل مرة واحدة من MakeCode)
+• index.html — التطبيق الكامل (فيديو + D-pad + TTS، بلا build)
+• makecode.ts — برنامج micro:bit V2 الثابت الاختياري (يُحمَّل مرة واحدة من MakeCode)
 • SETUP.md — بداية سريعة في 5 دقائق
 • docs/ — دليل مصور، ومرجع سريع، وأسئلة شائعة، ودليل Etsy
 • LICENSE — رخصة مستخدم وحيد للاستخدام الشخصي / الصفي
 
 المتطلبات
-• BBC micro:bit V2 (V1 يعمل لكن بدون حساس صوت)
-• Chrome أو Edge على سطح المكتب (أو Chrome على أندرويد)
-• تفعيل Bluetooth
-• HTTPS أو file:// — النقر المزدوج على HTML يكفي
+• جهازان مع Chrome أو Edge (حاسوب + هاتف، لوحي + حاسوب، أو هاتفان)
+• الإذن بالكاميرا والميكروفون في المتصفح
+• اختياري: BBC micro:bit V2 لجسر أسهم LED عبر BLE (HTTPS شرط لـ Bluetooth)
+• يعمل بلا إنترنت عبر file:// للفيديو/D-pad/TTS؛ استخدم HTTPS لتفعيل جسر micro:bit
 
 لمن هو موجَّه
-المعلمون الذين يديرون ورش STEM · الأسر التي تدرّس منزليًا · نوادي الروبوتات · صانعو النماذج الأولية لمشاريع BLE · كل مهتم بـ micro:bit.
+العائلات التي تريد جهاز لاسلكي آمن للأطفال بين الغرف · المعلمون الذين يقدّمون عروض STEM عن بُعد · نوادي الروبوتات التي تقرن وحدة تحكم بروبوت · صانعو النماذج الذين يجرّبون WebRTC نظير-إلى-نظير · كل رائد فضاء صغير فضولي 🧑‍🚀
 
 الخصوصية أولًا
-لا شيء يغادر جهازك. بلا تتبع، بلا تسجيل دخول، بلا سحابة. جميع المعايرات والتسجيلات والإعدادات المسبقة تبقى في localStorage للمتصفح وعلى قرصك.
+نظير-إلى-نظير فقط. الفيديو والصوت يتدفقان من جهاز إلى جهاز عبر WebRTC — بلا تحليلات، بلا تسجيل دخول، بلا تخزين سحابي. الحركة الخارجية الوحيدة هي مصافحة اقتران قصيرة عبر وسيط PeerJS العام. اللقطات والتسجيلات والسجلات تبقى على قرصك.
 
 تحديثات مدى الحياة
 كل إصدار يُطرح من هذا الإعلان هو ملكك للأبد. أعد تنزيل أحدث ZIP في أي وقت من صفحة مشترياتك في Etsy.
 
-قرصنة سعيدة! 🚀🎮🤖<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
+استمتع! 🚀🎮🤖<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">نسخ</button></div>
 
 <h2>فئات الأسعار</h2>
 <table>
@@ -288,48 +290,48 @@
 <div class="slug" id="tags">الوسوم والمواد</div>
 <h2>13 وسمًا لـ Etsy (20 حرفًا لكل وسم)</h2>
 <div class="pills">
+  <span class="pill">مكالمة فيديو</span>
+  <span class="pill">نظير إلى نظير</span>
+  <span class="pill">webrtc</span>
+  <span class="pill">D-pad بعيد</span>
+  <span class="pill">جهاز لاسلكي</span>
+  <span class="pill">نطق نصي</span>
+  <span class="pill">رمز غرفة</span>
   <span class="pill">micro:bit</span>
-  <span class="pill">BLE</span>
-  <span class="pill">bluetooth</span>
-  <span class="pill">تعليم</span>
-  <span class="pill">STEM</span>
-  <span class="pill">روبوتات</span>
-  <span class="pill">برمجة أطفال</span>
-  <span class="pill">مورد للمعلم</span>
-  <span class="pill">حساسات</span>
-  <span class="pill">محركات</span>
-  <span class="pill">غرفة صف</span>
-  <span class="pill">تعليم منزلي</span>
-  <span class="pill">ميكرسبيس</span>
+  <span class="pill">STEM أطفال</span>
+  <span class="pill">مكالمة عائلة</span>
+  <span class="pill">بلا حساب</span>
+  <span class="pill">تطبيق متصفح</span>
+  <span class="pill">chrome edge</span>
 </div>
 
 <h2>المواد (ما الذي يشغّله)</h2>
 <div class="pills">
   <span class="pill">HTML5</span>
   <span class="pill">JavaScript</span>
+  <span class="pill">PeerJS</span>
+  <span class="pill">WebRTC</span>
   <span class="pill">Web Bluetooth</span>
-  <span class="pill">[render lib]</span>
-  <span class="pill">[3D lib if any]</span>
-  <span class="pill">PWA</span>
+  <span class="pill">Web Speech API</span>
   <span class="pill">MakeCode</span>
   <span class="pill">TypeScript</span>
 </div>
 
 <h2>كلمات SEO</h2>
-<p><code>browser-based</code> · <code>no-install</code> · <code>privacy-first</code> · <code>offline-capable</code> · <code>web bluetooth</code> · <code>teacher resource</code> · <code>STEM workshop</code> · <code>micro:bit V2</code></p>
+<p><code>peer-to-peer video call</code> · <code>room-code pairing</code> · <code>D-pad remote</code> · <code>remote TTS</code> · <code>kid-safe walkie-talkie</code> · <code>no account no cloud</code> · <code>WebRTC browser</code> · <code>micro:bit BLE bridge</code></p>
 
 <!-- ═══════════ الصور ═══════════ -->
 <div class="slug" id="images">ترتيب الصور السبع للإعلان</div>
 <h2>تسلسل الصور (Etsy يعرض 1 و 2 بأكبر حجم)</h2>
 <div class="card">
   <ol style="padding-right:22px;line-height:2">
-    <li><strong>الصورة البطل</strong> — micro:bit حقيقي + لقطة شاشة مقسومة للحاسوب تُظهر النموذج ثلاثي الأبعاد وهو يعكس ميل اللوحة. عنوان بخط Orbitron فوقها.</li>
-    <li><strong>نظرة عامة على الألسنة</strong> — لقطة شبكية لجميع الألسنة الثماني مع رموزها.</li>
-    <li><strong>[TODO — لقطة قريبة لأهم ميزة]</strong></li>
-    <li><strong>[TODO — لقطة مقسومة تُظهر ميزتين رئيسيتين]</strong></li>
-    <li><strong>يد تمسك اللوحة</strong> — محرك حقيقي موصول بـ P1، والمنزلقات على الشاشة في الخلفية.</li>
-    <li><strong>عيّنة السمات</strong> — شبكة 2×2: Stealth · Neon · Arctic · Blaze.</li>
-    <li><strong>بطاقة نصية</strong> — «رخصة مستخدم وحيد · تحديثات مدى الحياة · بلا سحابة · Chrome / Edge» على تدرج داكن.</li>
+    <li><strong>الصورة البطل — إطار مقسوم</strong>: هاتف على اليسار (D-pad ظاهر) + حاسوب على اليمين (فيديو بعيد ظاهر) + BBC micro:bit بينهما يعرض سهمًا على شاشة LED. شعار: «Call · Command · Control.»</li>
+    <li><strong>واجهة اقتران برمز الغرفة</strong> — جهازان جنبًا إلى جنب، نفس رمز الغرفة من 4 أحرف (مثل <code>ASTRO</code>) مُعلَّم على الشاشتين، شارة «مقترن» خضراء مضيئة.</li>
+    <li><strong>D-pad على ملء الشاشة</strong> — لقطة قريبة لأزرار D-pad الخمسة مع شريط RX يعرض آخر أمر مُستلم («UP pressed») بحركة متحركة.</li>
+    <li><strong>قناة النص + TTS</strong> — لقطة مقسومة: رسالة مكتوبة «العشاء جاهز!» في جهة، أيقونة سمّاعة + موجة صوتية متحركة في الجهة الأخرى.</li>
+    <li><strong>أدوات الالتقاط</strong> — أزرار snapshot + record في شريط الأدوات، معاينة PNG، نقطة تسجيل حمراء ظاهرة.</li>
+    <li><strong>سهم LED اختياري على micro:bit</strong> — لقطة قريبة لشاشة LED في BBC micro:bit V2 تعرض سهمًا مطابقًا للاتجاه المضغوط على D-pad الهاتف بجانبه.</li>
+    <li><strong>استقبال رائد الفضاء + بطاقة الترخيص</strong> — شاشة «أهلًا بك، رائد فضاء صغير 🧑‍🚀» فوق «رخصة مستخدم وحيد · تحديثات مدى الحياة · بلا سحابة · Chrome / Edge» على تدرج داكن.</li>
   </ol>
 </div>
 
@@ -338,7 +340,7 @@
 <h2>أخطاء شائعة</h2>
 <table>
   <tr><th>❌ لا تفعل</th><th>✅ افعل</th></tr>
-  <tr><td>ابدأ بـ «مرحبًا، أنا…» مع 10 ثوانٍ من المقدمة</td><td>افتح باللوحة الحقيقية وهي تُميل نموذجًا ثلاثي الأبعاد في أول 3 ثوانٍ</td></tr>
+  <tr><td>ابدأ بـ «مرحبًا، أنا…» مع 10 ثوانٍ من المقدمة</td><td>افتح على الإطار المقسوم — شارة «مقترن» تتحول إلى الأخضر في أول 3 ثوانٍ</td></tr>
   <tr><td>التصوير بالوضع الأفقي (16:9)</td><td>عمودي 9:16 — Etsy يشغّل تلقائيًا على الجوال</td></tr>
   <tr><td>التحدث فوق رسوم متحركة مزدحمة</td><td>اترك الصورة تتنفس لثانية، ثم اشرح</td></tr>
   <tr><td>نسيان الترجمة (Etsy يشغّل كتم الصوت)</td><td>ادمج الترجمة أو أضف نصًا في كل مشهد</td></tr>
@@ -348,10 +350,10 @@
 
 <!-- ═══════════ بطاقة سريعة ═══════════ -->
 <div class="slug">بطاقة الجيب المرجعية</div>
-<div class="copybox">قبل     V2 يعمل (أيقونة X) · Chrome مفتوح · BLE أخضر · هاتف 9:16
-صوِّر   خطاف في 3 ثوانٍ · إمالة ← انعكاس 3D · محرك يتحرك · محاكاة مخطط · CTA
-بعد     قصّ إلى 55 ثانية · ترجمة مدمجة · أول إطار = المصغَّرة
-أعلن    عنوان · وصف 160 حرفًا · 13 وسمًا · 7 صور · فئات الأسعار</div>
+<div class="copybox">قبل     جهازان · Chrome/Edge · نفس رمز الغرفة · الإذن بالكاميرا والميكروفون · micro:bit V2 اختياري
+صوِّر   خطاف مقترن ← مكالمة فيديو ← D-pad بين الجهازين ← نص TTS ← انعكاس micro:bit ← CTA
+بعد     قصّ إلى 55 ثانية · ترجمة مدمجة · أول إطار = الإطار المقسوم
+أعلن    عنوان · وصف 160 حرفًا · 13 وسمًا · 7 صور · فئات الأسعار — راجع ETSY_LISTING-ar.md</div>
 
 <p style="text-align:center;margin-top:40px;color:var(--muted);font-size:.85rem">
   Mini Mission Control v1.0.0 — دليل Etsy في دقيقة · اطبع بحجم A4 · غلّفه · واحتفظ به بجانب معدات التصوير

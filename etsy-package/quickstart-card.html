@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════
+  ⚠️  REWRITE PER PRODUCT — DO NOT SHIP AS-IS
+  ───────────────────────────────────────────────────────────────────────
+  apply-template.mjs only substituted identifiers (Mini Mission Control,
+  v1.0.0, {{LIVE_DEMO_URL}}, etc.). The feature content, steps,
+  shortcuts, and examples below were inherited from the template's
+  source product (bit-playground) and WILL BE WRONG for your product
+  unless you rewrite them.
+  
+  Before including this file in a buyer ZIP:
+    1. Delete this banner.
+    2. Rewrite every mention of specific features, shortcuts,
+       tab names, hardware interactions, etc. to match your product.
+    3. Verify with: grep -iE "servo|chart\.js|3d board|gamepad|
+       accelerometer|compass|led matrix|8 tabs|sensors tab" this-file.
+  ═══════════════════════════════════════════════════════════════════════
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -41,7 +59,7 @@
   .section-title { font-family: 'Righteous', sans-serif; font-size: 20px; color: #22d3ee; margin: 6mm 0 4mm; display: flex; align-items: center; gap: 8px; }
   .section-title::after { content: ''; flex: 1; height: 1px; background: rgba(34,211,238,.18); }
 
-  .shortcuts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 6mm; }
+  .shortcuts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 6mm; }
   .shortcut {
     background: rgba(15,23,42,.5); border: 1px solid rgba(34,197,94,.08);
     border-radius: 10px; padding: 8px 10px; text-align: center;
@@ -79,63 +97,69 @@
 
   <div class="header">
     <h1>Mini Mission Control</h1>
-    <div class="sub">Two-device peer-to-peer video call + D-pad + micro:bit bridge</div>
-    <div class="tagline">Call &bull; Command &bull; Control &bull; No install &bull; No account</div>
+    <div class="sub">Browser BLE Control Panel for the BBC micro:bit V2</div>
+    <div class="tagline">No install &bull; No account &bull; 100% local &bull; EN / FR / AR</div>
     <div class="line"></div>
   </div>
 
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <div class="icon">📱💻</div>
-      <h3>Open on Two Devices</h3>
-      <p>Load <a style="color:#22d3ee;">abourdim.github.io/mission-control/</a> in Chrome on <strong style="color:#fff;">both</strong> devices (laptop + phone works great). Camera &amp; mic required; HTTPS for the optional micro:bit bridge.</p>
+      <div class="icon">🤖</div>
+      <h3>Flash the Firmware</h3>
+      <p>Open <a style="color:#22d3ee;">makecode.microbit.org</a>, switch to JavaScript, paste <code class="code">makecode.ts</code>, hit <strong style="color:#22c55e;">Download</strong> and drag to your micro:bit V2.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <div class="icon">🔤</div>
-      <h3>Type the Same Room Code</h3>
-      <p>Both devices must type the <strong style="color:#22c55e;">same room code</strong>. Anything short and memorable &mdash; <code class="code">alpha-42</code>, <code class="code">pizza</code>, your favorite word.</p>
+      <div class="icon">🌐</div>
+      <h3>Open the App</h3>
+      <p>Double-click <code class="code">index.html</code> in <strong style="color:#fff;">Chrome</strong> or <strong style="color:#fff;">Edge</strong>. No server, no install. Works offline as a PWA.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <div class="icon">🎥</div>
-      <h3>Start Camera</h3>
-      <p>Press <span class="pill pg">🎥 Start camera</span> and allow browser permissions. Your face appears in the self-view. Flip with camera switch or mic mute anytime.</p>
+      <div class="icon">📡</div>
+      <h3>Pair over BLE</h3>
+      <p>Click <span class="pill pg">Connect</span>, pick <strong style="color:#fff;">BBC micro:bit [xxxxx]</strong> in the browser prompt. The board LEDs flash a tick.</p>
     </div>
     <div class="step">
       <div class="step-num">4</div>
-      <div class="icon">✅</div>
-      <h3>Connect</h3>
-      <p>Press <span class="pill pb">✅ Connect</span>. One device becomes <strong style="color:#22c55e;">host</strong>, the other <strong style="color:#22d3ee;">guest</strong>. Video + audio stream peer-to-peer through PeerJS.</p>
+      <div class="icon">🎛️</div>
+      <h3>Play with the Tabs</h3>
+      <p>LEDs, Sensors, [TODO — actuator if any], [TODO — control surface], Graph, 3D board, Bench, About. Press <kbd style="background:rgba(0,0,0,.5);border:1px solid rgba(34,197,94,.25);border-radius:5px;padding:1px 6px;font-size:11px;font-family:'Orbitron',monospace;color:#22c55e;">1</kbd>–<kbd style="background:rgba(0,0,0,.5);border:1px solid rgba(34,197,94,.25);border-radius:5px;padding:1px 6px;font-size:11px;font-family:'Orbitron',monospace;color:#22c55e;">8</kbd> to jump.</p>
     </div>
     <div class="step step-full">
       <div class="step-num">5</div>
-      <div class="icon">🎮</div>
-      <h3>Enjoy &mdash; D-pad, Text, TTS, optional micro:bit link</h3>
-      <p>Use the <strong style="color:#22c55e;">D-pad</strong> (UP/DOWN/LEFT/RIGHT/STOP) to send commands peer-to-peer. Type text to chat. Tap <span class="pill pg">Speak</span> for local TTS or <span class="pill pb">Remote speak</span> to make the other side talk. Optional: pair a <strong style="color:#22d3ee;">BBC micro:bit V2</strong> over BLE to forward D-pad commands to the board.</p>
+      <div class="icon">📈</div>
+      <h3>Graph It &amp; Save</h3>
+      <p>Open the <strong style="color:#22c55e;">Graph</strong> tab to see live temperature, light, sound and motion rolling across [TODO — chart lib if any]. Press <kbd style="background:rgba(0,0,0,.5);border:1px solid rgba(34,197,94,.2);border-radius:4px;padding:0 6px;font-family:'Orbitron',monospace;font-size:11px;color:#22c55e;">F</kbd> for fullscreen, tap <span class="pill pb">Record</span> to capture a session and export it as JSON. No micro:bit? Try <strong style="color:#22d3ee;">Simulate Mode</strong>.</p>
     </div>
   </div>
 
-  <div class="section-title">Keyboard Shortcuts</div>
+  <div class="section-title">Essential Shortcuts</div>
   <div class="shortcuts">
-    <div class="shortcut"><kbd>Enter</kbd><span>Send text message</span></div>
-    <div class="shortcut"><kbd>Esc</kbd><span>Close firmware modal</span></div>
+    <div class="shortcut"><kbd>Space</kbd><span>Pause stream</span></div>
+    <div class="shortcut"><kbd>1-8</kbd><span>Switch tab</span></div>
+    <div class="shortcut"><kbd>P</kbd><span>LED presets</span></div>
+    <div class="shortcut"><kbd>F</kbd><span>Fullscreen graph</span></div>
+    <div class="shortcut"><kbd>K</kbd><span>Clear graph</span></div>
+    <div class="shortcut"><kbd>Esc</kbd><span>Close overlay</span></div>
+    <div class="shortcut"><kbd>?</kbd><span>Shortcuts help</span></div>
+    <div class="shortcut"><kbd>T</kbd><span>Cycle themes</span></div>
   </div>
 
   <div class="section-title">Highlights</div>
   <div class="features">
-    <div class="feat"><strong>P2P Video + Audio</strong>PeerJS direct between the two devices</div>
-    <div class="feat"><strong>D-pad Controller</strong>UP/DOWN/LEFT/RIGHT/STOP commands</div>
-    <div class="feat"><strong>Text + TTS</strong>Chat, Speak locally, Remote speak</div>
-    <div class="feat"><strong>micro:bit Bridge</strong>Optional BLE UART forwards D-pad to V2</div>
-    <div class="feat"><strong>Capture Tools</strong>Snapshot PNG &amp; WebM recording</div>
-    <div class="feat"><strong>HUD + Log Panel</strong>Room-code pairing, cache cleaner</div>
+    <div class="feat"><strong>5&times;5 LED Matrix</strong>Draw, presets, hex patterns</div>
+    <div class="feat"><strong>Live Sensors</strong>Temp, light, sound, accel, compass</div>
+    <div class="feat"><strong>Dual [TODO — actuator if any] P1/P2</strong>Sliders, gauges, OFF buttons</div>
+    <div class="feat"><strong>3D Board View</strong>[TODO — product features]</div>
+    <div class="feat"><strong>4 Themes</strong>Stealth, Neon, Arctic, Blaze</div>
+    <div class="feat"><strong>Trilingual</strong>English, Français, العربية</div>
   </div>
 
   <div class="footer">
     <div class="url">Mini Mission Control v1.0.0</div>
-    <div class="copy">Two devices with camera + mic &bull; Chrome recommended &bull; Optional BBC micro:bit V2 over BLE (HTTPS required)</div>
+    <div class="copy">For BBC micro:bit V2 &bull; Web Bluetooth required &bull; Chrome / Edge</div>
   </div>
 
 </div>

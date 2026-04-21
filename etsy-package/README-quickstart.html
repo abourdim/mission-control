@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════
+  ⚠️  REWRITE PER PRODUCT — DO NOT SHIP AS-IS
+  ───────────────────────────────────────────────────────────────────────
+  apply-template.mjs only substituted identifiers (Mini Mission Control,
+  v1.0.0, {{LIVE_DEMO_URL}}, etc.). The feature content, steps,
+  shortcuts, and examples below were inherited from the template's
+  source product (bit-playground) and WILL BE WRONG for your product
+  unless you rewrite them.
+  
+  Before including this file in a buyer ZIP:
+    1. Delete this banner.
+    2. Rewrite every mention of specific features, shortcuts,
+       tab names, hardware interactions, etc. to match your product.
+    3. Verify with: grep -iE "servo|chart\.js|3d board|gamepad|
+       accelerometer|compass|led matrix|8 tabs|sensors tab" this-file.
+  ═══════════════════════════════════════════════════════════════════════
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -63,9 +81,6 @@
   .box h4 { font-size: 13px; color: #22c55e; margin-bottom: 3px; }
   .box p { font-size: 12px; margin: 1mm 0; }
 
-  .theme-morph { text-align: center; margin: 3mm 0; }
-  .theme-morph img { max-width: 100%; border-radius: 10px; border: 1px solid rgba(34,197,94,.18); }
-
   .footer {
     position: absolute; bottom: 10mm; left: 18mm; right: 18mm;
     text-align: center; border-top: 1px solid rgba(34,197,94,.1);
@@ -82,72 +97,68 @@
 
   <div class="header">
     <h1>Mini Mission Control</h1>
-    <div class="sub">Two-device peer-to-peer video call + D-pad + optional micro:bit bridge</div>
-    <div class="ver">v1.0.0 &bull; Call &bull; Command &bull; Control</div>
+    <div class="sub">Browser BLE Control Panel for the BBC micro:bit V2</div>
+    <div class="ver">v1.0.0 &bull; Digital Download</div>
     <div class="line"></div>
   </div>
 
   <div class="thanks">
-    <strong>Welcome, tiny astronaut 🧑‍🚀✨</strong> Thank you for buying Mini Mission Control! Think of it as <em>FaceTime + Game Controller + micro:bit walkie-talkie</em>: open it on two devices, type the same room code, and you are live &mdash; video, audio, a D-pad, text, and text-to-speech, all peer-to-peer through the browser.
-  </div>
-
-  <div class="theme-morph">
-    <img src="theme-morph.gif" alt="Mini Mission Control &mdash; two devices calling each other">
+    <strong>Thank you for buying Mini Mission Control!</strong> You just grabbed a zero-install, zero-account, browser-local control panel for the BBC micro:bit V2. Everything runs on your machine &mdash; no cloud, no telemetry, no nonsense. This page walks you through the first three things to do.
   </div>
 
   <h2>First 3 Things To Do</h2>
   <div class="steps-mini">
-    <div class="step-m"><div class="num">1</div><span><strong style="color:#22c55e;">Open it on two devices.</strong> Load the live URL <a style="color:#22d3ee;">https://abourdim.github.io/mission-control/</a> in Chrome on both. A laptop + a phone is the classic combo.</span></div>
-    <div class="step-m"><div class="num">2</div><span><strong style="color:#22c55e;">Type the same room code, then Start camera + Connect.</strong> Both devices type the <em>same</em> code (<code class="c">pizza</code>, <code class="c">alpha-42</code>, whatever). Press <strong style="color:#22c55e;">🎥 Start camera</strong>, allow permissions, then <strong style="color:#22c55e;">✅ Connect</strong>.</span></div>
-    <div class="step-m"><div class="num">3</div><span><strong style="color:#22c55e;">Play.</strong> Use the <strong>D-pad</strong> (UP/DOWN/LEFT/RIGHT/STOP). Type text &mdash; press <kbd>Enter</kbd> to send. Tap <strong style="color:#22d3ee;">Speak</strong> or <strong style="color:#22d3ee;">Remote speak</strong> for TTS. Optional: pair a BBC micro:bit V2 over BLE &mdash; the D-pad will forward to it.</span></div>
+    <div class="step-m"><div class="num">1</div><span><strong style="color:#22c55e;">Flash the firmware.</strong> Open <a style="color:#22d3ee;">makecode.microbit.org</a>, switch to JavaScript, paste <code class="c">makecode.ts</code>, click Download, and drag the <code class="c">.hex</code> to your micro:bit V2. The board will show an <strong style="color:#fff;">X</strong>.</span></div>
+    <div class="step-m"><div class="num">2</div><span><strong style="color:#22c55e;">Open the app.</strong> Double-click <code class="c">index.html</code> in <strong style="color:#fff;">Chrome</strong> or <strong style="color:#fff;">Edge</strong>. It loads locally. Click <strong style="color:#22c55e;">Connect</strong>, pick your board, watch the status dot turn green.</span></div>
+    <div class="step-m"><div class="num">3</div><span><strong style="color:#22c55e;">Play.</strong> Press <kbd>1</kbd>&hellip;<kbd>8</kbd> to hop between LEDs, Sensors, [TODO — actuator if any], [TODO — control surface], Graph, 3D, Bench, About. Tap <kbd>F</kbd> for fullscreen graph. No board? Flip on <strong style="color:#22d3ee;">Simulate Mode</strong>.</span></div>
   </div>
 
   <h2>What&apos;s in the ZIP</h2>
   <div class="files">
     <div class="file"><span class="icon">🌐</span><code>index.html</code><span>&mdash; Main app</span></div>
-    <div class="file"><span class="icon">🎨</span><code>styles.css</code><span>&mdash; Styling</span></div>
-    <div class="file"><span class="icon">📞</span><code>js/peer.js</code><span>&mdash; PeerJS wiring</span></div>
-    <div class="file"><span class="icon">🎮</span><code>js/dpad.js</code><span>&mdash; D-pad controller</span></div>
-    <div class="file"><span class="icon">🗣️</span><code>js/tts.js</code><span>&mdash; Local + Remote TTS</span></div>
-    <div class="file"><span class="icon">📡</span><code>js/microbit.js</code><span>&mdash; BLE UART bridge</span></div>
+    <div class="file"><span class="icon">🎨</span><code>styles.css</code><span>&mdash; 4 themes</span></div>
+    <div class="file"><span class="icon">📦</span><code>sw.js</code><span>&mdash; Offline PWA</span></div>
+    <div class="file"><span class="icon">🤖</span><code>makecode.ts</code><span>&mdash; Firmware</span></div>
+    <div class="file"><span class="icon">⚙️</span><code>js/*.js</code><span>&mdash; BLE + logic</span></div>
+    <div class="file"><span class="icon">🎲</span><code>js/models/</code><span>&mdash; 5 3D models</span></div>
     <div class="file"><span class="icon">📖</span><code>docs/guide.html</code><span>&mdash; Full user guide</span></div>
-    <div class="file"><span class="icon">⌨️</span><code>docs/reference.html</code><span>&mdash; Quick reference</span></div>
+    <div class="file"><span class="icon">⌨️</span><code>docs/cheatsheet.html</code><span>&mdash; Shortcuts</span></div>
     <div class="file"><span class="icon">❓</span><code>docs/faq.html</code><span>&mdash; FAQ</span></div>
     <div class="file"><span class="icon">📜</span><code>LICENSE.txt</code><span>&mdash; Your license</span></div>
   </div>
-  <p style="font-size:11px;color:#64748b;">Printable extras live in <code class="c">etsy-package/</code>: quick-start card, quick-reference card, A3 classroom poster, sticker sheet, lesson plan.</p>
+  <p style="font-size:11px;color:#64748b;">Printable extras live in <code class="c">etsy-package/</code>: quick-start card, shortcut cheat sheet, A3 classroom poster, sticker sheet, lesson plan.</p>
 
   <h2>Requirements</h2>
   <div class="req">
-    <div><span class="check">&#10003;</span><span class="label"><strong style="color:#fff;">Two devices</strong> with browsers (Chrome recommended)</span></div>
-    <div><span class="check">&#10003;</span><span class="label">Camera + microphone on each device</span></div>
-    <div><span class="check">&#10003;</span><span class="label">A live network connection (this is a peer-to-peer call, not offline)</span></div>
-    <div><span class="check">&#10003;</span><span class="label">Optional: BBC micro:bit <strong style="color:#fff;">V2</strong> for the BLE D-pad bridge</span></div>
-    <div><span class="check">&#10003;</span><span class="label">HTTPS required for the micro:bit bridge (Web Bluetooth)</span></div>
+    <div><span class="check">&#10003;</span><span class="label">BBC micro:bit <strong style="color:#fff;">V2</strong> (V1 lacks the sound sensor)</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Chrome 90+ or Edge 90+ on desktop or Android (Web Bluetooth)</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Bluetooth enabled on the host device</span></div>
+    <div><span class="check">&#10003;</span><span class="label">Optional: hobby servos on pins <strong style="color:#22c55e;">P1</strong> / <strong style="color:#22c55e;">P2</strong></span></div>
+    <div><span class="check">&#10003;</span><span class="label">No internet needed after first load &mdash; installs as a PWA</span></div>
   </div>
 
   <h2>Key Features</h2>
   <div class="box">
-    <p><strong style="color:#22d3ee;">Call:</strong> two-device peer-to-peer video + audio (PeerJS) &bull; room-code pairing</p>
-    <p><strong style="color:#22d3ee;">Command:</strong> D-pad UP/DOWN/LEFT/RIGHT/STOP &bull; text messages &bull; Speak (local TTS) &bull; Remote speak</p>
-    <p><strong style="color:#22d3ee;">Control:</strong> optional micro:bit V2 BLE UART bridge &mdash; D-pad forwards to the board</p>
-    <p><strong style="color:#22d3ee;">Polish:</strong> camera switch &bull; mic mute &bull; mirror self/remote &bull; remote fullscreen &bull; snapshot PNG &bull; WebM recording &bull; HUD overlay &bull; log panel &bull; cache cleaner</p>
+    <p><strong style="color:#22d3ee;">Control:</strong> 5&times;5 LED matrix &bull; 2 servos (P1/P2) &bull; buzzer &bull; D-pad gamepad</p>
+    <p><strong style="color:#22d3ee;">Read:</strong> temperature &bull; light &bull; sound &bull; accelerometer &bull; compass &bull; buttons &bull; touch pins</p>
+    <p><strong style="color:#22d3ee;">Visualize:</strong> [TODO — chart lib if any] live graph (fullscreen, record, export JSON) &bull; 3D Three.js board view with 5 models</p>
+    <p><strong style="color:#22d3ee;">Polish:</strong> 4 themes &bull; EN / FR / AR &bull; simulate mode &bull; keyboard shortcuts &bull; PWA offline</p>
   </div>
 
   <h2>Privacy</h2>
   <div class="box">
-    <h4>Peer-to-Peer &mdash; Your Media Doesn&apos;t Sit on a Server</h4>
-    <p>Video and audio flow directly between the two devices through WebRTC. A tiny signalling service only helps the two browsers find each other &mdash; the call content itself is peer-to-peer.</p>
+    <h4>100% Local &mdash; Zero Data Collection</h4>
+    <p>Runs entirely in your browser. No accounts, no cloud, no tracking, no analytics. Sessions, settings, and recordings stay on your device. Safe for school networks.</p>
   </div>
 
-  <h2>Keyboard Shortcuts</h2>
-  <p>Only two: <kbd>Enter</kbd> to send a text message, <kbd>Escape</kbd> to close the firmware modal. Everything else is a button or a tap.</p>
+  <h2>Languages</h2>
+  <p>Built-in <strong style="color:#fff;">English</strong>, <strong style="color:#fff;">Français</strong>, and <strong style="color:#fff;">العربية</strong> (full RTL). Cycle with <kbd>L</kbd>.</p>
 
   <h2>Need Help?</h2>
   <div class="box">
     <p>Open <code class="c">docs/guide.html</code> for the complete walkthrough and troubleshooting.</p>
     <p>Open <code class="c">docs/faq.html</code> for the top buyer questions.</p>
-    <p>Stuck on pairing? Make sure both devices typed the <strong style="color:#22c55e;">exact same room code</strong>.</p>
+    <p>Press <kbd>?</kbd> inside the app for the built-in shortcuts overlay.</p>
   </div>
 
   <div class="footer">

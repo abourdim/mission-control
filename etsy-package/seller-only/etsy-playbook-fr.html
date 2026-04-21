@@ -145,14 +145,14 @@
 <h2>Avant d'appuyer sur Rec</h2>
 <div class="card">
   <ul class="checklist" onclick="var li=event.target.closest('li');if(li)li.classList.toggle('checked')">
-    <li><input type="checkbox"><label>micro:bit V2 allumé, icône <kbd>X</kbd> affichée<span class="where">Sinon → reflasher <code>makecode.ts</code></span></label></li>
-    <li><input type="checkbox"><label>Chrome ou Edge ouvert, <code>index.html</code> chargé<span class="where">Safari/Firefox/iOS ne fonctionneront pas</span></label></li>
-    <li><input type="checkbox"><label>BLE connecté — la puce d'état est <strong>verte</strong><span class="where">Cliquez sur 🔗 Connecter, choisissez BBC micro:bit dans la fenêtre</span></label></li>
-    <li><input type="checkbox"><label>Thème choisi — <strong>Neon</strong> rend le mieux à la caméra<span class="where">En-tête → menu rouleau de peinture</span></label></li>
-    <li><input type="checkbox"><label>Servo branché sur P1 (pour Bras Robot / Buggy)</label></li>
-    <li><input type="checkbox"><label>Onglet 3D Board ouvert, Buggy ou Bras Robot sélectionné<span class="where">Onglet 6 → menu des modèles</span></label></li>
-    <li><input type="checkbox"><label>Téléphone en 9:16 sur trépied, éclairé de face</label></li>
-    <li><input type="checkbox"><label>Bureau dégagé — uniquement la carte et un accessoire dans le cadre</label></li>
+    <li><input type="checkbox"><label>Deux appareils prêts — téléphone + ordinateur (ou tablette + ordi, ou deux téléphones)<span class="where">Les deux doivent avoir Chrome ou Edge · caméra + micro autorisés</span></label></li>
+    <li><input type="checkbox"><label>Les deux appareils ont <code>index.html</code> chargé (ou ouvrez <code>abourdim.github.io/mission-control</code>)<span class="where">Safari/Firefox/iOS Safari n'appairent pas de manière fiable — utilisez Chrome/Edge</span></label></li>
+    <li><input type="checkbox"><label>Choisissez un code de salle à 4 lettres et tapez-le sur les <strong>deux</strong> appareils<span class="where">Exemple : <code>ASTRO</code> — la pastille « appairé » passe au vert en 2 s</span></label></li>
+    <li><input type="checkbox"><label>Appel vidéo en cours — les deux caméras visibles de chaque côté<span class="where">Basculez avant/arrière si la caméra arrière cadre mieux la scène</span></label></li>
+    <li><input type="checkbox"><label>(Optionnel) BBC micro:bit V2 appairé en BLE — matrice LED éteinte<span class="where">HTTPS obligatoire pour Bluetooth — utilisez l'URL de démo en ligne, pas file://</span></label></li>
+    <li><input type="checkbox"><label>Niveau micro testé — parlez une fois, le journal RX s'affiche sur l'autre appareil</label></li>
+    <li><input type="checkbox"><label>Le téléphone qui filme est un <em>troisième</em> appareil, en portrait 9:16 sur trépied<span class="where">Ne jamais filmer avec le même téléphone qui fait tourner l'appli</span></label></li>
+    <li><input type="checkbox"><label>Bureau dégagé — uniquement les deux appareils + éventuellement le micro:bit dans le cadre</label></li>
     <li><input type="checkbox"><label>Script lu à voix haute une fois — chronométré sous 55 s</label></li>
   </ul>
 </div>
@@ -162,12 +162,13 @@
 <h2>Structure</h2>
 <div class="card">
   <pre style="color:var(--accent2);font-family:var(--mono);font-size:.9rem;line-height:1.7;margin:0">
- 0–3 s   ACCROCHE    « Regardez ce que ce micro:bit fait en 60 secondes. »
- 3–10 s  CONTEXTE    Carte à l'écran, icône X → le statut passe au vert.
-10–35 s  DÉMO        Inclinez → le modèle 3D suit. Appuyez sur A → cœur LED. Le servo bouge.
-35–50 s  RÉCOMPENSE  Zoom sur le graphique en direct + modèle 3D qui reflète la carte réelle.
-50–55 s  CTA         « Kit complet dans ma boutique — lien ci-dessous. »
-55–60 s  IMAGE FIN   Logo + pseudo figé pour l'aperçu en boucle.</pre>
+ 0–3 s   ACCROCHE    « Deux appareils. Un code de salle. Un D-pad qui traverse le monde. »
+ 3–10 s  CONTEXTE    Tapez « ASTRO » sur les deux → la pastille « appairé » passe au vert.
+10–25 s  DÉMO 1      Appel vidéo · appuyer UP sur le téléphone → la barre RX du laptop affiche UP.
+25–40 s  DÉMO 2      Tapez « À table ! » → PARLER À DISTANCE → le laptop lit la phrase à voix haute.
+40–50 s  RÉCOMPENSE  Option micro:bit — la flèche du D-pad s'affiche sur la matrice LED réelle.
+50–55 s  CTA         « FaceTime + Manette + Talkie-walkie. Lien ci-dessous. »
+55–60 s  IMAGE FIN   Split-screen figé — deux caméras + code de salle visibles.</pre>
 </div>
 
 <!-- ═══════════ SCRIPT ═══════════ -->
@@ -177,92 +178,99 @@
      spécifique à votre produit et chaque `FAIRE` par une action filmable.
      Ne laissez JAMAIS ce fichier partir en production avec les coquilles. -->
 
-<h2>Modèle 6 scènes — Mini Mission Control</h2>
-<p class="aka" style="color:#f59e0b;font-weight:700;">⚠️ Les 6 scènes ci-dessous sont des coquilles. Réécrivez chacune avec une action filmable propre à Mini Mission Control avant de tourner.</p>
+<h2>Script 6 scènes — Mini Mission Control</h2>
+<p class="aka" style="color:#22c55e;font-weight:700;">Call · Command · Control — appel vidéo pair-à-pair + D-pad partagé + talkie-walkie vocal, dans un seul fichier HTML. Tournez dans cet ordre exact.</p>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:00–00:03</span><span class="scene-phase phase-hook">ACCROCHE</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div><em>[Phrase d'accroche — 1 seconde, promesse claire du produit, pourquoi scroller s'arrête]</em></div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div><em>[Le plan d'accroche — ce qu'on voit à l'écran pendant la phrase]</em></div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Deux appareils. Un code de salle. Un D-pad qui traverse le monde. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Split screen : téléphone à gauche, laptop à droite. Appli ouverte des deux côtés. Le même code de salle à 4 lettres (ex. <code>ASTRO</code>) surligné sur chaque écran.</div>
   </div>
 </div>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:03–00:10</span><span class="scene-phase phase-demo">CONTEXTE</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div><em>[Phrase qui situe : à qui c'est destiné, quel problème c'est résolu]</em></div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div><em>[Action à l'écran — setup, connexion, premier affichage utile]</em></div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Pas de serveur. Pas de compte. Juste un code que les deux appareils tapent. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Tapez <code>ASTRO</code> sur les deux appareils. La pastille « appairé » vire au vert. Les deux aperçus caméra apparaissent — WebRTC pair-à-pair via PeerJS, zéro cloud.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">DÉMO 1</span></div>
+  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">DÉMO 1 · VIDÉO + D-PAD</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div><em>[Premier wow-moment — une fonctionnalité phare de Mini Mission Control]</em></div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div><em>[L'action visible — 15 secondes, mouvement à l'écran]</em></div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Appel vidéo en direct — et chaque bouton saute instantanément d'un appareil à l'autre. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Les deux appareils affichent la caméra de l'autre. Un enfant appuie sur <kbd>UP</kbd> sur le téléphone → le D-pad du laptop s'allume sur UP en temps réel et la barre RX affiche <code>UP pressed</code>. Enchaînez LEFT, RIGHT, STOP.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">DÉMO 2</span></div>
+  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">DÉMO 2 · TEXTE + TTS À DISTANCE</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div><em>[Second wow-moment — une deuxième fonctionnalité / cas d'usage]</em></div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div><em>[L'action visible — 15 secondes]</em></div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Tapez ici, la voix sort là-bas. Talkie-walkie familial pour de vrai. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Le parent tape <em>« À table ! »</em> sur le téléphone, appuie sur <strong>PARLER À DISTANCE</strong> — les haut-parleurs du laptop prononcent la phrase via la synthèse vocale du navigateur. Montrez le journal RX qui défile.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">RÉCOMPENSE</span></div>
+  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">RÉCOMPENSE · pont micro:bit</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div><em>[Le « pourquoi c'est utile » — bénéfice concret : temps gagné, sécurité, compétence acquise]</em></div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div><em>[L'écran qui porte le message — export, capture, résultat visible]</em></div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« FaceTime + Manette + Talkie-walkie. Dans un seul fichier HTML. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>(Beat matériel optionnel.) Un BBC micro:bit V2 entre les deux appareils. Appuyez sur UP sur le D-pad du téléphone — la matrice LED du micro:bit dessine la flèche UP. LEFT → flèche pivote. Les commandes passent en BLE UART jusqu'à la carte.</div>
   </div>
 </div>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:50–00:60</span><span class="scene-phase phase-cta">CTA + IMAGE DE FIN</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 DIRE</div><em>[Appel à l'action — kit complet + lien en description]</em></div>
-    <div class="do"><div class="do-label">🎬 FAIRE</div><em>[Overlay logo + image de fin, 3 secondes immobile]</em></div>
+    <div class="say"><div class="say-label">🎙 DIRE</div>« Pair-à-pair. Chrome ou Edge. Sans danger pour les enfants. Lien ci-dessous. »</div>
+    <div class="do"><div class="do-label">🎬 FAIRE</div>Fin sur le split-screen avec les deux caméras en direct et la pastille verte « appairé ». Overlay pseudo boutique + logo Mini Mission Control. Image figée 3 s pour que la boucle repart sur cette frame.</div>
   </div>
 </div>
 
 <!-- ═══════════ TEXTE D'ANNONCE ═══════════ -->
 <div class="slug" id="listing">SLUG — TEXTE D'ANNONCE PRÊT À COPIER</div>
 <h2>Titre Etsy (140 caractères max)</h2>
-<div class="copybox">[TODO — titre Etsy 140 caractères, voir ETSY_LISTING-fr.md]<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
+<div class="copybox">Mini Mission Control — Appel Vidéo Pair-à-Pair + D-Pad à Distance + Talkie-Walkie Vocal · Chrome/Edge · Sans Compte · micro:bit optionnel<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
 
 <h2>Description courte (160 premiers caractères — affichés en recherche)</h2>
-<div class="copybox">[TODO — description courte 160 caractères, voir ETSY_LISTING-fr.md]<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
+<div class="copybox">Call · Command · Control. Un code de salle sur deux appareils — appel vidéo, D-pad partagé, talkie-walkie vocal. Pair-à-pair, sans cloud, sans compte.<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPIER</button></div>
 
 <h2>Description complète</h2>
-<div class="copybox">🎮 Mini Mission Control — un panneau de contrôle BLE dans le navigateur pour le BBC micro:bit V2.
+<div class="copybox">🧑‍🚀 Mini Mission Control — Call · Command · Control.
 
-[TODO — 1-phrase pitch de ce que le produit fait quand on ouvre le fichier]
+Deux appareils. Un code de salle. Un seul fichier HTML. Appel vidéo pair-à-pair + D-pad partagé entre appareils + talkie-walkie à synthèse vocale — directement dans le navigateur, sans serveur, sans compte, sans cloud.
+
 CE QUE VOUS OBTENEZ
-• [TODO — product-specific feature 1]• [TODO — your live signal list]• [TODO — your control surface if any]• [TODO — your interactive surface]
-• [TODO — your record/replay/export feature]• [TODO — your visualization feature if any]• [TODO — your themes / UI variety + languages]• 📱 PWA — installable, utilisable hors ligne
-• [TODO — learning modes if any]
+• 📹 Appel vidéo + audio pair-à-pair entre deux appareils via PeerJS (WebRTC) — laptop↔téléphone, tablette↔laptop, deux téléphones, toutes combinaisons
+• 🎮 D-pad partagé à 5 boutons (UP / DOWN / LEFT / RIGHT / STOP) — appuyez sur l'appareil A, ça se déclenche sur l'appareil B en temps réel
+• 💬 Canal texte avec TTS local (« Speak » — lire ici) et TTS distant (« Remote speak » — faire parler l'autre appareil à voix haute)
+• 🔑 Appairage par code de salle — tapez le même code à 4 lettres sur les deux appareils, ils se connectent. Aucun compte, aucune connexion.
+• 🤖 Pont optionnel BBC micro:bit V2 — les commandes du D-pad traversent en BLE UART et allument les flèches sur la matrice LED
+• 🎥 Outils caméra — bascule avant/arrière, coupure micro, miroir soi, miroir distant, demande de plein écran distant
+• 📸 Outils capture — snapshot PNG, enregistrement WebM, overlay HUD, barre RX des commandes en direct
+• 📜 Panneau de logs — TX + RX + événements système, 100% local, nettoyeur de cache intégré
+• 🧑‍🚀 Onboarding thème astronaute : « Bienvenue, petit astronaute »
 
 CONTENU DU TÉLÉCHARGEMENT
-• index.html — l'application complète
-• makecode.ts — firmware micro:bit (à flasher une fois depuis MakeCode)
+• index.html — l'application complète (vidéo + D-pad + TTS, sans build)
+• makecode.ts — firmware micro:bit V2 optionnel (à flasher une fois depuis MakeCode)
 • SETUP.md — démarrage rapide en 5 minutes
 • docs/ — guide illustré, aide-mémoire, FAQ, playbook Etsy
 • LICENSE — licence mono-utilisateur personnelle / classe
 
 PRÉREQUIS
-• BBC micro:bit V2 (V1 fonctionne mais sans capteur de son)
-• Chrome ou Edge sur ordinateur (ou Chrome sur Android)
-• Bluetooth activé
-• HTTPS ou file:// — un double-clic sur le HTML suffit
+• Deux appareils avec Chrome ou Edge (laptop + téléphone, tablette + laptop, ou deux téléphones)
+• Autorisations caméra + micro accordées dans le navigateur
+• Optionnel : BBC micro:bit V2 pour le pont LED-flèche en BLE (HTTPS requis pour Bluetooth)
+• Fonctionne hors ligne en file:// pour vidéo/D-pad/TTS ; utilisez HTTPS pour activer le pont micro:bit
 
 POUR QUI
-Enseignants animant des ateliers STEM · familles en école à la maison · clubs de robotique · makers prototypant des projets BLE · toute personne curieuse du micro:bit.
+Familles qui veulent un talkie-walkie sans danger entre les pièces · enseignants qui animent des démos STEM à distance · clubs robotiques qui appairent une manette à un robot · makers qui prototypent du WebRTC pair-à-pair · petits astronautes curieux 🧑‍🚀
 
 CONFIDENTIALITÉ D'ABORD
-Rien ne quitte votre ordinateur. Pas d'analytique, pas de connexion, pas de cloud. Tous les calibrages, enregistrements et préréglages restent dans le localStorage du navigateur et sur votre disque.
+Pair-à-pair uniquement. Vidéo et audio circulent d'appareil à appareil en WebRTC — aucune analytique, aucune connexion, aucun enregistrement cloud. Le seul trafic externe est une courte poignée de main d'appairage via le broker public PeerJS. Captures, enregistrements et logs restent sur votre disque.
 
 MISES À JOUR À VIE
 Chaque version publiée depuis cette annonce est à vous pour toujours. Retéléchargez le dernier ZIP à tout moment depuis votre page Achats Etsy.
@@ -281,48 +289,48 @@ Bon hacking ! 🚀🎮🤖<button class="copybtn" onclick="navigator.clipboard.w
 <div class="slug" id="tags">SLUG — ÉTIQUETTES + MATÉRIAUX</div>
 <h2>13 étiquettes Etsy (20 caractères chacune)</h2>
 <div class="pills">
+  <span class="pill">appel vidéo</span>
+  <span class="pill">pair à pair</span>
+  <span class="pill">webrtc</span>
+  <span class="pill">d-pad distant</span>
+  <span class="pill">talkie walkie</span>
+  <span class="pill">synthèse vocale</span>
+  <span class="pill">code de salle</span>
   <span class="pill">micro:bit</span>
-  <span class="pill">BLE</span>
-  <span class="pill">bluetooth</span>
-  <span class="pill">éducation</span>
-  <span class="pill">STEM</span>
-  <span class="pill">robotique</span>
-  <span class="pill">code enfants</span>
-  <span class="pill">ressource prof</span>
-  <span class="pill">capteurs</span>
-  <span class="pill">[product tag]</span>
-  <span class="pill">classe</span>
-  <span class="pill">école maison</span>
-  <span class="pill">makerspace</span>
+  <span class="pill">STEM enfants</span>
+  <span class="pill">appel famille</span>
+  <span class="pill">sans compte</span>
+  <span class="pill">appli navigateur</span>
+  <span class="pill">chrome edge</span>
 </div>
 
 <h2>Matériaux (ce qui le fait tourner)</h2>
 <div class="pills">
   <span class="pill">HTML5</span>
   <span class="pill">JavaScript</span>
+  <span class="pill">PeerJS</span>
+  <span class="pill">WebRTC</span>
   <span class="pill">Web Bluetooth</span>
-  <span class="pill">[render lib]</span>
-  <span class="pill">[3D lib if any]</span>
-  <span class="pill">PWA</span>
+  <span class="pill">Web Speech API</span>
   <span class="pill">MakeCode</span>
   <span class="pill">TypeScript</span>
 </div>
 
 <h2>Mots-clés SEO</h2>
-<p><code>dans-le-navigateur</code> · <code>sans-installation</code> · <code>respect-vie-privée</code> · <code>hors-ligne</code> · <code>web bluetooth</code> · <code>ressource enseignant</code> · <code>atelier STEM</code> · <code>micro:bit V2</code></p>
+<p><code>appel vidéo pair-à-pair</code> · <code>appairage par code</code> · <code>D-pad à distance</code> · <code>TTS distant</code> · <code>talkie-walkie enfant</code> · <code>sans compte sans cloud</code> · <code>WebRTC navigateur</code> · <code>pont micro:bit BLE</code></p>
 
 <!-- ═══════════ IMAGES ═══════════ -->
 <div class="slug" id="images">SLUG — ORDRE DES 7 IMAGES</div>
 <h2>Séquence d'images (Etsy affiche 1 &amp; 2 en plus grand)</h2>
 <div class="card">
   <ol style="padding-left:22px;line-height:2">
-    <li><strong>[TODO — Hero shot: hardware + computer screen showing the marquee product state]</strong></li>
-    <li><strong>[TODO — grille des écrans ou fonctionnalités du produit]</strong></li>
-    <li><strong>[TODO — plan serré sur votre feature phare]</strong></li>
-    <li><strong>[TODO — split screen of two headline product features]</strong> — capture partagée montrant deux des cinq modèles Three.js.</li>
-    <li><strong>[TODO — plan main-sur-carte ou démo terrain]</strong></li>
-    <li><strong>[TODO — styling / variety grid].</li>
-    <li><strong>Carte texte</strong> — « Licence mono-utilisateur · Mises à jour à vie · Pas de cloud · Chrome / Edge » sur dégradé sombre.</li>
+    <li><strong>Hero — split screen</strong> : téléphone à gauche (D-pad visible) + laptop à droite (vidéo distante visible) + un BBC micro:bit entre les deux affichant une flèche LED. Bandeau : « Call · Command · Control. »</li>
+    <li><strong>UI d'appairage par code</strong> — les deux appareils côte-à-côte, le même code à 4 lettres (ex. <code>ASTRO</code>) surligné sur chaque écran, pastille verte « appairé » allumée.</li>
+    <li><strong>D-pad plein écran</strong> — plan serré sur les 5 boutons du D-pad avec la barre RX qui affiche la dernière commande reçue (« UP pressed ») en animation.</li>
+    <li><strong>Canal texte + TTS</strong> — split screenshot : message tapé « À table ! » d'un côté, icône haut-parleur + animation d'onde de l'autre.</li>
+    <li><strong>Outils de capture</strong> — boutons snapshot + record dans la barre d'outils, miniature PNG en aperçu, point rouge d'enregistrement visible.</li>
+    <li><strong>Flèche LED micro:bit</strong> — plan serré sur la matrice LED d'un BBC micro:bit V2 qui affiche une flèche correspondant à la direction pressée sur le D-pad à côté.</li>
+    <li><strong>Onboarding astronaute + carte licence</strong> — splash « Bienvenue, petit astronaute 🧑‍🚀 » par-dessus « Licence mono-utilisateur · Mises à jour à vie · Pas de cloud · Chrome / Edge » sur dégradé sombre.</li>
   </ol>
 </div>
 
@@ -331,7 +339,7 @@ Bon hacking ! 🚀🎮🤖<button class="copybtn" onclick="navigator.clipboard.w
 <h2>Erreurs fréquentes</h2>
 <table>
   <tr><th>❌ À éviter</th><th>✅ À faire</th></tr>
-  <tr><td>Commencer par « Bonjour, je suis… » + 10 s d'intro</td><td>Ouvrir avec une action produit visible dans les 3 premières secondes</td></tr>
+  <tr><td>Commencer par « Bonjour, je suis… » + 10 s d'intro</td><td>Ouvrir sur le split-screen — pastille « appairé » qui vire au vert dans les 3 premières secondes</td></tr>
   <tr><td>Filmer en paysage (16:9)</td><td>Portrait 9:16 — Etsy lit en auto sur mobile</td></tr>
   <tr><td>Parler par-dessus une animation chargée</td><td>Laisser le visuel respirer 1 s, puis expliquer</td></tr>
   <tr><td>Oublier les sous-titres (Etsy joue muet)</td><td>Incruster des sous-titres ou ajouter un texte à chaque scène</td></tr>
@@ -341,10 +349,10 @@ Bon hacking ! 🚀🎮🤖<button class="copybtn" onclick="navigator.clipboard.w
 
 <!-- ═══════════ CARTE RAPIDE ═══════════ -->
 <div class="slug">SLUG — AIDE-MÉMOIRE DE POCHE</div>
-<div class="copybox">PRÉ     V2 allumé (icône X) · Chrome ouvert · BLE vert · téléphone 9:16
-TOURNE  Accroche en 3 s · [TODO — 3 key verbs for your product] · CTA
-POST    Coupez à 55 s · sous-titres incrustés · première image = miniature
-ANNONCE Titre · desc 160 car. · 13 étiquettes · 7 images · tarifs</div>
+<div class="copybox">PRÉ     2 appareils · Chrome/Edge · même code de salle · caméra + micro autorisés · micro:bit V2 optionnel
+TOURNE  Accroche appairée → appel vidéo → D-pad inter-appareils → texte TTS → miroir micro:bit → CTA
+POST    Coupez à 55 s · sous-titres incrustés · première image = split double appareil
+ANNONCE Titre · desc 160 car. · 13 étiquettes · 7 images · tarifs — voir ETSY_LISTING-fr.md</div>
 
 <p style="text-align:center;margin-top:40px;color:var(--muted);font-size:.85rem">
   Mini Mission Control v1.0.0 — Playbook Etsy 1 minute · imprimer en A4 · plastifier · à garder à côté de votre matériel de tournage

@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════
+  ⚠️  REWRITE PER PRODUCT — DO NOT SHIP AS-IS
+  ───────────────────────────────────────────────────────────────────────
+  apply-template.mjs only substituted identifiers (Mini Mission Control,
+  v1.0.0, {{LIVE_DEMO_URL}}, etc.). The feature content, steps,
+  shortcuts, and examples below were inherited from the template's
+  source product (bit-playground) and WILL BE WRONG for your product
+  unless you rewrite them.
+  
+  Before including this file in a buyer ZIP:
+    1. Delete this banner.
+    2. Rewrite every mention of specific features, shortcuts,
+       tab names, hardware interactions, etc. to match your product.
+    3. Verify with: grep -iE "servo|chart\.js|3d board|gamepad|
+       accelerometer|compass|led matrix|8 tabs|sensors tab" this-file.
+  ═══════════════════════════════════════════════════════════════════════
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -46,54 +64,54 @@
 
   <div class="header">
     <h1>Mini Mission Control Achievement Stickers</h1>
-    <p>Print on sticker paper &bull; Cut along the dashed lines &bull; Reward young astronauts!</p>
+    <p>Print on sticker paper &bull; Cut along the dashed lines &bull; Reward young makers!</p>
   </div>
 
   <div class="grid">
     <!-- Row 1: core milestones -->
-    <div class="sticker s-green"><div class="emoji">🤝</div><div class="label">First<br>Pair</div></div>
-    <div class="sticker s-cyan"><div class="emoji">📞</div><div class="label">First<br>Call</div></div>
-    <div class="sticker s-gold"><div class="emoji">🔤</div><div class="label">Room Code<br>Whisperer</div></div>
-    <div class="sticker s-purple"><div class="emoji">🎮</div><div class="label">D-pad<br>Driver</div></div>
-    <div class="sticker s-red"><div class="emoji">💬</div><div class="label">Text<br>Master</div></div>
+    <div class="sticker s-green"><div class="emoji">📡</div><div class="label">I Connected<br>BLE!</div></div>
+    <div class="sticker s-cyan"><div class="emoji">⚡</div><div class="label">Firmware<br>Flasher</div></div>
+    <div class="sticker s-gold"><div class="emoji">💡</div><div class="label">LED<br>Artist</div></div>
+    <div class="sticker s-purple"><div class="emoji">🌡️</div><div class="label">Sensor<br>Detective</div></div>
+    <div class="sticker s-red"><div class="emoji">📈</div><div class="label">Graph<br>Reader</div></div>
 
     <!-- Row 2: skills -->
-    <div class="sticker s-green"><div class="emoji">🗣️</div><div class="label">Speak<br>Star</div></div>
-    <div class="sticker s-cyan"><div class="emoji">📢</div><div class="label">Remote<br>Speaker</div></div>
-    <div class="sticker s-gold"><div class="emoji">🎥</div><div class="label">Camera<br>Flipper</div></div>
-    <div class="sticker s-purple"><div class="emoji">🎙️</div><div class="label">Mic<br>Boss</div></div>
-    <div class="sticker s-green"><div class="emoji">🪞</div><div class="label">Mirror<br>Mage</div></div>
+    <div class="sticker s-green"><div class="emoji">⚙️</div><div class="label">[TODO — actuator if any]<br>Pilot</div></div>
+    <div class="sticker s-cyan"><div class="emoji">🎮</div><div class="label">[TODO — control surface]<br>Hero</div></div>
+    <div class="sticker s-gold"><div class="emoji">🎲</div><div class="label">3D Board<br>Explorer</div></div>
+    <div class="sticker s-purple"><div class="emoji">⏺</div><div class="label">Session<br>Recorder</div></div>
+    <div class="sticker s-green"><div class="emoji">🤖</div><div class="label">Buggy<br>Driver</div></div>
 
-    <!-- Row 3: capture + HUD -->
-    <div class="sticker s-dark"><div class="emoji">📸</div><div class="label">Snapshot<br>Scout</div></div>
-    <div class="sticker s-dark"><div class="emoji">⏺</div><div class="label">Recording<br>Rookie</div></div>
-    <div class="sticker s-dark"><div class="emoji">🛰️</div><div class="label">HUD<br>Hero</div></div>
-    <div class="sticker s-dark"><div class="emoji">📋</div><div class="label">Log Panel<br>Detective</div></div>
-    <div class="sticker s-dark"><div class="emoji">🧹</div><div class="label">Cache<br>Cleaner</div></div>
+    <!-- Row 3: 3D models -->
+    <div class="sticker s-dark"><div class="emoji">🔲</div><div class="label">micro:bit<br>V2 Expert</div></div>
+    <div class="sticker s-dark"><div class="emoji">🚗</div><div class="label">Buggy<br>Builder</div></div>
+    <div class="sticker s-dark"><div class="emoji">🦾</div><div class="label">[TODO — feature]<br>Operator</div></div>
+    <div class="sticker s-dark"><div class="emoji">🎯</div><div class="label">Balance<br>Master</div></div>
+    <div class="sticker s-dark"><div class="emoji">🌦️</div><div class="label">Weather<br>Watcher</div></div>
 
-    <!-- Row 4: D-pad directions -->
-    <div class="sticker s-dark"><div class="emoji">⬆️</div><div class="label">UP<br>Pilot</div></div>
-    <div class="sticker s-cyan"><div class="emoji">⬇️</div><div class="label">DOWN<br>Diver</div></div>
-    <div class="sticker s-cyan"><div class="emoji">⬅️</div><div class="label">LEFT<br>Looper</div></div>
-    <div class="sticker s-red"><div class="emoji">➡️</div><div class="label">RIGHT<br>Ranger</div></div>
-    <div class="sticker s-gold"><div class="emoji">🛑</div><div class="label">STOP<br>Sentinel</div></div>
+    <!-- Row 4: themes -->
+    <div class="sticker s-dark"><div class="emoji">🥷</div><div class="label">Stealth<br>Theme</div></div>
+    <div class="sticker s-cyan"><div class="emoji">💠</div><div class="label">Neon<br>Theme</div></div>
+    <div class="sticker s-cyan"><div class="emoji">❄️</div><div class="label">Arctic<br>Theme</div></div>
+    <div class="sticker s-red"><div class="emoji">🔥</div><div class="label">Blaze<br>Theme</div></div>
+    <div class="sticker s-gold"><div class="emoji">🎨</div><div class="label">All 4<br>Themes!</div></div>
 
-    <!-- Row 5: hardware + connectivity -->
-    <div class="sticker s-green"><div class="emoji">📡</div><div class="label">micro:bit<br>Linker</div></div>
-    <div class="sticker s-cyan"><div class="emoji">🔵</div><div class="label">BLE<br>Bridge</div></div>
-    <div class="sticker s-gold"><div class="emoji">🌐</div><div class="label">HTTPS<br>Hero</div></div>
-    <div class="sticker s-purple"><div class="emoji">🧙</div><div class="label">Host<br>Wizard</div></div>
-    <div class="sticker s-red"><div class="emoji">👤</div><div class="label">Guest<br>Genius</div></div>
+    <!-- Row 5: languages + challenges -->
+    <div class="sticker s-green"><div class="emoji">🇬🇧</div><div class="label">English<br>Mode</div></div>
+    <div class="sticker s-cyan"><div class="emoji">🇫🇷</div><div class="label">Mode<br>Français</div></div>
+    <div class="sticker s-gold"><div class="emoji">🇩🇿</div><div class="label">العربية<br>RTL</div></div>
+    <div class="sticker s-purple"><div class="emoji">🧙</div><div class="label">Expert<br>Mode</div></div>
+    <div class="sticker s-red"><div class="emoji">🐣</div><div class="label">Beginner<br>Level Up!</div></div>
 
-    <!-- Row 6: fun milestones -->
-    <div class="sticker s-green"><div class="emoji">🧑‍🚀</div><div class="label">Space<br>Cadet</div></div>
-    <div class="sticker s-dark"><div class="emoji">🚀</div><div class="label">Ready for<br>Launch!</div></div>
-    <div class="sticker s-cyan"><div class="emoji">✨</div><div class="label">Tiny<br>Astronaut</div></div>
-    <div class="sticker s-gold"><div class="emoji">🏆</div><div class="label">Mission<br>Champion</div></div>
-    <div class="sticker s-red"><div class="emoji">🎉</div><div class="label">Call • Command<br>• Control!</div></div>
+    <!-- Row 6: extras -->
+    <div class="sticker s-green"><div class="emoji">🎵</div><div class="label">Sound<br>Sleuth</div></div>
+    <div class="sticker s-dark"><div class="emoji">🧭</div><div class="label">Compass<br>Reader</div></div>
+    <div class="sticker s-cyan"><div class="emoji">📊</div><div class="label">Data<br>Scientist</div></div>
+    <div class="sticker s-gold"><div class="emoji">🏆</div><div class="label">Playground<br>Champion</div></div>
+    <div class="sticker s-red"><div class="emoji">🚀</div><div class="label">Ready for<br>Launch!</div></div>
   </div>
 
-  <div class="cut-note">Cut along dashed lines &bull; Stick on notebooks, laptops, or space helmets!</div>
+  <div class="cut-note">Cut along dashed lines &bull; Stick on notebooks, laptops, or lab coats!</div>
 
   <div class="footer">Mini Mission Control Sticker Sheet &bull; v1.0.0 &bull; Print on A4 sticker paper</div>
 

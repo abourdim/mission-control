@@ -145,14 +145,14 @@
 <h2>Before you press Record</h2>
 <div class="card">
   <ul class="checklist" onclick="var li=event.target.closest('li');if(li)li.classList.toggle('checked')">
-    <li><input type="checkbox"><label>micro:bit V2 powered on, showing <kbd>X</kbd> icon<span class="where">If not → reflash <code>makecode.ts</code></span></label></li>
-    <li><input type="checkbox"><label>Chrome or Edge open, <code>index.html</code> loaded<span class="where">Safari/Firefox/iOS will not work</span></label></li>
-    <li><input type="checkbox"><label>BLE connected — status chip is <strong>green</strong><span class="where">Click 🔗 Connect, pick BBC micro:bit from picker</span></label></li>
-    <li><input type="checkbox"><label>Theme picked — <strong>Neon</strong> looks best on camera<span class="where">Header → paint-roller dropdown</span></label></li>
-    <li><input type="checkbox"><label>Servo plugged into P1 (if showing Robot Arm / Buggy)</label></li>
-    <li><input type="checkbox"><label>3D Board tab open, Buggy or Robot Arm selected<span class="where">Tab 6 → model dropdown</span></label></li>
-    <li><input type="checkbox"><label>Phone in 9:16 mode on a tripod, lit from the front</label></li>
-    <li><input type="checkbox"><label>Desk cleared — only the board and one prop in frame</label></li>
+    <li><input type="checkbox"><label>Two devices ready — phone + laptop (or tablet + laptop, or two phones)<span class="where">Both need Chrome or Edge · camera + mic allowed</span></label></li>
+    <li><input type="checkbox"><label>Both devices have <code>index.html</code> loaded (or open <code>abourdim.github.io/mission-control</code>)<span class="where">Safari/Firefox/iOS Safari will not pair reliably — use Chrome/Edge</span></label></li>
+    <li><input type="checkbox"><label>Pick a 4-letter room code and type it on <strong>both</strong> devices<span class="where">Example: <code>ASTRO</code> — paired chip turns green within 2 s</span></label></li>
+    <li><input type="checkbox"><label>Video call live — both cameras visible on both devices<span class="where">Tap the camera switch if the back lens would film the frame better</span></label></li>
+    <li><input type="checkbox"><label>(Optional) BBC micro:bit V2 paired over BLE — LED matrix clear<span class="where">HTTPS required for Bluetooth — use the live demo URL, not file://</span></label></li>
+    <li><input type="checkbox"><label>Mic level tested — speak once, RX log on the other device shows activity</label></li>
+    <li><input type="checkbox"><label>Shooting phone is a <em>third</em> device in 9:16 portrait on a tripod<span class="where">Never film with the same phone that is running the app</span></label></li>
+    <li><input type="checkbox"><label>Desk cleared — both devices + optional micro:bit in the frame, nothing else</label></li>
     <li><input type="checkbox"><label>Script read aloud once — timed under 55 s</label></li>
   </ul>
 </div>
@@ -162,12 +162,13 @@
 <h2>Structure</h2>
 <div class="card">
   <pre style="color:var(--accent2);font-family:var(--mono);font-size:.9rem;line-height:1.7;margin:0">
- 0–3 s   HOOK        "Watch what this micro:bit does in 60 seconds."
- 3–10 s  CONTEXT     Board on-screen, X icon → status turns green.
-10–35 s  DEMO        Tilt → 3D model follows. Press A → LED heart. Servo swings.
-35–50 s  PAYOFF      Zoom on live graph + 3D model mirroring real board.
-50–55 s  CTA         "Full kit in my shop — link below."
-55–60 s  END FRAME   Logo + handle frozen for the loop preview.</pre>
+ 0–3 s   HOOK        "Two devices. One room code. Instant D-pad across the world."
+ 3–10 s  CONTEXT     Type "ASTRO" on both devices → paired chip goes green.
+10–25 s  DEMO 1      Video call live · press UP on phone → laptop RX bar lights UP.
+25–40 s  DEMO 2      Type "Dinner ready!" → tap REMOTE SPEAK → laptop says it aloud.
+40–50 s  PAYOFF      Optional micro:bit — D-pad arrow mirrored on the real LED matrix.
+50–55 s  CTA         "FaceTime + GameController + walkie-talkie. Link below."
+55–60 s  END FRAME   Split frame frozen — both cameras + room code on screen.</pre>
 </div>
 
 <!-- ═══════════ SCRIPT ═══════════ -->
@@ -176,92 +177,99 @@
      Fill each SAY/DO with a product-specific line BEFORE shooting.
      Never ship this file with the placeholder italics still in place. -->
 
-<h2>6-scene template — Mini Mission Control</h2>
-<p class="aka" style="color:#f59e0b;font-weight:700;">⚠️ The 6 scenes below are shells. Replace every line with a filmable action specific to Mini Mission Control before you shoot.</p>
+<h2>6-scene script — Mini Mission Control</h2>
+<p class="aka" style="color:#22c55e;font-weight:700;">Call · Command · Control — peer-to-peer video + D-pad + walkie-talkie in one HTML file. Shoot in this exact order.</p>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:00–00:03</span><span class="scene-phase phase-hook">HOOK</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 SAY</div><em>[Hook line — 1-second promise, the reason a scroller stops]</em></div>
-    <div class="do"><div class="do-label">🎬 DO</div><em>[The hook shot — what the viewer sees during the line]</em></div>
+    <div class="say"><div class="say-label">🎙 SAY</div>"Two devices. One room code. Instant D-pad across the world."</div>
+    <div class="do"><div class="do-label">🎬 DO</div>Split frame: phone on the left, laptop on the right. Both have the app open. Same 4-letter room code (e.g. <code>ASTRO</code>) highlighted on each screen.</div>
   </div>
 </div>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:03–00:10</span><span class="scene-phase phase-demo">CONTEXT</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 SAY</div><em>[Who this is for, what problem it solves]</em></div>
-    <div class="do"><div class="do-label">🎬 DO</div><em>[Setup shot — connecting, first meaningful screen]</em></div>
+    <div class="say"><div class="say-label">🎙 SAY</div>"No server. No account. Just a code both devices type in."</div>
+    <div class="do"><div class="do-label">🎬 DO</div>Type <code>ASTRO</code> on both devices. Paired status chip flips to green. Both camera previews pop in — peer-to-peer WebRTC via PeerJS, no cloud.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">DEMO 1</span></div>
+  <div class="scene-head"><span class="scene-time">00:10–00:25</span><span class="scene-phase phase-demo">DEMO 1 · VIDEO + D-PAD</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 SAY</div><em>[First wow-moment — a marquee feature of Mini Mission Control]</em></div>
-    <div class="do"><div class="do-label">🎬 DO</div><em>[The 15-second action shot]</em></div>
+    <div class="say"><div class="say-label">🎙 SAY</div>"Video call live — and every button press jumps across instantly."</div>
+    <div class="do"><div class="do-label">🎬 DO</div>Both devices show each other's camera. A kid presses <kbd>UP</kbd> on the phone → the laptop's D-pad lights UP in real time and the RX bar prints <code>UP pressed</code>. Press LEFT, RIGHT, STOP — each one mirrors instantly.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">DEMO 2</span></div>
+  <div class="scene-head"><span class="scene-time">00:25–00:40</span><span class="scene-phase phase-demo">DEMO 2 · TEXT + REMOTE TTS</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 SAY</div><em>[Second wow-moment — second feature / use case]</em></div>
-    <div class="do"><div class="do-label">🎬 DO</div><em>[The 15-second action shot]</em></div>
+    <div class="say"><div class="say-label">🎙 SAY</div>"Type here, speak there. Walkie-talkie for real families."</div>
+    <div class="do"><div class="do-label">🎬 DO</div>Parent types <em>"Dinner ready!"</em> on phone, taps <strong>REMOTE SPEAK</strong> — the laptop's speakers say the words out loud through the browser TTS. Show the RX log scrolling on the receiving device.</div>
   </div>
 </div>
 
 <div class="scene">
-  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">PAYOFF</span></div>
+  <div class="scene-head"><span class="scene-time">00:40–00:50</span><span class="scene-phase phase-payoff">PAYOFF · micro:bit bridge</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 SAY</div><em>[The "why it matters" — time saved, skill acquired, safety]</em></div>
-    <div class="do"><div class="do-label">🎬 DO</div><em>[The screen that carries the message — export, capture, result]</em></div>
+    <div class="say"><div class="say-label">🎙 SAY</div>"FaceTime + GameController + walkie-talkie. In one HTML file."</div>
+    <div class="do"><div class="do-label">🎬 DO</div>(Optional hardware beat.) A BBC micro:bit V2 sits between the two devices. Press UP on the phone D-pad — the micro:bit's LED matrix draws the UP arrow. Press LEFT — arrow rotates. D-pad commands flow over BLE UART to the board.</div>
   </div>
 </div>
 
 <div class="scene">
   <div class="scene-head"><span class="scene-time">00:50–00:60</span><span class="scene-phase phase-cta">CTA + END FRAME</span></div>
   <div class="scene-body">
-    <div class="say"><div class="say-label">🎙 SAY</div><em>[Call to action — full kit + link in description]</em></div>
-    <div class="do"><div class="do-label">🎬 DO</div><em>[Logo overlay, 3-second still for the loop]</em></div>
+    <div class="say"><div class="say-label">🎙 SAY</div>"Peer-to-peer. Chrome or Edge. Kid-safe. Link below."</div>
+    <div class="do"><div class="do-label">🎬 DO</div>End on the split-frame shot with both cameras live and the green paired chip. Overlay the shop handle and Mini Mission Control logo. 3-second hold so the loop starts on this frame.</div>
   </div>
 </div>
 
 <!-- ═══════════ LISTING COPY ═══════════ -->
 <div class="slug" id="listing">SLUG — COPY-READY LISTING TEXT</div>
 <h2>Etsy title (140 chars max)</h2>
-<div class="copybox">[TODO — 140-char Etsy title, see ETSY_LISTING.md]<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPY</button></div>
+<div class="copybox">Mini Mission Control — Peer-to-Peer Video Call + D-Pad Remote + Walkie-Talkie TTS for Kids · Chrome/Edge · No Account · Optional micro:bit<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPY</button></div>
 
 <h2>Short description (first 160 chars — shown in search)</h2>
-<div class="copybox">[TODO — 160-char short description, see ETSY_LISTING.md]<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPY</button></div>
+<div class="copybox">Call · Command · Control. Type one room code on two devices — instant video call, D-pad remote, text-to-speech walkie-talkie. Peer-to-peer, no cloud.<button class="copybtn" onclick="navigator.clipboard.writeText(this.previousSibling.textContent.trim())">COPY</button></div>
 
 <h2>Full description</h2>
-<div class="copybox">🎮 Mini Mission Control — a browser-based BLE control panel for the BBC micro:bit V2.
+<div class="copybox">🧑‍🚀 Mini Mission Control — Call · Command · Control.
 
-[TODO — 1-sentence pitch of what the product does when opened]
+Two devices. One room code. One HTML file. Instant peer-to-peer video call + cross-device D-pad remote + text-to-speech walkie-talkie — all in the browser, no server, no account, no cloud.
+
 WHAT YOU GET
-• [TODO — product-specific feature 1]• [TODO — your live signal list]• [TODO — your control surface if any]• [TODO — your interactive surface]
-• [TODO — your record/replay/export feature]• [TODO — your visualization feature if any]• [TODO — your themes / UI variety + languages]• 📱 PWA — installable, offline-capable
-• 👶 Beginner mode + 🧙 Expert mode
+• 📹 Two-device peer-to-peer video + audio call via PeerJS (WebRTC) — laptop↔phone, tablet↔laptop, two phones, any combo
+• 🎮 Shared 5-button D-pad (UP / DOWN / LEFT / RIGHT / STOP) — press on device A, fires on device B in real time
+• 💬 Text channel with Local TTS ("Speak" — say it here) and Remote TTS ("Remote speak" — make the other device speak out loud)
+• 🔑 Room-code pairing — type the same 4-letter code on both devices, they link. No accounts, no logins.
+• 🤖 Optional BBC micro:bit V2 bridge — D-pad commands forward over BLE UART and light up arrow icons on the LED matrix
+• 🎥 Camera tools — switch front/back, mute mic, mirror self, mirror remote, request remote fullscreen
+• 📸 Capture tools — PNG snapshot, WebM recording, HUD overlay toggle, live RX command bar
+• 📜 Log panel — TX + RX + system events, local-only, cache cleaner built in
+• 🧑‍🚀 Astronaut-themed onboarding: "Welcome, tiny astronaut"
 
 WHAT'S IN YOUR DOWNLOAD
-• index.html — the full app
-• makecode.ts — micro:bit firmware (flash once from MakeCode)
+• index.html — the full app (video + D-pad + TTS, no build step)
+• makecode.ts — optional micro:bit V2 firmware (flash once from MakeCode)
 • SETUP.md — 5-minute quick-start
 • docs/ — illustrated guide, cheat sheet, FAQ, Etsy playbook
 • LICENSE — personal / classroom single-user license
 
 REQUIREMENTS
-• BBC micro:bit V2 (V1 works but has no sound sensor)
-• Chrome or Edge on desktop (or Chrome on Android)
-• Bluetooth enabled
-• HTTPS or file:// — double-clicking the HTML works
+• Two devices with Chrome or Edge (laptop + phone, tablet + laptop, or two phones)
+• Camera + microphone permission allowed in the browser
+• Optional: BBC micro:bit V2 for the BLE LED-arrow bridge (HTTPS required for Bluetooth)
+• Works offline over file:// for video/D-pad/TTS; use HTTPS when you want the micro:bit bridge
 
 WHO IT'S FOR
-Teachers running STEM workshops · home-schooling families · robotics clubs · makers prototyping BLE projects · anyone curious about the micro:bit.
+Families who want a kid-safe walkie-talkie between rooms · teachers running remote STEM demos · robotics clubs pairing a controller to a robot · makers prototyping peer-to-peer WebRTC projects · curious tiny astronauts 🧑‍🚀
 
 PRIVACY FIRST
-Nothing leaves your computer. No analytics, no logins, no cloud. All calibrations, recordings, and presets live in your browser's localStorage and on your disk.
+Peer-to-peer only. Video and audio stream device-to-device over WebRTC — no analytics, no logins, no cloud recording. The only outside traffic is a short pairing handshake through the public PeerJS signaling broker. Snapshots, recordings, and logs live on your disk.
 
 LIFETIME UPDATES
 Every version shipped from this listing is yours forever. Re-download the latest ZIP anytime from your Etsy Purchases page.
@@ -280,48 +288,48 @@ Happy hacking! 🚀🎮🤖<button class="copybtn" onclick="navigator.clipboard.
 <div class="slug" id="tags">SLUG — TAGS + MATERIALS</div>
 <h2>13 Etsy tags (20 chars each)</h2>
 <div class="pills">
+  <span class="pill">video call kids</span>
+  <span class="pill">peer to peer</span>
+  <span class="pill">webrtc</span>
+  <span class="pill">d-pad remote</span>
+  <span class="pill">walkie talkie</span>
+  <span class="pill">text to speech</span>
+  <span class="pill">room code</span>
   <span class="pill">micro:bit</span>
-  <span class="pill">BLE</span>
-  <span class="pill">bluetooth</span>
-  <span class="pill">education</span>
-  <span class="pill">STEM</span>
-  <span class="pill">robotics</span>
-  <span class="pill">kids coding</span>
-  <span class="pill">teacher resource</span>
-  <span class="pill">sensors</span>
-  <span class="pill">[product tag]</span>
-  <span class="pill">classroom</span>
-  <span class="pill">home school</span>
-  <span class="pill">makerspace</span>
+  <span class="pill">STEM kids</span>
+  <span class="pill">family call</span>
+  <span class="pill">no account</span>
+  <span class="pill">browser app</span>
+  <span class="pill">chrome edge</span>
 </div>
 
 <h2>Materials (what powers it)</h2>
 <div class="pills">
   <span class="pill">HTML5</span>
   <span class="pill">JavaScript</span>
+  <span class="pill">PeerJS</span>
+  <span class="pill">WebRTC</span>
   <span class="pill">Web Bluetooth</span>
-  <span class="pill">[render lib]</span>
-  <span class="pill">[3D lib if any]</span>
-  <span class="pill">PWA</span>
+  <span class="pill">Web Speech API</span>
   <span class="pill">MakeCode</span>
   <span class="pill">TypeScript</span>
 </div>
 
 <h2>SEO keywords</h2>
-<p><code>browser-based</code> · <code>no-install</code> · <code>privacy-first</code> · <code>offline-capable</code> · <code>web bluetooth</code> · <code>teacher resource</code> · <code>STEM workshop</code> · <code>micro:bit V2</code></p>
+<p><code>peer-to-peer video call</code> · <code>room-code pairing</code> · <code>D-pad remote</code> · <code>remote TTS</code> · <code>kid-safe walkie-talkie</code> · <code>no account no cloud</code> · <code>WebRTC browser</code> · <code>micro:bit BLE bridge</code></p>
 
 <!-- ═══════════ IMAGES ═══════════ -->
 <div class="slug" id="images">SLUG — 7-IMAGE LISTING ORDER</div>
 <h2>Image sequence (Etsy shows 1 &amp; 2 largest)</h2>
 <div class="card">
   <ol style="padding-left:22px;line-height:2">
-    <li><strong>[TODO — Hero shot: hardware + computer screen showing the marquee product state]</strong></li>
-    <li><strong>[TODO — grid screenshot of your main screens or features]</strong></li>
-    <li><strong>[TODO — close-up of your marquee feature]</strong></li>
-    <li><strong>[TODO — split screenshot showing two product features]</strong></li>
-    <li><strong>[TODO — shot showing hardware in-use or hand-to-screen reference]</strong></li>
-    <li><strong>[TODO — styling / variety grid].</li>
-    <li><strong>Text card</strong> — "Single-user license · Lifetime updates · No cloud · Chrome / Edge" on a dark gradient.</li>
+    <li><strong>Hero — split frame</strong>: phone on the left (D-pad visible) + laptop on the right (remote video visible) + a BBC micro:bit between them showing an LED arrow. One banner: "Call · Command · Control."</li>
+    <li><strong>Room-code pairing UI</strong> — both devices side-by-side, same 4-letter room code (e.g. <code>ASTRO</code>) highlighted on each screen, green paired chip glowing.</li>
+    <li><strong>D-pad controller full-screen</strong> — close-up of the 5-button D-pad with the RX bar showing the last received command ("UP pressed") animating in.</li>
+    <li><strong>Text channel + TTS</strong> — split screenshot: typed message "Dinner ready!" on one side, speaker icon + waveform animation on the other side.</li>
+    <li><strong>Capture tools</strong> — snapshot + record buttons in the toolbar, PNG thumbnail previewing, recording-dot red indicator visible.</li>
+    <li><strong>Optional micro:bit LED arrow</strong> — close-up of a BBC micro:bit V2 LED matrix displaying an arrow that matches the D-pad direction pressed on the phone beside it.</li>
+    <li><strong>Astronaut onboarding + license card</strong> — "Welcome, tiny astronaut 🧑‍🚀" splash over "Single-user license · Lifetime updates · No cloud · Chrome / Edge" on a dark gradient.</li>
   </ol>
 </div>
 
@@ -330,7 +338,7 @@ Happy hacking! 🚀🎮🤖<button class="copybtn" onclick="navigator.clipboard.
 <h2>Common mistakes</h2>
 <table>
   <tr><th>❌ Don't</th><th>✅ Do</th></tr>
-  <tr><td>Start with "Hi, I'm…" + 10s of intro</td><td>Open with the real board tilting a 3D model in the first 3 s</td></tr>
+  <tr><td>Start with "Hi, I'm…" + 10s of intro</td><td>Open on the split frame — paired chip flipping green in the first 3 s</td></tr>
   <tr><td>Film landscape (16:9)</td><td>9:16 portrait — Etsy autoplays on mobile</td></tr>
   <tr><td>Talk over busy on-screen animation</td><td>Let the visual breathe for 1s, then explain</td></tr>
   <tr><td>Forget captions (Etsy plays muted)</td><td>Burn in captions or add a text overlay every scene</td></tr>
@@ -340,10 +348,10 @@ Happy hacking! 🚀🎮🤖<button class="copybtn" onclick="navigator.clipboard.
 
 <!-- ═══════════ QUICK CARD ═══════════ -->
 <div class="slug">SLUG — POCKET CHEAT CARD</div>
-<div class="copybox">PRE    V2 powered (X icon) · Chrome open · BLE green · 9:16 phone
-SHOOT  Hook in 3 s · [TODO — 3 verbs for your product] · CTA
-POST   Trim to 55 s · captions burn-in · first frame = thumbnail
-LIST   Title · 160-char desc · 13 tags · 7 images · price tiers</div>
+<div class="copybox">PRE    2 devices · Chrome/Edge · same room code · camera + mic allowed · optional micro:bit V2
+SHOOT  Hook paired → video call → D-pad cross-device → text TTS → micro:bit mirror → CTA
+POST   Cut at 55 s · burn subtitles · first frame = dual-device split
+LIST   Title · 160-char desc · 13 tags · 7 images · price tiers — see ETSY_LISTING.md</div>
 
 <p style="text-align:center;margin-top:40px;color:var(--muted);font-size:.85rem">
   Mini Mission Control v1.0.0 — Etsy 1-Min Playbook · print A4 · laminate · keep it next to your shoot rig

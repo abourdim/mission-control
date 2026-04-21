@@ -1,8 +1,26 @@
 <!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════
+  ⚠️  REWRITE PER PRODUCT — DO NOT SHIP AS-IS
+  ───────────────────────────────────────────────────────────────────────
+  apply-template.mjs only substituted identifiers (Mini Mission Control,
+  v1.0.0, {{LIVE_DEMO_URL}}, etc.). The feature content, steps,
+  shortcuts, and examples below were inherited from the template's
+  source product (bit-playground) and WILL BE WRONG for your product
+  unless you rewrite them.
+  
+  Before including this file in a buyer ZIP:
+    1. Delete this banner.
+    2. Rewrite every mention of specific features, shortcuts,
+       tab names, hardware interactions, etc. to match your product.
+    3. Verify with: grep -iE "servo|chart\.js|3d board|gamepad|
+       accelerometer|compass|led matrix|8 tabs|sensors tab" this-file.
+  ═══════════════════════════════════════════════════════════════════════
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mini Mission Control — Quick Reference Card</title>
+<title>Mini Mission Control Keyboard Shortcuts Cheat Sheet</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Orbitron:wght@500&family=Tajawal:wght@400;500;700&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,100 +84,95 @@
   .d-red { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,.6); }
   .d-blue { background: #22d3ee; box-shadow: 0 0 8px rgba(34,211,238,.6); }
   .d-gray { background: #475569; }
-
-  .dpad { display: grid; grid-template-columns: repeat(3, 28px); grid-template-rows: repeat(3, 28px); gap: 3px; justify-content: center; margin: 2px auto 4px; }
-  .dpad div { background: rgba(0,0,0,.5); border: 1px solid rgba(34,197,94,.3); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #22c55e; font-family: 'Orbitron', monospace; }
-  .dpad .empty { visibility: hidden; }
 </style>
 </head>
 <body>
 <div class="page">
 
   <div class="header">
-    <h1>Mini Mission Control Quick Reference</h1>
-    <span>Card &mdash; Laminate Me!</span>
+    <h1>Mini Mission Control Shortcuts</h1>
+    <span>Cheat Sheet &mdash; Laminate Me!</span>
   </div>
-  <div class="laminate-tip">Print &rarr; Laminate &rarr; Stick near your call rig</div>
+  <div class="laminate-tip">Print &rarr; Laminate &rarr; Stick near your micro:bit</div>
 
   <div class="cols">
 
     <!-- Column 1 -->
     <div>
       <div class="group">
-        <div class="group-title">Keyboard Shortcuts (only 2!)</div>
-        <div class="row"><kbd>Enter</kbd><span class="label">Send the typed text message</span></div>
-        <div class="row"><kbd>Esc</kbd><span class="label">Close the firmware modal</span></div>
+        <div class="group-title">Streaming &amp; Data</div>
+        <div class="row"><kbd>Space</kbd><span class="label">Pause / Resume sensor stream</span></div>
+        <div class="row"><kbd>K</kbd><span class="label">Clear graph buffer</span></div>
+        <div class="row"><kbd>F</kbd><span class="label">Toggle fullscreen graph</span></div>
+        <div class="row"><kbd>R</kbd><span class="label">Start / Stop session recording</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">D-pad Controller</div>
-        <div class="dpad">
-          <div class="empty"></div><div>⬆</div><div class="empty"></div>
-          <div>⬅</div><div>■</div><div>➡</div>
-          <div class="empty"></div><div>⬇</div><div class="empty"></div>
-        </div>
-        <div class="row"><kbd>⬆ UP</kbd><span class="label">Sent peer-to-peer (forward)</span></div>
-        <div class="row"><kbd>⬇ DOWN</kbd><span class="label">Sent peer-to-peer (backward)</span></div>
-        <div class="row"><kbd>⬅ LEFT</kbd><span class="label">Sent peer-to-peer (turn left)</span></div>
-        <div class="row"><kbd>➡ RIGHT</kbd><span class="label">Sent peer-to-peer (turn right)</span></div>
-        <div class="row"><kbd>■ STOP</kbd><span class="label">Halt &mdash; sent peer-to-peer</span></div>
+        <div class="group-title">Tabs (1&ndash;8)</div>
+        <div class="row"><kbd>1</kbd><span class="label">LEDs &mdash; 5&times;5 matrix</span></div>
+        <div class="row"><kbd>2</kbd><span class="label">Sensors &mdash; live readings</span></div>
+        <div class="row"><kbd>3</kbd><span class="label">[TODO — actuator if any] &mdash; P1 &amp; P2</span></div>
+        <div class="row"><kbd>4</kbd><span class="label">[TODO — control surface] &mdash; D-pad + Fire</span></div>
+        <div class="row"><kbd>5</kbd><span class="label">Graph &mdash; [TODO — chart lib if any] live plot</span></div>
+        <div class="row"><kbd>6</kbd><span class="label">3D Board &mdash; Three.js view</span></div>
+        <div class="row"><kbd>7</kbd><span class="label">Bench &mdash; raw JSON console</span></div>
+        <div class="row"><kbd>8</kbd><span class="label">About &mdash; version &amp; credits</span></div>
       </div>
     </div>
 
     <!-- Column 2 -->
     <div>
       <div class="group">
-        <div class="group-title">Room-Code Rules</div>
-        <div class="row"><span class="label">✅ <strong style="color:#22c55e;">Both devices must type the same room code.</strong></span></div>
-        <div class="row"><span class="label">Short words work: <strong style="color:#22d3ee;">pizza</strong>, <strong style="color:#22d3ee;">alpha-42</strong>, <strong style="color:#22d3ee;">lab-7</strong>.</span></div>
-        <div class="row"><span class="label">Same room code = same pairing channel.</span></div>
-        <div class="row"><span class="label">One side becomes <strong style="color:#22c55e;">host</strong>, the other <strong style="color:#22d3ee;">guest</strong>.</span></div>
-        <div class="row"><span class="label">Change the code to make a fresh room.</span></div>
+        <div class="group-title">LEDs &amp; Overlays</div>
+        <div class="row"><kbd>P</kbd><span class="label">Open LED preset picker</span></div>
+        <div class="row"><kbd>C</kbd><span class="label">Clear LED matrix</span></div>
+        <div class="row"><kbd>H</kbd><span class="label">Heart preset</span></div>
+        <div class="row"><kbd>S</kbd><span class="label">Smile preset</span></div>
+        <div class="row"><kbd>Esc</kbd><span class="label">Close any overlay / fullscreen</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">Text + Voice</div>
-        <div class="row"><span style="font-size:14px;">💬</span><span class="label">Type in the text box, press <kbd>Enter</kbd> to send</span></div>
-        <div class="row"><span style="font-size:14px;">🗣️</span><span class="label"><strong style="color:#22c55e;">Speak</strong> &mdash; local text-to-speech</span></div>
-        <div class="row"><span style="font-size:14px;">📢</span><span class="label"><strong style="color:#22d3ee;">Remote speak</strong> &mdash; speak on the other side</span></div>
+        <div class="group-title">3D Board Models</div>
+        <div class="row"><kbd>M</kbd><span class="label">Switch model (cycle)</span></div>
+        <div class="row"><span style="font-size:14px;">🔲</span><span class="label">micro:bit V2 board</span></div>
+        <div class="row"><span style="font-size:14px;">🚗</span><span class="label">Buggy robot</span></div>
+        <div class="row"><span style="font-size:14px;">🦾</span><span class="label">[TODO — feature]</span></div>
+        <div class="row"><span style="font-size:14px;">🎯</span><span class="label">Balance game</span></div>
+        <div class="row"><span style="font-size:14px;">🌦️</span><span class="label">Weather station</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">Video Controls</div>
-        <div class="row"><span style="font-size:14px;">🔄</span><span class="label">Camera switch (front / back)</span></div>
-        <div class="row"><span style="font-size:14px;">🎙️</span><span class="label">Mic mute</span></div>
-        <div class="row"><span style="font-size:14px;">🪞</span><span class="label">Mirror self / mirror remote</span></div>
-        <div class="row"><span style="font-size:14px;">⛶</span><span class="label">Remote fullscreen</span></div>
+        <div class="group-title">Themes &amp; View</div>
+        <div class="row"><kbd>T</kbd><span class="label">Cycle theme (Stealth &rarr; Neon &rarr; Arctic &rarr; Blaze)</span></div>
+        <div class="row"><kbd>L</kbd><span class="label">Cycle language (EN &rarr; FR &rarr; AR)</span></div>
+        <div class="row"><kbd>?</kbd><span class="label">Show shortcuts help overlay</span></div>
       </div>
     </div>
 
     <!-- Column 3 -->
     <div>
       <div class="group">
-        <div class="group-title">Connection State Cheat Sheet</div>
-        <div class="ble-row"><span class="dot d-gray"></span><span class="label"><strong style="color:#cbd5e1;">Idle</strong> &mdash; type a room code &amp; press Connect</span></div>
-        <div class="ble-row"><span class="dot d-amber"></span><span class="label"><strong style="color:#fbbf24;">Pairing</strong> &mdash; waiting for the other device</span></div>
-        <div class="ble-row"><span class="dot d-green"></span><span class="label"><strong style="color:#22c55e;">Connected</strong> &mdash; video + audio live</span></div>
-        <div class="ble-row"><span class="dot d-blue"></span><span class="label"><strong style="color:#22d3ee;">micro:bit linked</strong> &mdash; BLE bridge active</span></div>
-        <div class="ble-row"><span class="dot d-red"></span><span class="label"><strong style="color:#ef4444;">Error</strong> &mdash; check camera/mic &amp; room code</span></div>
+        <div class="group-title">BLE State Cheat Sheet</div>
+        <div class="ble-row"><span class="dot d-gray"></span><span class="label"><strong style="color:#cbd5e1;">Disconnected</strong> &mdash; click Connect to pair</span></div>
+        <div class="ble-row"><span class="dot d-amber"></span><span class="label"><strong style="color:#fbbf24;">Pairing</strong> &mdash; choose "BBC micro:bit [xxxxx]"</span></div>
+        <div class="ble-row"><span class="dot d-green"></span><span class="label"><strong style="color:#22c55e;">Connected</strong> &mdash; data is streaming live</span></div>
+        <div class="ble-row"><span class="dot d-blue"></span><span class="label"><strong style="color:#22d3ee;">Simulate</strong> &mdash; fake data, no board needed</span></div>
+        <div class="ble-row"><span class="dot d-red"></span><span class="label"><strong style="color:#ef4444;">Error</strong> &mdash; auto-retry 3x, then prompt</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">Capture &amp; HUD</div>
-        <div class="row"><span style="font-size:14px;">📸</span><span class="label">Snapshot &mdash; saves a PNG</span></div>
-        <div class="row"><span style="font-size:14px;">⏺</span><span class="label">Record &mdash; saves a WebM video</span></div>
-        <div class="row"><span style="font-size:14px;">🛰️</span><span class="label">HUD overlay &mdash; status info on top</span></div>
-        <div class="row"><span style="font-size:14px;">📋</span><span class="label">Log panel &mdash; what happened &amp; when</span></div>
-        <div class="row"><span style="font-size:14px;">🧹</span><span class="label">Cache cleaner &mdash; wipe stored state</span></div>
+        <div class="group-title">[TODO — actuator if any] (P1 / P2)</div>
+        <div class="row"><kbd>Q</kbd> / <kbd>A</kbd><span class="label">P1 servo +/- 10&deg;</span></div>
+        <div class="row"><kbd>W</kbd> / <kbd>S</kbd><span class="label">P2 servo +/- 10&deg;</span></div>
+        <div class="row"><kbd>0</kbd><span class="label">Center both servos (90&deg;)</span></div>
+        <div class="row"><kbd>O</kbd><span class="label">[TODO — actuator if any] OFF (detach PWM)</span></div>
       </div>
 
       <div class="group">
-        <div class="group-title">Troubleshooting Quick Hits</div>
+        <div class="group-title">Pro Tips</div>
         <div class="row" style="flex-direction:column;align-items:start;">
-          <span class="label" style="color:#22d3ee;"><strong>Stuck on pairing?</strong> Check the room code matches <em>exactly</em> on both devices.</span>
-          <span class="label" style="color:#22d3ee;"><strong>Black self-view?</strong> Re-grant camera &amp; mic permissions in Chrome.</span>
-          <span class="label" style="color:#22d3ee;"><strong>micro:bit won't pair?</strong> Needs HTTPS &amp; a BBC micro:bit V2 with BLE UART firmware.</span>
-          <span class="label" style="color:#64748b;font-size:11px;">Live connection required &mdash; this is not an offline app.</span>
+          <span class="label" style="color:#22d3ee;">No board? Turn on <strong>Simulate Mode</strong> in Settings for Sine/Random/Ramp data.</span>
+          <span class="label" style="color:#64748b;font-size:11px;">Only <strong>Chrome</strong> / <strong>Edge</strong> (desktop or Android) support Web Bluetooth.</span>
         </div>
       </div>
     </div>
@@ -168,7 +181,7 @@
 
   <div class="footer">
     <span>Mini Mission Control v1.0.0 &bull; Print on A4 landscape, laminate, love.</span>
-    <span class="brand">Call &bull; Command &bull; Control</span>
+    <span class="brand">For the BBC micro:bit V2</span>
   </div>
 
 </div>
