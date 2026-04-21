@@ -52,7 +52,7 @@ micro:bit, microbit v2, STEM, codage enfants, BBC microbit, application bluetoot
 > • Firmware micro:bit prêt à flasher (`makecode.ts`)
 > • **Guide utilisateur illustré trilingue (EN/FR/AR) avec diagrammes intégrés :**
 >   — schéma d'architecture • brochage du micro:bit V2 • storyboard du flux firmware
->   — [TODO — feature spécifique au produit] (cliquez les cellules, copiez les commandes hex)
+>   — voir la description officielle dans ETSY_LISTING-fr.md (cliquez les cellules, copiez les commandes hex)
 >   — dépannage visuel : arbre de décision, sélecteur de symptôme, galerie d'icônes, recette de réinitialisation
 > • Guide de démarrage imprimable (`SETUP.md`)
 > • 4 thèmes (Dark, Default, Light, Accent)
